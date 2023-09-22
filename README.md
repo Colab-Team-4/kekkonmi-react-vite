@@ -1,6 +1,13 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Features
+  - Front-end part of Kekkonmi
+
+## Installation and Setup
+  1. Clone the repository:
+     `git clone https://github.com/Colab-Team-4/kekkonmi-flask.git`
+  2. Navigate to the project directory:
+     `cd kekkonmi-react-vite`
 
 Currently, two official plugins are available:
 
