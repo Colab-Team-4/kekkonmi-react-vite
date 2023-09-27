@@ -1,7 +1,16 @@
-export default function App() {
+import './index.css'
+import Navbar from './Navbar'
+import Landing from './Landing';
+// import Header from './Header'
+
+function App() {
   return (
-    <div className="flex h-screen w-screen flex-col items-center justify-center bg-slate-800">
-      <h1 className="text-3xl text-slate-50">Kekkonmi</h1>
+    <div>
+      <Navbar/>
+      <Landing />
     </div>
   );
 }
+
+export default App
+
