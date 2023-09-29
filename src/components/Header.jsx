@@ -14,7 +14,7 @@ function Header() {
       <div className="header-center mx-16 flex">
         {/* Header Left */}
         <div className="header-text flex h-full w-1/2 flex-col items-start justify-center pl-10">
-          <div className="header-h1 my-10 font-serif text-5xl font-semibold">
+          <div className="header-h1 my-10 font-playFair text-5xl font-semibold">
             {headerTitle}
           </div>
           <div className="header-p mb-20 text-xl">

@@ -7,7 +7,7 @@ function Routes() {
     "Inspiration",
     "About Us",
   ];
-  var routesMap = routes.map((route) => {
+  const routesMap = routes.map((route) => {
     return (
       <li>
         <a

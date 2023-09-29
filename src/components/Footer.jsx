@@ -1,5 +1,4 @@
-import React from "react";
-
+import "./Icons"
 function Footer() {
   const logo = "/src/assets/logoWhite.svg";
   return (
@@ -35,7 +34,7 @@ function Footer() {
         {/* End of Footer Items */}
         {/* Footer Icons */}
         <div className="footer-icons flex justify-evenly items-center w-2/12 text-white text-2xl">
-            <a href="#"><i className="fa-brands fa-facebook"></i></a>
+            <a href="#"><FacebookIcon /></a>
             <a href="#"><i className="fa-brands fa-instagram"></i></a>
             <a href="#"><i className="fa-brands fa-twitter"></i></a>
         </div>

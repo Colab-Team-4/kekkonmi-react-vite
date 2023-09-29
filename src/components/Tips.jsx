@@ -1,10 +1,10 @@
 import React from "react";
 
 function Tips() {
-  var tipsTitle = `Top 10 Tips for Stress-Free Wedding Planning`
-  var tipsText = `Planning a wedding is an exciting journey, but it can also be a stressful one. From choosing the perfect venue to managing your guest list and ensuring every detail is just right, the tasks can seem overwhelming. But fear not, because in this comprehensive guide, we're going to take you through the steps to plan your dream wedding while keeping stress at bay. `;
-  var tipsButton = `Read More`;
-  var tipsImage = `https://images.pexels.com/photos/1730877/pexels-photo-1730877.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`;
+  const tipsTitle = `Top 10 Tips for Stress-Free Wedding Planning`
+  const tipsText = `Planning a wedding is an exciting journey, but it can also be a stressful one. From choosing the perfect venue to managing your guest list and ensuring every detail is just right, the tasks can seem overwhelming. But fear not, because in this comprehensive guide, we're going to take you through the steps to plan your dream wedding while keeping stress at bay. `;
+  const tipsButton = `Read More`;
+  const tipsImage = `https://images.pexels.com/photos/1730877/pexels-photo-1730877.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`;
   return (
     <div className="tips flex min-h-screen min-w-full">
       <div className="tips-center mx-16 flex items-center justify-evenly">
