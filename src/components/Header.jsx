@@ -1,4 +1,4 @@
-import "./index.css";
+import "/src/index.css"
 
 function Header() {
   const headerImg = `https://images.pexels.com/photos/372225/pexels-photo-372225.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`
@@ -14,13 +14,13 @@ function Header() {
       <div className="header-center mx-16 flex">
         {/* Header Left */}
         <div className="header-text flex h-full w-1/2 flex-col items-start justify-center pl-10">
-          <div className="header-h1 my-10 font-playFair text-5xl font-semibold">
+          <h1 className="header-h1 my-10 font-playFair">
             {headerTitle}
-          </div>
-          <div className="header-p mb-20 text-xl">
+          </h1>
+          <p className="header-p mb-20 font-lato">
             {headerText}
-          </div>
-          <button class="rounded bg-slate-950 px-14 py-2 font-medium text-white hover:bg-blue-700">
+          </p>
+          <button className="rounded font-lato bg-slate-950 px-14 py-2 text-white hover:bg-blue-700">
             {headerButton}
           </button>
         </div>

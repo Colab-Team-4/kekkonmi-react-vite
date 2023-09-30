@@ -1,5 +1,3 @@
-import React from "react";
-
 function Gallery() {
   const galleryText = `Step into the enchanting world of weddings with our meticulously
     curated collection of mesmerizing photos and heartwarming videos.
@@ -15,12 +13,12 @@ function Gallery() {
       <div className="gallery-center mx-auto flex items-center justify-center">
         {/* Gallery Left */}
         <div className="gallery-left w-5/12 flex flex-col gap-10">
-          <div className="gallery-title font-serif text-5xl font-semibold">
+          <h1 className="gallery-title">
             Gallery
-          </div>
-          <div className="gallery-text text-lg">{galleryText}</div>
+          </h1>
+          <p className="gallery-text">{galleryText}</p>
           <div className="gallery-button">
-            <button class="rounded bg-slate-950 px-14 py-2 font-medium text-white hover:bg-blue-700">
+            <button class="rounded bg-slate-950 px-14 py-2 text-white hover:bg-blue-700">
               {galleryButton}
             </button>
           </div>

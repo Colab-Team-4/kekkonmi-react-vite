@@ -1,11 +1,10 @@
-import React from "react";
-import ServiceCard from "./ServiceCard";
+import ServiceCard from "/src/components/ServiceCard"
 
-function Services() {
+function ServiceOffer() {
   return (
     <div className="services flex min-h-screen min-w-full">
       <div className="services-center mx-16 flex flex-col justify-center gap-20">
-        <div className="font-serif text-5xl font-semibold">Services</div>
+        <h1>Services</h1>
         <div className="services-cards flex justify-evenly">
           <ServiceCard
             img="https://images.pexels.com/photos/1045541/pexels-photo-1045541.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
@@ -31,4 +30,4 @@ function Services() {
   );
 }
 
-export default Services;
+export default ServiceOffer;

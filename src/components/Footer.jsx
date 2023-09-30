@@ -1,4 +1,8 @@
-import "./Icons"
+import {
+  FacebookIcon,
+  TwitterIcon,
+  InstagramIcon,
+} from "/src/components/Icons";
 function Footer() {
   const logo = "/src/assets/logoWhite.svg";
   return (
@@ -15,31 +19,36 @@ function Footer() {
         </div>
         {/* End of Footer Logo */}
         {/* Footer Items */}
-        <div className="footer-items flex items-center w-7/12">
-            <ul className="flex justify-evenly items-center w-full text-lg font-semibold text-white">
-                <li>
-                    <a href="#">Contact</a>
-                </li>
-                <li>
-                    <a href="#">Terms of Use</a>
-                </li>
-                <li>
-                    <a href="#">Privacy Policy</a>
-                </li>
-                <li>
-                    <a href="#">FAQ</a>
-                </li>
-            </ul>
+        <div className="footer-items flex w-7/12 items-center">
+          <ul className="flex w-full items-center justify-evenly text-lg font-semibold text-white">
+            <li>
+              <a href="#">Contact</a>
+            </li>
+            <li>
+              <a href="#">Terms of Use</a>
+            </li>
+            <li>
+              <a href="#" >Privacy Policy</a>
+            </li>
+            <li>
+              <a href="#">FAQ</a>
+            </li>
+          </ul>
         </div>
         {/* End of Footer Items */}
         {/* Footer Icons */}
-        <div className="footer-icons flex justify-evenly items-center w-2/12 text-white text-2xl">
-            <a href="#"><FacebookIcon /></a>
-            <a href="#"><i className="fa-brands fa-instagram"></i></a>
-            <a href="#"><i className="fa-brands fa-twitter"></i></a>
+        <div className="footer-icons flex w-2/12 items-center justify-evenly text-2xl text-white">
+          <a href="#">
+            <FacebookIcon />
+          </a>
+          <a href="#">
+            <TwitterIcon />
+          </a>
+          <a href="#">
+            <InstagramIcon />
+          </a>
         </div>
         {/* End of Footer Icons */}
-
       </div>
     </div>
   );

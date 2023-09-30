@@ -1,5 +1,5 @@
-import Home from "./views/Home";
-import "./index.css"
+import Home from "../views/Home";
+import '/src/index.css'
 
 function App() {
   return (

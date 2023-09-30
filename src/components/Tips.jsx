@@ -1,5 +1,3 @@
-import React from "react";
-
 function Tips() {
   const tipsTitle = `Top 10 Tips for Stress-Free Wedding Planning`
   const tipsText = `Planning a wedding is an exciting journey, but it can also be a stressful one. From choosing the perfect venue to managing your guest list and ensuring every detail is just right, the tasks can seem overwhelming. But fear not, because in this comprehensive guide, we're going to take you through the steps to plan your dream wedding while keeping stress at bay. `;
@@ -17,12 +15,12 @@ function Tips() {
         {/* End of Tips Left */}
         {/* Tips Right */}
         <div className="tips-left flex w-5/12 flex-col gap-10">
-          <div className="tips-title font-serif text-5xl font-semibold">
+          <h1 className="tips-title">
             {tipsTitle}
-          </div>
-          <div className="tips-text text-lg">{tipsText}</div>
+          </h1>
+          <h3 className="tips-text">{tipsText}</h3>
           <div className="tips-button">
-            <button class="rounded bg-slate-950 px-14 py-2 font-medium text-white hover:bg-blue-700">
+            <button class="rounded bg-slate-950 px-14 py-2 text-white hover:bg-blue-700">
               {tipsButton}
             </button>
           </div>

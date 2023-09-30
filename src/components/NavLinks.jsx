@@ -1,4 +1,4 @@
-function Routes() {
+function NavLinks() {
   const routes = [
     "Home",
     "Planning Tools",
@@ -23,4 +23,4 @@ function Routes() {
   return <>{routesMap}</>;
 }
 
-export default Routes;
+export default NavLinks;
