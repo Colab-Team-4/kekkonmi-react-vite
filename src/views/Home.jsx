@@ -1,7 +1,6 @@
 import LandingHero from "../components/LandingHero";
 import ServicesDisplay from "../components/ServicesDisplay";
 import LandingDisplay from "../components/LandingDisplay";
-import Footer from "../components/Footer";
 
 function Home() {
   return (
@@ -9,7 +8,6 @@ function Home() {
       <LandingHero />
       <ServicesDisplay />
       <LandingDisplay />
-      <Footer />
     </div>
   );
 }
