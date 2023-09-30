@@ -1,5 +1,4 @@
-import Home from "../views/Home";
-import '/src/index.css'
+import Home from "./views/Home";
 
 function App() {
   return (

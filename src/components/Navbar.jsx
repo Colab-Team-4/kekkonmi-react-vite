@@ -1,9 +1,9 @@
-import NavLinks from "/src/components/NavLinks"
+import NavLinks from "/src/components/NavLinks";
 
 function Navbar() {
-  const logo = "/src/assets/logo.svg";
+  const logo = "/logo.svg";
   return (
-    <nav className="fixed left-0 right-0 top-0 border-gray-200 bg-white dark:bg-white">
+    <nav className="fixed left-0 right-0 top-0 z-50 border-gray-200 bg-white dark:bg-white">
       <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
         <a href="#" className="flex items-center gap-2">
           <img src={logo} className="h-7" alt="Logo" />

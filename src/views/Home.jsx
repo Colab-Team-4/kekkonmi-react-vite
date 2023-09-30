@@ -1,21 +1,16 @@
-import Navbar from "/src/components/Navbar"
-import Header from "/src/components/Header"
-import ServiceOffer from "/src/components/ServiceOffer"
-import Gallery from "/src/components/Gallery"
-import Tips from "/src/components/Tips"
-import About from "/src/components/About"
-import Footer from "/src/components/Footer"
-import "/src/index.css"
+import Navbar from "../components/Navbar";
+import Header from "../components/Header";
+import ServicesDisplay from "../components/ServicesDisplay";
+import LandingDisplay from "../components/LandingDisplay";
+import Footer from "../components/Footer";
 
 function Home() {
   return (
-    <div>
+    <div className="flex flex-col gap-[5vh]">
       <Navbar />
       <Header />
-      <ServiceOffer />
-      <Gallery />
-      <Tips />
-      <About />
+      <ServicesDisplay />
+      <LandingDisplay />
       <Footer />
     </div>
   );
