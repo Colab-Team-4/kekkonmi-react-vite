@@ -13,7 +13,7 @@ function About() {
           </h1>
           <p className="about-text">{aboutText}</p>
           <div className="about-button">
-            <button class="rounded bg-slate-950 px-14 py-2 text-white hover:bg-blue-700">
+            <button>
               {aboutButton}
             </button>
           </div>

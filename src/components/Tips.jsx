@@ -20,7 +20,7 @@ function Tips() {
           </h1>
           <h3 className="tips-text">{tipsText}</h3>
           <div className="tips-button">
-            <button class="rounded bg-slate-950 px-14 py-2 text-white hover:bg-blue-700">
+            <button>
               {tipsButton}
             </button>
           </div>

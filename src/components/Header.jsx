@@ -14,13 +14,13 @@ function Header() {
       <div className="header-center mx-16 flex">
         {/* Header Left */}
         <div className="header-text flex h-full w-1/2 flex-col items-start justify-center pl-10">
-          <h1 className="header-h1 my-10 font-playFair">
+          <h1 className="header-h1 my-10">
             {headerTitle}
           </h1>
-          <p className="header-p mb-20 font-lato">
+          <p className="header-p mb-20">
             {headerText}
           </p>
-          <button className="rounded font-lato bg-slate-950 px-14 py-2 text-white hover:bg-blue-700">
+          <button>
             {headerButton}
           </button>
         </div>

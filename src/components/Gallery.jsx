@@ -18,7 +18,7 @@ function Gallery() {
           </h1>
           <p className="gallery-text">{galleryText}</p>
           <div className="gallery-button">
-            <button class="rounded bg-slate-950 px-14 py-2 text-white hover:bg-blue-700">
+            <button>
               {galleryButton}
             </button>
           </div>
