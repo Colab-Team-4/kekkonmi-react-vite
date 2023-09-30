@@ -1,5 +1,13 @@
-import NavLinks from "/src/components/NavLinks";
 import logo from "/logo.svg";
+
+const links = [
+  "Home",
+  "Planning Tools",
+  "Venues",
+  "Vendors",
+  "Inspiration",
+  "About Us",
+];
 
 function Navbar() {
   return (
@@ -17,7 +25,15 @@ function Navbar() {
           id="navbar-cta"
         >
           <ul className="mt-4 flex flex-col rounded-lg border border-gray-100 bg-gray-50 p-4 font-medium dark:border-gray-700 dark:bg-white md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-white md:p-0 md:dark:bg-white">
-            <NavLinks />
+            <div className="flex gap-10">
+              {links.map((link, i) => (
+                <li key={i}>
+                  <a href="#" aria-current="page">
+                    <p>{link}</p>
+                  </a>
+                </li>
+              ))}
+            </div>
           </ul>
         </div>
 
