@@ -20,9 +20,9 @@ p {
 }
 
 .btn-solid {
-  @apply font-lato text-[20px] font-bold rounded-md bg-black px-14 py-2 text-white hover:bg-white hover:outline-[3px] hover:outline-black hover:text-black duration-300;
+  @apply font-lato text-[20px] font-bold rounded-md bg-black py-2 text-white hover:bg-white hover:ring-inset hover:ring-[3px] hover:ring-black hover:text-black duration-300;
 }
 
 .btn-outline {
-  @apply font-lato text-[20px] font-bold rounded-md border-[3px] w-72 py-2 border-black text-black hover:bg-black hover:text-white duration-300;
+  @apply font-lato text-[20px] font-bold rounded-md border-[3px] py-2 border-black text-black hover:bg-black hover:text-white duration-300;
 }

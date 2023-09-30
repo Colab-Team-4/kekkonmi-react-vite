@@ -37,7 +37,7 @@ function ServicesDisplay() {
             <h2>{service.heading}</h2>
             <p className="text-[20px]">{service.body}</p>
             <div className="mt-16 flex justify-center">
-              <button className="btn-outline absolute bottom-0">
+              <button className="btn-outline absolute bottom-0 w-72">
                 {service.button}
               </button>
             </div>

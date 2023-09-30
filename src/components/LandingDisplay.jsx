@@ -32,7 +32,7 @@ function LandingDisplay() {
               <section className="flex basis-1/2 flex-col gap-14">
                 <h1>{content.heading}</h1>
                 <p>{content.body}</p>
-                <button className="btn-outline">{content.button}</button>
+                <button className="btn-outline w-72">{content.button}</button>
               </section>
               <img
                 className="aspect-auto h-[80vh] basis-1/2"
@@ -50,7 +50,7 @@ function LandingDisplay() {
               <section className="flex basis-1/2 flex-col gap-12">
                 <h1>{content.heading}</h1>
                 <p>{content.body}</p>
-                <button className="btn-outline">{content.button}</button>
+                <button className="btn-outline w-72">{content.button}</button>
               </section>
             </>
           )}
