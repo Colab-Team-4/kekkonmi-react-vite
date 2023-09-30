@@ -23,7 +23,7 @@ function LandingHero() {
             <button className="btn-solid mt-14 w-72">{hero.button}</button>
           </section>
           <img
-            className="h-[42vh] basis-1/2"
+            className="h-[45vh] basis-1/2"
             src={hero.image}
             alt={hero.heading}
           />

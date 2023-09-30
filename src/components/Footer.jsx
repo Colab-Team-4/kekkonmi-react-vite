@@ -2,53 +2,44 @@ import {
   FacebookIcon,
   TwitterIcon,
   InstagramIcon,
+  LogoWhite,
 } from "/src/components/Icons";
+
+const links = ["Contact", "Terms of Use", "Privacy Policy", "FAQ"];
+
 function Footer() {
-  const logo = "/src/assets/logoWhite.svg";
   return (
-    <div className="footer bg-black">
-      <div className="footer-center flex justify-between px-20 py-8">
-        {/* Footer Logo */}
-        <div className="footer-logo w-3/12">
-          <a href="#" className="flex items-center gap-2">
-            <img src={logo} className="h-7" alt="Logo" />
-            <span className="self-center whitespace-nowrap text-2xl font-semibold dark:text-white">
-              Kekkonmi
-            </span>
-          </a>
-        </div>
-        {/* End of Footer Logo */}
-        {/* Footer Items */}
-        <div className="footer-items flex w-7/12 items-center">
-          <ul className="flex w-full items-center justify-evenly text-lg font-semibold text-white">
-            <li>
-              <a href="#">Contact</a>
-            </li>
-            <li>
-              <a href="#">Terms of Use</a>
-            </li>
-            <li>
-              <a href="#" >Privacy Policy</a>
-            </li>
-            <li>
-              <a href="#">FAQ</a>
-            </li>
-          </ul>
-        </div>
-        {/* End of Footer Items */}
-        {/* Footer Icons */}
-        <div className="footer-icons flex w-2/12 items-center justify-evenly text-2xl text-white">
-          <a href="#">
-            <FacebookIcon />
-          </a>
-          <a href="#">
-            <TwitterIcon />
-          </a>
-          <a href="#">
-            <InstagramIcon />
-          </a>
-        </div>
-        {/* End of Footer Icons */}
+    <div className="mx-auto flex h-[15vh] w-full items-center justify-evenly gap-28 bg-black p-4">
+      <a href="/" className="flex items-center gap-2">
+        <LogoWhite className="h-10" />
+        <span className="self-center whitespace-nowrap font-lato text-2xl text-[40px] font-normal text-white">
+          Kekkonmi
+        </span>
+      </a>
+      <div className="hidden w-full items-center justify-between md:flex md:w-auto">
+        <ul className="mt-4 flex flex-col bg-black p-4 font-medium text-white dark:border-gray-700 md:mt-0 md:flex-row md:space-x-8 md:border-0 md:p-0">
+          <div className="flex gap-24">
+            {links.map((link, i) => (
+              <li key={i}>
+                <a href="#" aria-current="page">
+                  <h2>{link}</h2>
+                </a>
+              </li>
+            ))}
+          </div>
+        </ul>
+      </div>
+
+      <div className="flex items-center justify-evenly text-white">
+        <a href="#">
+          <FacebookIcon />
+        </a>
+        <a href="#">
+          <TwitterIcon />
+        </a>
+        <a href="#">
+          <InstagramIcon />
+        </a>
       </div>
     </div>
   );
