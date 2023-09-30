@@ -23,6 +23,13 @@ h4{
 p{
   @apply font-lato text-[24px] font-normal;
 }
-button{
+button, .submit{
   @apply font-lato text-[18px] font-medium rounded-sm bg-slate-950 px-14 py-2 text-white hover:bg-blue-700;
+}
+.inputText{
+  padding: 10px 0 10px 10px;
+  @apply font-lato border-2 border-slate-800 h-12;
+}
+label{
+  @apply font-lato font-bold;
 }
