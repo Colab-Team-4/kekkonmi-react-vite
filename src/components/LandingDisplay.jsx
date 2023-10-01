@@ -26,7 +26,10 @@ function LandingDisplay() {
   return (
     <div className="flex flex-col gap-16 bg-[#D9D8D8] px-[5vw] py-[5vh]">
       {contents.map((content, i) => (
-        <div className="flex flex-col items-center gap-32 lg:flex-row" key={i}>
+        <div
+          className="flex flex-col items-center gap-4 lg:flex-row lg:gap-32"
+          key={i}
+        >
           <img
             className={`aspect-auto h-[80vh] basis-1/2 ${
               i % 2 === 0 ? "lg:order-2" : "lg:order-1"
