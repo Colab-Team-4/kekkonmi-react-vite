@@ -26,34 +26,23 @@ function LandingDisplay() {
   return (
     <div className="flex flex-col gap-16 bg-[#D9D8D8] px-[5vw] py-[5vh]">
       {contents.map((content, i) => (
-        <div className="flex items-center gap-32" key={i}>
-          {i % 2 === 0 ? (
-            <>
-              <section className="flex basis-1/2 flex-col gap-14">
-                <h1>{content.heading}</h1>
-                <p>{content.body}</p>
-                <button className="btn-outline w-72">{content.button}</button>
-              </section>
-              <img
-                className="aspect-auto h-[80vh] basis-1/2"
-                src={content.image}
-                alt={content.heading}
-              />
-            </>
-          ) : (
-            <>
-              <img
-                className="aspect-auto h-[80vh] basis-1/2"
-                src={content.image}
-                alt={content.heading}
-              />
-              <section className="flex basis-1/2 flex-col gap-12">
-                <h1>{content.heading}</h1>
-                <p>{content.body}</p>
-                <button className="btn-outline w-72">{content.button}</button>
-              </section>
-            </>
-          )}
+        <div className="flex flex-col items-center gap-32 lg:flex-row" key={i}>
+          <img
+            className={`aspect-auto h-[80vh] basis-1/2 ${
+              i % 2 === 0 ? "lg:order-2" : "lg:order-1"
+            }`}
+            src={content.image}
+            alt={content.heading}
+          />
+          <section
+            className={`flex basis-1/2 flex-col gap-14 ${
+              i % 2 === 0 ? "lg:order-1" : "lg:order-2"
+            }`}
+          >
+            <h1>{content.heading}</h1>
+            <p>{content.body}</p>
+            <button className="btn-outline w-72">{content.button}</button>
+          </section>
         </div>
       ))}
     </div>
