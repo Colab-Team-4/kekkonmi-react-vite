@@ -12,7 +12,7 @@ const links = [
 function Navbar() {
   return (
     <nav className="fixed left-0 right-0 top-0 z-50 border-gray-200 bg-white dark:bg-white">
-      <div className="mx-auto flex w-fit flex-wrap items-center justify-evenly gap-28 p-4">
+      <div className="mx-auto flex w-fit flex-nowrap items-center justify-evenly gap-28 p-4">
         <a href="/" className="flex items-center gap-2">
           <img src={logo} className="h-10" alt="Logo" />
           <span className="self-center whitespace-nowrap font-lato text-2xl text-[40px] font-normal dark:text-black">

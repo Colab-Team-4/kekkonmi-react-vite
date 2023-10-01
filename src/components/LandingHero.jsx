@@ -14,16 +14,21 @@ function LandingHero() {
   return (
     <div className="mt-[10vh] flex flex-col gap-16 px-[5vw] py-[5vh]">
       {heroes.map((hero, i) => (
-        <div className="flex items-center gap-32" key={i}>
-          <section className="flex basis-1/2 flex-col gap-14">
-            <h1 className="whitespace-nowrap font-playFair text-[34px] font-medium">
+        <div
+          className="flex flex-col items-center lg:flex-row lg:gap-32"
+          key={i}
+        >
+          <section className="order-2 flex basis-1/2 flex-col gap-14 lg:order-1">
+            <h1 className="font-playFair text-[34px] font-medium lg:whitespace-nowrap">
               {hero.heading}
             </h1>
             <p>{hero.body}</p>
-            <button className="btn-solid mt-14 w-72">{hero.button}</button>
+            <button className="btn-solid mt-14 w-72 self-center lg:self-start">
+              {hero.button}
+            </button>
           </section>
           <img
-            className="h-[45vh] basis-1/2"
+            className="order-1 h-[45vh] basis-1/2 lg:order-2"
             src={hero.image}
             alt={hero.heading}
           />
