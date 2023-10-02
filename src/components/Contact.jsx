@@ -1,5 +1,3 @@
-import React from "react";
-
 function Contact() {
   return (
     <div className="contact mb-[10vh] mt-[5vh] flex items-center justify-center">
@@ -13,66 +11,68 @@ function Contact() {
           <div className="flex gap-6">
             {/* First Name */}
             <div className="firstName flex basis-1/2 flex-col ">
-              <label for="fName">First Name</label>
+              <label htmlFor="fName">First Name</label>
               <input
                 type="text"
                 name="fName"
-                placeHolder="Jane"
+                placeholder="Jane"
                 className="inputText"
-              ></input>
+              />
             </div>
             {/* End of First Name */}
             {/* Last Name */}
             <div className="lastName flex basis-1/2 flex-col">
-              <label for="lName">Last Name</label>
+              <label htmlFor="lName">Last Name</label>
               <input
                 type="text"
                 name="lName"
-                placeHolder="Doe"
+                placeholder="Doe"
                 className="inputText"
-              ></input>
+              />
             </div>
             {/* End of Last Name */}
           </div>
           <div className="flex gap-6">
             {/* Email */}
             <div className="email flex basis-1/2 flex-col">
-              <label for="email">Email</label>
+              <label htmlFor="email">Email</label>
               <input
                 type="email"
                 name="email"
-                placeHolder="janedoe@flymail.com"
+                placeholder="Janedoe@flymail.com"
                 className="inputText"
-              ></input>
+              />
             </div>
             {/* End of Email */}
             {/* Phone */}
             <div className="phone flex basis-1/2 flex-col">
-              <label for="phone">Phone no</label>
+              <label htmlFor="phone">Phone no</label>
               <input
                 type="text"
                 name="phone"
-                placeHolder="(555) 555-5555"
+                placeholder="(555)-555-5555"
                 className="inputText"
-              ></input>
+              />
             </div>
             {/* End of Phone */}
           </div>
           {/* Message */}
           <div className="message mb-7 flex w-full flex-col">
-            <label for="message">Message</label>
+            <label htmlFor="message">Message</label>
             <textarea
               name="message"
               className="inputText"
               placeholder="Write your message here"
               rows="8"
-            ></textarea>
+            />
           </div>
           {/* end of Message */}
-          <input
+          <button
             type="submit"
             className="btn-solid btn-submit mx-auto w-80 cursor-pointer px-10"
-          ></input>
+          >
+            Submit
+          </button>
         </form>
       </div>
     </div>
