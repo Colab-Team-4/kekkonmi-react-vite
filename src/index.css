@@ -20,9 +20,21 @@ p {
 }
 
 .btn-solid {
-  @apply font-lato text-[20px] font-bold rounded-md bg-black py-2 text-white hover:bg-white hover:ring-inset hover:ring-[3px] hover:ring-black hover:text-black duration-300;
+  @apply rounded-md bg-black py-2 font-lato text-[20px] font-bold text-white duration-300 hover:bg-white hover:text-black hover:ring-[3px] hover:ring-inset hover:ring-black;
 }
 
 .btn-outline {
-  @apply font-lato text-[20px] font-bold rounded-md border-[3px] py-2 border-black text-black hover:bg-black hover:text-white duration-300;
+  @apply rounded-md border-[3px] border-black py-2 font-lato text-[20px] font-bold text-black duration-300 hover:bg-black hover:text-white;
+}
+
+.inputText {
+  @apply rounded border-2 border-slate-800 p-5 font-lato text-[22px] placeholder:text-[#676767];
+}
+
+label {
+  @apply p-[10px] font-lato text-[22px] font-normal;
+}
+
+.btn-submit {
+  @apply p-5 font-normal;
 }
