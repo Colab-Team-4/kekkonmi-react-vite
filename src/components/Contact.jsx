@@ -2,60 +2,64 @@ import React from "react";
 
 function Contact() {
   return (
-    <div className="contact flex min-h-screen min-w-full items-center justify-center border-4">
-      <div className="contact-center mx-60 flex flex-col gap-14">
-        <h1 className="w-full text-center ">Contact Us</h1>
+    <div className="contact flex items-center justify-center mt-[5vh] mb-[10vh]">
+      <div className="contact-center flex flex-col gap-14">
+        <h1 className="w-full text-center tracking-tight">Contact Us</h1>
         <form
           action=""
           method="POST"
-          className="flex flex-wrap justify-center gap-4"
+          className="flex flex-col justify-center gap-10 w-[70vw]"
         >
-          {/* First Name */}
-          <div className="firstName flex w-[47%] flex-col gap-2 ">
-            <label for="fName">First Name</label>
-            <input
-              type="text"
-              name="fName"
-              placeHolder="Jane"
-              className="inputText h-12"
-            ></input>
+          <div className="flex gap-6">
+            {/* First Name */}
+            <div className="firstName flex basis-1/2 flex-col ">
+              <label for="fName">First Name</label>
+              <input
+                type="text"
+                name="fName"
+                placeHolder="Jane"
+                className="inputText"
+              ></input>
+            </div>
+            {/* End of First Name */}
+            {/* Last Name */}
+            <div className="lastName flex basis-1/2 flex-col">
+              <label for="lName">Last Name</label>
+              <input
+                type="text"
+                name="lName"
+                placeHolder="Doe"
+                className="inputText"
+              ></input>
+            </div>
+            {/* End of Last Name */}
           </div>
-          {/* End of First Name */}
-          {/* Last Name */}
-          <div className="lastName flex w-[47%] flex-col gap-2">
-            <label for="lName">Last Name</label>
-            <input
-              type="text"
-              name="lName"
-              placeHolder="Doe"
-              className="inputText"
-            ></input>
+          <div className="flex gap-6">
+            {/* Email */}
+            <div className="email flex basis-1/2 flex-col">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                name="email"
+                placeHolder="janedoe@flymail.com"
+                className="inputText"
+              ></input>
+            </div>
+            {/* End of Email */}
+            {/* Phone */}
+            <div className="phone flex basis-1/2 flex-col">
+              <label for="phone">Phone no</label>
+              <input
+                type="text"
+                name="phone"
+                placeHolder="(555) 555-5555"
+                className="inputText"
+              ></input>
+            </div>
+            {/* End of Phone */}
           </div>
-          {/* End of Last Name */}
-          {/* Email */}
-          <div className="email flex w-[47%] flex-col gap-2">
-            <label for="email">Email</label>
-            <input
-              type="email"
-              name="email"
-              placeHolder="janedoe@flymail.com"
-              className="inputText h-12"
-            ></input>
-          </div>
-          {/* End of Email */}
-          {/* Phone */}
-          <div className="phone flex w-[47%] flex-col gap-2">
-            <label for="phone">Phone Number</label>
-            <input
-              type="text"
-              name="phone"
-              placeHolder="(123)-456-7890"
-              className="inputText h-12"
-            ></input>
-          </div>
-          {/* End of Phone */}
           {/* Message */}
-          <div className="message mb-7 flex w-[95%] flex-col gap-2">
+          <div className="message mb-7 flex w-full flex-col">
             <label for="message">Message</label>
             <textarea
               name="message"
@@ -65,7 +69,10 @@ function Contact() {
             ></textarea>
           </div>
           {/* end of Message */}
-          <input type="submit" className="submit cursor-pointer"></input>
+          <input
+            type="submit"
+            className="btn-solid btn-submit cursor-pointer px-10 w-80 mx-auto"
+          ></input>
         </form>
       </div>
     </div>
