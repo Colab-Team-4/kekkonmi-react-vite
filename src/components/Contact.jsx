@@ -2,13 +2,13 @@ import React from "react";
 
 function Contact() {
   return (
-    <div className="contact flex items-center justify-center mt-[5vh] mb-[10vh]">
+    <div className="contact mb-[10vh] mt-[5vh] flex items-center justify-center">
       <div className="contact-center flex flex-col gap-14">
         <h1 className="w-full text-center tracking-tight">Contact Us</h1>
         <form
           action=""
           method="POST"
-          className="flex flex-col justify-center gap-10 w-[70vw]"
+          className="flex w-[70vw] flex-col justify-center gap-10"
         >
           <div className="flex gap-6">
             {/* First Name */}
@@ -71,7 +71,7 @@ function Contact() {
           {/* end of Message */}
           <input
             type="submit"
-            className="btn-solid btn-submit cursor-pointer px-10 w-80 mx-auto"
+            className="btn-solid btn-submit mx-auto w-80 cursor-pointer px-10"
           ></input>
         </form>
       </div>
