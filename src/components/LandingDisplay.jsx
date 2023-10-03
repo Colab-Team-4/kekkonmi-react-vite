@@ -15,7 +15,7 @@ const contents = [
   },
   {
     heading: "About Us",
-    body: "We are Kekkonmi, where dreams become reality. Our experienced team is dedicated to turning your unique vision into a remarkable wedding day. With our expertise and commitment to your happiness, we're your trusted partners throughout this exciting journey. Welcome to your dream wedding experience.",
+    body: "We are Matrimoney, where dreams become reality. Our experienced team is dedicated to turning your unique vision into a remarkable wedding day. With our expertise and commitment to your happiness, we're your trusted partners throughout this exciting journey. Welcome to your dream wedding experience.",
     button: "Learn More",
     image:
       "https://images.pexels.com/photos/6479548/pexels-photo-6479548.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
