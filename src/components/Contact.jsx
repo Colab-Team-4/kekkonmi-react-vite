@@ -4,7 +4,6 @@ function Contact() {
       <div className="contact-center flex flex-col gap-14">
         <h1 className="w-full text-center tracking-tight">Contact Us</h1>
         <form
-          action=""
           method="POST"
           className="flex w-[70vw] flex-col justify-center gap-10"
         >
