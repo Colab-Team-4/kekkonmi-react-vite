@@ -20,13 +20,10 @@ function Contact() {
 
   return (
     <div className="contact mb-[10vh] mt-[5vh] flex items-center justify-center">
-      <div className="contact-center flex flex-col w-5/6 gap-14">
+      <div className="contact-center flex w-5/6 flex-col gap-14">
         <h1 className="-mb-12 w-full text-center tracking-tight">Contact Us</h1>
-        <form
-          method="POST"
-          className="flex flex-col justify-center lg:gap-6"
-        >
-          <div className="flex flex-col md:flex-row gap-3 lg:gap-6">
+        <form method="POST" className="flex flex-col justify-center lg:gap-6">
+          <div className="flex flex-col gap-3 md:flex-row lg:gap-6">
             {/* First Name */}
             <div className="firstName flex basis-1/2 flex-col ">
               <label htmlFor="fName">First Name</label>
@@ -50,7 +47,7 @@ function Contact() {
             </div>
             {/* End of Last Name */}
           </div>
-          <div className="flex flex-col md:flex-row gap-3 lg:gap-6">
+          <div className="flex flex-col gap-3 md:flex-row lg:gap-6">
             {/* Email */}
             <div className="email flex basis-1/2 flex-col">
               <label htmlFor="email">Email</label>
