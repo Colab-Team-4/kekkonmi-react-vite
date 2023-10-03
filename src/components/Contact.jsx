@@ -1,13 +1,32 @@
+import { useState, useEffect } from "react";
+
 function Contact() {
+  const [rows, setRows] = useState(8); // initial value
+
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth >= 1024) {
+        setRows(8);
+      } else {
+        setRows(3);
+      }
+    }
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <div className="contact mb-[10vh] mt-[5vh] flex items-center justify-center">
-      <div className="contact-center flex flex-col gap-14">
-        <h1 className="w-full text-center tracking-tight">Contact Us</h1>
+      <div className="contact-center flex flex-col w-5/6 gap-14">
+        <h1 className="-mb-12 w-full text-center tracking-tight">Contact Us</h1>
         <form
           method="POST"
-          className="flex w-[70vw] flex-col justify-center gap-10"
+          className="flex flex-col justify-center lg:gap-6"
         >
-          <div className="flex gap-6">
+          <div className="flex flex-col md:flex-row gap-3 lg:gap-6">
             {/* First Name */}
             <div className="firstName flex basis-1/2 flex-col ">
               <label htmlFor="fName">First Name</label>
@@ -31,7 +50,7 @@ function Contact() {
             </div>
             {/* End of Last Name */}
           </div>
-          <div className="flex gap-6">
+          <div className="flex flex-col md:flex-row gap-3 lg:gap-6">
             {/* Email */}
             <div className="email flex basis-1/2 flex-col">
               <label htmlFor="email">Email</label>
@@ -60,9 +79,9 @@ function Contact() {
             <label htmlFor="message">Message</label>
             <textarea
               name="message"
-              className="inputText"
+              className="inputText w-full"
               placeholder="Write your message here"
-              rows="8"
+              rows={rows}
             />
           </div>
           {/* end of Message */}
