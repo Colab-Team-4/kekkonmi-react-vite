@@ -12,8 +12,8 @@ function Footer() {
     <div className="mx-auto flex h-[15vh] w-full items-center justify-evenly gap-28 bg-black p-4">
       <a href="/" className="flex items-center gap-2">
         <LogoWhite className="h-10" />
-        <span className="self-center whitespace-nowrap font-lato text-2xl text-[40px] font-normal text-white">
-          Kekkonmi
+        <span className="self-center whitespace-nowrap font-playFair text-2xl text-[40px] font-normal tracking-widest text-white">
+          MATRIMONEY
         </span>
       </a>
       <div className="hidden w-full items-center justify-between md:flex md:w-auto">
