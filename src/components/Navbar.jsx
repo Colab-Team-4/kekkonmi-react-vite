@@ -1,3 +1,4 @@
+import { HamburgerIcon, LanguageIcon } from "./Icons";
 import logo from "/logo.svg";
 
 const links = [
@@ -12,14 +13,19 @@ const links = [
 function Navbar() {
   return (
     <nav className="fixed left-0 right-0 top-0 z-50 border-gray-200 bg-white dark:bg-white">
-      <div className="mx-auto flex w-fit flex-nowrap items-center justify-evenly gap-28 p-4">
+      <div className="mx-auto flex w-screen items-center justify-between p-10">
+        <button className="md:hidden lg:hidden">
+          <HamburgerIcon />
+        </button>
         <a href="/" className="flex items-center gap-2">
           <img src={logo} className="h-10" alt="Logo" />
-          <span className="self-center whitespace-nowrap font-playFair text-2xl text-[40px] font-normal tracking-widest dark:text-black">
+          <span className="self-center whitespace-nowrap font-playFair text-[22px] font-normal tracking-widest dark:text-black lg:text-2xl">
             MATRIMONEY
           </span>
         </a>
-
+        <button className="md:hidden lg:hidden">
+          <LanguageIcon />
+        </button>
         <div
           className="hidden w-full items-center justify-between md:flex md:w-auto"
           id="navbar-cta"
@@ -37,7 +43,8 @@ function Navbar() {
           </ul>
         </div>
 
-        <div className="flex gap-4 bg-white">
+        <div className="hidden bg-white lg:flex lg:gap-4">
+          {/* <div className="flex gap-4 bg-white"> */}
           <button type="button" className="btn-solid w-40">
             Sign Up
           </button>
