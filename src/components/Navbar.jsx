@@ -15,8 +15,8 @@ function Navbar() {
       <div className="mx-auto flex w-fit flex-nowrap items-center justify-evenly gap-28 p-4">
         <a href="/" className="flex items-center gap-2">
           <img src={logo} className="h-10" alt="Logo" />
-          <span className="self-center whitespace-nowrap font-lato text-2xl text-[40px] font-normal dark:text-black">
-            Kekkonmi
+          <span className="self-center whitespace-nowrap font-playFair text-2xl text-[40px] font-normal tracking-widest dark:text-black">
+            MATRIMONEY
           </span>
         </a>
 
