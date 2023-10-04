@@ -3,7 +3,7 @@ import {
   TwitterIcon,
   InstagramIcon,
   LogoWhite,
-} from "/src/components/Icons";
+} from "../components/Icons";
 
 const links = ["Contact", "Terms of Use", "Privacy Policy", "FAQ"];
 
