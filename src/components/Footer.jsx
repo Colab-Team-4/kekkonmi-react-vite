@@ -9,20 +9,20 @@ const links = ["Contact", "Terms of Use", "Privacy Policy", "FAQ"];
 
 function Footer() {
   return (
-    <div className="mx-auto flex h-[15vh] w-full items-center justify-evenly gap-28 bg-black p-4">
+    <div className="mx-auto flex w-full flex-col items-center justify-evenly bg-black p-4 pt-12 md:flex-row md:gap-10 md:p-10 lg:justify-between lg:px-20 ">
       <a href="/" className="flex items-center gap-2">
         <LogoWhite className="h-10" />
-        <span className="self-center whitespace-nowrap font-lato text-2xl text-[40px] font-normal text-white">
+        <span className="self-center whitespace-nowrap font-lato text-2xl text-[40px] font-normal text-white md:text-3xl lg:text-[40px]">
           Kekkonmi
         </span>
       </a>
-      <div className="hidden w-full items-center justify-between md:flex md:w-auto">
-        <ul className="mt-4 flex flex-col bg-black p-4 font-medium text-white dark:border-gray-700 md:mt-0 md:flex-row md:space-x-8 md:border-0 md:p-0">
-          <div className="flex gap-24">
+      <div className="w-full items-center justify-between md:flex md:w-auto">
+        <ul className="mt-4 flex flex-col items-center p-4 font-medium text-white dark:border-gray-700 md:mt-0 md:flex-row md:space-x-8 md:border-0 md:p-0">
+          <div className="flex flex-col items-center gap-6 md:flex-row lg:gap-[91px]">
             {links.map((link, i) => (
               <li key={i}>
                 <a href="#" aria-current="page">
-                  <h2>{link}</h2>
+                  <h2 className="footer-links lg:text-2xl">{link}</h2>
                 </a>
               </li>
             ))}
