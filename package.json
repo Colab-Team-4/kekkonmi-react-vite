@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "lint": "prettier --check .",
+    "format": "prettier --write .",
     "preview": "vite preview",
     "generate": "node scripts/generateData.mjs"
   },
