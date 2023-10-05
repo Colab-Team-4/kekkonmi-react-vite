@@ -10,15 +10,6 @@ const guestCapacityOptions = [
   "251 - 300",
   "300+",
 ];
-const distanceOptions = [
-  "Within 5 miles",
-  "Within 10 miles",
-  "Within 20 miles",
-  "Within 30 miles",
-  "Within 40 miles",
-  "Within 50 miles",
-  "Within 100 miles",
-];
 const venueTypes = [
   "Backyard",
   "Ballroom",
@@ -135,12 +126,12 @@ const venues = Array.from({ length: 100 }, () => {
   return {
     name: venueName,
     location,
+    city,
     country,
     isFavorited: false,
     description: generateDescription(venueName, location, features),
     pricing: generateRandomElement(priceFilter),
     guestCapacity: generateRandomElement(guestCapacityOptions),
-    distance: generateRandomElement(distanceOptions),
     venueType: generateRandomElement(venueTypes),
     amenities: generateRandomElements(venueAmenities),
     vendorTeam: generateRandomElements(weddingVendorTeam),
