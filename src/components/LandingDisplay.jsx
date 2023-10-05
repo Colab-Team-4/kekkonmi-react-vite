@@ -31,8 +31,8 @@ function LandingDisplay() {
           key={i}
         >
           <div
-            className={`flex aspect-auto h-[80vh] basis-1/2 items-center justify-center ${
-              i % 2 === 0 ? "lg:order-2" : "lg:order-1"
+            className={`flex aspect-auto h-[80vh] basis-1/2 items-center ${
+              i % 2 === 0 ? "lg:order-2 lg:justify-end" : "lg:order-1"
             }`}
           >
             <img
