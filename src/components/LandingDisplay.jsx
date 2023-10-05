@@ -24,19 +24,23 @@ const contents = [
 
 function LandingDisplay() {
   return (
-    <div className="flex flex-col gap-16 bg-[#D9D8D8] px-[5vw] py-[5vh]">
+    <div className="flex flex-col gap-24 bg-[#D9D8D8] px-[5vw] py-[5vh]">
       {contents.map((content, i) => (
         <div
-          className="flex flex-col items-center gap-4 lg:flex-row lg:gap-32"
+          className="lg:gap-30 flex flex-col items-center gap-4 lg:snap-center lg:scroll-mt-32 lg:flex-row"
           key={i}
         >
-          <img
-            className={`aspect-auto h-[80vh] basis-1/2 ${
-              i % 2 === 0 ? "lg:order-2" : "lg:order-1"
+          <div
+            className={`flex aspect-auto h-[80vh] basis-1/2 items-center ${
+              i % 2 === 0 ? "lg:order-2 lg:justify-end" : "lg:order-1"
             }`}
-            src={content.image}
-            alt={content.heading}
-          />
+          >
+            <img
+              className="w-96 lg:w-[22vw]"
+              src={content.image}
+              alt={content.heading}
+            />
+          </div>
           <section
             className={`flex basis-1/2 flex-col gap-14 ${
               i % 2 === 0 ? "lg:order-1" : "lg:order-2"
@@ -44,7 +48,9 @@ function LandingDisplay() {
           >
             <h1>{content.heading}</h1>
             <p>{content.body}</p>
-            <button className="btn-outline w-72">{content.button}</button>
+            <button className="btn-outline w-72 self-center lg:self-start">
+              {content.button}
+            </button>
           </section>
         </div>
       ))}

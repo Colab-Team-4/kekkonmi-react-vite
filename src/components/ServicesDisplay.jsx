@@ -24,11 +24,11 @@ const services = [
 
 function ServicesDisplay() {
   return (
-    <div className="px-[5vw]">
-      <h1 className="mb-10">Services</h1>
-      <div className="relative grid h-fit grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+    <div className="px-[5vw] lg:snap-center lg:scroll-mt-4">
+      <h1 className="mb-2 lg:mb-8">Services</h1>
+      <div className="relative grid h-fit grid-cols-1 gap-14 md:grid-cols-2 lg:grid-cols-3">
         {services.map((service, i) => (
-          <div className="flex flex-col gap-10" key={i}>
+          <div className="flex snap-center flex-col gap-4 lg:snap-none" key={i}>
             <img
               className="rounded-md"
               src={service.image}
@@ -37,7 +37,7 @@ function ServicesDisplay() {
             <h2>{service.heading}</h2>
             <p className="text-[20px]">{service.body}</p>
             <div className="mt-16 flex justify-center">
-              <button className="btn-outline lg:absolute lg:bottom-0 w-72">
+              <button className="btn-outline w-72 lg:absolute lg:bottom-0">
                 {service.button}
               </button>
             </div>
