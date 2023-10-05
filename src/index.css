@@ -28,7 +28,7 @@ p {
 }
 
 .inputText {
-  @apply rounded border-2 border-black p-3 font-lato text-[22px] placeholder:text-[#676767];
+  @apply rounded border-2 border-black p-2 font-lato text-[22px] placeholder:text-[#676767];
 }
 
 label {
@@ -41,4 +41,8 @@ label {
 
 .footer-links {
   @apply font-lato text-[16px] font-normal;
+}
+
+html {
+  scroll-snap-type: y proximity;
 }

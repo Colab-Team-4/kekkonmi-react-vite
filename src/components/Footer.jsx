@@ -9,7 +9,7 @@ const links = ["Contact", "Terms of Use", "Privacy Policy", "FAQ"];
 
 function Footer() {
   return (
-    <div className="mx-auto flex w-full flex-col items-center justify-evenly bg-black p-4 pt-12 md:flex-row md:gap-10 md:p-10 lg:justify-between lg:px-20 ">
+    <div className="mx-auto flex w-full flex-col items-center justify-evenly bg-black p-4 pt-12 md:flex-row md:gap-10 md:p-10 lg:snap-center lg:justify-between lg:px-20">
       <a href="/" className="flex items-center gap-2">
         <LogoWhite className="h-10" />
         <span className="self-center whitespace-nowrap font-playFair text-2xl text-[22px] font-normal tracking-widest text-white">

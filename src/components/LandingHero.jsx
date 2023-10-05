@@ -12,7 +12,7 @@ const heroes = [
 
 function LandingHero() {
   return (
-    <div className="mt-[10vh] flex flex-col gap-16 px-[5vw] py-[5vh]">
+    <div className="mt-[10vh] flex snap-center scroll-mt-20 flex-col gap-16 px-[5vw] py-[5vh]">
       {heroes.map((hero, i) => (
         <div
           className="flex flex-col items-center gap-4 lg:flex-row lg:gap-32"
@@ -23,7 +23,7 @@ function LandingHero() {
               {hero.heading}
             </h1>
             <p>{hero.body}</p>
-            <button className="btn-solid mt-14 w-72 self-center lg:self-start">
+            <button className="btn-solid mt-1 w-72 self-center lg:mt-14 lg:self-start">
               {hero.button}
             </button>
           </section>
