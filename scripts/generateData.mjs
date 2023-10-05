@@ -1,5 +1,9 @@
 import { faker } from "@faker-js/faker";
+import { createClient } from "pexels";
+import dotenv from "dotenv";
 import fs from "fs";
+
+dotenv.config();
 
 const guestCapacityOptions = [
   "0 - 50",
@@ -116,12 +120,35 @@ const generateRandomElements = (array) => {
   return array.filter(() => Math.random() < 0.5);
 };
 
-const venues = Array.from({ length: 100 }, () => {
+const client = createClient(process.env.PEXELS_API_KEY);
+const fetchPexelsImage = async (venue) => {
+  const query = `wedding venue ${venue.name} ${
+    venue.location
+  } ${venue.features.join(" ")}`;
+  try {
+    const photos = await client.photos.search({ query, per_page: 21 });
+    const coverUrl = photos.photos[0].src.original;
+    const galleryUrls = photos.photos
+      .slice(1)
+      .map((photo) => photo.src.original);
+    return { coverUrl, galleryUrls };
+  } catch (error) {
+    console.error(`Failed to fetch images: ${error}`);
+    return { coverUrl: "", galleryUrls: [] };
+  }
+};
+
+const generateVenue = async () => {
   const venueName = faker.company.name();
   const city = faker.location.city();
   const country = faker.location.country();
   const location = `${city}, ${country}`;
   const features = generateFeatures();
+  const { coverUrl, galleryUrls } = await fetchPexelsImage({
+    name: venueName,
+    location,
+    features,
+  });
 
   return {
     name: venueName,
@@ -136,7 +163,17 @@ const venues = Array.from({ length: 100 }, () => {
     amenities: generateRandomElements(venueAmenities),
     vendorTeam: generateRandomElements(weddingVendorTeam),
     diversity: generateRandomElements(diversityFilter),
+    coverUrl,
+    galleryUrls,
   };
-});
+};
 
-fs.writeFileSync("./src/data/venueData.json", JSON.stringify(venues, null, 2));
+const generateAllVenues = async (n) => {
+  const venues = await Promise.all(Array.from({ length: n }, generateVenue));
+  fs.writeFileSync(
+    "./src/data/venueData.json",
+    JSON.stringify(venues, null, 2),
+  );
+};
+
+generateAllVenues(100).catch((err) => console.error(err));
