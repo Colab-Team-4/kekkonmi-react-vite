@@ -23,7 +23,7 @@ function LandingHero() {
               {hero.heading}
             </h1>
             <p>{hero.body}</p>
-            <button className="btn-solid mt-14 w-72 self-center lg:self-start">
+            <button className="btn-solid mt-1 w-72 self-center lg:self-start lg:mt-14">
               {hero.button}
             </button>
           </section>

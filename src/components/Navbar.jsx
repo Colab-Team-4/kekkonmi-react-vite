@@ -13,7 +13,7 @@ const links = [
 function Navbar() {
   return (
     <nav className="fixed left-0 right-0 top-0 z-50 border-gray-200 bg-white dark:bg-white">
-      <div className="mx-auto flex w-screen items-center justify-between p-10">
+      <div className="mx-auto flex w-screen items-center justify-between px-10 py-2">
         <button className="md:hidden lg:hidden">
           <HamburgerIcon />
         </button>
