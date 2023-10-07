@@ -8,11 +8,7 @@
     "description": "Our Loft sets the stage for a romantic and unforgettable wedding day. Roob - Mosciski boasts Ceremony Area that make it unique among venues in Redmond, South Dakota. Couples love the Loft that add a touch of elegance to any ceremony.",
     "guestCapacity": "0 - 50",
     "venueType": "Religious Setting",
-    "amenities": [
-      "Ceremony Area",
-      "Dressing Room",
-      "Liability Insurance"
-    ],
+    "amenities": ["Ceremony Area", "Dressing Room", "Liability Insurance"],
     "vendors": [
       "Wedding Bands",
       "Wedding Catering",
@@ -166,9 +162,7 @@
       "Wedding Hair & Makeup",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Asian-owned Business",
       "Black-owned Business",
@@ -202,10 +196,7 @@
     "description": "Feil - Bashirian boasts Ceremony Area that make it unique among venues in Kettering, Rhode Island. Your search for the perfect wedding venue in Kettering, Rhode Island ends with Feil - Bashirian, known for its Ceremony Area. Feil - Bashirian is not just a venue; it's an experience that includes Historic Venue and Ceremony Area.",
     "guestCapacity": "0 - 50",
     "venueType": "Ballroom",
-    "amenities": [
-      "Indoor Event Space",
-      "On-site Accommodations"
-    ],
+    "amenities": ["Indoor Event Space", "On-site Accommodations"],
     "vendors": [
       "Wedding DJ",
       "Wedding Dress",
@@ -247,16 +238,8 @@
     "description": "Come and discover why Lynch - McCullough is Clydefort, Delaware's hidden gem for weddings, featuring Library and Indoor Event Space. You'll fall in love with the Library that make Lynch - McCullough a one-of-a-kind venue. Couples love the Library that add a touch of elegance to any ceremony.",
     "guestCapacity": "51 - 100",
     "venueType": "Hotel",
-    "amenities": [
-      "Ceremony Area",
-      "Handicap Accessible",
-      "Wireless Internet"
-    ],
-    "vendors": [
-      "Wedding Bands",
-      "Wedding Dress",
-      "Wedding Hair & Makeup"
-    ],
+    "amenities": ["Ceremony Area", "Handicap Accessible", "Wireless Internet"],
+    "vendors": ["Wedding Bands", "Wedding Dress", "Wedding Hair & Makeup"],
     "affiliations": [],
     "diversity": [
       "Asian-owned Business",
@@ -302,9 +285,7 @@
       "Wedding Hair & Makeup",
       "Wedding Invitations"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Asian-owned Business",
       "Black-owned Business",
@@ -403,9 +384,7 @@
       "Wedding Invitations",
       "Wedding Photography"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Black-owned Business",
       "Hispanic-Latina-owned Business",
@@ -456,9 +435,7 @@
       "Wedding Invitations",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Black-owned Business",
       "Native-American-owned Business",
@@ -640,10 +617,7 @@
     "description": "Jones and Sons boasts Indoor Event Space that make it unique among venues in Dothan, Alabama. Jones and Sons boasts Indoor Event Space that make it unique among venues in Dothan, Alabama. With Tented and Indoor Event Space, we have everything you need for a memorable event.",
     "guestCapacity": "300+",
     "venueType": "Ballroom",
-    "amenities": [
-      "Liability Insurance",
-      "On-site Accommodations"
-    ],
+    "amenities": ["Liability Insurance", "On-site Accommodations"],
     "vendors": [
       "Wedding Bands",
       "Wedding Catering",
@@ -748,9 +722,7 @@
       "Wedding Flowers",
       "Wedding Hair & Makeup"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Black-owned Business",
       "Hispanic-Latina-owned Business",
@@ -880,11 +852,7 @@
       "Reception Area",
       "Wireless Internet"
     ],
-    "vendors": [
-      "Wedding Catering",
-      "Wedding Flowers",
-      "Wedding Hair & Makeup"
-    ],
+    "vendors": ["Wedding Catering", "Wedding Flowers", "Wedding Hair & Makeup"],
     "affiliations": [],
     "diversity": [
       "Hispanic-Latina-owned Business",
@@ -972,16 +940,9 @@
       "On-site Accommodations",
       "Wireless Internet"
     ],
-    "vendors": [
-      "Wedding Cake",
-      "Wedding Photography"
-    ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
-    "diversity": [
-      "Native-American-owned Business"
-    ],
+    "vendors": ["Wedding Cake", "Wedding Photography"],
+    "affiliations": ["Destination Weddings"],
+    "diversity": ["Native-American-owned Business"],
     "startingPrice": 7000,
     "pricing": "$$ - Affordable",
     "coverUrl": "https://images.pexels.com/photos/4064700/pexels-photo-4064700.jpeg",
@@ -1024,9 +985,7 @@
       "Wedding Photography",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Black-owned Business",
       "Pacific Islander-owned Business",
@@ -1117,9 +1076,7 @@
       "Wedding Flowers",
       "Wedding Hair & Makeup"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Asian-owned Business",
       "Pacific Islander-owned Business",
@@ -1166,12 +1123,8 @@
       "Wedding Hair & Makeup",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
-    "diversity": [
-      "Pacific Islander-owned Business"
-    ],
+    "affiliations": ["Destination Weddings"],
+    "diversity": ["Pacific Islander-owned Business"],
     "startingPrice": 8000,
     "pricing": "$$$ - Moderate",
     "coverUrl": "https://images.pexels.com/photos/7648051/pexels-photo-7648051.jpeg",
@@ -1216,10 +1169,7 @@
       "Wedding Hair & Makeup"
     ],
     "affiliations": [],
-    "diversity": [
-      "Asian-owned Business",
-      "Hispanic-Latina-owned Business"
-    ],
+    "diversity": ["Asian-owned Business", "Hispanic-Latina-owned Business"],
     "startingPrice": 11000,
     "pricing": "$$$$ - Luxury",
     "coverUrl": "https://images.pexels.com/photos/4181130/pexels-photo-4181130.jpeg",
@@ -1309,9 +1259,7 @@
       "Wedding Hair & Makeup",
       "Wedding Invitations"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Asian-owned Business",
       "Black-owned Business",
@@ -1344,10 +1292,7 @@
     "description": "Come and discover why Cummings, Kris and Cole is Port Zachariahton, Minnesota's hidden gem for weddings, featuring Castle and Dressing Room. The combination of Castle and Dressing Room sets Cummings, Kris and Cole apart from other venues in Port Zachariahton, Minnesota. If you're looking for a venue in Port Zachariahton, Minnesota that offers Castle, look no further than Cummings, Kris and Cole.",
     "guestCapacity": "300+",
     "venueType": "Backyard",
-    "amenities": [
-      "Reception Area",
-      "Wireless Internet"
-    ],
+    "amenities": ["Reception Area", "Wireless Internet"],
     "vendors": [
       "Wedding Dress",
       "Wedding Invitations",
@@ -1435,9 +1380,7 @@
     "description": "Our dedicated team in Andersonville, New Hampshire will work with you to make your wedding dreams come true. If you're looking for a venue in Andersonville, New Hampshire that offers Historic Venue, look no further than Rosenbaum Inc. Experience the magic of Historic Venue in a stunning setting at Rosenbaum Inc.",
     "guestCapacity": "101 - 150",
     "venueType": "Beach",
-    "amenities": [
-      "Ceremony Area"
-    ],
+    "amenities": ["Ceremony Area"],
     "vendors": [
       "Wedding Catering",
       "Wedding DJ",
@@ -1485,13 +1428,8 @@
       "Reception Area",
       "Wireless Internet"
     ],
-    "vendors": [
-      "Wedding DJ",
-      "Wedding Planners/Designers"
-    ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "vendors": ["Wedding DJ", "Wedding Planners/Designers"],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Black-owned Business",
       "Hispanic-Latina-owned Business",
@@ -1540,9 +1478,7 @@
       "Wedding Invitations",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Hispanic-Latina-owned Business",
       "Pacific Islander-owned Business",
@@ -1682,9 +1618,7 @@
       "Wedding Dress",
       "Wedding Flowers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Black-owned Business",
       "Hispanic-Latina-owned Business",
@@ -1729,10 +1663,7 @@
       "Wedding Planners/Designers"
     ],
     "affiliations": [],
-    "diversity": [
-      "Asian-owned Business",
-      "Native-American-owned Business"
-    ],
+    "diversity": ["Asian-owned Business", "Native-American-owned Business"],
     "startingPrice": 7000,
     "pricing": "$$ - Affordable",
     "coverUrl": "https://images.pexels.com/photos/4181130/pexels-photo-4181130.jpeg",
@@ -1808,11 +1739,7 @@
     "description": "Our venue is best known for its Park and Ceremony Area. Sauer LLC boasts Ceremony Area that make it unique among venues in Rueckerboro, Hawaii. Sauer LLC is a top-tier wedding venue located in the heart of Rueckerboro, Hawaii.",
     "guestCapacity": "101 - 150",
     "venueType": "Ballroom",
-    "amenities": [
-      "Ceremony Area",
-      "Dressing Room",
-      "On-site Accommodations"
-    ],
+    "amenities": ["Ceremony Area", "Dressing Room", "On-site Accommodations"],
     "vendors": [
       "Wedding Bands",
       "Wedding Catering",
@@ -1872,9 +1799,7 @@
       "Wedding Invitations",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Black-owned Business",
       "Hispanic-Latina-owned Business",
@@ -1909,10 +1834,7 @@
     "description": "With Castle and Ceremony Area, we have everything you need for a memorable event. If you're looking for a venue in North Rosalinda, Pennsylvania that offers Castle, look no further than O'Connell, Brown and Hirthe. Our Castle sets the stage for a romantic and unforgettable wedding day.",
     "guestCapacity": "151 - 200",
     "venueType": "Industrial & Warehouse",
-    "amenities": [
-      "Reception Area",
-      "Wireless Internet"
-    ],
+    "amenities": ["Reception Area", "Wireless Internet"],
     "vendors": [
       "Wedding Bands",
       "Wedding Catering",
@@ -1922,9 +1844,7 @@
       "Wedding Invitations",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Asian-owned Business",
       "Black-owned Business",
@@ -1960,13 +1880,8 @@
     "description": "Cormier - Schuster boasts Dressing Room that make it unique among venues in East Clarkbury, New Mexico. The combination of City Hall and Dressing Room sets Cormier - Schuster apart from other venues in East Clarkbury, New Mexico. Our venue is best known for its City Hall and Dressing Room.",
     "guestCapacity": "0 - 50",
     "venueType": "Hotel",
-    "amenities": [
-      "Ceremony Area",
-      "Reception Area"
-    ],
-    "vendors": [
-      "Wedding Flowers"
-    ],
+    "amenities": ["Ceremony Area", "Reception Area"],
+    "vendors": ["Wedding Flowers"],
     "affiliations": [],
     "diversity": [
       "Black-owned Business",
@@ -2153,16 +2068,9 @@
       "Reception Area",
       "Wireless Internet"
     ],
-    "vendors": [
-      "Wedding DJ",
-      "Wedding Invitations"
-    ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
-    "diversity": [
-      "Asian-owned Business"
-    ],
+    "vendors": ["Wedding DJ", "Wedding Invitations"],
+    "affiliations": ["Destination Weddings"],
+    "diversity": ["Asian-owned Business"],
     "startingPrice": 8000,
     "pricing": "$$$ - Moderate",
     "coverUrl": "https://images.pexels.com/photos/7045945/pexels-photo-7045945.jpeg",
@@ -2398,9 +2306,7 @@
       "Wedding Hair & Makeup",
       "Wedding Photography"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Black-owned Business",
       "Hispanic-Latina-owned Business",
@@ -2447,9 +2353,7 @@
       "Wedding Invitations",
       "Wedding Photography"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Asian-owned Business",
       "Black-owned Business",
@@ -2483,11 +2387,7 @@
     "description": "Our dedicated team in Sydneestead, Texas will work with you to make your wedding dreams come true. Nestled in Sydneestead, Texas, Donnelly - Langworth provides an idyllic setting for your special day. Nestled in Sydneestead, Texas, Donnelly - Langworth provides an idyllic setting for your special day.",
     "guestCapacity": "251 - 300",
     "venueType": "Rooftop",
-    "amenities": [
-      "Dressing Room",
-      "On-site Accommodations",
-      "Reception Area"
-    ],
+    "amenities": ["Dressing Room", "On-site Accommodations", "Reception Area"],
     "vendors": [
       "Wedding Bands",
       "Wedding Catering",
@@ -2496,9 +2396,7 @@
       "Wedding Invitations",
       "Wedding Photography"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Asian-owned Business",
       "Black-owned Business",
@@ -2579,10 +2477,7 @@
     "description": "Our venue is the epitome of elegance, offering Beach that will leave you and your guests in awe. With Beach and Ceremony Area, we have everything you need for a memorable event. The combination of Beach and Ceremony Area sets Greenfelder - Reilly apart from other venues in Cassidychester, California.",
     "guestCapacity": "101 - 150",
     "venueType": "Mountain",
-    "amenities": [
-      "Handicap Accessible",
-      "Wireless Internet"
-    ],
+    "amenities": ["Handicap Accessible", "Wireless Internet"],
     "vendors": [
       "Wedding Catering",
       "Wedding Cake",
@@ -2591,9 +2486,7 @@
       "Wedding Photography",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Native-American-owned Business",
       "Pacific Islander-owned Business",
@@ -2627,11 +2520,7 @@
     "description": "Leffler and Sons is not just a venue; it's an experience that includes Castle and Ceremony Area. Couples love the Castle that add a touch of elegance to any ceremony. If you're looking for a venue in Laguna Niguel, South Dakota that offers Castle, look no further than Leffler and Sons.",
     "guestCapacity": "101 - 150",
     "venueType": "Cruise",
-    "amenities": [
-      "Ceremony Area",
-      "On-site Accommodations",
-      "Reception Area"
-    ],
+    "amenities": ["Ceremony Area", "On-site Accommodations", "Reception Area"],
     "vendors": [
       "Wedding Catering",
       "Wedding Cake",
@@ -2641,10 +2530,7 @@
       "Wedding Planners/Designers"
     ],
     "affiliations": [],
-    "diversity": [
-      "Black-owned Business",
-      "Veteran-owned Business"
-    ],
+    "diversity": ["Black-owned Business", "Veteran-owned Business"],
     "startingPrice": 18000,
     "pricing": "$$$$ - Luxury",
     "coverUrl": "https://images.pexels.com/photos/5096304/pexels-photo-5096304.jpeg",
@@ -2770,21 +2656,10 @@
     "description": "Nestled in South Salma, South Dakota, Bahringer Inc provides an idyllic setting for your special day. Experience the magic of Cruise in a stunning setting at Bahringer Inc. The combination of Cruise and Ceremony Area sets Bahringer Inc apart from other venues in South Salma, South Dakota.",
     "guestCapacity": "0 - 50",
     "venueType": "Cruise",
-    "amenities": [
-      "Dressing Room",
-      "Handicap Accessible",
-      "Reception Area"
-    ],
-    "vendors": [
-      "Wedding Bands",
-      "Wedding DJ",
-      "Wedding Hair & Makeup"
-    ],
+    "amenities": ["Dressing Room", "Handicap Accessible", "Reception Area"],
+    "vendors": ["Wedding Bands", "Wedding DJ", "Wedding Hair & Makeup"],
     "affiliations": [],
-    "diversity": [
-      "Asian-owned Business",
-      "Black-owned Business"
-    ],
+    "diversity": ["Asian-owned Business", "Black-owned Business"],
     "startingPrice": 4000,
     "pricing": "$ - Inexpensive",
     "coverUrl": "https://images.pexels.com/photos/8887264/pexels-photo-8887264.jpeg",
@@ -2859,11 +2734,7 @@
     "description": "Come and discover why Stiedemann - Bernhard is Apple Valley, West Virginia's hidden gem for weddings, featuring Museum and Handicap Accessible. Our venue is the epitome of elegance, offering Museum that will leave you and your guests in awe. The combination of Museum and Handicap Accessible sets Stiedemann - Bernhard apart from other venues in Apple Valley, West Virginia.",
     "guestCapacity": "251 - 300",
     "venueType": "Rooftop",
-    "amenities": [
-      "Ceremony Area",
-      "Handicap Accessible",
-      "Indoor Event Space"
-    ],
+    "amenities": ["Ceremony Area", "Handicap Accessible", "Indoor Event Space"],
     "vendors": [
       "Wedding Dress",
       "Wedding Flowers",
@@ -2871,9 +2742,7 @@
       "Wedding Invitations",
       "Wedding Photography"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Black-owned Business",
       "Pacific Islander-owned Business",
@@ -2924,10 +2793,7 @@
       "Wedding Photography"
     ],
     "affiliations": [],
-    "diversity": [
-      "Asian-owned Business",
-      "Native-American-owned Business"
-    ],
+    "diversity": ["Asian-owned Business", "Native-American-owned Business"],
     "startingPrice": 8000,
     "pricing": "$$$ - Moderate",
     "coverUrl": "https://images.pexels.com/photos/4064696/pexels-photo-4064696.jpeg",
@@ -2969,12 +2835,8 @@
       "Wedding Invitations",
       "Wedding Photography"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
-    "diversity": [
-      "Asian-owned Business"
-    ],
+    "affiliations": ["Destination Weddings"],
+    "diversity": ["Asian-owned Business"],
     "startingPrice": 12000,
     "pricing": "$$$$ - Luxury",
     "coverUrl": "https://images.pexels.com/photos/4064647/pexels-photo-4064647.jpeg",
@@ -3013,9 +2875,7 @@
       "Wedding Photography",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Native-American-owned Business",
       "Veteran-owned Business",
@@ -3048,18 +2908,14 @@
     "description": "Celebrate your love with a backdrop of Dressing Room only at Gibson, Bartell and Abshire. Our Historic Venue sets the stage for a romantic and unforgettable wedding day. Our Historic Venue sets the stage for a romantic and unforgettable wedding day.",
     "guestCapacity": "300+",
     "venueType": "Cruise",
-    "amenities": [
-      "Liability Insurance"
-    ],
+    "amenities": ["Liability Insurance"],
     "vendors": [
       "Wedding Catering",
       "Wedding DJ",
       "Wedding Dress",
       "Wedding Flowers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Asian-owned Business",
       "Hispanic-Latina-owned Business",
@@ -3107,9 +2963,7 @@
       "Wedding Hair & Makeup",
       "Wedding Invitations"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Black-owned Business",
       "Native-American-owned Business",
@@ -3200,9 +3054,7 @@
       "Wedding Photography",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Asian-owned Business",
       "Black-owned Business",
@@ -3235,9 +3087,7 @@
     "description": "With Barn and Handicap Accessible, we have everything you need for a memorable event. Couples rave about our Barn, making Gulgowski, Rodriguez and Purdy a sought-after venue in La Habra, Idaho. The combination of Barn and Handicap Accessible sets Gulgowski, Rodriguez and Purdy apart from other venues in La Habra, Idaho.",
     "guestCapacity": "101 - 150",
     "venueType": "Brew & Distillery",
-    "amenities": [
-      "Liability Insurance"
-    ],
+    "amenities": ["Liability Insurance"],
     "vendors": [
       "Wedding Bands",
       "Wedding DJ",
@@ -3284,17 +3134,9 @@
       "On-site Accommodations",
       "Wireless Internet"
     ],
-    "vendors": [
-      "Wedding Bands",
-      "Wedding Dress",
-      "Wedding Planners/Designers"
-    ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
-    "diversity": [
-      "Asian-owned Business"
-    ],
+    "vendors": ["Wedding Bands", "Wedding Dress", "Wedding Planners/Designers"],
+    "affiliations": ["Destination Weddings"],
+    "diversity": ["Asian-owned Business"],
     "startingPrice": 8000,
     "pricing": "$$$ - Moderate",
     "coverUrl": "https://images.pexels.com/photos/7648051/pexels-photo-7648051.jpeg",
@@ -3322,11 +3164,7 @@
     "description": "If you're looking for a venue in Mauricemouth, Maine that offers City Hall, look no further than Lakin Inc. Our venue is the epitome of elegance, offering City Hall that will leave you and your guests in awe. Our venue is best known for its City Hall and Dressing Room.",
     "guestCapacity": "300+",
     "venueType": "Rooftop",
-    "amenities": [
-      "Dressing Room",
-      "Reception Area",
-      "Wireless Internet"
-    ],
+    "amenities": ["Dressing Room", "Reception Area", "Wireless Internet"],
     "vendors": [
       "Wedding Bands",
       "Wedding Catering",
@@ -3335,13 +3173,8 @@
       "Wedding Invitations",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
-    "diversity": [
-      "Veteran-owned Business",
-      "Woman-owned Business"
-    ],
+    "affiliations": ["Destination Weddings"],
+    "diversity": ["Veteran-owned Business", "Woman-owned Business"],
     "startingPrice": 20000,
     "pricing": "$$$$ - Luxury",
     "coverUrl": "https://images.pexels.com/photos/7648051/pexels-photo-7648051.jpeg",
@@ -3369,9 +3202,7 @@
     "description": "Conroy Inc is a top-tier wedding venue located in the heart of Port Jerelfort, South Dakota. Our dedicated team in Port Jerelfort, South Dakota will work with you to make your wedding dreams come true. Nestled in Port Jerelfort, South Dakota, Conroy Inc provides an idyllic setting for your special day.",
     "guestCapacity": "300+",
     "venueType": "City Hall",
-    "amenities": [
-      "On-site Accommodations"
-    ],
+    "amenities": ["On-site Accommodations"],
     "vendors": [
       "Wedding Bands",
       "Wedding Catering",
@@ -3381,9 +3212,7 @@
       "Wedding Photography",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Black-owned Business",
       "Hispanic-Latina-owned Business",
@@ -3431,13 +3260,8 @@
       "Wedding DJ",
       "Wedding Photography"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
-    "diversity": [
-      "Asian-owned Business",
-      "Woman-owned Business"
-    ],
+    "affiliations": ["Destination Weddings"],
+    "diversity": ["Asian-owned Business", "Woman-owned Business"],
     "startingPrice": 3000,
     "pricing": "$ - Inexpensive",
     "coverUrl": "https://images.pexels.com/photos/4866922/pexels-photo-4866922.jpeg",
@@ -3479,9 +3303,7 @@
       "Wedding Flowers",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Asian-owned Business",
       "Hispanic-Latina-owned Business",
@@ -3516,11 +3338,7 @@
     "description": "Our venue is the epitome of elegance, offering Historic Venue that will leave you and your guests in awe. Our dedicated team in Carolynetown, Montana will work with you to make your wedding dreams come true. Couples love the Historic Venue that add a touch of elegance to any ceremony.",
     "guestCapacity": "300+",
     "venueType": "Garden",
-    "amenities": [
-      "Handicap Accessible",
-      "Reception Area",
-      "Wireless Internet"
-    ],
+    "amenities": ["Handicap Accessible", "Reception Area", "Wireless Internet"],
     "vendors": [
       "Wedding Catering",
       "Wedding Cake",
@@ -3528,9 +3346,7 @@
       "Wedding Photography",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Asian-owned Business",
       "Black-owned Business",
@@ -3578,9 +3394,7 @@
       "Wedding Photography",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Asian-owned Business",
       "Black-owned Business",
@@ -3615,9 +3429,7 @@
     "description": "You'll fall in love with the Mountain that make Rodriguez, Daugherty and Kiehn a one-of-a-kind venue. The combination of Mountain and Ceremony Area sets Rodriguez, Daugherty and Kiehn apart from other venues in North Etha, Montana. Couples rave about our Mountain, making Rodriguez, Daugherty and Kiehn a sought-after venue in North Etha, Montana.",
     "guestCapacity": "0 - 50",
     "venueType": "Ballroom",
-    "amenities": [
-      "Dressing Room"
-    ],
+    "amenities": ["Dressing Room"],
     "vendors": [
       "Wedding Catering",
       "Wedding Cake",
@@ -3625,9 +3437,7 @@
       "Wedding Flowers",
       "Wedding Hair & Makeup"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Asian-owned Business",
       "Hispanic-Latina-owned Business",
@@ -3674,9 +3484,7 @@
       "Wedding Dress",
       "Wedding Photography"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Hispanic-Latina-owned Business",
       "Veteran-owned Business",
@@ -3724,9 +3532,7 @@
       "Wedding Photography",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Asian-owned Business",
       "Black-owned Business",
@@ -3774,9 +3580,7 @@
       "Wedding Invitations",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Black-owned Business",
       "Hispanic-Latina-owned Business",
@@ -3870,9 +3674,7 @@
       "Wedding Hair & Makeup",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Asian-owned Business",
       "Black-owned Business",
@@ -3968,9 +3770,7 @@
       "Wedding Photography",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Asian-owned Business",
       "Black-owned Business",
@@ -4020,13 +3820,8 @@
       "Wedding Flowers",
       "Wedding Photography"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
-    "diversity": [
-      "Asian-owned Business",
-      "Native-American-owned Business"
-    ],
+    "affiliations": ["Destination Weddings"],
+    "diversity": ["Asian-owned Business", "Native-American-owned Business"],
     "startingPrice": 20000,
     "pricing": "$$$$ - Luxury",
     "coverUrl": "https://images.pexels.com/photos/4722544/pexels-photo-4722544.jpeg",
@@ -4054,11 +3849,7 @@
     "description": "Come and discover why Bartell - Ziemann is Lombard, North Carolina's hidden gem for weddings, featuring Estate and Ceremony Area. Celebrate your love with a backdrop of Ceremony Area only at Bartell - Ziemann. You'll fall in love with the Estate that make Bartell - Ziemann a one-of-a-kind venue.",
     "guestCapacity": "201 - 250",
     "venueType": "Restaurant",
-    "amenities": [
-      "Ceremony Area",
-      "On-site Accommodations",
-      "Reception Area"
-    ],
+    "amenities": ["Ceremony Area", "On-site Accommodations", "Reception Area"],
     "vendors": [
       "Wedding Catering",
       "Wedding DJ",
@@ -4102,15 +3893,8 @@
     "description": "Yundt, Grimes and Shields is a top-tier wedding venue located in the heart of South Karolannberg, New Hampshire. Couples rave about our Castle, making Yundt, Grimes and Shields a sought-after venue in South Karolannberg, New Hampshire. Celebrate your love with a backdrop of Ceremony Area only at Yundt, Grimes and Shields.",
     "guestCapacity": "151 - 200",
     "venueType": "Brew & Distillery",
-    "amenities": [
-      "Ceremony Area",
-      "On-site Accommodations"
-    ],
-    "vendors": [
-      "Wedding Catering",
-      "Wedding Cake",
-      "Wedding Flowers"
-    ],
+    "amenities": ["Ceremony Area", "On-site Accommodations"],
+    "vendors": ["Wedding Catering", "Wedding Cake", "Wedding Flowers"],
     "affiliations": [],
     "diversity": [],
     "startingPrice": 16000,
@@ -4205,13 +3989,8 @@
       "Wedding Photography",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
-    "diversity": [
-      "Veteran-owned Business",
-      "Woman-owned Business"
-    ],
+    "affiliations": ["Destination Weddings"],
+    "diversity": ["Veteran-owned Business", "Woman-owned Business"],
     "startingPrice": 12000,
     "pricing": "$$$$ - Luxury",
     "coverUrl": "https://images.pexels.com/photos/6544766/pexels-photo-6544766.jpeg",
@@ -4301,9 +4080,7 @@
       "Wedding DJ",
       "Wedding Flowers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Black-owned Business",
       "Native-American-owned Business",
@@ -4388,14 +4165,8 @@
       "Liability Insurance",
       "Wireless Internet"
     ],
-    "vendors": [
-      "Wedding Cake",
-      "Wedding Dress",
-      "Wedding Invitations"
-    ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "vendors": ["Wedding Cake", "Wedding Dress", "Wedding Invitations"],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Asian-owned Business",
       "Black-owned Business",
@@ -4540,13 +4311,8 @@
       "Wedding DJ",
       "Wedding Hair & Makeup"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
-    "diversity": [
-      "Asian-owned Business",
-      "Veteran-owned Business"
-    ],
+    "affiliations": ["Destination Weddings"],
+    "diversity": ["Asian-owned Business", "Veteran-owned Business"],
     "startingPrice": 16000,
     "pricing": "$$$$ - Luxury",
     "coverUrl": "https://images.pexels.com/photos/4866922/pexels-photo-4866922.jpeg",
@@ -4638,9 +4404,7 @@
       "Wedding Photography",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Black-owned Business",
       "Native-American-owned Business",
@@ -4739,9 +4503,7 @@
       "Wedding Photography",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [],
     "startingPrice": 9000,
     "pricing": "$$$ - Moderate",
@@ -4770,11 +4532,7 @@
     "description": "Celebrate your love with a backdrop of Ceremony Area only at Connelly, Towne and Altenwerth. Our dedicated team in Yosttown, West Virginia will work with you to make your wedding dreams come true. If you're looking for a venue in Yosttown, West Virginia that offers Brew & Distillery, look no further than Connelly, Towne and Altenwerth.",
     "guestCapacity": "0 - 50",
     "venueType": "Garden",
-    "amenities": [
-      "Ceremony Area",
-      "Handicap Accessible",
-      "Wireless Internet"
-    ],
+    "amenities": ["Ceremony Area", "Handicap Accessible", "Wireless Internet"],
     "vendors": [
       "Wedding Bands",
       "Wedding DJ",
@@ -4783,10 +4541,7 @@
       "Wedding Photography"
     ],
     "affiliations": [],
-    "diversity": [
-      "Pacific Islander-owned Business",
-      "Woman-owned Business"
-    ],
+    "diversity": ["Pacific Islander-owned Business", "Woman-owned Business"],
     "startingPrice": 8000,
     "pricing": "$$$ - Moderate",
     "coverUrl": "https://images.pexels.com/photos/4866922/pexels-photo-4866922.jpeg",
@@ -4824,9 +4579,7 @@
       "Wedding Photography",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Hispanic-Latina-owned Business",
       "Pacific Islander-owned Business",
@@ -4871,9 +4624,7 @@
       "Wedding Invitations",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Hispanic-Latina-owned Business",
       "Native-American-owned Business",
@@ -5011,10 +4762,7 @@
       "Wedding Invitations"
     ],
     "affiliations": [],
-    "diversity": [
-      "Asian-owned Business",
-      "Pacific Islander-owned Business"
-    ],
+    "diversity": ["Asian-owned Business", "Pacific Islander-owned Business"],
     "startingPrice": 4000,
     "pricing": "$ - Inexpensive",
     "coverUrl": "https://images.pexels.com/photos/5096304/pexels-photo-5096304.jpeg",
@@ -5098,9 +4846,7 @@
       "Wedding DJ",
       "Wedding Dress"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Black-owned Business",
       "Native-American-owned Business",
@@ -5148,9 +4894,7 @@
       "Wedding Photography"
     ],
     "affiliations": [],
-    "diversity": [
-      "Hispanic-Latina-owned Business"
-    ],
+    "diversity": ["Hispanic-Latina-owned Business"],
     "startingPrice": 7000,
     "pricing": "$$ - Affordable",
     "coverUrl": "https://images.pexels.com/photos/4866922/pexels-photo-4866922.jpeg",
@@ -5193,13 +4937,8 @@
       "Wedding Invitations",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
-    "diversity": [
-      "Pacific Islander-owned Business",
-      "Veteran-owned Business"
-    ],
+    "affiliations": ["Destination Weddings"],
+    "diversity": ["Pacific Islander-owned Business", "Veteran-owned Business"],
     "startingPrice": 10000,
     "pricing": "$$$ - Moderate",
     "coverUrl": "https://images.pexels.com/photos/9375427/pexels-photo-9375427.jpeg",
@@ -5238,9 +4977,7 @@
       "Wedding DJ",
       "Wedding Flowers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Hispanic-Latina-owned Business",
       "Native-American-owned Business",
@@ -5274,11 +5011,7 @@
     "description": "Our venue is best known for its Ballroom and Indoor Event Space. Schneider - Lemke is not just a venue; it's an experience that includes Ballroom and Indoor Event Space. Our Ballroom sets the stage for a romantic and unforgettable wedding day.",
     "guestCapacity": "101 - 150",
     "venueType": "Garden",
-    "amenities": [
-      "Ceremony Area",
-      "Liability Insurance",
-      "Wireless Internet"
-    ],
+    "amenities": ["Ceremony Area", "Liability Insurance", "Wireless Internet"],
     "vendors": [
       "Wedding Cake",
       "Wedding DJ",
@@ -5383,9 +5116,7 @@
       "Wedding Flowers",
       "Wedding Invitations"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Asian-owned Business",
       "Black-owned Business",
@@ -5435,9 +5166,7 @@
       "Wedding Dress",
       "Wedding Flowers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Native-American-owned Business",
       "Veteran-owned Business",
@@ -5470,11 +5199,7 @@
     "description": "Nestled in East Gersonview, Indiana, Gerhold - Gleason provides an idyllic setting for your special day. Nestled in East Gersonview, Indiana, Gerhold - Gleason provides an idyllic setting for your special day. The combination of Beach and Ceremony Area sets Gerhold - Gleason apart from other venues in East Gersonview, Indiana.",
     "guestCapacity": "51 - 100",
     "venueType": "Hotel",
-    "amenities": [
-      "Dressing Room",
-      "Reception Area",
-      "Wireless Internet"
-    ],
+    "amenities": ["Dressing Room", "Reception Area", "Wireless Internet"],
     "vendors": [
       "Wedding Bands",
       "Wedding Dress",
@@ -5515,18 +5240,9 @@
     "description": "Our venue is best known for its Castle and Dressing Room. The combination of Castle and Dressing Room sets Towne Inc apart from other venues in Fort Abbeychester, Alabama. Towne Inc is not just a venue; it's an experience that includes Castle and Dressing Room.",
     "guestCapacity": "0 - 50",
     "venueType": "Vineyard & Winery",
-    "amenities": [
-      "Dressing Room",
-      "Liability Insurance",
-      "Wireless Internet"
-    ],
-    "vendors": [
-      "Wedding Catering",
-      "Wedding Planners/Designers"
-    ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "amenities": ["Dressing Room", "Liability Insurance", "Wireless Internet"],
+    "vendors": ["Wedding Catering", "Wedding Planners/Designers"],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Asian-owned Business",
       "Black-owned Business",
@@ -5566,12 +5282,8 @@
       "Liability Insurance",
       "On-site Accommodations"
     ],
-    "vendors": [
-      "Wedding Invitations"
-    ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "vendors": ["Wedding Invitations"],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Black-owned Business",
       "Hispanic-Latina-owned Business",
@@ -5620,9 +5332,7 @@
       "Wedding Photography",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Asian-owned Business",
       "Black-owned Business",
@@ -5718,13 +5428,8 @@
       "Wedding Hair & Makeup",
       "Wedding Photography"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
-    "diversity": [
-      "Asian-owned Business",
-      "Native-American-owned Business"
-    ],
+    "affiliations": ["Destination Weddings"],
+    "diversity": ["Asian-owned Business", "Native-American-owned Business"],
     "startingPrice": 10000,
     "pricing": "$$$ - Moderate",
     "coverUrl": "https://images.pexels.com/photos/4064700/pexels-photo-4064700.jpeg",
@@ -5752,11 +5457,7 @@
     "description": "You'll fall in love with the Backyard that make Waters and Sons a one-of-a-kind venue. Our Backyard sets the stage for a romantic and unforgettable wedding day. Our venue is the epitome of elegance, offering Backyard that will leave you and your guests in awe.",
     "guestCapacity": "300+",
     "venueType": "Castle",
-    "amenities": [
-      "Ceremony Area",
-      "Indoor Event Space",
-      "Liability Insurance"
-    ],
+    "amenities": ["Ceremony Area", "Indoor Event Space", "Liability Insurance"],
     "vendors": [
       "Wedding Catering",
       "Wedding Cake",
@@ -5847,11 +5548,7 @@
     "description": "Our venue is best known for its Library and Dressing Room. Our Library sets the stage for a romantic and unforgettable wedding day. Bailey - Cormier is not just a venue; it's an experience that includes Library and Dressing Room.",
     "guestCapacity": "251 - 300",
     "venueType": "Vineyard & Winery",
-    "amenities": [
-      "Handicap Accessible",
-      "Reception Area",
-      "Wireless Internet"
-    ],
+    "amenities": ["Handicap Accessible", "Reception Area", "Wireless Internet"],
     "vendors": [
       "Wedding Bands",
       "Wedding Catering",
@@ -5941,11 +5638,7 @@
     "description": "Your search for the perfect wedding venue in Niagara Falls, Louisiana ends with Spencer, Jones and Haley, known for its Dressing Room. Experience the magic of Desert in a stunning setting at Spencer, Jones and Haley. Our venue is best known for its Desert and Dressing Room.",
     "guestCapacity": "51 - 100",
     "venueType": "Rooftop",
-    "amenities": [
-      "Dressing Room",
-      "Indoor Event Space",
-      "Liability Insurance"
-    ],
+    "amenities": ["Dressing Room", "Indoor Event Space", "Liability Insurance"],
     "vendors": [
       "Wedding Bands",
       "Wedding Cake",
@@ -5953,9 +5646,7 @@
       "Wedding Flowers",
       "Wedding Invitations"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Asian-owned Business",
       "Black-owned Business",
@@ -6003,9 +5694,7 @@
       "Wedding Flowers",
       "Wedding Invitations"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Asian-owned Business",
       "Hispanic-Latina-owned Business",
@@ -6055,9 +5744,7 @@
       "Wedding Hair & Makeup",
       "Wedding Invitations"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Black-owned Business",
       "Native-American-owned Business",
@@ -6090,10 +5777,7 @@
     "description": "Experience the magic of Museum in a stunning setting at Zulauf, Olson and Kub. Your search for the perfect wedding venue in Hesterfort, Utah ends with Zulauf, Olson and Kub, known for its Handicap Accessible. Celebrate your love with a backdrop of Handicap Accessible only at Zulauf, Olson and Kub.",
     "guestCapacity": "0 - 50",
     "venueType": "Restaurant",
-    "amenities": [
-      "Liability Insurance",
-      "Reception Area"
-    ],
+    "amenities": ["Liability Insurance", "Reception Area"],
     "vendors": [
       "Wedding Bands",
       "Wedding Catering",
@@ -6133,10 +5817,7 @@
     "description": "Our venue is the epitome of elegance, offering Vineyard & Winery that will leave you and your guests in awe. Couples love the Vineyard & Winery that add a touch of elegance to any ceremony. Nestled in Abigailstead, Colorado, Herman - O'Connell provides an idyllic setting for your special day.",
     "guestCapacity": "201 - 250",
     "venueType": "Garden",
-    "amenities": [
-      "Handicap Accessible",
-      "Indoor Event Space"
-    ],
+    "amenities": ["Handicap Accessible", "Indoor Event Space"],
     "vendors": [
       "Wedding Cake",
       "Wedding DJ",
@@ -6144,9 +5825,7 @@
       "Wedding Hair & Makeup",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Black-owned Business",
       "Hispanic-Latina-owned Business",
@@ -6185,13 +5864,8 @@
       "On-site Accommodations",
       "Reception Area"
     ],
-    "vendors": [
-      "Wedding Bands",
-      "Wedding Invitations"
-    ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "vendors": ["Wedding Bands", "Wedding Invitations"],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Black-owned Business",
       "Hispanic-Latina-owned Business",
@@ -6238,9 +5912,7 @@
       "Wedding Photography",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Black-owned Business",
       "Hispanic-Latina-owned Business",
@@ -6333,9 +6005,7 @@
       "Wedding Flowers",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Black-owned Business",
       "Native-American-owned Business",
@@ -6471,10 +6141,7 @@
       "Indoor Event Space",
       "On-site Accommodations"
     ],
-    "vendors": [
-      "Wedding Hair & Makeup",
-      "Wedding Planners/Designers"
-    ],
+    "vendors": ["Wedding Hair & Makeup", "Wedding Planners/Designers"],
     "affiliations": [],
     "diversity": [
       "Black-owned Business",
@@ -6797,19 +6464,14 @@
     "description": "Our venue is the epitome of elegance, offering Backyard that will leave you and your guests in awe. Our venue is best known for its Backyard and Ceremony Area. Come and discover why Green Group is Cassinside, Alabama's hidden gem for weddings, featuring Backyard and Ceremony Area.",
     "guestCapacity": "0 - 50",
     "venueType": "Brew & Distillery",
-    "amenities": [
-      "Dressing Room",
-      "Indoor Event Space"
-    ],
+    "amenities": ["Dressing Room", "Indoor Event Space"],
     "vendors": [
       "Wedding Catering",
       "Wedding Dress",
       "Wedding Hair & Makeup",
       "Wedding Invitations"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Black-owned Business",
       "Native-American-owned Business",
@@ -6855,9 +6517,7 @@
       "Wedding Hair & Makeup",
       "Wedding Invitations"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Asian-owned Business",
       "Hispanic-Latina-owned Business",
@@ -6892,11 +6552,7 @@
     "description": "Our dedicated team in Zemlakport, Louisiana will work with you to make your wedding dreams come true. Our dedicated team in Zemlakport, Louisiana will work with you to make your wedding dreams come true. You'll fall in love with the Brew & Distillery that make Lesch - Brown a one-of-a-kind venue.",
     "guestCapacity": "101 - 150",
     "venueType": "Ballroom",
-    "amenities": [
-      "Ceremony Area",
-      "Indoor Event Space",
-      "Reception Area"
-    ],
+    "amenities": ["Ceremony Area", "Indoor Event Space", "Reception Area"],
     "vendors": [
       "Wedding Bands",
       "Wedding Catering",
@@ -6954,9 +6610,7 @@
       "Wedding Invitations",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Asian-owned Business",
       "Hispanic-Latina-owned Business",
@@ -7006,9 +6660,7 @@
       "Wedding Invitations",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Hispanic-Latina-owned Business",
       "Native-American-owned Business",
@@ -7043,21 +6695,10 @@
     "description": "Hermann LLC is a top-tier wedding venue located in the heart of San Francisco, Louisiana. Couples love the Library that add a touch of elegance to any ceremony. Come and discover why Hermann LLC is San Francisco, Louisiana's hidden gem for weddings, featuring Library and Dressing Room.",
     "guestCapacity": "201 - 250",
     "venueType": "Library",
-    "amenities": [
-      "Ceremony Area",
-      "Dressing Room",
-      "Indoor Event Space"
-    ],
-    "vendors": [
-      "Wedding Catering",
-      "Wedding Cake",
-      "Wedding Hair & Makeup"
-    ],
+    "amenities": ["Ceremony Area", "Dressing Room", "Indoor Event Space"],
+    "vendors": ["Wedding Catering", "Wedding Cake", "Wedding Hair & Makeup"],
     "affiliations": [],
-    "diversity": [
-      "Asian-owned Business",
-      "Hispanic-Latina-owned Business"
-    ],
+    "diversity": ["Asian-owned Business", "Hispanic-Latina-owned Business"],
     "startingPrice": 4000,
     "pricing": "$ - Inexpensive",
     "coverUrl": "https://images.pexels.com/photos/7648051/pexels-photo-7648051.jpeg",
@@ -7085,20 +6726,14 @@
     "description": "Experience the magic of Brew & Distillery in a stunning setting at Konopelski Inc. Your search for the perfect wedding venue in New Verner, Louisiana ends with Konopelski Inc, known for its Dressing Room. Couples love the Brew & Distillery that add a touch of elegance to any ceremony.",
     "guestCapacity": "101 - 150",
     "venueType": "Vineyard & Winery",
-    "amenities": [
-      "Ceremony Area",
-      "Indoor Event Space",
-      "Reception Area"
-    ],
+    "amenities": ["Ceremony Area", "Indoor Event Space", "Reception Area"],
     "vendors": [
       "Wedding Catering",
       "Wedding DJ",
       "Wedding Flowers",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Asian-owned Business",
       "Native-American-owned Business",
@@ -7144,9 +6779,7 @@
       "Wedding Photography",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Asian-owned Business",
       "Hispanic-Latina-owned Business",
@@ -7281,20 +6914,14 @@
     "description": "Wilderman - Kreiger boasts Rooftop that make it unique among venues in Mitchellboro, South Dakota. You'll fall in love with the Rooftop that make Wilderman - Kreiger a one-of-a-kind venue. Couples rave about our Rooftop, making Wilderman - Kreiger a sought-after venue in Mitchellboro, South Dakota.",
     "guestCapacity": "201 - 250",
     "venueType": "City Hall",
-    "amenities": [
-      "Dressing Room",
-      "Handicap Accessible",
-      "Indoor Event Space"
-    ],
+    "amenities": ["Dressing Room", "Handicap Accessible", "Indoor Event Space"],
     "vendors": [
       "Wedding Bands",
       "Wedding Catering",
       "Wedding Flowers",
       "Wedding Photography"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Asian-owned Business",
       "Black-owned Business",
@@ -7337,14 +6964,8 @@
       "Liability Insurance",
       "Wireless Internet"
     ],
-    "vendors": [
-      "Wedding Bands",
-      "Wedding Dress",
-      "Wedding Hair & Makeup"
-    ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "vendors": ["Wedding Bands", "Wedding Dress", "Wedding Hair & Makeup"],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Asian-owned Business",
       "Black-owned Business",
@@ -7378,14 +6999,8 @@
     "description": "If you're looking for a venue in Watersfurt, Wisconsin that offers Barn, look no further than Bins LLC. Our dedicated team in Watersfurt, Wisconsin will work with you to make your wedding dreams come true. Come and discover why Bins LLC is Watersfurt, Wisconsin's hidden gem for weddings, featuring Barn and Liability Insurance.",
     "guestCapacity": "51 - 100",
     "venueType": "Hotel",
-    "amenities": [
-      "Indoor Event Space"
-    ],
-    "vendors": [
-      "Wedding Cake",
-      "Wedding DJ",
-      "Wedding Photography"
-    ],
+    "amenities": ["Indoor Event Space"],
+    "vendors": ["Wedding Cake", "Wedding DJ", "Wedding Photography"],
     "affiliations": [],
     "diversity": [
       "Asian-owned Business",
@@ -7419,10 +7034,7 @@
     "description": "If you're looking for a venue in Darrelborough, Rhode Island that offers Desert, look no further than Waters Group. Couples love the Desert that add a touch of elegance to any ceremony. Our venue is best known for its Desert and Dressing Room.",
     "guestCapacity": "101 - 150",
     "venueType": "Rooftop",
-    "amenities": [
-      "Indoor Event Space",
-      "On-site Accommodations"
-    ],
+    "amenities": ["Indoor Event Space", "On-site Accommodations"],
     "vendors": [
       "Wedding Catering",
       "Wedding DJ",
@@ -7432,9 +7044,7 @@
       "Wedding Photography",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Hispanic-Latina-owned Business",
       "Pacific Islander-owned Business"
@@ -7466,11 +7076,7 @@
     "description": "Our Backyard sets the stage for a romantic and unforgettable wedding day. Experience the magic of Backyard in a stunning setting at Beatty, Abbott and Reichert. Our venue is best known for its Backyard and Handicap Accessible.",
     "guestCapacity": "201 - 250",
     "venueType": "Brew & Distillery",
-    "amenities": [
-      "Liability Insurance",
-      "Reception Area",
-      "Wireless Internet"
-    ],
+    "amenities": ["Liability Insurance", "Reception Area", "Wireless Internet"],
     "vendors": [
       "Wedding Bands",
       "Wedding Dress",
@@ -7478,9 +7084,7 @@
       "Wedding Photography",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Asian-owned Business",
       "Hispanic-Latina-owned Business",
@@ -7529,10 +7133,7 @@
       "Wedding Photography"
     ],
     "affiliations": [],
-    "diversity": [
-      "Asian-owned Business",
-      "Black-owned Business"
-    ],
+    "diversity": ["Asian-owned Business", "Black-owned Business"],
     "startingPrice": 19000,
     "pricing": "$$$$ - Luxury",
     "coverUrl": "https://images.pexels.com/photos/1035665/pexels-photo-1035665.jpeg",
@@ -7607,10 +7208,7 @@
     "description": "Our venue is the epitome of elegance, offering Trees that will leave you and your guests in awe. Our venue is best known for its Trees and Handicap Accessible. You'll fall in love with the Trees that make Mertz, Leannon and Dach a one-of-a-kind venue.",
     "guestCapacity": "251 - 300",
     "venueType": "Museum",
-    "amenities": [
-      "Handicap Accessible",
-      "Wireless Internet"
-    ],
+    "amenities": ["Handicap Accessible", "Wireless Internet"],
     "vendors": [
       "Wedding Bands",
       "Wedding Catering",
@@ -7620,9 +7218,7 @@
       "Wedding Photography",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Asian-owned Business",
       "Hispanic-Latina-owned Business",
@@ -7657,11 +7253,7 @@
     "description": "Kertzmann - Runolfsdottir boasts Ceremony Area that make it unique among venues in Fort Agustincester, Vermont. Experience the magic of Tented in a stunning setting at Kertzmann - Runolfsdottir. Nestled in Fort Agustincester, Vermont, Kertzmann - Runolfsdottir provides an idyllic setting for your special day.",
     "guestCapacity": "101 - 150",
     "venueType": "Barn",
-    "amenities": [
-      "Dressing Room",
-      "Handicap Accessible",
-      "Reception Area"
-    ],
+    "amenities": ["Dressing Room", "Handicap Accessible", "Reception Area"],
     "vendors": [
       "Wedding Bands",
       "Wedding DJ",
@@ -7670,9 +7262,7 @@
       "Wedding Invitations",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Black-owned Business",
       "Native-American-owned Business",
@@ -7719,9 +7309,7 @@
       "Wedding Hair & Makeup",
       "Wedding Invitations"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Asian-owned Business",
       "Hispanic-Latina-owned Business",
@@ -7810,9 +7398,7 @@
       "Wedding Invitations",
       "Wedding Photography"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Asian-owned Business",
       "Black-owned Business",
@@ -7860,13 +7446,8 @@
       "Wedding Photography",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
-    "diversity": [
-      "Asian-owned Business",
-      "Native-American-owned Business"
-    ],
+    "affiliations": ["Destination Weddings"],
+    "diversity": ["Asian-owned Business", "Native-American-owned Business"],
     "startingPrice": 4000,
     "pricing": "$ - Inexpensive",
     "coverUrl": "https://images.pexels.com/photos/10840210/pexels-photo-10840210.jpeg",
@@ -7949,11 +7530,7 @@
       "Reception Area",
       "Wireless Internet"
     ],
-    "vendors": [
-      "Wedding Cake",
-      "Wedding Hair & Makeup",
-      "Wedding Photography"
-    ],
+    "vendors": ["Wedding Cake", "Wedding Hair & Makeup", "Wedding Photography"],
     "affiliations": [],
     "diversity": [
       "Asian-owned Business",
@@ -8005,9 +7582,7 @@
       "Wedding Invitations",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Hispanic-Latina-owned Business",
       "Native-American-owned Business",
@@ -8055,9 +7630,7 @@
       "Wedding Flowers",
       "Wedding Invitations"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Black-owned Business",
       "Hispanic-Latina-owned Business",
@@ -8090,11 +7663,7 @@
     "description": "Couples rave about our Country Club, making Hane - Blick a sought-after venue in Uniquestad, Nebraska. Celebrate your love with a backdrop of Ceremony Area only at Hane - Blick. Hane - Blick is not just a venue; it's an experience that includes Country Club and Ceremony Area.",
     "guestCapacity": "151 - 200",
     "venueType": "Mountain",
-    "amenities": [
-      "Ceremony Area",
-      "Indoor Event Space",
-      "Wireless Internet"
-    ],
+    "amenities": ["Ceremony Area", "Indoor Event Space", "Wireless Internet"],
     "vendors": [
       "Wedding Catering",
       "Wedding Cake",
@@ -8143,11 +7712,7 @@
       "Reception Area",
       "Wireless Internet"
     ],
-    "vendors": [
-      "Wedding Bands",
-      "Wedding Catering",
-      "Wedding DJ"
-    ],
+    "vendors": ["Wedding Bands", "Wedding Catering", "Wedding DJ"],
     "affiliations": [],
     "diversity": [
       "Asian-owned Business",
@@ -8241,10 +7806,7 @@
       "Wedding Photography"
     ],
     "affiliations": [],
-    "diversity": [
-      "Veteran-owned Business",
-      "Woman-owned Business"
-    ],
+    "diversity": ["Veteran-owned Business", "Woman-owned Business"],
     "startingPrice": 10000,
     "pricing": "$$$ - Moderate",
     "coverUrl": "https://images.pexels.com/photos/4866922/pexels-photo-4866922.jpeg",
@@ -8285,10 +7847,7 @@
       "Wedding Planners/Designers"
     ],
     "affiliations": [],
-    "diversity": [
-      "Black-owned Business",
-      "Veteran-owned Business"
-    ],
+    "diversity": ["Black-owned Business", "Veteran-owned Business"],
     "startingPrice": 14000,
     "pricing": "$$$$ - Luxury",
     "coverUrl": "https://images.pexels.com/photos/169193/pexels-photo-169193.jpeg",
@@ -8428,9 +7987,7 @@
       "Wedding Hair & Makeup",
       "Wedding Photography"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Black-owned Business",
       "Hispanic-Latina-owned Business",
@@ -8464,19 +8021,14 @@
     "description": "Our Hotel sets the stage for a romantic and unforgettable wedding day. Your search for the perfect wedding venue in Deonfort, Oregon ends with Anderson - Kovacek, known for its Ceremony Area. Couples rave about our Hotel, making Anderson - Kovacek a sought-after venue in Deonfort, Oregon.",
     "guestCapacity": "0 - 50",
     "venueType": "Tented",
-    "amenities": [
-      "Ceremony Area",
-      "Liability Insurance"
-    ],
+    "amenities": ["Ceremony Area", "Liability Insurance"],
     "vendors": [
       "Wedding Bands",
       "Wedding DJ",
       "Wedding Dress",
       "Wedding Photography"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Black-owned Business",
       "Hispanic-Latina-owned Business",
@@ -8521,9 +8073,7 @@
       "Wedding Flowers",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Hispanic-Latina-owned Business",
       "Native-American-owned Business",
@@ -8556,10 +8106,7 @@
     "description": "Your search for the perfect wedding venue in Bruenville, Arkansas ends with Pagac, Batz and Brakus, known for its Dressing Room. Celebrate your love with a backdrop of Dressing Room only at Pagac, Batz and Brakus. Pagac, Batz and Brakus is a top-tier wedding venue located in the heart of Bruenville, Arkansas.",
     "guestCapacity": "151 - 200",
     "venueType": "Castle",
-    "amenities": [
-      "Handicap Accessible",
-      "Reception Area"
-    ],
+    "amenities": ["Handicap Accessible", "Reception Area"],
     "vendors": [
       "Wedding Bands",
       "Wedding Catering",
@@ -8567,9 +8114,7 @@
       "Wedding DJ",
       "Wedding Photography"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Asian-owned Business",
       "Native-American-owned Business",
@@ -8604,10 +8149,7 @@
     "description": "Kuvalis - Christiansen is a top-tier wedding venue located in the heart of Kerlukeburgh, Rhode Island. Kuvalis - Christiansen boasts Ceremony Area that make it unique among venues in Kerlukeburgh, Rhode Island. If you're looking for a venue in Kerlukeburgh, Rhode Island that offers Hotel, look no further than Kuvalis - Christiansen.",
     "guestCapacity": "0 - 50",
     "venueType": "Hotel",
-    "amenities": [
-      "On-site Accommodations",
-      "Reception Area"
-    ],
+    "amenities": ["On-site Accommodations", "Reception Area"],
     "vendors": [
       "Wedding Catering",
       "Wedding Cake",
@@ -8655,11 +8197,7 @@
       "Liability Insurance",
       "Reception Area"
     ],
-    "vendors": [
-      "Wedding Dress",
-      "Wedding Invitations",
-      "Wedding Photography"
-    ],
+    "vendors": ["Wedding Dress", "Wedding Invitations", "Wedding Photography"],
     "affiliations": [],
     "diversity": [
       "Asian-owned Business",
@@ -8706,9 +8244,7 @@
       "Wedding Photography",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Hispanic-Latina-owned Business",
       "Veteran-owned Business",
@@ -8741,21 +8277,10 @@
     "description": "You'll fall in love with the Garden that make Bahringer - Wisozk a one-of-a-kind venue. Celebrate your love with a backdrop of Ceremony Area only at Bahringer - Wisozk. You'll fall in love with the Garden that make Bahringer - Wisozk a one-of-a-kind venue.",
     "guestCapacity": "201 - 250",
     "venueType": "Desert",
-    "amenities": [
-      "Handicap Accessible",
-      "Reception Area"
-    ],
-    "vendors": [
-      "Wedding Cake",
-      "Wedding DJ",
-      "Wedding Hair & Makeup"
-    ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
-    "diversity": [
-      "Native-American-owned Business"
-    ],
+    "amenities": ["Handicap Accessible", "Reception Area"],
+    "vendors": ["Wedding Cake", "Wedding DJ", "Wedding Hair & Makeup"],
+    "affiliations": ["Destination Weddings"],
+    "diversity": ["Native-American-owned Business"],
     "startingPrice": 18000,
     "pricing": "$$$$ - Luxury",
     "coverUrl": "https://images.pexels.com/photos/6544766/pexels-photo-6544766.jpeg",
@@ -8846,9 +8371,7 @@
       "Wedding Dress",
       "Wedding Hair & Makeup"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Black-owned Business",
       "Hispanic-Latina-owned Business",
@@ -8883,11 +8406,7 @@
     "description": "Leffler, Abbott and Botsford is not just a venue; it's an experience that includes Museum and Ceremony Area. Our venue is the epitome of elegance, offering Museum that will leave you and your guests in awe. Celebrate your love with a backdrop of Ceremony Area only at Leffler, Abbott and Botsford.",
     "guestCapacity": "251 - 300",
     "venueType": "Mountain",
-    "amenities": [
-      "Ceremony Area",
-      "Dressing Room",
-      "Reception Area"
-    ],
+    "amenities": ["Ceremony Area", "Dressing Room", "Reception Area"],
     "vendors": [
       "Wedding Bands",
       "Wedding DJ",
@@ -8895,13 +8414,8 @@
       "Wedding Flowers",
       "Wedding Photography"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
-    "diversity": [
-      "Asian-owned Business",
-      "Woman-owned Business"
-    ],
+    "affiliations": ["Destination Weddings"],
+    "diversity": ["Asian-owned Business", "Woman-owned Business"],
     "startingPrice": 19000,
     "pricing": "$$$$ - Luxury",
     "coverUrl": "https://images.pexels.com/photos/4181130/pexels-photo-4181130.jpeg",
@@ -8982,14 +8496,8 @@
       "Indoor Event Space",
       "Wireless Internet"
     ],
-    "vendors": [
-      "Wedding Bands",
-      "Wedding Cake",
-      "Wedding Invitations"
-    ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "vendors": ["Wedding Bands", "Wedding Cake", "Wedding Invitations"],
+    "affiliations": ["Destination Weddings"],
     "diversity": [],
     "startingPrice": 10000,
     "pricing": "$$$ - Moderate",
@@ -9024,14 +8532,8 @@
       "Reception Area",
       "Wireless Internet"
     ],
-    "vendors": [
-      "Wedding Bands",
-      "Wedding Dress",
-      "Wedding Flowers"
-    ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "vendors": ["Wedding Bands", "Wedding Dress", "Wedding Flowers"],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Black-owned Business",
       "Pacific Islander-owned Business",
@@ -9128,10 +8630,7 @@
       "Wedding Planners/Designers"
     ],
     "affiliations": [],
-    "diversity": [
-      "Native-American-owned Business",
-      "Veteran-owned Business"
-    ],
+    "diversity": ["Native-American-owned Business", "Veteran-owned Business"],
     "startingPrice": 7000,
     "pricing": "$$ - Affordable",
     "coverUrl": "https://images.pexels.com/photos/1035665/pexels-photo-1035665.jpeg",
@@ -9174,10 +8673,7 @@
       "Wedding Planners/Designers"
     ],
     "affiliations": [],
-    "diversity": [
-      "Black-owned Business",
-      "Native-American-owned Business"
-    ],
+    "diversity": ["Black-owned Business", "Native-American-owned Business"],
     "startingPrice": 9000,
     "pricing": "$$$ - Moderate",
     "coverUrl": "https://images.pexels.com/photos/7648047/pexels-photo-7648047.jpeg",
@@ -9210,10 +8706,7 @@
       "On-site Accommodations",
       "Wireless Internet"
     ],
-    "vendors": [
-      "Wedding Flowers",
-      "Wedding Invitations"
-    ],
+    "vendors": ["Wedding Flowers", "Wedding Invitations"],
     "affiliations": [],
     "diversity": [
       "Hispanic-Latina-owned Business",
@@ -9260,9 +8753,7 @@
       "Wedding DJ",
       "Wedding Flowers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Black-owned Business",
       "Native-American-owned Business",
@@ -9309,9 +8800,7 @@
       "Wedding Photography",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Black-owned Business",
       "Hispanic-Latina-owned Business",
@@ -9404,12 +8893,8 @@
       "Wedding DJ",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
-    "diversity": [
-      "Woman-owned Business"
-    ],
+    "affiliations": ["Destination Weddings"],
+    "diversity": ["Woman-owned Business"],
     "startingPrice": 20000,
     "pricing": "$$$$ - Luxury",
     "coverUrl": "https://images.pexels.com/photos/9375427/pexels-photo-9375427.jpeg",
@@ -9487,11 +8972,7 @@
     "description": "Our dedicated team in Murielland, Nevada will work with you to make your wedding dreams come true. Couples rave about our Mountain, making Parker, Nader and Jones a sought-after venue in Murielland, Nevada. Your search for the perfect wedding venue in Murielland, Nevada ends with Parker, Nader and Jones, known for its Ceremony Area.",
     "guestCapacity": "101 - 150",
     "venueType": "Restaurant",
-    "amenities": [
-      "Dressing Room",
-      "Reception Area",
-      "Wireless Internet"
-    ],
+    "amenities": ["Dressing Room", "Reception Area", "Wireless Internet"],
     "vendors": [
       "Wedding Bands",
       "Wedding Flowers",
@@ -9583,9 +9064,7 @@
       "Wedding Invitations",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Asian-owned Business",
       "Hispanic-Latina-owned Business",
@@ -9614,13 +9093,8 @@
       "Liability Insurance",
       "Reception Area"
     ],
-    "vendors": [
-      "Wedding Catering",
-      "Wedding Photography"
-    ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "vendors": ["Wedding Catering", "Wedding Photography"],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Asian-owned Business",
       "Black-owned Business",
@@ -9669,9 +9143,7 @@
       "Wedding Photography",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Hispanic-Latina-owned Business",
       "Native-American-owned Business",
@@ -9796,9 +9268,7 @@
       "Wedding Photography"
     ],
     "affiliations": [],
-    "diversity": [
-      "Black-owned Business"
-    ],
+    "diversity": ["Black-owned Business"],
     "startingPrice": 15000,
     "pricing": "$$$$ - Luxury",
     "coverUrl": "https://images.pexels.com/photos/7648051/pexels-photo-7648051.jpeg",
@@ -9837,9 +9307,7 @@
       "Wedding Flowers",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Native-American-owned Business",
       "Pacific Islander-owned Business",
@@ -9862,10 +9330,7 @@
     "description": "If you're looking for a venue in Estellport, New Jersey that offers Museum, look no further than Brown, Upton and Veum. Nestled in Estellport, New Jersey, Brown, Upton and Veum provides an idyllic setting for your special day. Our Museum sets the stage for a romantic and unforgettable wedding day.",
     "guestCapacity": "300+",
     "venueType": "Cruise",
-    "amenities": [
-      "Handicap Accessible",
-      "Reception Area"
-    ],
+    "amenities": ["Handicap Accessible", "Reception Area"],
     "vendors": [
       "Wedding Dress",
       "Wedding Hair & Makeup",
@@ -9957,9 +9422,7 @@
       "Wedding Invitations",
       "Wedding Photography"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Black-owned Business",
       "Pacific Islander-owned Business",
@@ -9981,11 +9444,7 @@
     "description": "Celebrate your love with a backdrop of Ceremony Area only at Hudson, Runolfsson and Upton. Hudson, Runolfsson and Upton is not just a venue; it's an experience that includes Rooftop and Ceremony Area. With Rooftop and Ceremony Area, we have everything you need for a memorable event.",
     "guestCapacity": "201 - 250",
     "venueType": "Trees",
-    "amenities": [
-      "Ceremony Area",
-      "Indoor Event Space",
-      "Wireless Internet"
-    ],
+    "amenities": ["Ceremony Area", "Indoor Event Space", "Wireless Internet"],
     "vendors": [
       "Wedding Bands",
       "Wedding Cake",
@@ -9995,9 +9454,7 @@
       "Wedding Invitations",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Asian-owned Business",
       "Black-owned Business",
@@ -10043,9 +9500,7 @@
       "Wedding Hair & Makeup",
       "Wedding Invitations"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Black-owned Business",
       "Native-American-owned Business",
@@ -10081,9 +9536,7 @@
       "Wedding Dress",
       "Wedding Flowers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Black-owned Business",
       "Hispanic-Latina-owned Business",
@@ -10107,11 +9560,7 @@
     "description": "The combination of Mountain and Dressing Room sets Fahey - Senger apart from other venues in Rosettahaven, North Carolina. Our venue is the epitome of elegance, offering Mountain that will leave you and your guests in awe. The combination of Mountain and Dressing Room sets Fahey - Senger apart from other venues in Rosettahaven, North Carolina.",
     "guestCapacity": "251 - 300",
     "venueType": "Industrial & Warehouse",
-    "amenities": [
-      "Ceremony Area",
-      "Indoor Event Space",
-      "Liability Insurance"
-    ],
+    "amenities": ["Ceremony Area", "Indoor Event Space", "Liability Insurance"],
     "vendors": [
       "Wedding Catering",
       "Wedding Dress",
@@ -10120,13 +9569,8 @@
       "Wedding Photography",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
-    "diversity": [
-      "Asian-owned Business",
-      "Native-American-owned Business"
-    ],
+    "affiliations": ["Destination Weddings"],
+    "diversity": ["Asian-owned Business", "Native-American-owned Business"],
     "startingPrice": 17000,
     "pricing": "$$$$ - Luxury",
     "coverUrl": "",
@@ -10160,9 +9604,7 @@
       "Wedding Invitations",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Asian-owned Business",
       "Hispanic-Latina-owned Business",
@@ -10215,9 +9657,7 @@
       "Wedding Photography"
     ],
     "affiliations": [],
-    "diversity": [
-      "Native-American-owned Business"
-    ],
+    "diversity": ["Native-American-owned Business"],
     "startingPrice": 12000,
     "pricing": "$$$$ - Luxury",
     "coverUrl": "",
@@ -10360,10 +9800,7 @@
     "description": "Come and discover why Hauck - Will is Lake Muhammadcester, Arkansas's hidden gem for weddings, featuring Park and Dressing Room. The combination of Park and Dressing Room sets Hauck - Will apart from other venues in Lake Muhammadcester, Arkansas. Hauck - Will is a top-tier wedding venue located in the heart of Lake Muhammadcester, Arkansas.",
     "guestCapacity": "201 - 250",
     "venueType": "Country Club",
-    "amenities": [
-      "Dressing Room",
-      "Reception Area"
-    ],
+    "amenities": ["Dressing Room", "Reception Area"],
     "vendors": [
       "Wedding Bands",
       "Wedding Catering",
@@ -10371,9 +9808,7 @@
       "Wedding Invitations",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Hispanic-Latina-owned Business",
       "Native-American-owned Business"
@@ -10413,10 +9848,7 @@
       "Reception Area",
       "Wireless Internet"
     ],
-    "vendors": [
-      "Wedding Hair & Makeup",
-      "Wedding Invitations"
-    ],
+    "vendors": ["Wedding Hair & Makeup", "Wedding Invitations"],
     "affiliations": [],
     "diversity": [
       "Hispanic-Latina-owned Business",
@@ -10456,9 +9888,7 @@
       "Wedding Planners/Designers"
     ],
     "affiliations": [],
-    "diversity": [
-      "Veteran-owned Business"
-    ],
+    "diversity": ["Veteran-owned Business"],
     "startingPrice": 6000,
     "pricing": "$$ - Affordable",
     "coverUrl": "https://images.pexels.com/photos/6544766/pexels-photo-6544766.jpeg",
@@ -10496,13 +9926,8 @@
       "Reception Area",
       "Wireless Internet"
     ],
-    "vendors": [
-      "Wedding Bands",
-      "Wedding Hair & Makeup"
-    ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "vendors": ["Wedding Bands", "Wedding Hair & Makeup"],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Asian-owned Business",
       "Black-owned Business",
@@ -10553,9 +9978,7 @@
       "Wedding Hair & Makeup",
       "Wedding Invitations"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Asian-owned Business",
       "Hispanic-Latina-owned Business",
@@ -10594,9 +10017,7 @@
       "Wedding Planners/Designers"
     ],
     "affiliations": [],
-    "diversity": [
-      "Woman-owned Business"
-    ],
+    "diversity": ["Woman-owned Business"],
     "startingPrice": 19000,
     "pricing": "$$$$ - Luxury",
     "coverUrl": "https://images.pexels.com/photos/5816307/pexels-photo-5816307.jpeg",
@@ -10637,9 +10058,7 @@
       "Wedding Invitations",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Hispanic-Latina-owned Business",
       "Native-American-owned Business",
@@ -10677,13 +10096,8 @@
       "Wedding Photography",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
-    "diversity": [
-      "Asian-owned Business",
-      "Native-American-owned Business"
-    ],
+    "affiliations": ["Destination Weddings"],
+    "diversity": ["Asian-owned Business", "Native-American-owned Business"],
     "startingPrice": 13000,
     "pricing": "$$$$ - Luxury",
     "coverUrl": "",
@@ -10706,14 +10120,8 @@
       "On-site Accommodations",
       "Wireless Internet"
     ],
-    "vendors": [
-      "Wedding Catering",
-      "Wedding Cake",
-      "Wedding Flowers"
-    ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "vendors": ["Wedding Catering", "Wedding Cake", "Wedding Flowers"],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Asian-owned Business",
       "Hispanic-Latina-owned Business",
@@ -10747,11 +10155,7 @@
     "description": "Our venue is the epitome of elegance, offering Brew & Distillery that will leave you and your guests in awe. Nestled in Lake Cesar, Arizona, Streich LLC provides an idyllic setting for your special day. Streich LLC is not just a venue; it's an experience that includes Brew & Distillery and Dressing Room.",
     "guestCapacity": "300+",
     "venueType": "City Hall",
-    "amenities": [
-      "Dressing Room",
-      "Reception Area",
-      "Wireless Internet"
-    ],
+    "amenities": ["Dressing Room", "Reception Area", "Wireless Internet"],
     "vendors": [
       "Wedding Cake",
       "Wedding Dress",
@@ -10759,9 +10163,7 @@
       "Wedding Photography",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Asian-owned Business",
       "Black-owned Business",
@@ -10791,16 +10193,9 @@
       "On-site Accommodations",
       "Wireless Internet"
     ],
-    "vendors": [
-      "Wedding Catering",
-      "Wedding Dress",
-      "Wedding Invitations"
-    ],
+    "vendors": ["Wedding Catering", "Wedding Dress", "Wedding Invitations"],
     "affiliations": [],
-    "diversity": [
-      "Veteran-owned Business",
-      "Woman-owned Business"
-    ],
+    "diversity": ["Veteran-owned Business", "Woman-owned Business"],
     "startingPrice": 18000,
     "pricing": "$$$$ - Luxury",
     "coverUrl": "",
@@ -10831,9 +10226,7 @@
       "Wedding Photography",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Asian-owned Business",
       "Black-owned Business",
@@ -10863,18 +10256,9 @@
       "On-site Accommodations",
       "Reception Area"
     ],
-    "vendors": [
-      "Wedding Catering",
-      "Wedding DJ",
-      "Wedding Hair & Makeup"
-    ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
-    "diversity": [
-      "Black-owned Business",
-      "Hispanic-Latina-owned Business"
-    ],
+    "vendors": ["Wedding Catering", "Wedding DJ", "Wedding Hair & Makeup"],
+    "affiliations": ["Destination Weddings"],
+    "diversity": ["Black-owned Business", "Hispanic-Latina-owned Business"],
     "startingPrice": 13000,
     "pricing": "$$$$ - Luxury",
     "coverUrl": "",
@@ -10897,14 +10281,8 @@
       "On-site Accommodations",
       "Wireless Internet"
     ],
-    "vendors": [
-      "Wedding Bands",
-      "Wedding Dress",
-      "Wedding Planners/Designers"
-    ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "vendors": ["Wedding Bands", "Wedding Dress", "Wedding Planners/Designers"],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Asian-owned Business",
       "Black-owned Business",
@@ -10926,10 +10304,7 @@
     "description": "Sanford, Schneider and Barton boasts Ceremony Area that make it unique among venues in Edina, Minnesota. Our Hotel sets the stage for a romantic and unforgettable wedding day. Experience the magic of Hotel in a stunning setting at Sanford, Schneider and Barton.",
     "guestCapacity": "201 - 250",
     "venueType": "Desert",
-    "amenities": [
-      "Ceremony Area",
-      "Wireless Internet"
-    ],
+    "amenities": ["Ceremony Area", "Wireless Internet"],
     "vendors": [
       "Wedding Bands",
       "Wedding Cake",
@@ -10939,10 +10314,7 @@
       "Wedding Planners/Designers"
     ],
     "affiliations": [],
-    "diversity": [
-      "Asian-owned Business",
-      "Hispanic-Latina-owned Business"
-    ],
+    "diversity": ["Asian-owned Business", "Hispanic-Latina-owned Business"],
     "startingPrice": 12000,
     "pricing": "$$$$ - Luxury",
     "coverUrl": "",
@@ -11008,9 +10380,7 @@
       "Wedding Invitations",
       "Wedding Photography"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Native-American-owned Business",
       "Pacific Islander-owned Business"
@@ -11031,10 +10401,7 @@
     "description": "Our dedicated team in Stefanport, South Dakota will work with you to make your wedding dreams come true. Couples rave about our Desert, making Hansen LLC a sought-after venue in Stefanport, South Dakota. Celebrate your love with a backdrop of Ceremony Area only at Hansen LLC.",
     "guestCapacity": "300+",
     "venueType": "Rooftop",
-    "amenities": [
-      "Liability Insurance",
-      "Wireless Internet"
-    ],
+    "amenities": ["Liability Insurance", "Wireless Internet"],
     "vendors": [
       "Wedding Cake",
       "Wedding DJ",
@@ -11044,9 +10411,7 @@
       "Wedding Photography",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
+    "affiliations": ["Destination Weddings"],
     "diversity": [
       "Asian-owned Business",
       "Black-owned Business",
@@ -11068,11 +10433,7 @@
     "description": "Experience the magic of Loft in a stunning setting at Cartwright, Barton and Mraz. Our venue is best known for its Loft and Ceremony Area. Nestled in Lake Rigoberto, Connecticut, Cartwright, Barton and Mraz provides an idyllic setting for your special day.",
     "guestCapacity": "251 - 300",
     "venueType": "Barn",
-    "amenities": [
-      "Liability Insurance",
-      "Reception Area",
-      "Wireless Internet"
-    ],
+    "amenities": ["Liability Insurance", "Reception Area", "Wireless Internet"],
     "vendors": [
       "Wedding Bands",
       "Wedding Catering",
@@ -11114,11 +10475,7 @@
       "Reception Area",
       "Wireless Internet"
     ],
-    "vendors": [
-      "Wedding Bands",
-      "Wedding Cake",
-      "Wedding Photography"
-    ],
+    "vendors": ["Wedding Bands", "Wedding Cake", "Wedding Photography"],
     "affiliations": [],
     "diversity": [
       "Asian-owned Business",
@@ -11216,10 +10573,7 @@
     "description": "Come and discover why Rohan and Sons is New Marguerite, California's hidden gem for weddings, featuring Hotel and Dressing Room. Rohan and Sons boasts Dressing Room that make it unique among venues in New Marguerite, California. You'll fall in love with the Hotel that make Rohan and Sons a one-of-a-kind venue.",
     "guestCapacity": "201 - 250",
     "venueType": "Trees",
-    "amenities": [
-      "On-site Accommodations",
-      "Reception Area"
-    ],
+    "amenities": ["On-site Accommodations", "Reception Area"],
     "vendors": [
       "Wedding Catering",
       "Wedding DJ",
@@ -11261,13 +10615,8 @@
       "Wedding DJ",
       "Wedding Planners/Designers"
     ],
-    "affiliations": [
-      "Destination Weddings"
-    ],
-    "diversity": [
-      "Asian-owned Business",
-      "Hispanic-Latina-owned Business"
-    ],
+    "affiliations": ["Destination Weddings"],
+    "diversity": ["Asian-owned Business", "Hispanic-Latina-owned Business"],
     "startingPrice": 3000,
     "pricing": "$ - Inexpensive",
     "coverUrl": "",
@@ -11319,9 +10668,7 @@
     "description": "Padberg Inc is a top-tier wedding venue located in the heart of East Gwendolyn, New Jersey. Come and discover why Padberg Inc is East Gwendolyn, New Jersey's hidden gem for weddings, featuring Vineyard & Winery and Ceremony Area. If you're looking for a venue in East Gwendolyn, New Jersey that offers Vineyard & Winery, look no further than Padberg Inc.",
     "guestCapacity": "300+",
     "venueType": "Rooftop",
-    "amenities": [
-      "Dressing Room"
-    ],
+    "amenities": ["Dressing Room"],
     "vendors": [
       "Wedding Catering",
       "Wedding Cake",

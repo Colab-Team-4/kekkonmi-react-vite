@@ -21,12 +21,12 @@ function Navbar() {
         <button className="md:hidden">
           <HamburgerIcon />
         </button>
-        <a href="/" className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2">
           <img src={logo} className="h-10" alt="Logo" />
           <span className="self-center whitespace-nowrap font-playFair text-[22px] font-normal tracking-widest dark:text-black lg:text-2xl">
             MATRIMONEY
           </span>
-        </a>
+        </Link>
         <button className="md:hidden lg:hidden">
           <LanguageIcon />
         </button>
