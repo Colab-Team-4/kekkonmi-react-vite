@@ -1,19 +1,25 @@
-import React from 'react'
+import React from "react";
 
 function Error404() {
   return (
-    <div className='p-4 mt-40 mb-28'>
-        <div className='w-full'>
-            <div className='h-[219px] flex flex-col items-center'>
-                <h1 className='text-6xl font-playFair font-semibold'>404</h1>
-                <h1 className='text-[34px] font-playFair font-medium'>Page Not Found</h1>
-                <p className='text-lg font-lato'>Oops, it seems like the wedding bells are taking a break - we're on it!</p>
-            </div>
-            <button className='btnSolid w-full h-[52px]'>Back to Home</button>
+    <div className="flex h-[700px] snap-center items-center p-[18px] lg:m-0 lg:flex lg:min-h-screen lg:items-center lg:justify-center lg:p-0">
+      <div className="flex w-full flex-col items-center lg:w-[631px]">
+        <div className="flex h-[219px] flex-col items-center">
+          <h1 className="mb-5 font-playFair text-6xl font-semibold">404</h1>
+          <h1 className="font-playFair text-[34px] font-medium">
+            Page Not Found
+          </h1>
+          <p className="text-center font-lato text-lg">
+            Oops, it seems like the wedding bells are taking a break - we're on
+            it!
+          </p>
         </div>
+        <button className="btnSolid h-[52px] w-[190px] lg:w-[300px]">
+          Back to Home
+        </button>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Error404
-
+export default Error404;
