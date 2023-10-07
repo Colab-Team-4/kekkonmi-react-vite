@@ -18,7 +18,7 @@ function Navbar() {
   return (
     <nav className="fixed left-0 right-0 top-0 z-50 border-gray-200 bg-white dark:bg-white">
       <div className="mx-auto flex items-center justify-between px-10 py-2 lg:justify-around">
-        <button className="md:hidden lg:hidden">
+        <button className="md:hidden">
           <HamburgerIcon />
         </button>
         <a href="/" className="flex items-center gap-2">
@@ -55,8 +55,7 @@ function Navbar() {
         </div>
 
         <div className="hidden bg-white lg:flex lg:gap-4">
-          {/* <div className="flex gap-4 bg-white"> */}
-          <button type="button" className="btn-solid w-40">
+          <button type="button" className="btn-solid w-40 py-2">
             Sign Up
           </button>
           <button type="button" className="btn-outline w-40">

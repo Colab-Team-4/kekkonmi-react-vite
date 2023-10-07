@@ -28,21 +28,21 @@ label {
 }
 
 .btn-solid {
-  @apply rounded-md bg-black py-2 font-lato text-[20px] font-bold text-white duration-300 hover:bg-white hover:text-black hover:ring-[3px] hover:ring-inset hover:ring-black;
+  @apply rounded-md bg-black font-lato text-[20px] font-bold text-white duration-300 hover:bg-white hover:text-black hover:ring-[3px] hover:ring-inset hover:ring-black;
 }
 
 .btn-outline {
   @apply rounded-md border-[3px] border-black py-2 font-lato text-[20px] font-bold text-black duration-300 hover:bg-black hover:text-white;
 }
 
-.inputText {
-  @apply rounded border-2 border-black p-2 font-lato text-[22px] placeholder:text-[#676767];
+.input-text {
+  @apply rounded border-2 border-black font-lato text-[22px] placeholder:text-[#676767];
 }
 
-.btn-submit {
-  @apply p-5 font-normal;
+.btn-weight-normal {
+  @apply font-normal;
 }
 
-.footer-links {
-  @apply font-lato text-[16px] font-normal;
+.mobile-text {
+  @apply text-[16px] font-normal;
 }

@@ -127,27 +127,11 @@ const generateRandomElements = (array) => {
 };
 
 const client = createClient(process.env.PEXELS_API_KEY);
-let rateLimitRemaining = 200;
-let rateLimitReset;
-
 const fetchPexelsImage = async (venue) => {
   const query = `wedding venue ${venue.location} ${venue.features.join(" ")}`;
 
-  if (rateLimitRemaining === 0) {
-    const currentTime = Math.floor(Date.now() / 1000);
-    if (rateLimitReset > currentTime) {
-      const delay = (rateLimitReset - currentTime) * 1000;
-      console.log(`Rate limit reached. Waiting for ${delay / 1000} seconds.`);
-      await new Promise((resolve) => setTimeout(resolve, delay));
-    }
-  }
-
   try {
     const photos = await client.photos.search({ query, per_page: 11 });
-
-    rateLimitRemaining = parseInt(photos.headers["x-ratelimit-remaining"], 10);
-    rateLimitReset = parseInt(photos.headers["x-ratelimit-reset"], 10);
-
     const coverUrl = photos.photos[0].src.original;
     const galleryUrls = photos.photos
       .slice(1)
@@ -155,15 +139,6 @@ const fetchPexelsImage = async (venue) => {
     return { coverUrl, galleryUrls };
   } catch (error) {
     console.error(`Failed to fetch images: ${error.message}`);
-    if (error.response) {
-      // The request was made and the server responded with a status code that falls out of the range of 2xx
-      console.error(`Status code: ${error.response.status}`);
-      console.error(`Headers: ${JSON.stringify(error.response.headers)}`);
-      console.error(`Data: ${JSON.stringify(error.response.data)}`);
-    } else if (error.request) {
-      // The request was made but no response was received
-      console.error(`Request made but no response received: ${error.request}`);
-    }
     return { coverUrl: "", galleryUrls: [] };
   }
 };
@@ -216,26 +191,30 @@ const generateVenue = async () => {
 };
 
 const generateAllVenues = async (n) => {
-  const batchSize = 50; // Number of venues per batch
-  const delay = 60000; // Delay in ms (60 seconds)
+  const batchSize = 50;
+  const delay = 60000;
   const allVenues = [];
 
   for (let i = 0; i < Math.ceil(n / batchSize); i++) {
-    const batch = await Promise.all(
-      Array.from({ length: batchSize }, generateVenue),
-    );
-    allVenues.push(...batch);
+    try {
+      const batch = await Promise.all(
+        Array.from({ length: batchSize }, generateVenue),
+      );
+      allVenues.push(...batch);
+      fs.writeFileSync(
+        "./src/data/venueData.json",
+        JSON.stringify(allVenues, null, 2),
+      );
+    } catch (error) {
+      console.error(
+        `An error occurred while generating the batch: ${error.message}`,
+      );
+    }
 
     if (i < Math.ceil(n / batchSize) - 1) {
       console.log(`Waiting for ${delay / 1000} seconds...`);
       await new Promise((resolve) => setTimeout(resolve, delay));
     }
   }
-
-  fs.writeFileSync(
-    "./src/data/venueData.json",
-    JSON.stringify(allVenues, null, 2),
-  );
 };
-
 generateAllVenues(500);
