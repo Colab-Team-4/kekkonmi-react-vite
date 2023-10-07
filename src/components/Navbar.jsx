@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { HamburgerIcon, LanguageIcon } from "./Icons";
 import logo from "/logo.svg";
+import AuthModal from "./AuthModal";
 
 const links = [
   { page: "Home", route: "/" },
@@ -53,15 +54,30 @@ function Navbar() {
             </div>
           </ul>
         </div>
+        <div id="registerModal" className="fixed left-0 top-0 min-w-full">
+          <AuthModal modalType="register" />
+        </div>
 
         <div className="hidden bg-white lg:flex lg:gap-4">
-          <button type="button" className="btnSolid w-40 py-2">
+          <button
+            data-modal-target="registerModal"
+            data-modal-toggle="registerModal"
+            type="button"
+            className="btnSolid w-40 py-2"
+          >
             Sign Up
           </button>
-          <button type="button" className="btnOutline w-40">
+          <button
+            data-modal-target="loginModal"
+            data-modal-toggle="loginModal"
+            type="button"
+            className="btnOutline w-40"
+          >
             Log In
           </button>
-
+          {/* <div id="loginModal">
+            <AuthModal modalType="login" />
+          </div> */}
           {/* <button
             data-collapse-toggle="navbar-cta"
             type="button"
