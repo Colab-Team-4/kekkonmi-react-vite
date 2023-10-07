@@ -13,11 +13,11 @@ function VenueSearchDisplay() {
               type="search"
               id="venueSearch"
               placeholder="Venues in New York"
-              className="input-text mobile-text py-3 pl-16 pr-2 lg:w-[827px] lg:text-[22px]"
+              className="inputText mobileText py-3 pl-16 pr-2 lg:w-[827px] lg:text-[22px]"
             />
           </div>
           <div className="relative md:hidden">
-            <button className="btn-solid mobile-text btn-weight-normal group flex h-full w-24 items-center pl-10 lg:text-[22px]">
+            <button className="btnSolid mobileText btnWeightNormal group flex h-full w-24 items-center pl-10 lg:text-[22px]">
               <div className="absolute left-0 pl-3">
                 <FilterIcon className="fill-current text-white group-hover:text-black" />
               </div>
@@ -27,12 +27,12 @@ function VenueSearchDisplay() {
         </div>
         <div className="flex justify-center gap-4 lg:gap-6">
           <button
-            className="btn-solid mobile-text w-40 lg:w-60 lg:text-xl"
+            className="btnSolid mobileText w-40 lg:w-60 lg:text-xl"
             type="submit"
           >
             Search
           </button>
-          <button className="btn-outline mobile-text w-40 lg:w-60 lg:text-xl">
+          <button className="btnOutline mobileText w-40 lg:w-60 lg:text-xl">
             Save Search
           </button>
         </div>

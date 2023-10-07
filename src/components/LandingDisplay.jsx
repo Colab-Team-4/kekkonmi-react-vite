@@ -48,7 +48,7 @@ function LandingDisplay() {
           >
             <h1>{content.heading}</h1>
             <p>{content.body}</p>
-            <button className="btn-outline w-72 self-center lg:self-start">
+            <button className="btnOutline w-72 self-center lg:self-start">
               {content.button}
             </button>
           </section>
