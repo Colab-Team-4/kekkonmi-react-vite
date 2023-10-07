@@ -1,20 +1,24 @@
+import { Link, useLocation } from "react-router-dom";
 import { HamburgerIcon, LanguageIcon } from "./Icons";
 import logo from "/logo.svg";
 
 const links = [
-  "Home",
-  "Planning Tools",
-  "Venues",
-  "Vendors",
-  "Inspiration",
-  "About Us",
+  { page: "Home", route: "/" },
+  { page: "Planning Tools", route: "" },
+  { page: "Venues", route: "/venues" },
+  { page: "Vendors", route: "" },
+  { page: "Inspiration", route: "" },
+  { page: "About Us", route: "" },
 ];
 
 function Navbar() {
+  const location = useLocation().pathname;
+  const activeLink = "underline";
+
   return (
     <nav className="fixed left-0 right-0 top-0 z-50 border-gray-200 bg-white dark:bg-white">
-      <div className="mx-auto flex w-screen items-center justify-between px-10 py-2">
-        <button className="md:hidden lg:hidden">
+      <div className="mx-auto flex items-center justify-between px-10 py-2 lg:justify-around">
+        <button className="md:hidden">
           <HamburgerIcon />
         </button>
         <a href="/" className="flex items-center gap-2">
@@ -34,9 +38,16 @@ function Navbar() {
             <div className="flex gap-10">
               {links.map((link, i) => (
                 <li key={i}>
-                  <a href="#" aria-current="page">
-                    <p>{link}</p>
-                  </a>
+                  <p>
+                    <Link
+                      to={link.route}
+                      className={`underline-offset-8 hover:underline ${
+                        location === link.route ? activeLink : ""
+                      }`}
+                    >
+                      {link.page}
+                    </Link>
+                  </p>
                 </li>
               ))}
             </div>
@@ -44,8 +55,7 @@ function Navbar() {
         </div>
 
         <div className="hidden bg-white lg:flex lg:gap-4">
-          {/* <div className="flex gap-4 bg-white"> */}
-          <button type="button" className="btn-solid w-40">
+          <button type="button" className="btn-solid w-40 py-2">
             Sign Up
           </button>
           <button type="button" className="btn-outline w-40">

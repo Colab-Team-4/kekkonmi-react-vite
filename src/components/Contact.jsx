@@ -31,7 +31,7 @@ function Contact() {
                 type="text"
                 name="fName"
                 placeholder="Jane"
-                className="inputText"
+                className="input-text p-2"
               />
             </div>
             {/* End of First Name */}
@@ -42,7 +42,7 @@ function Contact() {
                 type="text"
                 name="lName"
                 placeholder="Doe"
-                className="inputText"
+                className="input-text p-2"
               />
             </div>
             {/* End of Last Name */}
@@ -55,7 +55,7 @@ function Contact() {
                 type="email"
                 name="email"
                 placeholder="Janedoe@flymail.com"
-                className="inputText"
+                className="input-text p-2"
               />
             </div>
             {/* End of Email */}
@@ -66,7 +66,7 @@ function Contact() {
                 type="text"
                 name="phone"
                 placeholder="(555)-555-5555"
-                className="inputText"
+                className="input-text p-2"
               />
             </div>
             {/* End of Phone */}
@@ -76,7 +76,7 @@ function Contact() {
             <label htmlFor="message">Message</label>
             <textarea
               name="message"
-              className="inputText w-full"
+              className="input-text w-full p-2"
               placeholder="Write your message here"
               rows={rows}
             />
@@ -84,7 +84,7 @@ function Contact() {
           {/* end of Message */}
           <button
             type="submit"
-            className="btn-solid btn-submit mx-auto w-80 cursor-pointer px-10"
+            className="btn-solid btn-weight-normal mx-auto w-80 cursor-pointer p-5 px-10 py-2"
           >
             Submit
           </button>

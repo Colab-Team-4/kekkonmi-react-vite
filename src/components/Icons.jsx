@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 export function FacebookIcon() {
   return (
     <svg width="41" height="41" viewBox="0 0 41 41" fill="none">
@@ -89,6 +91,43 @@ export function LanguageIcon() {
           fill="#49454F"
         />
       </g>
+    </svg>
+  );
+}
+
+export function ArrowForward() {
+  return (
+    <svg width="13" height="20" viewBox="0 0 13 20" fill="none">
+      <path
+        d="M2.025 20L0.25 18.225L8.475 10L0.25 1.775L2.025 0L12.025 10L2.025 20Z"
+        fill="#1C1B1F"
+      />
+    </svg>
+  );
+}
+
+export function SearchIcon() {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <path
+        d="M21.5 23.25L13.625 15.375C13 15.875 12.2812 16.2708 11.4688 16.5625C10.6562 16.8542 9.79167 17 8.875 17C6.60417 17 4.68229 16.2135 3.10938 14.6406C1.53646 13.0677 0.75 11.1458 0.75 8.875C0.75 6.60417 1.53646 4.68229 3.10938 3.10938C4.68229 1.53646 6.60417 0.75 8.875 0.75C11.1458 0.75 13.0677 1.53646 14.6406 3.10938C16.2135 4.68229 17 6.60417 17 8.875C17 9.79167 16.8542 10.6562 16.5625 11.4688C16.2708 12.2812 15.875 13 15.375 13.625L23.25 21.5L21.5 23.25ZM8.875 14.5C10.4375 14.5 11.7656 13.9531 12.8594 12.8594C13.9531 11.7656 14.5 10.4375 14.5 8.875C14.5 7.3125 13.9531 5.98438 12.8594 4.89062C11.7656 3.79688 10.4375 3.25 8.875 3.25C7.3125 3.25 5.98438 3.79688 4.89062 4.89062C3.79688 5.98438 3.25 7.3125 3.25 8.875C3.25 10.4375 3.79688 11.7656 4.89062 12.8594C5.98438 13.9531 7.3125 14.5 8.875 14.5Z"
+        fill="#1C1B1F"
+      />
+    </svg>
+  );
+}
+
+FilterIcon.propTypes = {
+  className: PropTypes.string,
+};
+export function FilterIcon({ className }) {
+  return (
+    <svg width="19" height="18" viewBox="0 0 19 18" fill="none">
+      <path
+        className={className}
+        d="M8.5 18V12H10.5V14H18.5V16H10.5V18H8.5ZM0.5 16V14H6.5V16H0.5ZM4.5 12V10H0.5V8H4.5V6H6.5V12H4.5ZM8.5 10V8H18.5V10H8.5ZM12.5 6V0H14.5V2H18.5V4H14.5V6H12.5ZM0.5 4V2H10.5V4H0.5Z"
+        fill="white"
+      />
     </svg>
   );
 }

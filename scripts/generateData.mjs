@@ -1,5 +1,9 @@
 import { faker } from "@faker-js/faker";
+import { createClient } from "pexels";
+import dotenv from "dotenv";
 import fs from "fs";
+
+dotenv.config();
 
 const guestCapacityOptions = [
   "0 - 50",
@@ -9,15 +13,6 @@ const guestCapacityOptions = [
   "201 - 250",
   "251 - 300",
   "300+",
-];
-const distanceOptions = [
-  "Within 5 miles",
-  "Within 10 miles",
-  "Within 20 miles",
-  "Within 30 miles",
-  "Within 40 miles",
-  "Within 50 miles",
-  "Within 100 miles",
 ];
 const venueTypes = [
   "Backyard",
@@ -57,7 +52,19 @@ const venueAmenities = [
   "Reception Area",
   "Wireless Internet",
 ];
-const weddingVendorTeam = ["Destination Weddings"];
+const vendorTeams = [
+  "Wedding Bands",
+  "Wedding Catering",
+  "Wedding Cake",
+  "Wedding DJ",
+  "Wedding Dress",
+  "Wedding Flowers",
+  "Wedding Hair & Makeup",
+  "Wedding Invitations",
+  "Wedding Photography",
+  "Wedding Planners/Designers",
+];
+const affiliations = ["Destination Weddings"];
 const diversityFilter = [
   "Asian-owned Business",
   "Black-owned Business",
@@ -66,12 +73,6 @@ const diversityFilter = [
   "Pacific Islander-owned Business",
   "Veteran-owned Business",
   "Woman-owned Business",
-];
-const priceFilter = [
-  "$ - Inexpensive",
-  "$$ - Affordable",
-  "$$$ - Moderate",
-  "$$$$ - Luxury",
 ];
 const descriptionTemplates = [
   "{name} is a top-tier wedding venue located in the heart of {location}.",
@@ -125,27 +126,95 @@ const generateRandomElements = (array) => {
   return array.filter(() => Math.random() < 0.5);
 };
 
-const venues = Array.from({ length: 100 }, () => {
+const client = createClient(process.env.PEXELS_API_KEY);
+const fetchPexelsImage = async (venue) => {
+  const query = `wedding venue ${venue.location} ${venue.features.join(" ")}`;
+
+  try {
+    const photos = await client.photos.search({ query, per_page: 11 });
+    const coverUrl = photos.photos[0].src.original;
+    const galleryUrls = photos.photos
+      .slice(1)
+      .map((photo) => photo.src.original);
+    return { coverUrl, galleryUrls };
+  } catch (error) {
+    console.error(`Failed to fetch images: ${error.message}`);
+    return { coverUrl: "", galleryUrls: [] };
+  }
+};
+
+const generateVenue = async () => {
   const venueName = faker.company.name();
   const city = faker.location.city();
-  const country = faker.location.country();
-  const location = `${city}, ${country}`;
+  const state = faker.location.state();
+  const location = `${city}, ${state}`;
   const features = generateFeatures();
+  const startingPrice = Math.floor(Math.random() * 18 + 3) * 1000;
+  let pricing;
+  if (startingPrice < 5000) {
+    pricing = "$ - Inexpensive";
+  } else if (startingPrice < 8000) {
+    pricing = "$$ - Affordable";
+  } else if (startingPrice < 11000) {
+    pricing = "$$$ - Moderate";
+  } else {
+    pricing = "$$$$ - Luxury";
+  }
+  const { coverUrl, galleryUrls } = await fetchPexelsImage({
+    name: venueName,
+    location,
+    features,
+  });
+  const rating = parseFloat((Math.random() * (5.0 - 4.0) + 4.0).toFixed(1));
+  const reviews = Math.floor(Math.random() * 1000);
 
   return {
     name: venueName,
     location,
-    country,
+    city,
+    state,
     isFavorited: false,
     description: generateDescription(venueName, location, features),
-    pricing: generateRandomElement(priceFilter),
     guestCapacity: generateRandomElement(guestCapacityOptions),
-    distance: generateRandomElement(distanceOptions),
     venueType: generateRandomElement(venueTypes),
     amenities: generateRandomElements(venueAmenities),
-    vendorTeam: generateRandomElements(weddingVendorTeam),
+    vendors: generateRandomElements(vendorTeams),
+    affiliations: generateRandomElements(affiliations),
     diversity: generateRandomElements(diversityFilter),
+    startingPrice,
+    pricing,
+    coverUrl,
+    galleryUrls,
+    rating,
+    reviews,
   };
-});
+};
 
-fs.writeFileSync("./src/data/venueData.json", JSON.stringify(venues, null, 2));
+const generateAllVenues = async (n) => {
+  const batchSize = 50;
+  const delay = 60000;
+  const allVenues = [];
+
+  for (let i = 0; i < Math.ceil(n / batchSize); i++) {
+    try {
+      const batch = await Promise.all(
+        Array.from({ length: batchSize }, generateVenue),
+      );
+      allVenues.push(...batch);
+      fs.writeFileSync(
+        "./src/data/venueData.json",
+        JSON.stringify(allVenues, null, 2),
+      );
+    } catch (error) {
+      console.error(
+        `An error occurred while generating the batch: ${error.message}`,
+      );
+    }
+
+    if (i < Math.ceil(n / batchSize) - 1) {
+      console.log(`Waiting for ${delay / 1000} seconds...`);
+      await new Promise((resolve) => setTimeout(resolve, delay));
+    }
+  }
+};
+generateAllVenues(500);

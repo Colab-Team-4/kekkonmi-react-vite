@@ -6,7 +6,11 @@ export default {
       lato: ["Lato", "sans-serif"],
       playFair: ["Playfair Display", "serif"],
     },
-    extend: {},
+    extend: {
+      fill: (theme) => ({
+        ...theme("colors"),
+      }),
+    },
   },
   plugins: [],
 };
