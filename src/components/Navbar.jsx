@@ -55,10 +55,10 @@ function Navbar() {
         </div>
 
         <div className="hidden bg-white lg:flex lg:gap-4">
-          <button type="button" className="btn-solid w-40 py-2">
+          <button type="button" className="btnSolid w-40 py-2">
             Sign Up
           </button>
-          <button type="button" className="btn-outline w-40">
+          <button type="button" className="btnOutline w-40">
             Log In
           </button>
 

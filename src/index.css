@@ -27,22 +27,22 @@ label {
   @apply p-[10px] font-lato text-[22px] font-normal;
 }
 
-.btn-solid {
+.btnSolid {
   @apply rounded-md bg-black font-lato text-[20px] font-bold text-white duration-300 hover:bg-white hover:text-black hover:ring-[3px] hover:ring-inset hover:ring-black;
 }
 
-.btn-outline {
+.btnOutline {
   @apply rounded-md border-[3px] border-black py-2 font-lato text-[20px] font-bold text-black duration-300 hover:bg-black hover:text-white;
 }
 
-.input-text {
+.inputText {
   @apply rounded border-2 border-black font-lato text-[22px] placeholder:text-[#676767];
 }
 
-.btn-weight-normal {
+.btnWeightNormal {
   @apply font-normal;
 }
 
-.mobile-text {
+.mobileText {
   @apply text-[16px] font-normal;
 }
