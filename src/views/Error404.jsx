@@ -1,4 +1,4 @@
-import React from "react";
+import { Link } from "react-router-dom";
 
 function Error404() {
   return (
@@ -14,8 +14,8 @@ function Error404() {
             it!
           </p>
         </div>
-        <button className="btnSolid h-[52px] w-[190px] lg:w-[300px]">
-          Back to Home
+        <button className="btnSolid h-[52px] w-full lg:w-[300px]">
+          <Link to="/">Back to Home</Link>
         </button>
       </div>
     </div>
