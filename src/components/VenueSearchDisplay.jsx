@@ -100,16 +100,16 @@ VenueDisplay.propTypes = {
 };
 function VenueDisplay({ filteredVenues }) {
   return (
-    <div className="lg:grid-template-rows:[min-content min-content] lg:grid-template-columns:[400px 400px auto] grid grid-cols-1 gap-x-6 gap-y-16 lg:grid-cols-3 lg:grid-rows-2">
+    <div className="lg:grid-template-rows:[min-content min-content] lg:grid-template-columns:[100% 100% auto] grid grid-cols-1 gap-x-6 gap-y-16 lg:grid-cols-3 lg:grid-rows-2">
       {filteredVenues.length === 0 ? (
-        <div className="col-span-3 row-span-6 place-self-center text-[#9E9E9E] lg:text-lg">
+        <div className="col-span-3 row-span-6 place-self-center text-center text-[#9E9E9E] lg:text-lg">
           Sorry, no venues here; let&apos;s refine your search together.
         </div>
       ) : (
         <>
           {filteredVenues.slice(0, 4).map((venue, i) => (
             <div
-              className={`relative flex w-[400px] flex-col gap-6 ${
+              className={`relative flex w-full flex-col gap-6 ${
                 i === 2 && filteredVenues.length === 3
                   ? "lg:col-start-3"
                   : i >= 2
@@ -119,7 +119,7 @@ function VenueDisplay({ filteredVenues }) {
               key={i}
             >
               <img
-                className="aspect-square w-[400px] rounded-md object-cover"
+                className="aspect-square w-full rounded-md object-cover"
                 src={venue.coverUrl}
                 alt={venue.name}
                 onError={(e) => {
@@ -172,7 +172,7 @@ function OtherVenues({ filteredVenues }) {
       <div className="my-10 grid grid-flow-row grid-cols-1 gap-8 px-3 lg:px-6">
         {filteredVenues.length > 4 ? (
           filteredVenues.slice(4).map((venue, i) => (
-            <div className="flex gap-6 lg:gap-8" key={i}>
+            <div className="flex gap-3 lg:gap-8" key={i}>
               <img
                 className="aspect-square w-[100px] rounded-sm object-cover"
                 src={venue.coverUrl}
@@ -182,20 +182,20 @@ function OtherVenues({ filteredVenues }) {
                   e.target.src = placeholderVenue;
                 }}
               />
-              <div className="flex flex-col">
-                <h3 className="mobileText whitespace-nowrap font-playFair font-bold lg:text-[18px]">
+              <div className="flex flex-col gap-1 whitespace-nowrap">
+                <h3 className="font-playFair text-[16px] font-bold lg:text-[18px]">
                   {venue.name}
                 </h3>
-                <div className="flex items-center gap-4">
+                <div className="-mb-1 -ml-1 flex items-center gap-4">
                   <Rating readOnly value={venue.rating} precision={0.1} />
                   <span className="text-sm text-[#676767]">
                     {venue.rating}({venue.reviews})
                   </span>
                 </div>
-                <div className="text-[16px] text-[#4B4B4B]">
+                <div className="text-[14px] text-[#4B4B4B]">
                   {venue.location}
                 </div>
-                <p className="whitespace-nowrap text-sm text-[#616161]">
+                <p className="text-xs text-[#616161]">
                   {venue.guestCapacity} Guests{" "}
                   <span className="mx-[1ch] text-black">•</span> Starts at $
                   {venue.startingPrice.toLocaleString()}
