@@ -169,7 +169,7 @@ function OtherVenues({ filteredVenues }) {
       <h3 className="mx-auto my-10 px-3 font-playFair text-[24px] font-bold lg:whitespace-nowrap lg:text-[22px]">
         Other Reception Venues You Might Like
       </h3>
-      <div className="my-10 grid grid-flow-row grid-cols-1 gap-8 px-3 lg:px-6">
+      <div className="my-10 grid grid-flow-row grid-cols-1 gap-8 pl-3 lg:px-6">
         {filteredVenues.length > 4 ? (
           filteredVenues.slice(4).map((venue, i) => (
             <div className="flex gap-3 lg:gap-8" key={i}>
@@ -182,24 +182,26 @@ function OtherVenues({ filteredVenues }) {
                   e.target.src = placeholderVenue;
                 }}
               />
-              <div className="flex flex-col gap-1 whitespace-nowrap">
-                <h3 className="font-playFair text-[16px] font-bold lg:text-[18px]">
-                  {venue.name}
-                </h3>
-                <div className="-mb-1 -ml-1 flex items-center gap-4">
-                  <Rating readOnly value={venue.rating} precision={0.1} />
-                  <span className="text-sm text-[#676767]">
-                    {venue.rating}({venue.reviews})
-                  </span>
+              <div className="flex w-full pr-3">
+                <div className="-mr-3 flex w-full min-w-0 flex-col gap-1 truncate whitespace-nowrap">
+                  <h3 className="font-playFair text-[16px] font-bold lg:text-[18px]">
+                    {venue.name}
+                  </h3>
+                  <div className="-mb-1 -ml-1 flex items-center gap-4">
+                    <Rating readOnly value={venue.rating} precision={0.1} />
+                    <span className="text-sm text-[#676767]">
+                      {venue.rating}({venue.reviews})
+                    </span>
+                  </div>
+                  <div className="text-[14px] text-[#4B4B4B]">
+                    {venue.location}
+                  </div>
+                  <p className="text-xs text-[#616161]">
+                    {venue.guestCapacity} Guests{" "}
+                    <span className="mx-[1ch] text-black">•</span> Starts at $
+                    {venue.startingPrice.toLocaleString()}
+                  </p>
                 </div>
-                <div className="text-[14px] text-[#4B4B4B]">
-                  {venue.location}
-                </div>
-                <p className="text-xs text-[#616161]">
-                  {venue.guestCapacity} Guests{" "}
-                  <span className="mx-[1ch] text-black">•</span> Starts at $
-                  {venue.startingPrice.toLocaleString()}
-                </p>
               </div>
             </div>
           ))

@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { HamburgerIcon, LanguageIcon } from "./Icons";
-import logo from "/logo.svg";
 
+const logo = "/logo.svg";
 const links = [
   { page: "Home", route: "/" },
   { page: "Planning Tools", route: "" },
