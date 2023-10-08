@@ -7,7 +7,7 @@ import Error404 from "./views/Error404";
 
 function App() {
   return (
-    <div>
+    <div className="flex h-screen flex-col">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

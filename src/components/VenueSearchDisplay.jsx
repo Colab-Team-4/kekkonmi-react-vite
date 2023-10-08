@@ -1,42 +1,174 @@
+import { useState, useRef } from "react";
+import PropTypes from "prop-types";
 import { SearchIcon, FilterIcon } from "./Icons";
+import venues from "../data/venueData.json";
+import placeholderVenue from "../assets/placeholderVenue.jpg";
 
-function VenueSearchDisplay() {
+SearchBar.propTypes = {
+  setFilteredVenues: PropTypes.func.isRequired,
+};
+function SearchBar({ setFilteredVenues }) {
+  const searchRef = useRef(null);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const query = searchRef.current.value;
+
+    const irrelevantWords = ["venues", "in", "wedding", "venue"];
+    const relevantQuery = query
+      .split(" ")
+      .filter((word) => !irrelevantWords.includes(word.toLowerCase()))
+      .join(" ");
+
+    const filtered = venues.filter((venue) =>
+      venue.location.toLowerCase().includes(relevantQuery.toLowerCase()),
+    );
+
+    setFilteredVenues(filtered);
+  };
+
   return (
-    <div className="lg:px-[5vw]">
-      <form className="flex flex-col justify-evenly gap-10 lg:flex-row lg:gap-6">
-        <div className="flex justify-center gap-5">
-          <div className="relative">
-            <div className="absolute left-0 flex h-full items-center pl-3">
-              <SearchIcon />
-            </div>
-            <input
-              type="search"
-              id="venueSearch"
-              placeholder="Venues in New York"
-              className="inputText mobileText py-3 pl-16 pr-2 lg:w-[827px] lg:text-[22px]"
-            />
+    <form
+      onSubmit={handleSubmit}
+      className="mb-16 flex flex-col justify-evenly gap-10 lg:flex-row lg:gap-6"
+    >
+      <div className="flex justify-center gap-5">
+        <div className="relative">
+          <div className="absolute left-0 flex h-full items-center pl-3">
+            <SearchIcon />
           </div>
-          <div className="relative md:hidden">
-            <button className="btnSolid mobileText btnWeightNormal group flex h-full w-24 items-center pl-10 lg:text-[22px]">
-              <div className="absolute left-0 pl-3">
-                <FilterIcon className="fill-current text-white group-hover:text-black" />
-              </div>
-              Filters
+          <input
+            ref={searchRef}
+            type="search"
+            id="venueSearch"
+            placeholder="Venues in New York"
+            className="inputText mobileText py-3 pl-16 pr-2 lg:w-[48.8rem] lg:text-[22px]"
+          />
+        </div>
+        <div className="relative md:hidden">
+          <button className="btnSolid mobileText btnWeightNormal group flex h-full w-24 items-center pl-10 lg:text-[22px]">
+            <div className="absolute left-0 pl-3">
+              <FilterIcon className="fill-current text-white group-hover:text-black" />
+            </div>
+            Filters
+          </button>
+        </div>
+      </div>
+      <div className="flex justify-center gap-4 lg:gap-6">
+        <button
+          className="btnSolid mobileText w-40 lg:w-60 lg:text-xl"
+          type="submit"
+        >
+          Search
+        </button>
+        <button className="btnOutline mobileText w-40 py-2 lg:w-60 lg:text-xl">
+          Save Search
+        </button>
+      </div>
+    </form>
+  );
+}
+
+FilterButtons.propTypes = {
+  filteredVenues: PropTypes.array.isRequired,
+};
+function FilterButtons({ filteredVenues }) {
+  return (
+    <div className="-mt-4 mb-14 flex gap-6">
+      <button className="btnOutline btnWeightNormal px-6 py-3">
+        Outdoor Venues
+      </button>
+      <button className="btnOutline btnWeightNormal px-6 py-3">$ Price</button>
+      <button className="btnOutline btnWeightNormal px-6 py-3">
+        Support Diversity
+      </button>
+      <button className="btnOutline btnWeightNormal px-6 py-3">
+        More Filters
+      </button>
+    </div>
+  );
+}
+
+VenueDisplay.propTypes = {
+  filteredVenues: PropTypes.array.isRequired,
+};
+function VenueDisplay({ filteredVenues }) {
+  return (
+    <div className="grid grid-cols-1 gap-x-6 gap-y-16 lg:w-[48.8rem] lg:grid-cols-2 lg:grid-rows-2">
+      {filteredVenues.slice(0, 4).map((venue, i) => (
+        <div className="relative flex flex-col gap-6" key={i}>
+          <img
+            className="aspect-square w-[400px] rounded-md object-cover"
+            src={venue.coverUrl}
+            alt={venue.name}
+            onError={(e) => {
+              e.target.onerror = null;
+              e.target.src = placeholderVenue;
+            }}
+          />
+          <div className="text-lg text-[#4B4B4B]">{venue.location}</div>
+          <h2 className="-mt-5">{venue.name}</h2>
+          <p className="text-sm text-[#616161]">{venue.description}</p>
+          <p className="text-sm text-[#616161]">
+            {venue.guestCapacity} Guests{" "}
+            <span className="mx-[1ch] text-black">•</span> Starts at $
+            {venue.startingPrice.toLocaleString()}
+          </p>
+          <div className="mt-16 flex">
+            <button className="btnOutline w-60 py-2 lg:absolute lg:bottom-0">
+              Request Quote
             </button>
           </div>
         </div>
-        <div className="flex justify-center gap-4 lg:gap-6">
-          <button
-            className="btnSolid mobileText w-40 lg:w-60 lg:text-xl"
-            type="submit"
-          >
-            Search
-          </button>
-          <button className="btnOutline mobileText w-40 lg:w-60 lg:text-xl">
-            Save Search
-          </button>
+      ))}
+    </div>
+  );
+}
+
+OtherVenues.propTypes = {
+  filteredVenues: PropTypes.array.isRequired,
+};
+function OtherVenues({ filteredVenues }) {
+  return (
+    <div className="flex min-h-[920px] flex-col items-center shadow-lg">
+      <h2>Other Reception Venues You Might Like</h2>
+      {filteredVenues.slice(4).map((venue, i) => (
+        <div className="flex gap-6" key={i}>
+          <img
+            className="aspect-square w-[100px] rounded-sm object-cover"
+            src={venue.coverUrl}
+            alt={venue.name}
+            onError={(e) => {
+              e.target.onerror = null;
+              e.target.src = placeholderVenue;
+            }}
+          />
+          <div>
+            <h3 className="font-playFair text-[20px] font-bold">
+              {venue.name}
+            </h3>
+          </div>
         </div>
-      </form>
+      ))}
+    </div>
+  );
+}
+
+function VenueSearchDisplay() {
+  const [filteredVenues, setFilteredVenues] = useState([]);
+
+  return (
+    <div className="mb-[5vw] flex flex-col lg:px-[5vw]">
+      <SearchBar setFilteredVenues={setFilteredVenues} />
+      <FilterButtons filteredVenues={filteredVenues} />
+      <div className="flex flex-col lg:flex-row">
+        <div className="basis-2/3">
+          <VenueDisplay filteredVenues={filteredVenues} />
+        </div>
+        <div className="basis-1/3">
+          <OtherVenues filteredVenues={filteredVenues} />
+        </div>
+      </div>
     </div>
   );
 }

@@ -27,7 +27,7 @@ function Navbar() {
             MATRIMONEY
           </span>
         </Link>
-        <button className="md:hidden lg:hidden">
+        <button className="md:hidden">
           <LanguageIcon />
         </button>
         <div
@@ -58,7 +58,7 @@ function Navbar() {
           <button type="button" className="btnSolid w-40 py-2">
             Sign Up
           </button>
-          <button type="button" className="btnOutline w-40">
+          <button type="button" className="btnOutline w-40 py-2">
             Log In
           </button>
 
