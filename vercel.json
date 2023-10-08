@@ -1,9 +1,14 @@
 {
   "routes": [
     {
-      "src": "^/assets/.*",
-      "dest": "$0",
-      "continue": true
+      "src": "/assets/(.*)",
+      "headers": { "cache-control": "max-age=0, must-revalidate" },
+      "dest": "/src/assets/$1"
+    },
+    {
+      "src": "/src/(.*)",
+      "headers": { "cache-control": "max-age=0, must-revalidate" },
+      "dest": "/src/$1"
     },
     {
       "src": "/(.*)",
