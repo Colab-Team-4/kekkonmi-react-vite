@@ -1,7 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { HamburgerIcon, LanguageIcon } from "./Icons";
 
-const logo = "/logo.svg";
 const links = [
   { page: "Home", route: "/" },
   { page: "Planning Tools", route: "" },
@@ -22,7 +21,7 @@ function Navbar() {
           <HamburgerIcon />
         </button>
         <Link to="/" className="flex items-center gap-2">
-          <img src={logo} className="h-10" alt="Logo" />
+          <img className="h-10" src="/logo.svg" alt="Logo" />
           <span className="self-center whitespace-nowrap font-playFair text-[22px] font-normal tracking-widest dark:text-black lg:text-2xl">
             MATRIMONEY
           </span>
