@@ -102,7 +102,7 @@ function VenueDisplay({ filteredVenues }) {
   return (
     <div className="lg:grid-template-rows:[min-content min-content] lg:grid-template-columns:[400px 400px auto] grid grid-cols-1 gap-x-6 gap-y-16 lg:grid-cols-3 lg:grid-rows-2">
       {filteredVenues.length === 0 ? (
-        <div className="col-span-3 row-span-6 place-self-center lg:text-lg text-[#9E9E9E]">
+        <div className="col-span-3 row-span-6 place-self-center text-[#9E9E9E] lg:text-lg">
           Sorry, no venues here; let&apos;s refine your search together.
         </div>
       ) : (
@@ -165,8 +165,8 @@ OtherVenues.propTypes = {
 };
 function OtherVenues({ filteredVenues }) {
   return (
-    <div className="flex max-h-[100rem] w-full flex-col overflow-y-hidden shadow-lg">
-      <h3 className="mx-auto my-10 font-playFair text-[24px] font-bold lg:whitespace-nowrap lg:text-[22px]">
+    <div className="flex w-full flex-col overflow-y-hidden shadow-lg lg:max-h-[100rem]">
+      <h3 className="mx-auto my-10 px-3 font-playFair text-[24px] font-bold lg:whitespace-nowrap lg:text-[22px]">
         Other Reception Venues You Might Like
       </h3>
       <div className="my-10 grid grid-flow-row grid-cols-1 gap-8 px-3 lg:px-6">
