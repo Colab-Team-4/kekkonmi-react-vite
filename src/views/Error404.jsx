@@ -10,8 +10,8 @@ function Error404() {
             Page Not Found
           </h1>
           <p className="text-center font-lato text-lg">
-            Oops, it seems like the wedding bells are taking a break - we're on
-            it!
+            Oops, it seems like the wedding bells are taking a break -
+            we&apos;re on it!
           </p>
         </div>
         <button className="btnSolid h-[52px] w-full lg:w-[300px]">
