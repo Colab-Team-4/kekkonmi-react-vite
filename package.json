@@ -12,8 +12,12 @@
     "generate": "node scripts/generateData.mjs"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
     "@fortawesome/free-brands-svg-icons": "^6.4.2",
+    "@mui/icons-material": "^5.14.12",
+    "@mui/material": "^5.14.12",
     "dotenv": "^16.3.1",
     "pexels": "^1.4.0",
     "prop-types": "^15.8.1",
