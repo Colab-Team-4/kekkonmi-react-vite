@@ -19,12 +19,11 @@ function Contact() {
   }, []);
 
   return (
-    <div className="contact mb-[10vh] mt-[5vh] flex snap-center scroll-mt-32 items-center justify-center lg:snap-center lg:scroll-mt-32">
+    <div className="contact mb-[10vh] mt-[5vh] flex scroll-mt-32 items-center justify-center lg:scroll-mt-32">
       <div className="contact-center flex w-5/6 max-w-6xl flex-col gap-20">
         <h1 className="-mb-12 w-full text-center tracking-tight">Contact Us</h1>
         <form method="POST" className="flex flex-col justify-center lg:gap-1">
           <div className="flex flex-col md:flex-row md:gap-5 lg:gap-6">
-            {/* First Name */}
             <div className="firstName flex basis-1/2 flex-col ">
               <label htmlFor="fName">First Name</label>
               <input
@@ -34,8 +33,6 @@ function Contact() {
                 className="inputText p-2"
               />
             </div>
-            {/* End of First Name */}
-            {/* Last Name */}
             <div className="lastName flex basis-1/2 flex-col">
               <label htmlFor="lName">Last Name</label>
               <input
@@ -45,10 +42,8 @@ function Contact() {
                 className="inputText p-2"
               />
             </div>
-            {/* End of Last Name */}
           </div>
           <div className="flex flex-col md:flex-row md:gap-5 lg:gap-6">
-            {/* Email */}
             <div className="email flex basis-1/2 flex-col">
               <label htmlFor="email">Email</label>
               <input
@@ -58,8 +53,6 @@ function Contact() {
                 className="inputText p-2"
               />
             </div>
-            {/* End of Email */}
-            {/* Phone */}
             <div className="phone flex basis-1/2 flex-col">
               <label htmlFor="phone">Phone no</label>
               <input
@@ -69,9 +62,7 @@ function Contact() {
                 className="inputText p-2"
               />
             </div>
-            {/* End of Phone */}
           </div>
-          {/* Message */}
           <div className="message mb-7 flex w-full flex-col">
             <label htmlFor="message">Message</label>
             <textarea
@@ -81,7 +72,6 @@ function Contact() {
               rows={rows}
             />
           </div>
-          {/* end of Message */}
           <button
             type="submit"
             className="btnSolid btnWeightNormal mx-auto w-80 cursor-pointer p-5 px-10 py-2"

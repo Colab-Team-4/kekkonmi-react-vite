@@ -7,10 +7,6 @@
   src: url("https://fonts.googleapis.com/css2?family=Lato&family=Playfair+Display:wght@500;600;700");
 }
 
-html {
-  scroll-snap-type: y proximity;
-}
-
 h1 {
   @apply font-playFair text-[48px] font-normal leading-[3.5rem];
 }
