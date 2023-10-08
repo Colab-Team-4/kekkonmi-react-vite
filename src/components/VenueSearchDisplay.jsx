@@ -165,7 +165,7 @@ OtherVenues.propTypes = {
 };
 function OtherVenues({ filteredVenues }) {
   return (
-    <div className="flex w-full flex-col overflow-y-hidden shadow-lg lg:max-h-[100rem]">
+    <div className="flex w-full flex-col overflow-hidden shadow-lg lg:max-h-[100rem]">
       <h3 className="mx-auto my-10 px-3 font-playFair text-[24px] font-bold lg:whitespace-nowrap lg:text-[22px]">
         Other Reception Venues You Might Like
       </h3>
