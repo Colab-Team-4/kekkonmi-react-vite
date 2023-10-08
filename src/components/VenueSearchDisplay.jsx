@@ -183,8 +183,8 @@ function OtherVenues({ filteredVenues }) {
                 }}
               />
               <div className="flex w-full pr-3">
-                <div className="-mr-3 flex w-full min-w-0 flex-col gap-1 truncate whitespace-nowrap">
-                  <h3 className="font-playFair text-[16px] font-bold lg:text-[18px]">
+                <div className="-mr-3 flex w-full min-w-0 flex-col gap-1">
+                  <h3 className="truncate font-playFair text-[16px] font-bold lg:text-[18px]">
                     {venue.name}
                   </h3>
                   <div className="-mb-1 -ml-1 flex items-center gap-4">
@@ -193,7 +193,7 @@ function OtherVenues({ filteredVenues }) {
                       {venue.rating}({venue.reviews})
                     </span>
                   </div>
-                  <div className="text-[14px] text-[#4B4B4B]">
+                  <div className="truncate text-[14px] text-[#4B4B4B]">
                     {venue.location}
                   </div>
                   <p className="text-xs text-[#616161]">
