@@ -22,13 +22,13 @@ function Navbar() {
         <button className="md:hidden">
           <HamburgerIcon />
         </button>
-        <a href="/" className="flex items-center gap-2">
-          <img src={logo} className="h-10" alt="Logo" />
+        <Link to="/" className="flex items-center gap-2">
+          <img className="h-10" src="/logo.svg" alt="Logo" />
           <span className="self-center whitespace-nowrap font-playFair text-[22px] font-normal tracking-widest dark:text-black lg:text-2xl">
             MATRIMONEY
           </span>
-        </a>
-        <button className="md:hidden lg:hidden">
+        </Link>
+        <button className="md:hidden">
           <LanguageIcon />
         </button>
         <div
@@ -71,7 +71,7 @@ function Navbar() {
             data-modal-target="loginModal"
             data-modal-toggle="loginModal"
             type="button"
-            className="btnOutline w-40"
+            className="btnOutline w-40 py-2"
           >
             Log In
           </button>

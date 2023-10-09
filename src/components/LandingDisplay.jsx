@@ -27,16 +27,16 @@ function LandingDisplay() {
     <div className="flex flex-col gap-24 bg-[#D9D8D8] px-[5vw] py-[5vh]">
       {contents.map((content, i) => (
         <div
-          className="lg:gap-30 flex flex-col items-center gap-4 lg:snap-center lg:scroll-mt-32 lg:flex-row"
+          className="flex flex-col items-center gap-4 lg:scroll-mt-32 lg:flex-row lg:gap-20"
           key={i}
         >
           <div
-            className={`flex aspect-auto h-[80vh] basis-1/2 items-center ${
+            className={`flex h-[80vh] basis-1/2 items-center ${
               i % 2 === 0 ? "lg:order-2 lg:justify-end" : "lg:order-1"
             }`}
           >
             <img
-              className="w-96 lg:w-[22vw]"
+              className="w-full object-cover lg:h-[713px]"
               src={content.image}
               alt={content.heading}
             />
@@ -48,7 +48,7 @@ function LandingDisplay() {
           >
             <h1>{content.heading}</h1>
             <p>{content.body}</p>
-            <button className="btnOutline w-72 self-center lg:self-start">
+            <button className="btnOutline w-72 self-center py-2 lg:self-start">
               {content.button}
             </button>
           </section>

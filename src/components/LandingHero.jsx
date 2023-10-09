@@ -12,13 +12,13 @@ const heroes = [
 
 function LandingHero() {
   return (
-    <div className="mt-[10vh] flex snap-center scroll-mt-20 flex-col gap-16 px-[5vw] py-[5vh]">
+    <div className="mt-[10vh] flex scroll-mt-20 flex-col gap-16 px-[5vw] py-[5vh]">
       {heroes.map((hero, i) => (
         <div
           className="flex flex-col items-center gap-4 lg:flex-row lg:gap-32"
           key={i}
         >
-          <section className="order-2 flex basis-1/2 flex-col gap-14 lg:order-1">
+          <section className="order-2 flex flex-col gap-14 lg:order-1">
             <h1 className="font-playFair text-[34px] font-medium lg:whitespace-nowrap">
               {hero.heading}
             </h1>
@@ -28,7 +28,7 @@ function LandingHero() {
             </button>
           </section>
           <img
-            className="order-1 h-[45vh] basis-1/2 lg:order-2"
+            className="order-1 w-full object-cover lg:order-2 lg:h-[600px]"
             src={hero.image}
             alt={hero.heading}
           />

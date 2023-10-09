@@ -7,10 +7,6 @@
   src: url("https://fonts.googleapis.com/css2?family=Lato&family=Playfair+Display:wght@500;600;700");
 }
 
-html {
-  scroll-snap-type: y proximity;
-}
-
 h1 {
   @apply font-playFair text-[48px] font-normal leading-[3.5rem];
 }
@@ -32,7 +28,7 @@ label {
 }
 
 .btnOutline {
-  @apply rounded-md border-[3px] border-black py-2 font-lato text-[20px] font-bold text-black duration-300 hover:bg-black hover:text-white;
+  @apply rounded-md border-[3px] border-black font-lato text-[20px] font-bold text-black duration-300 hover:bg-black hover:text-white;
 }
 
 .inputText {
@@ -40,7 +36,7 @@ label {
 }
 
 .btnWeightNormal {
-  @apply font-normal;
+  @apply border-2 font-normal;
 }
 
 .mobileText {
