@@ -15,6 +15,10 @@ const links = [
 function Navbar() {
   const location = useLocation().pathname;
   const activeLink = "underline";
+  function showRegisterModal() {
+    const registerModal = document.querySelector("#registerModal");
+    registerModal.classList.remove("hidden");
+  }
 
   return (
     <nav className="fixed left-0 right-0 top-0 z-50 border-gray-200 bg-white dark:bg-white">
@@ -54,24 +58,21 @@ function Navbar() {
             </div>
           </ul>
         </div>
-        <div id="registerModal" className="fixed left-0 top-0 min-w-full">
-          <AuthModal modalType="register" />
+        <div
+          id="registerModal"
+          className="fixed left-0 top-0 hidden min-w-full"
+        >
+          <AuthModal />
         </div>
 
         <div className="hidden bg-white lg:flex lg:gap-4">
-          <button
-            data-modal-target="registerModal"
-            data-modal-toggle="registerModal"
-            type="button"
-            className="btnSolid w-40 py-2"
-          >
+          <button type="button" className="btnSolid w-40 py-2">
             Sign Up
           </button>
           <button
-            data-modal-target="loginModal"
-            data-modal-toggle="loginModal"
             type="button"
             className="btnOutline w-40 py-2"
+            onClick={showRegisterModal}
           >
             Log In
           </button>
