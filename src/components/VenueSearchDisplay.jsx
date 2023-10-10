@@ -165,11 +165,11 @@ OtherVenues.propTypes = {
 };
 function OtherVenues({ filteredVenues }) {
   return (
-    <div className="flex w-full flex-col overflow-hidden shadow-lg lg:max-h-[100rem]">
-      <h3 className="mx-auto my-10 px-3 font-playFair text-[24px] font-bold lg:whitespace-nowrap lg:text-[22px]">
+    <div className="flex w-full flex-col overflow-hidden shadow-lg lg:max-h-[50.5rem]">
+      <h3 className="mx-auto my-10 font-playFair text-[24px] font-bold lg:whitespace-nowrap lg:text-[22px]">
         Other Reception Venues You Might Like
       </h3>
-      <div className="my-10 grid grid-flow-row grid-cols-1 gap-8 pl-3 lg:px-6">
+      <div className="my-10 grid grid-flow-row grid-cols-1 gap-8 px-3">
         {filteredVenues.length > 4 ? (
           filteredVenues.slice(4).map((venue, i) => (
             <div className="flex gap-3 lg:gap-8" key={i}>
@@ -182,23 +182,23 @@ function OtherVenues({ filteredVenues }) {
                   e.target.src = placeholderVenue;
                 }}
               />
-              <div className="flex w-full pr-3">
-                <div className="-mr-3 flex w-full min-w-0 flex-col gap-1">
-                  <h3 className="truncate font-playFair text-[16px] font-bold lg:text-[18px]">
+              <div className="relative flex w-full">
+                <div className="absolute flex w-full flex-col gap-1 whitespace-nowrap">
+                  <h3 className="overflow-hidden text-clip font-playFair text-[16px] font-bold lg:text-[18px]">
                     {venue.name}
                   </h3>
-                  <div className="-mb-1 -ml-1 flex items-center gap-4">
+                  <div className="-mb-1 -ml-1 flex items-center gap-2">
                     <Rating readOnly value={venue.rating} precision={0.1} />
-                    <span className="text-sm text-[#676767]">
+                    <span className="text-clip text-sm text-[#676767]">
                       {venue.rating}({venue.reviews})
                     </span>
                   </div>
-                  <div className="truncate text-[14px] text-[#4B4B4B]">
+                  <div className="text-clip text-[14px] text-[#4B4B4B]">
                     {venue.location}
                   </div>
-                  <p className="text-xs text-[#616161]">
+                  <p className="text-clip text-xs text-[#616161]">
                     {venue.guestCapacity} Guests{" "}
-                    <span className="mx-[1ch] text-black">•</span> Starts at $
+                    <span className="mx-1 text-black">•</span> Starts at $
                     {venue.startingPrice.toLocaleString()}
                   </p>
                 </div>
