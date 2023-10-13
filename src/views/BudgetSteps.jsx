@@ -33,7 +33,7 @@ function BudgetSteps() {
 
   const handleNextStep = () => {
     setCounter(1);
-  }
+  };
   const content = contents[counter]; // Render only the first item
 
   return (
