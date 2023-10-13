@@ -10,8 +10,9 @@ import Favorite from "@mui/icons-material/Favorite";
 
 SearchBar.propTypes = {
   setFilteredVenues: PropTypes.func.isRequired,
+  setExtraVenues: PropTypes.func.isRequired,
 };
-function SearchBar({ setFilteredVenues }) {
+function SearchBar({ setFilteredVenues, setExtraVenues }) {
   const searchRef = useRef(null);
 
   const handleSubmit = (e) => {
@@ -27,7 +28,7 @@ function SearchBar({ setFilteredVenues }) {
     const filtered = venues.filter((venue) =>
       venue.location.toLowerCase().includes(relevantQuery.toLowerCase()),
     );
-
+    setExtraVenues(0);
     setFilteredVenues(filtered);
   };
 
@@ -36,8 +37,8 @@ function SearchBar({ setFilteredVenues }) {
       onSubmit={handleSubmit}
       className="mb-16 flex flex-col justify-evenly gap-10 lg:flex-row lg:gap-6"
     >
-      <div className="flex justify-center gap-5">
-        <div className="relative flex flex-col items-start">
+      <div className="flex w-full justify-center gap-5">
+        <div className="relative flex w-full flex-col items-start">
           <div className="absolute left-0 flex h-full items-center pl-3">
             <SearchIcon />
           </div>
@@ -46,7 +47,7 @@ function SearchBar({ setFilteredVenues }) {
             type="search"
             id="venueSearch"
             placeholder="Venues in New York"
-            className="inputText mobileText py-3 pl-16 pr-2 lg:w-[50.67rem] lg:text-[22px]"
+            className="inputText mobileText w-full py-3 pl-16 pr-2 lg:text-[22px]"
           />
         </div>
         <div className="relative md:hidden">
@@ -78,7 +79,7 @@ FilterButtons.propTypes = {
 };
 function FilterButtons({ filteredVenues }) {
   return (
-    <div className="-mt-4 mb-14 flex flex-wrap gap-6 lg:w-[52rem]">
+    <div className="-mt-4 mb-14 hidden flex-wrap gap-6 lg:flex lg:w-[52rem]">
       <button className="btnOutline btnWeightNormal w-fit px-2 py-3 lg:px-8">
         Outdoor Venues
       </button>
@@ -95,63 +96,124 @@ function FilterButtons({ filteredVenues }) {
   );
 }
 
+VenueCard.propTypes = {
+  venue: PropTypes.object.isRequired,
+};
+function VenueCard({ venue }) {
+  return (
+    <div className="flex flex-col gap-6">
+      <img
+        className="aspect-square w-full rounded-md object-cover"
+        src={venue.coverUrl}
+        alt={venue.name}
+        onError={(e) => {
+          e.target.onerror = null;
+          e.target.src = placeholderVenue;
+        }}
+      />
+      <div className="flex items-center justify-between text-[16px] text-[#4B4B4B]">
+        {venue.location}
+        <Checkbox
+          icon={<FavoriteBorder style={{ color: "#6E7C99" }} />}
+          checkedIcon={<Favorite style={{ color: "#D32F2F" }} />}
+        />
+      </div>
+      <h2 className="-mt-5">{venue.name}</h2>
+      <p className="text-sm text-[#616161]">{venue.description}</p>
+      <p className="text-sm text-[#616161]">
+        {venue.guestCapacity} Guests{" "}
+        <span className="mx-[1ch] text-black">•</span> Starts at $
+        {venue.startingPrice.toLocaleString()}
+      </p>
+      <div className="mt-16 flex">
+        <button className="btnOutline w-60 py-2 lg:absolute lg:bottom-0">
+          Request Quote
+        </button>
+      </div>
+    </div>
+  );
+}
+
 VenueDisplay.propTypes = {
   filteredVenues: PropTypes.array.isRequired,
+  extraVenues: PropTypes.number.isRequired,
+  setExtraVenues: PropTypes.func.isRequired,
 };
-function VenueDisplay({ filteredVenues }) {
+function VenueDisplay({ filteredVenues, extraVenues, setExtraVenues }) {
+  const [startIndex, setStartIndex] = useState(9);
+
+  const handleShowMore = () => {
+    setExtraVenues((prevExtraVenues) => prevExtraVenues + 2);
+    setStartIndex((prevStartIndex) => prevStartIndex + 2);
+  };
+
+  const displayVenues = filteredVenues.slice(
+    startIndex,
+    startIndex + extraVenues,
+  );
+
   return (
-    <div className="lg:grid-template-rows:[min-content min-content] lg:grid-template-columns:[100% 100% auto] grid grid-cols-1 gap-x-6 gap-y-16 lg:grid-cols-3 lg:grid-rows-2">
+    <div className="grid grid-cols-1 gap-x-6 gap-y-16 lg:grid-cols-3">
       {filteredVenues.length === 0 ? (
         <div className="col-span-3 row-span-6 place-self-center text-center text-[#9E9E9E] lg:text-lg">
           Sorry, no venues here; let&apos;s refine your search together.
         </div>
       ) : (
         <>
-          {filteredVenues.slice(0, 4).map((venue, i) => (
+          {filteredVenues.length !== 3 ? (
+            filteredVenues.slice(0, 4).map((venue, i) => (
+              <div
+                className={`relative flex flex-col gap-6 lg:col-start-${
+                  (i % 2) + 1
+                } lg:row-start-${Math.floor(i / 2) + 1}`}
+                key={i}
+              >
+                <VenueCard venue={venue} />
+              </div>
+            ))
+          ) : (
+            <>
+              {filteredVenues.slice(0, 2).map((venue, i) => (
+                <div
+                  className={`relative flex flex-col gap-6 lg:col-start-${
+                    (i % 2) + 1
+                  } lg:row-start-${Math.floor(i / 2) + 1}`}
+                  key={i}
+                >
+                  <VenueCard venue={venue} />
+                </div>
+              ))}
+              <div className="lg:relative lg:col-start-3 lg:row-start-1 lg:block">
+                <VenueCard venue={filteredVenues[2]} />
+              </div>
+            </>
+          )}
+
+          {filteredVenues.length > 3 && (
+            <div className="lg:col-start-3 lg:row-start-1">
+              <OtherVenues filteredVenues={filteredVenues.slice(4, 9)} />
+            </div>
+          )}
+
+          {displayVenues.map((venue, i) => (
             <div
-              className={`relative flex w-full flex-col gap-6 ${
-                i === 2 && filteredVenues.length === 3
-                  ? "lg:col-start-3"
-                  : i >= 2
-                  ? "lg:row-start-2"
-                  : ""
-              }`}
-              key={i}
+              className={`relative flex flex-col gap-6 lg:col-start-${
+                ((i + 4) % 2) + 1
+              } lg:row-start-${Math.floor((i + 4) / 2) + 2}`}
+              key={i + startIndex}
             >
-              <img
-                className="aspect-square w-full rounded-md object-cover"
-                src={venue.coverUrl}
-                alt={venue.name}
-                onError={(e) => {
-                  e.target.onerror = null;
-                  e.target.src = placeholderVenue;
-                }}
-              />
-              <div className="flex items-center justify-between text-[16px] text-[#4B4B4B]">
-                {venue.location}
-                <Checkbox
-                  icon={<FavoriteBorder />}
-                  checkedIcon={<Favorite />}
-                />
-              </div>
-              <h2 className="-mt-5">{venue.name}</h2>
-              <p className="text-sm text-[#616161]">{venue.description}</p>
-              <p className="text-sm text-[#616161]">
-                {venue.guestCapacity} Guests{" "}
-                <span className="mx-[1ch] text-black">•</span> Starts at $
-                {venue.startingPrice.toLocaleString()}
-              </p>
-              <div className="mt-16 flex">
-                <button className="btnOutline w-60 py-2 lg:absolute lg:bottom-0">
-                  Request Quote
-                </button>
-              </div>
+              <VenueCard venue={venue} />
             </div>
           ))}
 
-          {filteredVenues.length >= 4 && (
-            <div className="col-span-1 w-full lg:col-start-3 lg:row-span-2">
-              <OtherVenues filteredVenues={filteredVenues} />
+          {filteredVenues.length > startIndex + extraVenues && (
+            <div className="flex justify-center lg:col-span-2 lg:col-start-1">
+              <button
+                onClick={handleShowMore}
+                className="btnSolid mt-8 w-64 px-2 py-3 text-[20px] lg:px-8"
+              >
+                Show more
+              </button>
             </div>
           )}
         </>
@@ -165,13 +227,13 @@ OtherVenues.propTypes = {
 };
 function OtherVenues({ filteredVenues }) {
   return (
-    <div className="flex w-full flex-col overflow-hidden shadow-lg lg:max-h-[50.5rem]">
+    <div className="flex max-h-[53rem] w-full flex-col overflow-hidden shadow-lg lg:max-h-[50.5rem]">
       <h3 className="mx-auto my-10 font-playFair text-[24px] font-bold lg:whitespace-nowrap lg:text-[22px]">
         Other Reception Venues You Might Like
       </h3>
       <div className="my-10 grid grid-flow-row grid-cols-1 gap-8 px-3">
-        {filteredVenues.length > 4 ? (
-          filteredVenues.slice(4).map((venue, i) => (
+        {filteredVenues.length > 0 ? (
+          filteredVenues.map((venue, i) => (
             <div className="flex gap-3 lg:gap-8" key={i}>
               <img
                 className="aspect-square w-[100px] rounded-sm object-cover"
@@ -218,12 +280,20 @@ function OtherVenues({ filteredVenues }) {
 
 function VenueSearchDisplay() {
   const [filteredVenues, setFilteredVenues] = useState([]);
+  const [extraVenues, setExtraVenues] = useState(0);
 
   return (
     <div className="mb-[5vw] flex w-full flex-col lg:px-[5vw]">
-      <SearchBar setFilteredVenues={setFilteredVenues} />
+      <SearchBar
+        setFilteredVenues={setFilteredVenues}
+        setExtraVenues={setExtraVenues}
+      />
       <FilterButtons filteredVenues={filteredVenues} />
-      <VenueDisplay filteredVenues={filteredVenues} />
+      <VenueDisplay
+        filteredVenues={filteredVenues}
+        extraVenues={extraVenues}
+        setExtraVenues={setExtraVenues}
+      />
     </div>
   );
 }
