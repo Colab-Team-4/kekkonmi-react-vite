@@ -31,7 +31,7 @@ const contents = [
 function BudgetSteps() {
   const [counter, setCounter] = useState(0);
 
-  function nextPage() {
+  const handleNextStep = () => {
     setCounter(1);
   }
   const content = contents[counter]; // Render only the first item
@@ -110,7 +110,7 @@ function BudgetSteps() {
               <button
                 type="button"
                 className="text font-lato lg:text-xl"
-                onClick={nextPage}
+                onClick={handleNextStep}
               >
                 Skip this step
               </button>
