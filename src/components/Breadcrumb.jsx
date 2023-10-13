@@ -3,7 +3,7 @@ import { ArrowForward } from "./Icons";
 
 function Breadcrumb() {
   return (
-    <div className="mb-[5vh] mt-[10vh]">
+    <div className="mb-[5vh] mt-[10vh] text-[#6E7C99]">
       <nav className="flex">
         <ol className="flex items-center gap-4">
           <li>
