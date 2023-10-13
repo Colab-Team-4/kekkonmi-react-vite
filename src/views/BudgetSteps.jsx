@@ -64,40 +64,27 @@ function BudgetSteps() {
           </h2>
           <div className="mb-12 flex flex-col gap-20 lg:gap-44">
             <div className="flex flex-col gap-9 lg:gap-16">
-              {/* First Line */}
-              <div className="flex justify-between lg:justify-normal lg:gap-10">
-                <h3 className="mt-3 font-lato text-[22px] lg:mt-0">
-                  {content.inputLabels[0]}
-                </h3>
-                <div>
-                  <input
-                    type={content.inputType[0]}
-                    className="h-14 w-52 rounded px-4 font-lato text-xl ring-1 ring-[#9E9E9E] lg:h-[40px] lg:w-[355px]"
-                    placeholder={content.placeholders[0]}
-                  />
-                  <h4 className="pl-4 pt-1 font-lato text-sm font-normal lg:text-base">
-                    {content.subtext[0]}
-                  </h4>
+              {/* Loop through inputLabels array and generate input fields */}
+              {content.inputLabels.map((label, index) => (
+                <div
+                  key={index}
+                  className="flex justify-between lg:justify-normal lg:gap-10"
+                >
+                  <h3 className="mt-3 font-lato text-[22px] lg:mt-0">
+                    {label}
+                  </h3>
+                  <div>
+                    <input
+                      type={content.inputType[index]}
+                      className="h-14 w-52 rounded px-4 font-lato text-xl ring-1 ring-[#9E9E9E] lg:h-[40px] lg:w-[355px]"
+                      placeholder={content.placeholders[index]}
+                    />
+                    <h4 className="pl-4 pt-1 font-lato text-sm font-normal lg:text-base">
+                      {content.subtext[index]}
+                    </h4>
+                  </div>
                 </div>
-              </div>
-              {/* End of First Line */}
-              {/* Second Line */}
-              <div className="flex justify-between lg:justify-normal lg:gap-10">
-                <h3 className="mt-3 font-lato text-[22px] lg:mt-0">
-                  {content.inputLabels[1]}
-                </h3>
-                <div>
-                  <input
-                    type={content.inputType[1]}
-                    className="h-14 w-52 rounded pl-4 pr-3 font-lato text-xl ring-1 ring-[#9E9E9E] lg:h-[40px] lg:w-[355px]"
-                    placeholder={content.placeholders[1]}
-                  />
-                  <h4 className="pl-4 pt-1 font-lato text-sm font-normal lg:text-base">
-                    {content.subtext[1]}
-                  </h4>
-                </div>
-              </div>
-              {/* End of Second Line */}
+              ))}
             </div>
             {/* Buttons */}
             <div className="flex gap-[91px]">
