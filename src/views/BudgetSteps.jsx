@@ -29,7 +29,7 @@ function BudgetSteps() {
     setObjectCover("object-center");
     setPlaceHolderSecond("NY");
     setDatePicker("date");
-    setBudgetRange("text")
+    setBudgetRange("text");
   }
   return (
     <div className="mt-20 flex flex-col justify-center px-5 text-[#616161] lg:mt-16 lg:min-h-[93vh] lg:flex-row lg:pl-[5vw] lg:pr-0 ">
