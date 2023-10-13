@@ -37,8 +37,8 @@ function SearchBar({ setFilteredVenues, setExtraVenues }) {
       onSubmit={handleSubmit}
       className="mb-16 flex flex-col justify-evenly gap-10 lg:flex-row lg:gap-6"
     >
-      <div className="flex justify-center gap-5">
-        <div className="relative flex flex-col items-start">
+      <div className="flex w-full justify-center gap-5">
+        <div className="relative flex w-full flex-col items-start">
           <div className="absolute left-0 flex h-full items-center pl-3">
             <SearchIcon />
           </div>
@@ -47,7 +47,7 @@ function SearchBar({ setFilteredVenues, setExtraVenues }) {
             type="search"
             id="venueSearch"
             placeholder="Venues in New York"
-            className="inputText mobileText py-3 pl-16 pr-2 lg:w-[50.67rem] lg:text-[22px]"
+            className="inputText mobileText w-full py-3 pl-16 pr-2 lg:text-[22px]"
           />
         </div>
         <div className="relative md:hidden">
@@ -79,7 +79,7 @@ FilterButtons.propTypes = {
 };
 function FilterButtons({ filteredVenues }) {
   return (
-    <div className="-mt-4 mb-14 flex flex-wrap gap-6 lg:w-[52rem]">
+    <div className="-mt-4 mb-14 hidden flex-wrap gap-6 lg:flex lg:w-[52rem]">
       <button className="btnOutline btnWeightNormal w-fit px-2 py-3 lg:px-8">
         Outdoor Venues
       </button>
