@@ -24,19 +24,23 @@ label {
 }
 
 .btnSolid {
-  @apply rounded-md bg-black font-lato text-[20px] font-bold text-white duration-300 hover:bg-white hover:text-black hover:ring-[3px] hover:ring-inset hover:ring-black;
+  @apply rounded-md bg-[#AD6E7A] font-lato text-[20px] font-bold text-white duration-300 hover:bg-white hover:text-[#616161] hover:ring-[3px] hover:ring-inset hover:ring-[#AD6E7A];
 }
 
 .btnOutline {
-  @apply rounded-md border-[3px] border-black font-lato text-[20px] font-bold text-black duration-300 hover:bg-black hover:text-white;
+  @apply rounded-md border-[3px] border-[#AD6E7A] font-lato text-[20px] font-bold text-[#616161] duration-300 hover:bg-[#AD6E7A] hover:text-white;
 }
 
 .inputText {
-  @apply rounded border-2 border-black font-lato text-[22px] placeholder:text-[#676767];
+  @apply rounded border-2 border-[#9E9E9E] font-lato text-[22px] placeholder:text-[#9E9E9E] focus:border-[#6E7C99] focus:outline-none focus:ring-0;
 }
 
 .btnWeightNormal {
   @apply border-2 font-normal;
+}
+
+.btnNavSolid {
+  @apply bg-[#6E7C99] hover:ring-[#6E7C99];
 }
 
 .mobileText {
