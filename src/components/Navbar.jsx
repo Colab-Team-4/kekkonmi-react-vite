@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { HamburgerIcon, LanguageIcon } from "./Icons";
+import { HamburgerIcon, AccountIcon } from "./Icons";
 import Logo from "../assets/LogoDefault.png";
 
 const links = [
@@ -25,7 +25,7 @@ function Navbar() {
           <img src={Logo} alt="Logo" className="h-14" />
         </Link>
         <button className="md:hidden">
-          <LanguageIcon />
+          <AccountIcon />
         </button>
         <div
           className="hidden w-full items-center justify-between md:flex md:w-auto"
