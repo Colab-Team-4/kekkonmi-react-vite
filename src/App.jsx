@@ -28,10 +28,8 @@ function App() {
         />
         <Route path="/budgeting" element={<BudgetSteps />} />
         <Route
-          path="/venue/:venueName"
-          render={(props) => (
-            <VenueDetails {...props} filteredVenues={filteredVenues} />
-          )}
+          path="/venues/:venueName"
+          element={<VenueDetails filteredVenues={filteredVenues} />}
         />
 
         <Route path="*" element={<Error404 />} />

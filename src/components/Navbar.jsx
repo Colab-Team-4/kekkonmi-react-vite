@@ -16,13 +16,13 @@ function Navbar() {
   const activeLink = "underline";
 
   return (
-    <nav className="fixed left-0 right-0 top-0 z-50 border-gray-200 bg-white dark:bg-white">
-      <div className="mx-auto flex items-center justify-between px-10 py-2 lg:justify-around">
+    <nav className="fixed top-0 z-50 w-11/12 self-center whitespace-nowrap rounded-md border-gray-200 bg-white shadow-md dark:bg-white lg:w-full lg:shadow-none">
+      <div className="flex items-center justify-between px-[5vw] py-4">
         <button className="md:hidden">
           <HamburgerIcon />
         </button>
         <Link to="/" className="flex items-center gap-2">
-          <img src={Logo} alt="Logo" className="h-14" />
+          <img src={Logo} alt="Logo" className="h-8 lg:h-14" />
         </Link>
         <button className="md:hidden">
           <AccountIcon />
