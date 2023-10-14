@@ -52,7 +52,7 @@ function BudgetSteps() {
         {/* End of Progress bar  */}
         {/* image on mobile */}
         <img
-          className={`h-[400px] w-[450px] object-cover  lg:hidden ${content.imgPosition}`}
+          className={`aspect-square rounded object-cover lg:hidden ${content.imgPosition}`}
           src={content.bgImg}
           alt=""
         />
@@ -68,9 +68,9 @@ function BudgetSteps() {
               {content.inputLabels.map((label, index) => (
                 <div
                   key={index}
-                  className="grid grid-cols-2 gap-7 lg:flex lg:justify-normal lg:gap-10"
+                  className="grid grid-cols-2 gap-7 lg:flex lg:justify-normal lg:gap-16"
                 >
-                  <h3 className="mt-3 w-fit font-lato text-[16px] lg:mt-0">
+                  <h3 className="mt-3 w-fit font-lato text-[16px] lg:mt-0 lg:basis-[139px]">
                     {label}
                   </h3>
                   <div className="">
