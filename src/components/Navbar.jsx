@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { HamburgerIcon, LanguageIcon } from "./Icons";
-import logo from "/logo.svg";
+import Logo from "../assets/LogoDefault.png";
 import AuthModal from "./AuthModal";
 
 const links = [
@@ -27,10 +27,7 @@ function Navbar() {
           <HamburgerIcon />
         </button>
         <Link to="/" className="flex items-center gap-2">
-          <img className="h-10" src="/logo.svg" alt="Logo" />
-          <span className="self-center whitespace-nowrap font-playFair text-[22px] font-normal tracking-widest dark:text-black lg:text-2xl">
-            MATRIMONEY
-          </span>
+          <img src={Logo} alt="Logo" className="h-14" />
         </Link>
         <button className="md:hidden">
           <LanguageIcon />
@@ -43,16 +40,14 @@ function Navbar() {
             <div className="flex gap-10">
               {links.map((link, i) => (
                 <li key={i}>
-                  <p>
-                    <Link
-                      to={link.route}
-                      className={`underline-offset-8 hover:underline ${
-                        location === link.route ? activeLink : ""
-                      }`}
-                    >
-                      {link.page}
-                    </Link>
-                  </p>
+                  <Link
+                    to={link.route}
+                    className={`text-lg text-[#6E7C99] underline-offset-8 hover:underline ${
+                      location === link.route ? activeLink : ""
+                    }`}
+                  >
+                    {link.page}
+                  </Link>
                 </li>
               ))}
             </div>
@@ -66,7 +61,7 @@ function Navbar() {
         </div>
 
         <div className="hidden bg-white lg:flex lg:gap-4">
-          <button type="button" className="btnSolid w-40 py-2">
+          <button type="button" className="btnSolid btnNavSolid w-40 py-2">
             Sign Up
           </button>
           <button

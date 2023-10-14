@@ -4,6 +4,7 @@ import Venues from "./views/Venues";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Error404 from "./views/Error404";
+import BudgetSteps from "./views/BudgetSteps";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/venues" element={<Venues />} />
         <Route path="/404" element={<Error404 />} />
+        <Route path="/budgeting" element={<BudgetSteps />} />
       </Routes>
       <Footer />
     </div>

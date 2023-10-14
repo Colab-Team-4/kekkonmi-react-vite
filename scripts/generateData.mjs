@@ -61,8 +61,10 @@ const vendorTeams = [
   "Wedding Flowers",
   "Wedding Hair & Makeup",
   "Wedding Invitations",
-  "Wedding Photography",
+  "Wedding Photograpers",
   "Wedding Planners/Designers",
+  "Wedding Rings",
+  "Wedding Videographers",
 ];
 const affiliations = ["Destination Weddings"];
 const diversityFilter = [
@@ -94,6 +96,7 @@ const descriptionTemplates = [
   "The combination of {feature1} and {feature2} sets {name} apart from other venues in {location}.",
   "Our venue is the epitome of elegance, offering {feature1} that will leave you and your guests in awe.",
 ];
+const outdoorsFilter = ["Outdoor Event Space", "Covered Outdoor Space"];
 
 const generateFeatures = () => {
   const venueType = generateRandomElement(venueTypes);
@@ -128,10 +131,12 @@ const generateRandomElements = (array) => {
 
 const client = createClient(process.env.PEXELS_API_KEY);
 const fetchPexelsImage = async (venue) => {
-  const query = `wedding venue ${venue.location} ${venue.features.join(" ")}`;
+  const query = `${venue.name} ${venue.location} ${venue.features.join(
+    " ",
+  )} wedding venue`;
 
   try {
-    const photos = await client.photos.search({ query, per_page: 11 });
+    const photos = await client.photos.search({ query, per_page: 6 });
     const coverUrl = photos.photos[0].src.original;
     const galleryUrls = photos.photos
       .slice(1)
@@ -144,10 +149,28 @@ const fetchPexelsImage = async (venue) => {
 };
 
 const generateVenue = async () => {
-  const venueName = faker.company.name();
+  const adjectiveList = [
+    "Elegant",
+    "Grand",
+    "Serene",
+    "Charming",
+    "Majestic",
+    "Enchanting",
+    "Stunning",
+    "Picturesque",
+    "Classical",
+    "Timeless",
+  ];
   const city = faker.location.city();
   const state = faker.location.state();
+  const venueType = generateRandomElement(venueTypes);
+  const randomAdjective =
+    adjectiveList[Math.floor(Math.random() * adjectiveList.length)];
+  const venueName = `${randomAdjective} ${venueType} of ${city}`;
   const location = `${city}, ${state}`;
+  const streetAddress = faker.location.streetAddress();
+  const zipCode = faker.location.zipCode();
+  const detailedDesc = faker.lorem.paragraphs(10);
   const features = generateFeatures();
   const startingPrice = Math.floor(Math.random() * 18 + 3) * 1000;
   let pricing;
@@ -170,17 +193,21 @@ const generateVenue = async () => {
 
   return {
     name: venueName,
+    venueType,
     location,
     city,
     state,
+    streetAddress,
+    zipCode,
+    detailedDesc,
     isFavorited: false,
     description: generateDescription(venueName, location, features),
     guestCapacity: generateRandomElement(guestCapacityOptions),
-    venueType: generateRandomElement(venueTypes),
     amenities: generateRandomElements(venueAmenities),
     vendors: generateRandomElements(vendorTeams),
     affiliations: generateRandomElements(affiliations),
     diversity: generateRandomElements(diversityFilter),
+    outdoors: generateRandomElements(outdoorsFilter),
     startingPrice,
     pricing,
     coverUrl,
@@ -193,22 +220,38 @@ const generateVenue = async () => {
 const generateAllVenues = async (n) => {
   const batchSize = 50;
   const delay = 60000;
-  const allVenues = [];
+  let allVenues = [];
+
+  try {
+    const existingData = fs.readFileSync("./src/data/venueData.json", "utf8");
+    allVenues = JSON.parse(existingData);
+  } catch (error) {
+    console.log(
+      "No existing venueData.json found, starting with an empty array.",
+    );
+  }
 
   for (let i = 0; i < Math.ceil(n / batchSize); i++) {
     try {
       const batch = await Promise.all(
         Array.from({ length: batchSize }, generateVenue),
       );
+      const hasEmptyUrls = batch.some(
+        (venue) => !venue.coverUrl || venue.galleryUrls.length === 0,
+      );
+
+      if (hasEmptyUrls) {
+        console.log("Pexels API limit reached. Stopping the script.");
+        break;
+      }
+
       allVenues.push(...batch);
       fs.writeFileSync(
         "./src/data/venueData.json",
         JSON.stringify(allVenues, null, 2),
       );
     } catch (error) {
-      console.error(
-        `An error occurred while generating the batch: ${error.message}`,
-      );
+      console.error(`An error occurred: ${error.message}`);
     }
 
     if (i < Math.ceil(n / batchSize) - 1) {
@@ -217,4 +260,5 @@ const generateAllVenues = async (n) => {
     }
   }
 };
+
 generateAllVenues(500);

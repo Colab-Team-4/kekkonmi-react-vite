@@ -2,14 +2,14 @@
 
 ## Features
 
-- Front-end part of Matrimoney
+- Front-end part of Matrimoni
 
 ## Installation and Setup
 
 1. Clone the repository:
-   `git clone https://github.com/Colab-Team-4/matrimoney-react.git`
+   `git clone https://github.com/Colab-Team-4/matrimoni-react.git`
 2. Navigate to the project directory:
-   `cd matrimoney-react`
+   `cd matrimoni-react`
 
 Currently, two official plugins are available:
 
