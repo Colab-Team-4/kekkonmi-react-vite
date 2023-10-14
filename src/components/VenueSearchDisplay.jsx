@@ -1,4 +1,5 @@
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { SearchIcon, FilterIcon } from "./Icons";
 import venues from "../data/venueData.json";
@@ -14,10 +15,19 @@ SearchBar.propTypes = {
 };
 function SearchBar({ setFilteredVenues, setExtraVenues }) {
   const searchRef = useRef(null);
+  const [lastSearch, setLastSearch] = useState("");
+
+  useEffect(() => {
+    const savedSearch = localStorage.getItem("lastSearch");
+    if (savedSearch) {
+      setLastSearch(savedSearch);
+    }
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const query = searchRef.current.value;
+    localStorage.setItem("lastSearch", query);
 
     const irrelevantWords = ["venues", "in", "wedding", "venue"];
     const relevantQuery = query
@@ -48,6 +58,7 @@ function SearchBar({ setFilteredVenues, setExtraVenues }) {
             id="venueSearch"
             placeholder="Venues in New York"
             className="inputText mobileText w-full py-3 pl-16 pr-2 lg:text-[22px]"
+            defaultValue={lastSearch}
           />
         </div>
         <div className="relative md:hidden">
@@ -126,9 +137,12 @@ function VenueCard({ venue }) {
         {venue.startingPrice.toLocaleString()}
       </p>
       <div className="mt-16 flex">
-        <button className="btnOutline w-60 py-2 lg:absolute lg:bottom-0">
+        <Link
+          to={`/venues/${venue.name.split(" ").join("-")}`}
+          className="btnOutline mx-auto w-60 py-2 text-center lg:absolute lg:bottom-0 lg:mx-0"
+        >
           Request Quote
-        </button>
+        </Link>
       </div>
     </div>
   );
@@ -250,7 +264,12 @@ function OtherVenues({ filteredVenues }) {
                     {venue.name}
                   </h3>
                   <div className="-mb-1 -ml-1 flex items-center gap-2">
-                    <Rating readOnly value={venue.rating} precision={0.1} />
+                    <Rating
+                      readOnly
+                      value={venue.rating}
+                      precision={0.1}
+                      style={{ color: "#323232" }}
+                    />
                     <span className="text-clip text-sm text-[#676767]">
                       {venue.rating}({venue.reviews})
                     </span>
@@ -278,8 +297,11 @@ function OtherVenues({ filteredVenues }) {
   );
 }
 
-function VenueSearchDisplay() {
-  const [filteredVenues, setFilteredVenues] = useState([]);
+VenueSearchDisplay.propTypes = {
+  setFilteredVenues: PropTypes.func.isRequired,
+  filteredVenues: PropTypes.array.isRequired,
+};
+function VenueSearchDisplay({ setFilteredVenues, filteredVenues }) {
   const [extraVenues, setExtraVenues] = useState(0);
 
   return (

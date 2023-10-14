@@ -6,7 +6,7 @@ const links = ["Contact", "Terms of Use", "Privacy Policy", "FAQ"];
 
 function Footer() {
   return (
-    <footer className="mx-auto flex w-full flex-col items-center justify-around bg-[#E8C8CE] p-4 pt-12 md:flex-row md:gap-10 md:p-10 lg:justify-between lg:px-20">
+    <footer className="mx-auto flex w-full flex-col items-center justify-around whitespace-nowrap bg-[#E8C8CE] p-4 pt-12 md:flex-row md:gap-10 md:p-10 lg:justify-between lg:px-20">
       <Link to="/" className="flex items-center gap-2">
         <img src={Logo} alt="Logo" className="h-14" />
       </Link>

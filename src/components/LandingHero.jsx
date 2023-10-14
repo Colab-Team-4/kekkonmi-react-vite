@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../index.css";
 
 const heroes = [
@@ -23,9 +24,12 @@ function LandingHero() {
               {hero.heading}
             </h1>
             <p>{hero.body}</p>
-            <button className="btnSolid mt-1 w-72 self-center py-2 lg:mt-14 lg:self-start">
+            <Link
+              to="/venues"
+              className="btnSolid mt-1 w-72 self-center py-2 text-center lg:mt-14 lg:self-start"
+            >
               {hero.button}
-            </button>
+            </Link>
           </section>
           <img
             className="order-1 w-full object-cover lg:order-2 lg:h-[600px]"
