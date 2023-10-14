@@ -39,8 +39,8 @@ function BudgetSteps() {
   return (
     <div className="mt-20 flex flex-col justify-center px-5 text-[#616161] lg:mt-16 lg:min-h-[93vh] lg:flex-row lg:pl-[5vw] lg:pr-0">
       {/* Left Side */}
-      <div className="order-2 flex basis-1/2 flex-col gap-10 lg:order-1 lg:gap-12 lg:mt-7">
-        <h2 className="font-playFair text-black text-2xl font-bold lg:text-3xl">
+      <div className="order-2 flex basis-1/2 flex-col gap-10 lg:order-1 lg:mt-7 lg:gap-12">
+        <h2 className="font-playFair text-2xl font-bold text-black lg:text-3xl">
           Step {content.step} of 2
         </h2>
         {/* Progress bar  */}
@@ -52,14 +52,14 @@ function BudgetSteps() {
         {/* End of Progress bar  */}
         {/* image on mobile */}
         <img
-          className={`h-[350px] w-[350px] object-cover  lg:hidden ${content.imgPosition}`}
+          className={`h-[400px] w-[450px] object-cover  lg:hidden ${content.imgPosition}`}
           src={content.bgImg}
           alt=""
         />
         {/* end of image on mobile */}
         {/* Input Box */}
         <div className="flex flex-col gap-12 lg:gap-24 ">
-          <h2 className="font-playFair tracking-tight leading-6 text-xl font-bold text-[#161616] lg:text-[39px] lg:leading-none">
+          <h2 className="font-playFair text-xl font-bold leading-6 tracking-tight text-[#161616] lg:text-[36px] lg:leading-none">
             {content.heading}
           </h2>
           <div className="mb-12 flex flex-col gap-20 lg:gap-44">
@@ -68,15 +68,15 @@ function BudgetSteps() {
               {content.inputLabels.map((label, index) => (
                 <div
                   key={index}
-                  className="flex gap-9 lg:justify-normal lg:gap-10"
+                  className="grid grid-cols-2 gap-7 lg:flex lg:justify-normal lg:gap-10"
                 >
-                  <h3 className="mt-3 font-lato text-[16px] lg:mt-0">
+                  <h3 className="mt-3 w-fit font-lato text-[16px] lg:mt-0">
                     {label}
                   </h3>
                   <div className="">
                     <input
                       type={content.inputType[index]}
-                      className="h-14 w-40 rounded px-4 font-lato text-xl ring-1 ring-[#9E9E9E] focus:border-[#161616] focus:border- focus:ring-0 lg:h-[40px] lg:w-[355px]"
+                      className="focus:border- h-14 w-full rounded px-4 font-lato text-[16px] ring-1 ring-[#9E9E9E] focus:border-[#161616] focus:ring-0 lg:h-[40px] lg:w-[355px]"
                       placeholder={content.placeholders[index]}
                     />
                     <h4 className="pl-4 pt-1 font-lato text-[12px] font-normal lg:text-base">
@@ -90,13 +90,13 @@ function BudgetSteps() {
             <div className="flex">
               <button
                 type="button"
-                className="btnSolid h-12 w-48 basis-1/2 rounded bg-[#AD6E7A] font-lato text-sm font-medium text-white lg:h-[70px] lg:w-[314px] lg:bg-[#F4E2E6] lg:text-xl lg:font-bold lg:text-[#616161]"
+                className="btnBudgetSolid h-12 w-48 basis-1/2 text-sm lg:h-[70px] lg:w-[314px] lg:basis-1/3 lg:text-xl lg:font-bold"
               >
                 Save
               </button>
               <button
                 type="button"
-                className="text basis-1/2 whitespace-nowrap font-lato lg:text-xl"
+                className="text basis-1/2 whitespace-nowrap font-lato lg:basis-1/2  lg:text-xl"
                 onClick={handleNextStep}
               >
                 Skip this step
