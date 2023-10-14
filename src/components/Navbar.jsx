@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { HamburgerIcon, AccountIcon } from "./Icons";
 import Logo from "../assets/LogoDefault.png";
+import NavModal from "./NavModal";
 
 const links = [
   { page: "Home", route: "/" },
@@ -17,7 +18,8 @@ function Navbar() {
 
   return (
     <nav className="fixed top-0 z-50 w-11/12 self-center whitespace-nowrap rounded-md border-gray-200 bg-white shadow-md dark:bg-white lg:w-full lg:shadow-none">
-      <div className="flex items-center justify-between px-[5vw] py-4">
+      <div className="flex items-center justify-between px-[5vw] py-4 overflow-auto">
+        <NavModal />
         <button className="md:hidden">
           <HamburgerIcon />
         </button>
@@ -56,32 +58,8 @@ function Navbar() {
           <button type="button" className="btnOutline w-40 py-2">
             Log In
           </button>
-
-          {/* <button
-            data-collapse-toggle="navbar-cta"
-            type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 md:hidden"
-            aria-controls="navbar-cta"
-            aria-expanded="false"
-          >
-            <span className="sr-only">Open main menu</span>
-            <svg
-              className="h-5 w-5"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 17 14"
-            >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M1 1h15M1 7h15M1 13h15"
-              />
-            </svg>
-          </button> */}
         </div>
+
       </div>
     </nav>
   );
