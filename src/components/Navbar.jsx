@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { HamburgerIcon, AccountIcon } from "./Icons";
 import Logo from "../assets/LogoDefault.png";
 import NavModal from "./NavModal";
+import { useState } from "react";
 
 const links = [
   { page: "Home", route: "/" },
@@ -16,11 +17,21 @@ function Navbar() {
   const location = useLocation().pathname;
   const activeLink = "underline";
 
+  const handleClick = () => {
+    let showMobileNav = document.querySelector("#showMobileNav");
+    showMobileNav.classList.remove("hidden");
+  };
+
   return (
-    <nav className="fixed top-0 z-50 w-11/12 self-center whitespace-nowrap rounded-md border-gray-200 bg-white shadow-md dark:bg-white lg:w-full lg:shadow-none">
-      <div className="flex items-center justify-between px-[5vw] py-4 overflow-auto">
-        <NavModal />
-        <button className="md:hidden">
+    <nav
+      className="fixed top-0 z-50 w-11/12 self-center whitespace-nowrap rounded-md border-gray-200 bg-white shadow-md dark:bg-white lg:w-full lg:shadow-none"
+      id="closeMobileNav"
+    >
+      <div className="flex items-center justify-between px-[5vw] py-4">
+        <div id="showMobileNav" className="hidden">
+          <NavModal />
+        </div>
+        <button className=" md:hidden" onClick={handleClick}>
           <HamburgerIcon />
         </button>
         <Link to="/" className="flex items-center gap-2">
@@ -59,7 +70,6 @@ function Navbar() {
             Log In
           </button>
         </div>
-
       </div>
     </nav>
   );
