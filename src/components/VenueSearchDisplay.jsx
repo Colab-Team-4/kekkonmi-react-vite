@@ -12,8 +12,9 @@ import Favorite from "@mui/icons-material/Favorite";
 SearchBar.propTypes = {
   setFilteredVenues: PropTypes.func.isRequired,
   setExtraVenues: PropTypes.func.isRequired,
+  setHasSearched: PropTypes.func.isRequired,
 };
-function SearchBar({ setFilteredVenues, setExtraVenues }) {
+function SearchBar({ setFilteredVenues, setExtraVenues, setHasSearched }) {
   const searchRef = useRef(null);
   const [lastSearch, setLastSearch] = useState("");
 
@@ -21,6 +22,22 @@ function SearchBar({ setFilteredVenues, setExtraVenues }) {
     const savedSearch = localStorage.getItem("lastSearch");
     if (savedSearch) {
       setLastSearch(savedSearch);
+
+      const irrelevantWords = ["venues", "in", "wedding", "venue"];
+      const relevantQuery = savedSearch
+        .split(" ")
+        .filter((word) => !irrelevantWords.includes(word.toLowerCase()))
+        .join(" ");
+
+      const filtered = venues.filter((venue) =>
+        venue.location.toLowerCase().includes(relevantQuery.toLowerCase()),
+      );
+
+      setFilteredVenues(filtered);
+      setHasSearched(true);
+    } else {
+      setFilteredVenues([]);
+      setHasSearched(false);
     }
   }, []);
 
@@ -28,6 +45,7 @@ function SearchBar({ setFilteredVenues, setExtraVenues }) {
     e.preventDefault();
     const query = searchRef.current.value;
     localStorage.setItem("lastSearch", query);
+    setHasSearched(true);
 
     const irrelevantWords = ["venues", "in", "wedding", "venue"];
     const relevantQuery = query
@@ -152,8 +170,14 @@ VenueDisplay.propTypes = {
   filteredVenues: PropTypes.array.isRequired,
   extraVenues: PropTypes.number.isRequired,
   setExtraVenues: PropTypes.func.isRequired,
+  hasSearched: PropTypes.bool.isRequired,
 };
-function VenueDisplay({ filteredVenues, extraVenues, setExtraVenues }) {
+function VenueDisplay({
+  filteredVenues,
+  extraVenues,
+  setExtraVenues,
+  hasSearched,
+}) {
   const [startIndex, setStartIndex] = useState(9);
 
   const handleShowMore = () => {
@@ -168,7 +192,7 @@ function VenueDisplay({ filteredVenues, extraVenues, setExtraVenues }) {
 
   return (
     <div className="grid grid-cols-1 gap-x-6 gap-y-16 lg:grid-cols-3">
-      {filteredVenues.length === 0 ? (
+      {!hasSearched || filteredVenues.length === 0 ? (
         <div className="col-span-3 row-span-6 place-self-center text-center text-[#9E9E9E] lg:text-lg">
           Sorry, no venues here; let&apos;s refine your search together.
         </div>
@@ -248,43 +272,45 @@ function OtherVenues({ filteredVenues }) {
       <div className="my-10 grid grid-flow-row grid-cols-1 gap-8 px-3">
         {filteredVenues.length > 0 ? (
           filteredVenues.map((venue, i) => (
-            <div className="flex gap-3 lg:gap-8" key={i}>
-              <img
-                className="aspect-square w-[100px] rounded-sm object-cover"
-                src={venue.coverUrl}
-                alt={venue.name}
-                onError={(e) => {
-                  e.target.onerror = null;
-                  e.target.src = placeholderVenue;
-                }}
-              />
-              <div className="relative flex w-full">
-                <div className="absolute flex w-full flex-col gap-1 whitespace-nowrap">
-                  <h3 className="overflow-hidden text-clip font-playFair text-[16px] font-bold lg:text-[18px]">
-                    {venue.name}
-                  </h3>
-                  <div className="-mb-1 -ml-1 flex items-center gap-2">
-                    <Rating
-                      readOnly
-                      value={venue.rating}
-                      precision={0.1}
-                      style={{ color: "#323232" }}
-                    />
-                    <span className="text-clip text-sm text-[#676767]">
-                      {venue.rating}({venue.reviews})
-                    </span>
+            <Link key={i} to={`/venues/${venue.name.split(" ").join("-")}`}>
+              <div className="flex gap-3 lg:gap-8">
+                <img
+                  className="aspect-square w-[100px] rounded-sm object-cover"
+                  src={venue.coverUrl}
+                  alt={venue.name}
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = placeholderVenue;
+                  }}
+                />
+                <div className="relative flex w-full">
+                  <div className="absolute flex w-full flex-col gap-1 whitespace-nowrap">
+                    <h3 className="overflow-hidden text-clip font-playFair text-[16px] font-bold lg:text-[18px]">
+                      {venue.name}
+                    </h3>
+                    <div className="-mb-1 -ml-1 flex items-center gap-2">
+                      <Rating
+                        readOnly
+                        value={venue.rating}
+                        precision={0.1}
+                        style={{ color: "#323232" }}
+                      />
+                      <span className="text-clip text-sm text-[#676767]">
+                        {venue.rating}({venue.reviews})
+                      </span>
+                    </div>
+                    <div className="text-clip text-[14px] text-[#4B4B4B]">
+                      {venue.location}
+                    </div>
+                    <p className="text-clip text-xs text-[#616161]">
+                      {venue.guestCapacity} Guests{" "}
+                      <span className="mx-1 text-black">•</span> Starts at $
+                      {venue.startingPrice.toLocaleString()}
+                    </p>
                   </div>
-                  <div className="text-clip text-[14px] text-[#4B4B4B]">
-                    {venue.location}
-                  </div>
-                  <p className="text-clip text-xs text-[#616161]">
-                    {venue.guestCapacity} Guests{" "}
-                    <span className="mx-1 text-black">•</span> Starts at $
-                    {venue.startingPrice.toLocaleString()}
-                  </p>
                 </div>
               </div>
-            </div>
+            </Link>
           ))
         ) : (
           <div className="mobileText flex h-[37rem] items-center text-center text-[#9E9E9E]">
@@ -303,18 +329,21 @@ VenueSearchDisplay.propTypes = {
 };
 function VenueSearchDisplay({ setFilteredVenues, filteredVenues }) {
   const [extraVenues, setExtraVenues] = useState(0);
+  const [hasSearched, setHasSearched] = useState(false);
 
   return (
     <div className="mb-[5vw] flex w-full flex-col lg:px-[5vw]">
       <SearchBar
         setFilteredVenues={setFilteredVenues}
         setExtraVenues={setExtraVenues}
+        setHasSearched={setHasSearched}
       />
       <FilterButtons filteredVenues={filteredVenues} />
       <VenueDisplay
         filteredVenues={filteredVenues}
         extraVenues={extraVenues}
         setExtraVenues={setExtraVenues}
+        hasSearched={hasSearched}
       />
     </div>
   );
