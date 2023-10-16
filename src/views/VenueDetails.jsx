@@ -39,7 +39,7 @@ function DetailsCard({ venue }) {
         src={venue.coverUrl}
         alt={venue.name}
         loading="lazy"
-        className="aspect-square w-full basis-1/2 rounded-md object-cover"
+        className="aspect-square w-1/2 basis-1/2 rounded-md object-cover"
         onError={(e) => {
           e.target.onerror = null;
           e.target.src = placeholderVenue;

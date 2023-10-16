@@ -24,7 +24,7 @@ const services = [
 
 function ServicesDisplay() {
   return (
-    <div className="px-[5vw] lg:scroll-mt-4">
+    <div className="px-[5vw]">
       <h1 className="mb-2 text-4xl lg:mb-8">Services</h1>
       <div className="relative grid h-fit grid-cols-1 gap-14 md:grid-cols-2 lg:grid-cols-3">
         {services.map((service, i) => (
