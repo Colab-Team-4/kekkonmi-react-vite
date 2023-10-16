@@ -13,7 +13,7 @@ const links = [
   { page: "About Us", route: "" },
 ];
 
-function Navbar({ handleShowNavModal }) {
+function Navbar({ handleShowNavModal, handleShowRegister }) {
   const location = useLocation().pathname;
   const activeLink = "underline";
 
@@ -54,7 +54,7 @@ function Navbar({ handleShowNavModal }) {
         <div className="hidden bg-white lg:flex lg:gap-4">
           <button
             type="button"
-            className="btnSolid btnNavSolid mobileText w-24 py-2"
+            className="btnSolid btnNavSolid mobileText w-24 py-2" onClick={handleShowRegister}
           >
             Sign Up
           </button>

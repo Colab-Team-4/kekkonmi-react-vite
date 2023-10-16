@@ -11,13 +11,14 @@ import Error404 from "./views/Error404";
 import BudgetSteps from "./views/BudgetSteps";
 import venues from "./data/venueData.json";
 import NavModal from "./components/NavModal";
+import Register from "./views/Register";
 
 function App() {
   const [filteredVenues, setFilteredVenues] = useState(venues);
 
   const [hideNavModal, setHideNavModal] = useState("right-full");
   const [isNavModalOpen, setIsNavModalOpen] = useState(false);
-  console.log({ isNavModalOpen });
+  const [isRegisterVisible, setIsRegisterVisible] = useState(false);
 
   const handleShowNavModal = () => {
     setHideNavModal("");
@@ -31,14 +32,26 @@ function App() {
     }
   };
 
+  const handleShowRegister = () => {
+    setIsRegisterVisible(true);
+  };
+
+  const handleCloseRegister = () => {
+    setIsRegisterVisible(false);
+  };
+
   return (
     <div className="flex h-screen flex-col">
       <NavModal setHideNavModal={setHideNavModal} hideNavModal={hideNavModal} />
+      {isRegisterVisible && <Register handleCloseRegister={handleCloseRegister} />}
       <div
         onClick={handleCloseNavModal}
         className="flex h-screen flex-col justify-between"
       >
-        <Navbar handleShowNavModal={handleShowNavModal} />
+        <Navbar
+          handleShowNavModal={handleShowNavModal}
+          handleShowRegister={handleShowRegister}
+        />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/confirmation" element={<VenueConfirmation />} />
