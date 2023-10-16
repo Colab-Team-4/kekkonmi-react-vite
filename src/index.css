@@ -12,7 +12,7 @@ h1 {
 }
 
 h2 {
-  @apply font-playFair text-[24px] font-bold;
+  @apply font-playFair text-[24px] font-bold tracking-tight;
 }
 
 h3 {

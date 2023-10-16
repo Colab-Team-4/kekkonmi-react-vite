@@ -35,7 +35,7 @@ function Navbar() {
           <HamburgerIcon />
         </button>
         <Link to="/" className="flex items-center gap-2">
-          <img src={Logo} alt="Logo" className="h-8 lg:h-14" />
+          <img src={Logo} alt="Logo" className="w-48" />
         </Link>
         <button className="md:hidden">
           <AccountIcon />
@@ -63,10 +63,13 @@ function Navbar() {
         </div>
 
         <div className="hidden bg-white lg:flex lg:gap-4">
-          <button type="button" className="btnSolid btnNavSolid w-40 py-2">
+          <button
+            type="button"
+            className="btnSolid btnNavSolid mobileText w-24 py-2"
+          >
             Sign Up
           </button>
-          <button type="button" className="btnOutline w-40 py-2">
+          <button type="button" className="btnOutline mobileText w-24 py-2">
             Log In
           </button>
         </div>

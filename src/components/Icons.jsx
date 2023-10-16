@@ -107,9 +107,12 @@ export function AccountIcon() {
   );
 }
 
-export function ArrowForward() {
+ArrowForward.propTypes = {
+  className: PropTypes.string,
+};
+export function ArrowForward({ className }) {
   return (
-    <svg width="13" height="20" viewBox="0 0 13 20" fill="none">
+    <svg className={className} viewBox="0 0 13 20" fill="none">
       <path
         d="M2.025 20L0.25 18.225L8.475 10L0.25 1.775L2.025 0L12.025 10L2.025 20Z"
         fill="#6E7C99"

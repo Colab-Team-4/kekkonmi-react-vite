@@ -36,7 +36,7 @@ function LandingDisplay() {
             }`}
           >
             <img
-              className="w-full object-cover lg:h-[713px]"
+              className="w-full rounded-lg object-cover lg:h-[650px]"
               src={content.image}
               alt={content.heading}
             />
@@ -46,8 +46,8 @@ function LandingDisplay() {
               i % 2 === 0 ? "lg:order-1" : "lg:order-2"
             }`}
           >
-            <h1>{content.heading}</h1>
-            <p>{content.body}</p>
+            <h1 className="text-4xl">{content.heading}</h1>
+            <p className="text-sm">{content.body}</p>
             <button className="btnOutline w-72 self-center py-2 lg:self-start">
               {content.button}
             </button>

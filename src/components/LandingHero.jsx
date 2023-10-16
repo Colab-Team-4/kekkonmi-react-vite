@@ -16,23 +16,23 @@ function LandingHero() {
     <div className="mt-[10vh] flex scroll-mt-20 flex-col gap-16 px-[5vw] py-[5vh]">
       {heroes.map((hero, i) => (
         <div
-          className="flex flex-col items-center gap-4 lg:flex-row lg:gap-32"
+          className="flex flex-col items-center justify-center gap-4 lg:flex-row lg:gap-32"
           key={i}
         >
-          <section className="order-2 flex flex-col gap-14 lg:order-1">
-            <h1 className="font-playFair text-[34px] font-medium lg:whitespace-nowrap">
+          <section className="order-2 flex w-[40rem] flex-col gap-8 lg:order-1">
+            <h1 className="font-playFair text-2xl font-medium lg:whitespace-nowrap">
               {hero.heading}
             </h1>
-            <p>{hero.body}</p>
+            <p className="text-sm">{hero.body}</p>
             <Link
               to="/venues"
-              className="btnSolid mt-1 w-72 self-center py-2 text-center lg:mt-14 lg:self-start"
+              className="btnSolid mobileText mt-10 w-52 self-center py-2 text-center lg:self-start"
             >
               {hero.button}
             </Link>
           </section>
           <img
-            className="order-1 w-full object-cover lg:order-2 lg:h-[600px]"
+            className="order-1 w-full object-cover lg:order-2 lg:grow"
             src={hero.image}
             alt={hero.heading}
           />
