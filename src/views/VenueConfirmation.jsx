@@ -5,9 +5,15 @@ import LetterImg from "../assets/confirmation.png";
 function VenueConfirmation() {
   const { venueName } = useParams();
   return (
-    <div className="flex flex-col px-[5vw] justify-center h-full">
-      {venueName && <Breadcrumb venueName={venueName} />}
-      <div className="my-14 flex flex-col items-center">
+    <div className="flex my-[3vh] lg:my-auto h-full flex-col justify-center px-[5vw]">
+      {venueName ? (
+        <div className="h-80">
+          <Breadcrumb venueName={venueName} />
+        </div>
+      ) : (
+        <div className="mt-40"></div>
+      )}
+      <div className="my-14 flex h-full grow flex-col items-center">
         <div className="flex flex-col items-center gap-8 lg:w-[38%]">
           <img src={LetterImg} alt="Confirmation" className="w-28" />
           <h1 className="-mb-2 text-3xl font-bold leading-3">Thank You!</h1>

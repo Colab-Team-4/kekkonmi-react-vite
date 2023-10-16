@@ -267,7 +267,7 @@ OtherVenues.propTypes = {
 function OtherVenues({ filteredVenues }) {
   return (
     <div className="flex max-h-[53rem] w-full flex-col overflow-hidden shadow-lg lg:max-h-[50.5rem]">
-      <h3 className="mx-auto my-10 font-playFair text-[24px] font-bold lg:whitespace-nowrap lg:text-[22px]">
+      <h3 className="mx-auto my-10 font-playFair text-[24px] font-bold lg:whitespace-nowrap lg:text-lg">
         Other Reception Venues You Might Like
       </h3>
       <div className="my-10 grid grid-flow-row grid-cols-1 gap-8 px-3">
@@ -334,7 +334,7 @@ function VenueSearchDisplay({ setFilteredVenues, filteredVenues }) {
   const [hasSearched, setHasSearched] = useState(false);
 
   return (
-    <div className="mb-[5vw] flex w-full flex-col lg:px-[5vw]">
+    <div className="mb-[5vw] flex w-full flex-col lg:pl-[5vw]">
       <SearchBar
         setFilteredVenues={setFilteredVenues}
         setExtraVenues={setExtraVenues}
