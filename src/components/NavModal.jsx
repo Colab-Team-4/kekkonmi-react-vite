@@ -22,7 +22,7 @@ import "../index.css";
 
 const settingsOptions = ["Notifications", "Turn Dark Mode On", "Location"];
 
-function NavModal() {
+function NavModal({ hideNavModal }) {
   const [toggleSelect, setToggleSelect] = useState(false);
 
   const handleToggleMenu = (e) => {
@@ -31,7 +31,9 @@ function NavModal() {
   };
 
   return (
-    <div className="fixed left-0 top-0 z-10 max-h-full w-[90vw] overflow-y-auto rounded-r-3xl bg-white px-[2vw] pb-7 md:hidden lg:hidden">
+    <div
+      className={`fixed ${hideNavModal} z-50 max-h-full w-[85vw] overflow-y-auto rounded-r-3xl bg-white px-[2vw] pb-7 md:hidden lg:hidden`}
+    >
       {/* Search Bar */}
       <div className="my-7 flex w-full items-center justify-evenly gap-2 rounded-md border-2 border-gray-200 p-1 px-3 py-4 shadow-md">
         <SearchIcon />
