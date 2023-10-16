@@ -3,6 +3,8 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./views/Home";
 import Venues from "./views/Venues";
 import VenueDetails from "./views/VenueDetails";
+import VenueContact from "./views/VenueContact";
+import VenueConfirmation from "./views/VenueConfirmation";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Error404 from "./views/Error404";
@@ -17,6 +19,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/confirmation" element={<VenueConfirmation />} />
         <Route
           path="/venues"
           element={
@@ -31,7 +34,11 @@ function App() {
           path="/venues/:venueName"
           element={<VenueDetails filteredVenues={filteredVenues} />}
         />
-
+        <Route path="/venues/:venueName/contact" element={<VenueContact />} />
+        <Route
+          path="/venues/:venueName/contact/confirmation"
+          element={<VenueConfirmation />}
+        />
         <Route path="*" element={<Error404 />} />
       </Routes>
       <Footer />
