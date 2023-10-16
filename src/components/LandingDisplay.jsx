@@ -27,7 +27,7 @@ function LandingDisplay() {
     <div className="flex flex-col bg-[#D9D8D8] px-[5vw] py-[5vh]">
       {contents.map((content, i) => (
         <div
-          className="flex flex-col items-center gap-4 lg:scroll-mt-32 lg:flex-row lg:gap-20"
+          className="flex flex-col items-center gap-4 lg:flex-row lg:gap-20"
           key={i}
         >
           <div

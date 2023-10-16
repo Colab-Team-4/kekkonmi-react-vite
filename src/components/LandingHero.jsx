@@ -13,7 +13,7 @@ const heroes = [
 
 function LandingHero() {
   return (
-    <div className="mt-[10vh] flex scroll-mt-20 flex-col gap-16 px-[5vw] py-[5vh]">
+    <div className="mt-[10vh] flex flex-col gap-16 px-[5vw] py-[5vh]">
       {heroes.map((hero, i) => (
         <div
           className="flex flex-col items-center justify-between gap-4 lg:flex-row"
