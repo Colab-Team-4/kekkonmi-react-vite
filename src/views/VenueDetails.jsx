@@ -38,6 +38,7 @@ function DetailsCard({ venue }) {
       <img
         src={venue.coverUrl}
         alt={venue.name}
+        loading="lazy"
         className="aspect-square w-full basis-1/2 rounded-md object-cover"
         onError={(e) => {
           e.target.onerror = null;
@@ -94,7 +95,7 @@ function VenueDetails({ filteredVenues }) {
 
   return (
     <div className="flex flex-col px-[5vw]">
-      <Breadcrumb />
+      <Breadcrumb venueName={venueName} />
       <DetailsCard venue={venueInfo} />
       <VendorIcons venue={venueInfo} />
       <Amenities venue={venueInfo} />

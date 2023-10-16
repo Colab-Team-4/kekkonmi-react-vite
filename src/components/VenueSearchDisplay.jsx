@@ -135,6 +135,7 @@ function VenueCard({ venue }) {
         className="aspect-square w-full rounded-md object-cover"
         src={venue.coverUrl}
         alt={venue.name}
+        loading="lazy"
         onError={(e) => {
           e.target.onerror = null;
           e.target.src = placeholderVenue;
@@ -278,6 +279,7 @@ function OtherVenues({ filteredVenues }) {
                   className="aspect-square w-[100px] rounded-sm object-cover"
                   src={venue.coverUrl}
                   alt={venue.name}
+                  loading="lazy"
                   onError={(e) => {
                     e.target.onerror = null;
                     e.target.src = placeholderVenue;

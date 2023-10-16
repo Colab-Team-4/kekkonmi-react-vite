@@ -19,6 +19,7 @@ function Gallery({ venue }) {
             key={i}
             src={url}
             alt={venue.name}
+            loading="lazy"
             className="aspect-square w-full rounded-md object-cover"
           />
         ))}
