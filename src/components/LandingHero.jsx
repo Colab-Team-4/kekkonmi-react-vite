@@ -19,7 +19,7 @@ function LandingHero() {
           className="flex flex-col items-center justify-center gap-4 lg:flex-row lg:gap-32"
           key={i}
         >
-          <section className="order-2 flex flex-col gap-8 lg:order-1 w-[40rem]">
+          <section className="order-2 flex w-[40rem] flex-col gap-8 lg:order-1">
             <h1 className="font-playFair text-2xl font-medium lg:whitespace-nowrap">
               {hero.heading}
             </h1>

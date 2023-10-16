@@ -36,7 +36,7 @@ function LandingDisplay() {
             }`}
           >
             <img
-              className="w-full object-cover rounded-lg lg:h-[650px]"
+              className="w-full rounded-lg object-cover lg:h-[650px]"
               src={content.image}
               alt={content.heading}
             />

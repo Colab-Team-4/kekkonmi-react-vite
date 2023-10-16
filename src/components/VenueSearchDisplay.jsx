@@ -108,17 +108,17 @@ FilterButtons.propTypes = {
 };
 function FilterButtons({ filteredVenues }) {
   return (
-    <div className="-mt-4 mb-14 hidden flex-wrap gap-6 lg:flex lg:w-[52rem]">
-      <button className="btnOutline btnWeightNormal w-fit px-2 py-3 lg:px-8">
+    <div className="-mt-4 mb-14 hidden flex-wrap gap-6 lg:flex lg:w-full lg:basis-3/5">
+      <button className="btnOutline btnWeightNormal mobileText w-fit px-2 py-3 lg:px-8">
         Outdoor Venues
       </button>
-      <button className="btnOutline btnWeightNormal w-fit px-2 py-3 lg:px-8">
+      <button className="btnOutline btnWeightNormal mobileText w-fit px-2 py-3 lg:px-8">
         $ Price
       </button>
-      <button className="btnOutline btnWeightNormal w-fit px-2 py-3 lg:px-8">
+      <button className="btnOutline btnWeightNormal mobileText w-fit px-2 py-3 lg:px-8">
         Support Diversity
       </button>
-      <button className="btnOutline btnWeightNormal w-fit px-2 py-3 lg:px-8">
+      <button className="btnOutline btnWeightNormal mobileText w-fit px-2 py-3 lg:px-8">
         More Filters
       </button>
     </div>
@@ -267,7 +267,7 @@ OtherVenues.propTypes = {
 function OtherVenues({ filteredVenues }) {
   return (
     <div className="flex max-h-[53rem] w-full flex-col overflow-hidden shadow-lg lg:max-h-[50.5rem]">
-      <h3 className="mx-auto my-10 font-playFair text-[24px] font-bold lg:whitespace-nowrap lg:text-lg">
+      <h3 className="my-10 ml-4 font-playFair text-[24px] font-bold lg:whitespace-nowrap lg:text-lg">
         Other Reception Venues You Might Like
       </h3>
       <div className="my-10 grid grid-flow-row grid-cols-1 gap-8 px-3">
@@ -287,7 +287,7 @@ function OtherVenues({ filteredVenues }) {
                 />
                 <div className="relative flex w-full">
                   <div className="absolute flex w-full flex-col gap-1 whitespace-nowrap">
-                    <h3 className="overflow-hidden text-clip font-playFair text-[16px] font-bold lg:text-[18px]">
+                    <h3 className="overflow-hidden text-clip font-playFair text-[16px] font-bold lg:text-sm">
                       {venue.name}
                     </h3>
                     <div className="-mb-1 -ml-1 flex items-center gap-2">

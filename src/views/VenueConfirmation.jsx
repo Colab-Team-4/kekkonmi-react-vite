@@ -5,7 +5,7 @@ import LetterImg from "../assets/confirmation.png";
 function VenueConfirmation() {
   const { venueName } = useParams();
   return (
-    <div className="flex my-[3vh] lg:my-auto h-full flex-col justify-center px-[5vw]">
+    <div className="my-[3vh] flex h-full flex-col justify-center px-[5vw] lg:my-auto">
       {venueName ? (
         <div className="h-80">
           <Breadcrumb venueName={venueName} />

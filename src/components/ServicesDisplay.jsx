@@ -25,7 +25,7 @@ const services = [
 function ServicesDisplay() {
   return (
     <div className="px-[5vw] lg:scroll-mt-4">
-      <h1 className="text-4xl mb-2 lg:mb-8">Services</h1>
+      <h1 className="mb-2 text-4xl lg:mb-8">Services</h1>
       <div className="relative grid h-fit grid-cols-1 gap-14 md:grid-cols-2 lg:grid-cols-3">
         {services.map((service, i) => (
           <div className="flex flex-col gap-4" key={i}>
