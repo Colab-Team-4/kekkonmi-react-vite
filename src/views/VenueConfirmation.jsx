@@ -7,14 +7,12 @@ function VenueConfirmation() {
   return (
     <div className="my-[3vh] flex h-full flex-col justify-center px-[5vw] lg:my-auto">
       {venueName ? (
-        <div className="h-80">
-          <Breadcrumb venueName={venueName} />
-        </div>
+        <Breadcrumb venueName={venueName} />
       ) : (
         <div className="mt-40"></div>
       )}
       <div className="my-14 flex h-full grow flex-col items-center">
-        <div className="flex flex-col items-center gap-8 lg:w-[38%]">
+        <div className="flex flex-col items-center gap-8 lg:w-[37%]">
           <img src={LetterImg} alt="Confirmation" className="w-28" />
           <h1 className="-mb-2 text-3xl font-bold leading-3">Thank You!</h1>
           <h2>We&apos;ll be in touch soon.</h2>

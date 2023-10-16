@@ -24,10 +24,10 @@ const contents = [
 
 function LandingDisplay() {
   return (
-    <div className="flex flex-col gap-24 bg-[#D9D8D8] px-[5vw] py-[5vh]">
+    <div className="flex flex-col bg-[#D9D8D8] px-[5vw] py-[5vh]">
       {contents.map((content, i) => (
         <div
-          className="flex flex-col items-center gap-4 lg:scroll-mt-32 lg:flex-row lg:gap-20"
+          className="flex flex-col items-center gap-4 lg:flex-row lg:gap-20"
           key={i}
         >
           <div
@@ -36,7 +36,7 @@ function LandingDisplay() {
             }`}
           >
             <img
-              className="w-full rounded-lg object-cover lg:h-[650px]"
+              className="w-full rounded-lg object-cover lg:h-[80%]"
               src={content.image}
               alt={content.heading}
             />
