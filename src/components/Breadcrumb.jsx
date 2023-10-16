@@ -10,6 +10,7 @@ function Breadcrumb({ venueName }) {
   const segments = location.pathname.split("/").filter(Boolean);
 
   const isVenuePage = location.pathname === `/venues/${venueName}`;
+  const decodedVenueName = decodeURIComponent(venueName || "");
 
   return (
     <div className="mb-[5vh] mt-28 flex flex-col gap-4 font-lato font-normal text-[#6E7C99] lg:flex-row lg:font-playFair lg:text-[18px] lg:font-bold">
@@ -19,12 +20,12 @@ function Breadcrumb({ venueName }) {
         <Link to="/venues" className="whitespace-nowrap">
           Find a Venue
         </Link>
-        {venueName && <ArrowForward className="h-5 w-5" />}
-        {venueName && isVenuePage ? (
-          <span className="truncate">{venueName.replace(/-/g, " ")}</span>
-        ) : venueName ? (
-          <Link to={`/venues/${venueName}`} className="truncate">
-            {venueName.replace(/-/g, " ")}
+        {decodedVenueName && <ArrowForward className="h-5 w-5" />}
+        {decodedVenueName && isVenuePage ? (
+          <span className="truncate">{decodedVenueName}</span>
+        ) : decodedVenueName ? (
+          <Link to={`/venues/${decodedVenueName}`} className="truncate">
+            {decodedVenueName}
           </Link>
         ) : null}
       </div>
