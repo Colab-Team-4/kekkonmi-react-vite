@@ -157,7 +157,7 @@ function VenueCard({ venue }) {
       </p>
       <div className="mt-16 flex">
         <Link
-          to={`/venues/${venue.name.split(" ").join("-")}`}
+          to={`/venues/${encodeURIComponent(venue.name)}`}
           className="btnOutline mx-auto w-60 py-2 text-center lg:absolute lg:bottom-0 lg:mx-0"
         >
           Request Quote
@@ -273,7 +273,7 @@ function OtherVenues({ filteredVenues }) {
       <div className="my-10 grid grid-flow-row grid-cols-1 gap-8 px-3">
         {filteredVenues.length > 0 ? (
           filteredVenues.map((venue, i) => (
-            <Link key={i} to={`/venues/${venue.name.split(" ").join("-")}`}>
+            <Link key={i} to={`/venues/${encodeURIComponent(venue.name)}`}>
               <div className="flex gap-3 lg:gap-8">
                 <img
                   className="aspect-square w-[100px] rounded-sm object-cover"

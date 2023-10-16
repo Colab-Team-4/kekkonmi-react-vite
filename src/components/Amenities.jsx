@@ -56,7 +56,7 @@ function Amenities({ venue }) {
     <div className="flex w-full flex-col rounded-md p-6 lg:my-14 lg:p-0">
       <div className="flex flex-col gap-10 p-2">
         <h2 className="text-3xl font-normal lg:text-4xl">Amenities</h2>
-        <div className="flex flex-col gap-10 lg:grid lg:grid-flow-col lg:grid-rows-2">
+        <div className="flex flex-col gap-10 lg:flex-row lg:flex-wrap">
           {amenitiesOutdoors.map((item, i) => (
             <div className="flex items-center" key={i}>
               <div className="flex w-14 grow-0 justify-center">

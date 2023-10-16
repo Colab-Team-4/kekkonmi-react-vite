@@ -68,7 +68,7 @@ function DetailsCard({ venue }) {
           </span>
         </p>
         <Link
-          to={`/venues/${venue.name.split(" ").join("-")}/contact`}
+          to={`/venues/${encodeURIComponent(venue.name)}/contact`}
           className="btnSolid mx-auto mt-8 flex h-14 w-60 items-center justify-center py-2"
         >
           Request Quote
@@ -83,7 +83,7 @@ VenueDetails.propTypes = {
 };
 function VenueDetails({ filteredVenues }) {
   const { venueName } = useParams();
-  const cleanedUpVenueName = venueName.replace(/-/g, " ");
+  const cleanedUpVenueName = decodeURIComponent(venueName);
 
   const venueInfo = filteredVenues.find(
     (venue) => venue.name === cleanedUpVenueName,

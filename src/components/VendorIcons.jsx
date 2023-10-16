@@ -386,7 +386,7 @@ function VendorIcons({ venue }) {
   return (
     <div className="flex w-full flex-col rounded-md bg-[#F8F8F8] p-10">
       <h2 className="mb-10 lg:text-4xl lg:font-normal">Wedding Vendor Team</h2>
-      <div className="ml-4 mr-8 flex w-full flex-col gap-10 lg:grid lg:grid-cols-3 lg:gap-x-60">
+      <div className="ml-4 mr-8 flex w-full flex-col gap-10 lg:grid lg:grid-cols-3">
         {vendors.map(
           ({ Component, option }) =>
             venue.vendors.includes(option) && <Component key={option} />,
