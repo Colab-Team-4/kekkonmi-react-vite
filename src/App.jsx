@@ -32,9 +32,12 @@ function App() {
   };
 
   return (
-    <div className="flex h-screen flex-col justify-between">
+    <div className="flex h-screen flex-col">
       <NavModal setHideNavModal={setHideNavModal} hideNavModal={hideNavModal} />
-      <div onClick={handleCloseNavModal}>
+      <div
+        onClick={handleCloseNavModal}
+        className="flex h-screen flex-col justify-between"
+      >
         <Navbar handleShowNavModal={handleShowNavModal} />
         <Routes>
           <Route path="/" element={<Home />} />

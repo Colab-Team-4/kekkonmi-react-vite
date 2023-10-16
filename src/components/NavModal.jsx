@@ -50,39 +50,39 @@ function NavModal({ hideNavModal }) {
         <HomeIcon />
         <AccountCircleIcon />
         <hr />
-        <h3 className="font-playFair text-2xl font-bold tracking-tight text-[#161616]">
+        <div className="font-playFair text-2xl font-bold tracking-tight text-[#161616]">
           Planning tools
-        </h3>
+        </div>
         <CheckListsIcon />
         <BudgetPlannerIcon />
         <GuestListIcon />
         <TimelineIcon />
         <SeatingArrangementIcon />
         <hr />
-        <h3 className="font-playFair text-2xl font-bold tracking-tight text-[#161616]">
+        <div className="font-playFair text-2xl font-bold tracking-tight text-[#161616]">
           Venues
-        </h3>
+        </div>
         <CastleIcon />
         <ReviewsIcon />
         <BeenHereIcon />
         <hr />
-        <h3 className="font-playFair text-2xl font-bold tracking-tight text-[#161616]">
+        <div className="font-playFair text-2xl font-bold tracking-tight text-[#161616]">
           Inspiration
-        </h3>
+        </div>
         <CakeIcon />
         <DarkModeIcon />
         <CategoryIcon />
         <TrendingIcon />
         <hr />
-        <h3 className="font-playFair text-2xl font-bold tracking-tight text-[#161616]">
+        <div className="font-playFair text-2xl font-bold tracking-tight text-[#161616]">
           Settings
-        </h3>
+        </div>
         {/* Mapping */}
         {settingsOptions.map((settingsOption, i) => (
           <div className="flex" key={i}>
             <div className="flex basis-5/6 gap-4">
               <CircleGrayIcon />
-              <h3>{settingsOption}</h3>
+              <div>{settingsOption}</div>
             </div>
             <label className="relative inline-flex cursor-pointer items-center">
               <input
@@ -98,7 +98,7 @@ function NavModal({ hideNavModal }) {
         <div className="flex">
           <div className="flex basis-5/6 gap-4">
             <CircleGrayIcon />
-            <h3>Log Out</h3>
+            <div>Log Out</div>
           </div>
         </div>
       </div>

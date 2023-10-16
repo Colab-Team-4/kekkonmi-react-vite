@@ -15,10 +15,6 @@ h2 {
   @apply font-playFair text-[24px] font-bold tracking-tight;
 }
 
-h3 {
-  @apply font-lato;
-}
-
 p {
   @apply font-lato text-[22px] font-normal text-[#616161];
 }

@@ -29,7 +29,7 @@ export function HomeIcon() {
           </g>
         </g>
       </svg>
-      <h3>Home</h3>
+      <div className="font-lato">Home</div>
     </div>
   );
 }
@@ -65,7 +65,7 @@ export function AccountCircleIcon() {
           </g>
         </g>
       </svg>
-      <h3>Profile</h3>
+      <div className="font-lato">Profile</div>
     </div>
   );
 }
@@ -101,7 +101,7 @@ export function CheckListsIcon() {
           </g>
         </g>
       </svg>
-      <h3>Checklists</h3>
+      <div className="font-lato">Checklists</div>
     </div>
   );
 }
@@ -136,7 +136,7 @@ export function SeatingArrangementIcon() {
           </g>
         </g>
       </svg>
-      <h3>Seating Arangement</h3>
+      <div className="font-lato">Seating Arangement</div>
     </div>
   );
 }
@@ -171,7 +171,7 @@ export function TimelineIcon() {
           </g>
         </g>
       </svg>
-      <h3>Timeline</h3>
+      <div className="font-lato">Timeline</div>
     </div>
   );
 }
@@ -206,7 +206,7 @@ export function GuestListIcon() {
           </g>
         </g>
       </svg>
-      <h3>Guest List</h3>
+      <div className="font-lato">Guest List</div>
     </div>
   );
 }
@@ -241,7 +241,7 @@ export function BudgetPlannerIcon() {
           </g>
         </g>
       </svg>
-      <h3>Budget Planner</h3>
+      <div className="font-lato">Budget Planner</div>
     </div>
   );
 }
@@ -282,7 +282,7 @@ export function CastleIcon() {
           </g>
         </g>
       </svg>
-      <h3>Find a Venue</h3>
+      <div className="font-lato">Find a Venue</div>
     </div>
   );
 }
@@ -323,7 +323,7 @@ export function ReviewsIcon() {
           </g>
         </g>
       </svg>
-      <h3>Venue Review</h3>
+      <div className="font-lato">Venue Review</div>
     </div>
   );
 }
@@ -358,7 +358,7 @@ export function BeenHereIcon() {
           </g>
         </g>
       </svg>
-      <h3>Venue Booking</h3>
+      <div className="font-lato">Venue Booking</div>
     </div>
   );
 }
@@ -393,7 +393,7 @@ export function CakeIcon() {
           </g>
         </g>
       </svg>
-      <h3>Real Wedding</h3>
+      <div className="font-lato">Real Wedding</div>
     </div>
   );
 }
@@ -428,7 +428,7 @@ export function DarkModeIcon() {
           </g>
         </g>
       </svg>
-      <h3>Theme Style</h3>
+      <div className="font-lato">Theme Style</div>
     </div>
   );
 }
@@ -463,7 +463,7 @@ export function CategoryIcon() {
           </g>
         </g>
       </svg>
-      <h3>DIY Ideas</h3>
+      <div className="font-lato">DIY Ideas</div>
     </div>
   );
 }
@@ -498,7 +498,7 @@ export function TrendingIcon() {
           </g>
         </g>
       </svg>
-      <h3>Trends</h3>
+      <div className="font-lato">Trends</div>
     </div>
   );
 }
