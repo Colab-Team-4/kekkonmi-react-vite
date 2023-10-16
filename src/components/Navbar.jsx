@@ -1,6 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
 import { HamburgerIcon, AccountIcon } from "./Icons";
 import Logo from "../assets/LogoDefault.png";
+import NavModal from "./NavModal";
+import { useState } from "react";
 
 const links = [
   { page: "Home", route: "/" },
@@ -11,14 +13,14 @@ const links = [
   { page: "About Us", route: "" },
 ];
 
-function Navbar() {
+function Navbar({ handleShowNavModal }) {
   const location = useLocation().pathname;
   const activeLink = "underline";
 
   return (
-    <nav className="fixed top-0 z-50 w-11/12 self-center whitespace-nowrap rounded-md border-gray-200 bg-white shadow-md dark:bg-white lg:w-full lg:shadow-none">
-      <div className="flex items-center justify-between px-[5vw] py-4">
-        <button className="md:hidden">
+    <nav className="fixed top-0 z-40 w-11/12 self-center whitespace-nowrap rounded-md border-gray-200 bg-white shadow-md dark:bg-white lg:w-full lg:shadow-none">
+      <div className="relative flex items-center justify-between px-[5vw] py-4">
+        <button className="md:hidden" onClick={handleShowNavModal}>
           <HamburgerIcon />
         </button>
         <Link to="/" className="flex items-center gap-2">

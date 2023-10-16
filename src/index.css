@@ -50,3 +50,7 @@ label {
 .btnBudgetSolid {
   @apply rounded bg-[#F4E2E6] font-lato font-medium text-[#616161] duration-300 hover:bg-[#DDAFB8] hover:text-[#616161];
 }
+
+::-webkit-scrollbar {
+  width: 0; /* Set the width to 0 */
+}
