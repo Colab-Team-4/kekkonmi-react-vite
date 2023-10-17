@@ -8,13 +8,20 @@ import { Rating } from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import Favorite from "@mui/icons-material/Favorite";
+import FilterModals from "./FilterModals";
 
 SearchBar.propTypes = {
   setFilteredVenues: PropTypes.func.isRequired,
   setExtraVenues: PropTypes.func.isRequired,
   setHasSearched: PropTypes.func.isRequired,
+  toggleModal: PropTypes.func.isRequired,
 };
-function SearchBar({ setFilteredVenues, setExtraVenues, setHasSearched }) {
+function SearchBar({
+  setFilteredVenues,
+  setExtraVenues,
+  setHasSearched,
+  toggleModal,
+}) {
   const searchRef = useRef(null);
   const [lastSearch, setLastSearch] = useState("");
 
@@ -80,7 +87,10 @@ function SearchBar({ setFilteredVenues, setExtraVenues, setHasSearched }) {
           />
         </div>
         <div className="relative md:hidden">
-          <button className="btnSolid mobileText btnWeightNormal group flex h-full w-24 items-center pl-10 lg:text-[22px]">
+          <button
+            onClick={toggleModal}
+            className="btnSolid mobileText btnWeightNormal group flex h-full w-24 items-center pl-10 lg:text-[22px]"
+          >
             <div className="absolute left-0 pl-3">
               <FilterIcon className="fill-current text-white group-hover:text-black" />
             </div>
@@ -149,7 +159,7 @@ function VenueCard({ venue }) {
         />
       </div>
       <h2 className="-mt-5">{venue.name}</h2>
-      <p className="text-sm text-[#616161]">{venue.description}</p>
+      <p className="w-[95%] text-sm text-[#616161]">{venue.description}</p>
       <p className="text-sm text-[#616161]">
         {venue.guestCapacity} Guests{" "}
         <span className="mx-[1ch] text-black">•</span> Starts at $
@@ -270,7 +280,7 @@ function OtherVenues({ filteredVenues }) {
       <h3 className="my-10 ml-4 font-playFair text-[24px] font-bold lg:whitespace-nowrap lg:text-lg">
         Other Reception Venues You Might Like
       </h3>
-      <div className="my-10 grid grid-flow-row grid-cols-1 gap-8 px-3">
+      <div className="my-10 grid grid-flow-row grid-cols-1 content-center gap-8 px-3">
         {filteredVenues.length > 0 ? (
           filteredVenues.map((venue, i) => (
             <Link key={i} to={`/venues/${encodeURIComponent(venue.name)}`}>
@@ -286,25 +296,26 @@ function OtherVenues({ filteredVenues }) {
                   }}
                 />
                 <div className="relative flex w-full">
-                  <div className="absolute flex w-full flex-col gap-1 whitespace-nowrap">
+                  <div className="absolute flex h-full w-full flex-col justify-around gap-1 whitespace-nowrap">
                     <h3 className="overflow-hidden text-clip font-playFair text-[16px] font-bold lg:text-sm">
                       {venue.name}
                     </h3>
-                    <div className="-mb-1 -ml-1 flex items-center gap-2">
+                    <div className="-mb-1 flex items-center gap-2">
                       <Rating
                         readOnly
                         value={venue.rating}
                         precision={0.1}
                         style={{ color: "#323232" }}
+                        size="small"
                       />
-                      <span className="text-clip text-sm text-[#676767]">
+                      <span className="text-clip text-xs text-[#676767]">
                         {venue.rating}({venue.reviews})
                       </span>
                     </div>
                     <div className="text-clip text-[14px] text-[#4B4B4B]">
                       {venue.location}
                     </div>
-                    <p className="text-clip text-xs text-[#616161]">
+                    <p className="-mt-1 text-clip text-xs text-[#616161]">
                       {venue.guestCapacity} Guests{" "}
                       <span className="mx-1 text-black">•</span> Starts at $
                       {venue.startingPrice.toLocaleString()}
@@ -332,6 +343,16 @@ VenueSearchDisplay.propTypes = {
 function VenueSearchDisplay({ setFilteredVenues, filteredVenues }) {
   const [extraVenues, setExtraVenues] = useState(0);
   const [hasSearched, setHasSearched] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleModal = () => {
+    setIsOpen(!isOpen);
+    if (!isOpen) {
+      document.body.classList.add = "overflow-hidden";
+    } else {
+      document.body.classList.remove = "overflow-hidden";
+    }
+  };
 
   return (
     <div className="mb-[5vw] flex w-full flex-col lg:pl-[5vw]">
@@ -339,8 +360,10 @@ function VenueSearchDisplay({ setFilteredVenues, filteredVenues }) {
         setFilteredVenues={setFilteredVenues}
         setExtraVenues={setExtraVenues}
         setHasSearched={setHasSearched}
+        toggleModal={toggleModal}
       />
       <FilterButtons filteredVenues={filteredVenues} />
+      <FilterModals isOpen={isOpen} toggleModal={toggleModal} />
       <VenueDisplay
         filteredVenues={filteredVenues}
         extraVenues={extraVenues}

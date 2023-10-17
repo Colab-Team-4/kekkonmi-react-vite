@@ -1,8 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
+import PropTypes from "prop-types";
 import { HamburgerIcon, AccountIcon } from "./Icons";
 import Logo from "../assets/LogoDefault.png";
-import NavModal from "./NavModal";
-import { useState } from "react";
 
 const links = [
   { page: "Home", route: "/" },
@@ -13,6 +12,11 @@ const links = [
   { page: "About Us", route: "" },
 ];
 
+Navbar.propTypes = {
+  handleShowNavModal: PropTypes.func.isRequired,
+  handleShowRegister: PropTypes.func.isRequired,
+  handleShowLogin: PropTypes.func.isRequired,
+};
 function Navbar({ handleShowNavModal, handleShowRegister, handleShowLogin }) {
   const location = useLocation().pathname;
   const activeLink = "underline";

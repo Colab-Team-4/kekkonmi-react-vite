@@ -38,7 +38,7 @@ function Contact({ venueName }) {
   return (
     <div className="contact mb-[10vh] mt-[5vh] flex items-center justify-center">
       <div className="contact-center flex w-5/6 max-w-6xl flex-col gap-20">
-        <h1 className="-mb-12 -mt-4 w-full text-center text-3xl font-bold leading-3 tracking-tight">
+        <h1 className="-mb-12 -mt-4 w-full text-center text-3xl leading-3 tracking-tight">
           Contact Us
         </h1>
         <form
@@ -48,59 +48,59 @@ function Contact({ venueName }) {
         >
           <div className="flex flex-col md:flex-row md:gap-5 lg:gap-6">
             <div className="firstName flex basis-1/2 flex-col">
-              <label className="mobileText" htmlFor="fName">
+              <label className="smallerText" htmlFor="fName">
                 First Name
               </label>
               <input
                 type="text"
                 name="fName"
                 placeholder="Jane"
-                className="inputText mobileText p-2"
+                className="inputText smallerText h-12 p-4"
               />
             </div>
             <div className="lastName flex basis-1/2 flex-col">
-              <label className="mobileText" htmlFor="lName">
+              <label className="smallerText" htmlFor="lName">
                 Last Name
               </label>
               <input
                 type="text"
                 name="lName"
                 placeholder="Doe"
-                className="inputText mobileText p-2"
+                className="inputText smallerText h-12 p-4"
               />
             </div>
           </div>
           <div className="flex flex-col md:flex-row md:gap-5 lg:gap-6">
             <div className="email flex basis-1/2 flex-col">
-              <label className="mobileText" htmlFor="email">
+              <label className="smallerText" htmlFor="email">
                 Email
               </label>
               <input
                 type="email"
                 name="email"
                 placeholder="Janedoe@flymail.com"
-                className="inputText mobileText p-2"
+                className="inputText smallerText h-12 p-4"
               />
             </div>
             <div className="phone flex basis-1/2 flex-col">
-              <label className="mobileText" htmlFor="phone">
+              <label className="smallerText" htmlFor="phone">
                 Phone no
               </label>
               <input
                 type="text"
                 name="phone"
                 placeholder="(555)-555-5555"
-                className="inputText mobileText p-2"
+                className="inputText smallerText h-12 p-4"
               />
             </div>
           </div>
           <div className="message mb-7 flex w-full flex-col">
-            <label className="mobileText" htmlFor="message">
+            <label className="smallerText" htmlFor="message">
               Message
             </label>
             <textarea
               name="message"
-              className="inputText mobileText w-full p-2"
+              className="inputText smallerText w-full p-4"
               placeholder="Write your message here"
               rows={rows}
             />
