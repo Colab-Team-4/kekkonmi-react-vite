@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 import {
   AccountCircleIcon,
   BeenHereIcon,
@@ -22,10 +23,13 @@ import "../index.css";
 
 const settingsOptions = ["Notifications", "Turn Dark Mode On", "Location"];
 
+NavModal.propTypes = {
+  hideNavModal: PropTypes.string.isRequired,
+};
 function NavModal({ hideNavModal }) {
   const [toggleSelect, setToggleSelect] = useState(false);
 
-  const handleToggleMenu = (e) => {
+  const handleToggleMenu = () => {
     setToggleSelect(!toggleSelect);
     console.log(toggleSelect);
   };

@@ -1,15 +1,15 @@
-import {
-  CloseIcon,
-  EyeIcon,
-  FacebookIcon,
-  FacebookIconColor,
-  GmailIcon,
-  InstagramIconColor,
-  KeyboardCapslockIcon,
-} from "../components/Icons";
-import Logo from "../assets/LogoDefault.png";
 import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
+import { CloseIcon, EyeIcon, KeyboardCapslockIcon } from "../components/Icons";
+import FacebookIconColor from "../assets/fb.png";
+import InstagramIconColor from "../assets/instagram.png";
+import GmailIcon from "../assets/gmail.png";
+import Logo from "../assets/LogoDefault.png";
 
+Login.propTypes = {
+  handleCloseLogin: PropTypes.func.isRequired,
+  handleShowRegister: PropTypes.func.isRequired,
+};
 function Login({ handleCloseLogin, handleShowRegister }) {
   const [showPassword, setShowPassword] = useState(false);
   const [capsLockOn, setCapsLockOn] = useState(false);
@@ -119,13 +119,13 @@ function Login({ handleCloseLogin, handleShowRegister }) {
         {/* Social Media Icons */}
         <div className="flex h-44 w-[60%] items-center justify-between lg:w-full lg:gap-4">
           <div className="order-1 flex cursor-pointer items-center  justify-center lg:order-2 lg:h-14 lg:basis-1/4 lg:rounded lg:border-[1px] lg:border-[#AD6E7A]">
-            <FacebookIconColor />
+            <img src={FacebookIconColor} alt="Facebook Logo" />
           </div>
           <div className="order-2 cursor-pointer lg:hidden ">
-            <InstagramIconColor />
+            <img src={InstagramIconColor} alt="Instagram Logo" />
           </div>
           <div className="order-3 flex cursor-pointer items-center justify-center gap-5 rounded lg:order-1 lg:h-14 lg:basis-3/4 lg:border-[1px] lg:border-[#AD6E7A]">
-            <GmailIcon />
+            <img src={GmailIcon} alt="Gmail Logo" />
             <div className="hidden font-lato text-lg lg:block">
               Continue with Gmail
             </div>
