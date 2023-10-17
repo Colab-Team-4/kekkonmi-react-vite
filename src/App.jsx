@@ -19,6 +19,8 @@ function App() {
   const [hideNavModal, setHideNavModal] = useState("right-full");
   const [isNavModalOpen, setIsNavModalOpen] = useState(false);
   const [isRegisterVisible, setIsRegisterVisible] = useState(false);
+  const [filterBlur, setFilterBlur] = useState("");
+  const [overflowHidden, setOverflowHidden] = useState("");
 
   const handleShowNavModal = () => {
     setHideNavModal("");
@@ -31,22 +33,29 @@ function App() {
       setIsNavModalOpen(false);
     }
   };
-
+  // Blur the background when Register modal is opened
+  // setOverflowHidden stops the background from scrolling when Register modal is opened
   const handleShowRegister = () => {
     setIsRegisterVisible(true);
+    setFilterBlur("blur-md");
+    setOverflowHidden("overflow-hidden");
   };
-
+  // Remove the blur when Register modal is closed
   const handleCloseRegister = () => {
     setIsRegisterVisible(false);
+    setFilterBlur("");
+    setOverflowHidden("");
   };
 
   return (
     <div className="flex h-screen flex-col">
       <NavModal setHideNavModal={setHideNavModal} hideNavModal={hideNavModal} />
-      {isRegisterVisible && <Register handleCloseRegister={handleCloseRegister} />}
+      {isRegisterVisible && (
+        <Register handleCloseRegister={handleCloseRegister} />
+      )}
       <div
         onClick={handleCloseNavModal}
-        className="flex h-screen flex-col justify-between"
+        className={`flex h-screen flex-col justify-between ${filterBlur} ${overflowHidden}`}
       >
         <Navbar
           handleShowNavModal={handleShowNavModal}
