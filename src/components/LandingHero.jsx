@@ -13,13 +13,13 @@ const heroes = [
 
 function LandingHero() {
   return (
-    <div className="mt-[10vh] flex scroll-mt-20 flex-col gap-16 px-[5vw] py-[5vh]">
+    <div className="mt-[10vh] flex flex-col gap-16 px-[5vw] py-[5vh]">
       {heroes.map((hero, i) => (
         <div
-          className="flex flex-col items-center justify-center gap-4 lg:flex-row lg:gap-32"
+          className="flex flex-col items-center justify-between gap-4 lg:flex-row"
           key={i}
         >
-          <section className="order-2 flex w-full flex-col gap-8 lg:order-1 lg:w-[40rem]">
+          <section className="order-2 flex w-full flex-col gap-8 lg:order-1 lg:w-[41%]">
             <h1 className="font-playFair text-2xl font-medium lg:whitespace-nowrap">
               {hero.heading}
             </h1>
@@ -32,7 +32,7 @@ function LandingHero() {
             </Link>
           </section>
           <img
-            className="order-1 w-full object-cover lg:order-2 lg:grow"
+            className="order-1 aspect-video w-[50%] rounded-lg object-cover lg:order-2"
             src={hero.image}
             alt={hero.heading}
           />
