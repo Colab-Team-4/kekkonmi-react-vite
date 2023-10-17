@@ -32,7 +32,7 @@ function LandingHero() {
             </Link>
           </section>
           <img
-            className="order-1 aspect-video w-[50%] rounded-lg object-cover lg:order-2"
+            className="order-1 aspect-video w-full rounded-lg object-cover lg:order-2 lg:w-[50%]"
             src={hero.image}
             alt={hero.heading}
           />
