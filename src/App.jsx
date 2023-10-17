@@ -12,6 +12,7 @@ import BudgetSteps from "./views/BudgetSteps";
 import venues from "./data/venueData.json";
 import NavModal from "./components/NavModal";
 import Register from "./views/Register";
+import Login from "./views/Login";
 
 function App() {
   const [filteredVenues, setFilteredVenues] = useState(venues);
@@ -19,6 +20,7 @@ function App() {
   const [hideNavModal, setHideNavModal] = useState("right-full");
   const [isNavModalOpen, setIsNavModalOpen] = useState(false);
   const [isRegisterVisible, setIsRegisterVisible] = useState(false);
+  const [isLoginVisible, setIsLoginVisible] = useState(false);
   const [filterBlur, setFilterBlur] = useState("");
   const [overflowHidden, setOverflowHidden] = useState("");
 
@@ -37,6 +39,7 @@ function App() {
   // setOverflowHidden stops the background from scrolling when Register modal is opened
   const handleShowRegister = () => {
     setIsRegisterVisible(true);
+    setIsLoginVisible(false);
     setFilterBlur("blur-md");
     setOverflowHidden("overflow-hidden");
   };
@@ -47,11 +50,33 @@ function App() {
     setOverflowHidden("");
   };
 
+  const handleShowLogin = () => {
+    setIsLoginVisible(true);
+    setIsRegisterVisible(false);
+    setFilterBlur("blur-md");
+    setOverflowHidden("overflow-hidden");
+  };
+  // Remove the blur when Register modal is closed
+  const handleCloseLogin = () => {
+    setIsLoginVisible(false);
+    setFilterBlur("");
+    setOverflowHidden("");
+  };
+
   return (
     <div className="flex h-screen flex-col">
       <NavModal setHideNavModal={setHideNavModal} hideNavModal={hideNavModal} />
       {isRegisterVisible && (
-        <Register handleCloseRegister={handleCloseRegister} />
+        <Register
+          handleCloseRegister={handleCloseRegister}
+          handleShowLogin={handleShowLogin}
+        />
+      )}
+      {isLoginVisible && (
+        <Login
+          handleCloseLogin={handleCloseLogin}
+          handleShowRegister={handleShowRegister}
+        />
       )}
       <div
         onClick={handleCloseNavModal}
@@ -60,6 +85,7 @@ function App() {
         <Navbar
           handleShowNavModal={handleShowNavModal}
           handleShowRegister={handleShowRegister}
+          handleShowLogin={handleShowLogin}
         />
         <Routes>
           <Route path="/" element={<Home />} />

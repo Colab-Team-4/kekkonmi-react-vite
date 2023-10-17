@@ -39,7 +39,7 @@ const passwords = [
     name: "confirmPassword",
   },
 ];
-function Register({ handleCloseRegister }) {
+function Register({ handleCloseRegister, handleShowLogin }) {
   const [showPassword, setShowPassword] = useState(false);
   const [capsLockOn, setCapsLockOn] = useState(false);
 
@@ -65,7 +65,7 @@ function Register({ handleCloseRegister }) {
       className={`relative z-50 flex w-full flex-col items-center justify-center bg-white p-[5vw] pt-20 lg:pt-3`}
     >
       <div
-        className="absolute right-0 top-8 mr-6 cursor-pointer"
+        className="absolute right-0 top-8 mr-6 cursor-pointer lg:hidden"
         onClick={handleCloseRegister}
       >
         <CloseIcon />
@@ -144,9 +144,20 @@ function Register({ handleCloseRegister }) {
         </div>
         {/* End of Terms and Conditions */}
         <hr className="h-[1px] w-full bg-[#9A9A9A]" />
-        <div className="py-10 font-lato font-medium">
+        <div className="py-10 font-lato font-medium lg:absolute lg:-top-6 lg:right-[5vw] lg:flex lg:items-center">
           Already have an account?{" "}
-          <span className="text-[#6E7C99]">Log In</span>
+          <span
+            className="ml-1 cursor-pointer font-semibold text-[#6E7C99] hover:underline"
+            onClick={handleShowLogin}
+          >
+            Log In
+          </span>
+          <button
+            className="ml-5 hidden h-12 w-32 rounded border-2 border-[#6E7C99] text-[#676767] hover:bg-[#6E7C99] hover:text-[#FFFFFF] lg:flex lg:items-center lg:justify-center"
+            onClick={handleCloseRegister}
+          >
+            Cancel
+          </button>
         </div>
       </div>
     </div>
