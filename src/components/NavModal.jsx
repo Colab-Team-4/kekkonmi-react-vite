@@ -39,14 +39,18 @@ function NavModal({ hideNavModal }) {
       className={`fixed ${hideNavModal} z-50 max-h-full w-[85vw] overflow-y-auto rounded-r-3xl bg-white px-[2vw] pb-7 md:hidden lg:hidden`}
     >
       {/* Search Bar */}
-      <div className="my-7 flex w-full items-center justify-evenly gap-2 rounded-md border-2 border-gray-200 p-1 px-3 py-4 shadow-md">
-        <SearchIcon />
+      <div className="my-7 flex w-full items-center justify-between rounded-md border-2 border-gray-200 px-5 py-4 shadow-md">
+        <div>
+          <SearchIcon />
+        </div>
         <input
           type="text"
           placeholder="Search"
-          className="font-lato text-xl focus:outline-none"
+          className="border-3 w-full border-none font-lato text-xl focus:outline-none focus:ring-0"
         />
-        <KeyboardVoiceIcon />
+        <div>
+          <KeyboardVoiceIcon />
+        </div>
       </div>
       {/* End of Search Bar */}
       {/* Nav Items */}

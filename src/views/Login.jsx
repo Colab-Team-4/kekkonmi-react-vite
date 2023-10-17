@@ -41,7 +41,7 @@ function Login({ handleCloseLogin, handleShowRegister }) {
       </div>
       <div className="flex w-full flex-col items-center justify-center lg:max-w-[25vw] lg:pt-12">
         <img src={Logo} alt="Logo" className="w-40 py-2" />
-        <div className="font-lato text-[#616161]">
+        <div className="text-center font-lato text-[#616161]">
           Crafting Love Stories, One Perfect Day at a Time
         </div>
         <div className="py-8 font-playFair text-xl font-bold text-[#676767]">
@@ -59,7 +59,7 @@ function Login({ handleCloseLogin, handleShowRegister }) {
             </label>
             <input
               type="email"
-              className="text mt-2 h-12 w-full rounded border-2 border-[#9E9E9E] px-4 focus:border-[#6E7C99] focus:outline-none"
+              className="text mt-2 h-12 w-full rounded border-2  border-[#9E9E9E] px-4 placeholder:text-[#9E9E9E] focus:border-[#6E7C99] focus:outline-none focus:ring-0"
               placeholder="Janedoe@gmail.com"
               name="email"
             />
@@ -73,10 +73,10 @@ function Login({ handleCloseLogin, handleShowRegister }) {
             >
               Password
             </label>
-            <div className="relative mt-2 h-12 rounded border-2 border-[#9E9E9E] focus:border-[#6E7C99]">
+            <div className="relative mt-2 h-12 rounded border-none">
               <input
                 type={showPassword ? "text" : "password"}
-                className="absolute h-10 w-full border-[#9E9E9E] pl-4 pr-28 focus:border-[#6E7C99] focus:outline-none"
+                className="absolute h-12 w-full rounded border-2 border-[#9E9E9E] pl-4 pr-28 placeholder:text-[#9E9E9E] focus:border-[#6E7C99] focus:outline-none focus:ring-0"
                 placeholder="••••••••••••"
                 name="password"
               />
@@ -107,7 +107,7 @@ function Login({ handleCloseLogin, handleShowRegister }) {
         {/* End of Remember Me & Forgot Password? */}
         <button
           type="submit"
-          className="my-10 h-12 w-full rounded bg-[#AD6E7A] font-lato text-xl font-bold text-[#FFFFFF] hover:bg-[#C99CA5] hover:text-[#F0F0F0]"
+          className="my-10 h-12 w-full rounded bg-[#AD6E7A] font-lato text-xl font-bold text-[#FFFFFF] duration-300 hover:bg-[#C99CA5] hover:text-[#F0F0F0]"
         >
           Log In
         </button>
@@ -142,7 +142,7 @@ function Login({ handleCloseLogin, handleShowRegister }) {
             Sign Up
           </span>
           <button
-            className="ml-5 hidden h-12 w-32 rounded border-2 border-[#6E7C99] text-[#676767] hover:bg-[#6E7C99] hover:text-[#FFFFFF] lg:flex lg:items-center lg:justify-center"
+            className="ml-5 hidden h-12 w-32 rounded border-2 border-[#6E7C99] text-[#676767] duration-300 hover:bg-[#6E7C99] hover:text-[#FFFFFF] lg:flex lg:items-center lg:justify-center"
             onClick={handleCloseLogin}
           >
             Cancel
