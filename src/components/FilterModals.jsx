@@ -1,3 +1,4 @@
+import { useState } from "react";
 import PropTypes from "prop-types";
 
 const guestCapacityOptions = [
@@ -132,10 +133,37 @@ function CloseIcon() {
 MobileModal.propTypes = {
   category: PropTypes.string,
   options: PropTypes.array,
+  selectedOptions: PropTypes.object,
+  setSelectedOptions: PropTypes.func,
+  selectedRadio: PropTypes.object,
+  setSelectedRadio: PropTypes.func,
 };
-function MobileModal({ category, options }) {
+function MobileModal({
+  category,
+  options,
+  selectedOptions,
+  setSelectedOptions,
+  selectedRadio,
+  setSelectedRadio,
+}) {
+  const handleOptionChange = (e) => {
+    const option = e.target.name;
+    const isChecked = e.target.checked;
+    if (category === "Guest Capacity") {
+      setSelectedRadio(option);
+    } else {
+      setSelectedOptions((prevSelected) => {
+        const prevOptions = prevSelected[category] || [];
+        const newOptions = isChecked
+          ? [...prevOptions, option]
+          : prevOptions.filter((o) => o !== option);
+        return { ...prevSelected, [category]: newOptions };
+      });
+    }
+  };
+
   return (
-    <div className="flex flex-col gap-8 text-[#161616]">
+    <div className="flex flex-col gap-4 text-[#161616]">
       <h2 className="text-lg">{category}</h2>
       <div
         className={`grid ${
@@ -146,9 +174,16 @@ function MobileModal({ category, options }) {
           <div key={i} className="flex items-center">
             <input
               id={option}
-              name={option}
+              name={category === "Guest Capacity" ? category : option}
               type={category === "Guest Capacity" ? "radio" : "checkbox"}
-              className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+              className={`h-4 w-4 text-indigo-600 duration-150 focus:ring-indigo-600 ${
+                category === "Guest Capacity" ? "" : "rounded-sm"
+              } `}
+              checked={selectedOptions[category]?.includes(option)}
+              defaultChecked={
+                selectedRadio !== null && selectedRadio === option
+              }
+              onChange={handleOptionChange}
             />
             <label
               htmlFor={option}
@@ -166,25 +201,39 @@ function MobileModal({ category, options }) {
 
 FilterModals.propTypes = {
   isOpen: PropTypes.bool,
-  toggleModal: PropTypes.func,
+  closeModal: PropTypes.func,
+  selectedOptions: PropTypes.object,
+  setSelectedOptions: PropTypes.func,
+  selectedRadio: PropTypes.object,
+  setSelectedRadio: PropTypes.func,
 };
-function FilterModals({ isOpen, toggleModal }) {
+function FilterModals({
+  isOpen,
+  closeModal,
+  selectedOptions,
+  setSelectedOptions,
+  selectedRadio,
+  setSelectedRadio,
+}) {
   const modalClass = isOpen
-    ? "translate-y-0 transition-all duration-1000 ease-in"
-    : "translate-y-[100%] transition-all duration-1000 ease-out";
+    ? "translate-y-0 transition-all duration-500 ease-in-out opacity-1"
+    : "translate-y-[100vh] transition-all duration-500 ease-in-out opacity-0";
   return (
     <>
       <div
-        className={`fixed inset-0 bg-black opacity-50 transition-opacity duration-1000 ease-in-out ${
+        className={`fixed inset-0 bg-black opacity-50 transition-opacity duration-500 ease-in-out ${
           isOpen ? "block" : "hidden"
         }`}
       ></div>
       <div
-        className={`absolute left-0 top-0 z-50 flex w-full flex-col gap-10 bg-white p-4 ${modalClass}`}
+        className={`flex w-full flex-col gap-4 overflow-auto bg-white p-4 ${modalClass}`}
       >
         <div className="flex items-center justify-between">
           <h1 className="text-3xl font-bold">More Filters</h1>
-          <div className="scale-90" onClick={toggleModal}>
+          <div
+            className="scale-90 cursor-pointer duration-300 hover:scale-110"
+            onClick={closeModal}
+          >
             <CloseIcon />
           </div>
         </div>
@@ -194,6 +243,10 @@ function FilterModals({ isOpen, toggleModal }) {
             key={i}
             category={optionSet.category}
             options={optionSet.options}
+            selectedOptions={selectedOptions}
+            setSelectedOptions={setSelectedOptions}
+            selectedRadio={selectedRadio}
+            setSelectedRadio={setSelectedRadio}
           />
         ))}
         <div className="flex gap-4">

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Error404() {
   return (
-    <div className="flex h-[700px] items-center p-[18px] lg:m-0 lg:flex lg:h-full lg:items-center lg:justify-center lg:p-0">
+    <div className="mb-20 mt-40 flex items-center p-[18px] lg:m-0 lg:flex lg:h-full lg:items-center lg:justify-center lg:p-0">
       <div className="flex w-full flex-col items-center lg:w-[631px]">
         <div className="flex flex-col items-center gap-4">
           <h1 className="font-playFair text-6xl font-semibold text-[#616161]">

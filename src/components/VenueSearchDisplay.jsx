@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { SearchIcon, FilterIcon } from "./Icons";
@@ -14,13 +14,17 @@ SearchBar.propTypes = {
   setFilteredVenues: PropTypes.func.isRequired,
   setExtraVenues: PropTypes.func.isRequired,
   setHasSearched: PropTypes.func.isRequired,
-  toggleModal: PropTypes.func.isRequired,
+  openModal: PropTypes.func.isRequired,
+  totalSelectedOptions: PropTypes.number.isRequired,
+  setIsOpen: PropTypes.func.isRequired,
 };
 function SearchBar({
   setFilteredVenues,
   setExtraVenues,
   setHasSearched,
-  toggleModal,
+  openModal,
+  totalSelectedOptions,
+  setIsOpen,
 }) {
   const searchRef = useRef(null);
   const [lastSearch, setLastSearch] = useState("");
@@ -42,9 +46,11 @@ function SearchBar({
 
       setFilteredVenues(filtered);
       setHasSearched(true);
+      setIsOpen(false);
     } else {
       setFilteredVenues([]);
       setHasSearched(false);
+      setIsOpen(false);
     }
   }, []);
 
@@ -73,7 +79,7 @@ function SearchBar({
       className="mb-16 flex flex-col justify-evenly gap-10 lg:flex-row lg:gap-6"
     >
       <div className="flex w-full justify-center gap-5">
-        <div className="relative flex w-full flex-col items-start">
+        <div className="relative z-10 flex w-full flex-col items-start">
           <div className="absolute left-0 flex h-full items-center pl-3">
             <SearchIcon />
           </div>
@@ -86,22 +92,24 @@ function SearchBar({
             defaultValue={lastSearch}
           />
         </div>
-        <div className="relative md:hidden">
+        <div className="relative z-10 md:hidden">
           <button
-            onClick={toggleModal}
-            className="btnSolid mobileText btnWeightNormal group flex h-full w-24 items-center pl-10 lg:text-[22px]"
+            type="button"
+            onClick={openModal}
+            className="btnNavSolid btnWeightNormal group flex h-full w-24 items-center justify-center whitespace-nowrap rounded-md pl-6 text-xs text-white duration-300 hover:bg-[#BFCAE0] hover:text-[#616161] lg:text-[22px]"
           >
             <div className="absolute left-0 pl-3">
-              <FilterIcon className="fill-current text-white group-hover:text-black" />
+              <FilterIcon className="fill-current text-white group-hover:text-[#616161]" />
             </div>
-            Filters
+            Filters ({totalSelectedOptions})
           </button>
         </div>
       </div>
-      <div className="flex justify-center gap-4 lg:gap-6">
+      <div className="z-10 flex justify-center gap-4 lg:gap-6">
         <button
-          className="btnSolid mobileText w-40 lg:w-60 lg:text-xl"
           type="submit"
+          onClick={handleSubmit}
+          className="btnSolid mobileText w-40 lg:w-60 lg:text-xl"
         >
           Search
         </button>
@@ -118,7 +126,7 @@ FilterButtons.propTypes = {
 };
 function FilterButtons({ filteredVenues }) {
   return (
-    <div className="-mt-4 mb-14 hidden flex-wrap gap-6 lg:flex lg:w-full lg:basis-3/5">
+    <div className="z-10 -mt-4 mb-14 hidden flex-wrap gap-6 lg:flex lg:w-full lg:basis-3/5">
       <button className="btnOutline btnWeightNormal mobileText w-fit px-2 py-3 lg:px-8">
         Outdoor Venues
       </button>
@@ -165,7 +173,7 @@ function VenueCard({ venue }) {
         <span className="mx-[1ch] text-black">•</span> Starts at $
         {venue.startingPrice.toLocaleString()}
       </p>
-      <div className="mt-16 flex">
+      <div className="z-10 mt-16 flex">
         <Link
           to={`/venues/${encodeURIComponent(venue.name)}`}
           className="btnOutline mx-auto w-60 py-2 text-center lg:absolute lg:bottom-0 lg:mx-0"
@@ -212,7 +220,7 @@ function VenueDisplay({
           {filteredVenues.length !== 3 ? (
             filteredVenues.slice(0, 4).map((venue, i) => (
               <div
-                className={`relative flex flex-col gap-6 lg:col-start-${
+                className={`relative order-1 flex flex-col gap-6 lg:col-start-${
                   (i % 2) + 1
                 } lg:row-start-${Math.floor(i / 2) + 1}`}
                 key={i}
@@ -239,14 +247,14 @@ function VenueDisplay({
           )}
 
           {filteredVenues.length > 3 && (
-            <div className="lg:col-start-3 lg:row-start-1">
+            <div className="order-3 lg:col-start-3 lg:row-start-1">
               <OtherVenues filteredVenues={filteredVenues.slice(4, 9)} />
             </div>
           )}
 
           {displayVenues.map((venue, i) => (
             <div
-              className={`relative flex flex-col gap-6 lg:col-start-${
+              className={`relative order-2 flex flex-col gap-6 lg:col-start-${
                 ((i + 4) % 2) + 1
               } lg:row-start-${Math.floor((i + 4) / 2) + 2}`}
               key={i + startIndex}
@@ -256,10 +264,10 @@ function VenueDisplay({
           ))}
 
           {filteredVenues.length > startIndex + extraVenues && (
-            <div className="flex justify-center lg:col-span-2 lg:col-start-1">
+            <div className="order-2 flex justify-center lg:col-span-2 lg:col-start-1">
               <button
                 onClick={handleShowMore}
-                className="btnSolid mt-8 w-64 px-2 py-3 text-[20px] lg:px-8"
+                className="btnSolid z-10 mt-8 w-64 px-2 py-3 text-[20px] lg:px-8"
               >
                 Show more
               </button>
@@ -283,7 +291,7 @@ function OtherVenues({ filteredVenues }) {
       <div className="my-10 grid grid-flow-row grid-cols-1 content-center gap-8 px-3">
         {filteredVenues.length > 0 ? (
           filteredVenues.map((venue, i) => (
-            <Link key={i} to={`/venues/${encodeURIComponent(venue.name)}`}>
+            <Link key={i} to={`/venues/${encodeURIComponent(venue.name)}`} className="z-10">
               <div className="flex gap-3 lg:gap-8">
                 <img
                   className="aspect-square w-[100px] rounded-sm object-cover"
@@ -344,14 +352,23 @@ function VenueSearchDisplay({ setFilteredVenues, filteredVenues }) {
   const [extraVenues, setExtraVenues] = useState(0);
   const [hasSearched, setHasSearched] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedOptions, setSelectedOptions] = useState({});
+  const [selectedRadio, setSelectedRadio] = useState(null);
 
-  const toggleModal = () => {
-    setIsOpen(!isOpen);
-    if (!isOpen) {
-      document.body.classList.add = "overflow-hidden";
-    } else {
-      document.body.classList.remove = "overflow-hidden";
-    }
+  const totalSelectedOptions = useMemo(() => {
+    return (
+      Object.values(selectedOptions).reduce(
+        (acc, curr) => acc + curr.length,
+        0,
+      ) + (selectedRadio ? 1 : 0)
+    );
+  }, [selectedOptions, selectedRadio]);
+
+  const openModal = () => {
+    setIsOpen(true);
+  };
+  const closeModal = () => {
+    setIsOpen(false);
   };
 
   return (
@@ -360,16 +377,30 @@ function VenueSearchDisplay({ setFilteredVenues, filteredVenues }) {
         setFilteredVenues={setFilteredVenues}
         setExtraVenues={setExtraVenues}
         setHasSearched={setHasSearched}
-        toggleModal={toggleModal}
+        openModal={openModal}
+        closeModal={closeModal}
+        totalSelectedOptions={totalSelectedOptions}
+        setIsOpen={setIsOpen}
       />
       <FilterButtons filteredVenues={filteredVenues} />
-      <FilterModals isOpen={isOpen} toggleModal={toggleModal} />
       <VenueDisplay
         filteredVenues={filteredVenues}
         extraVenues={extraVenues}
         setExtraVenues={setExtraVenues}
         hasSearched={hasSearched}
       />
+      <div
+        className={`absolute left-0 right-0 top-0 ${isOpen ? "z-50" : "z-0"} overflow-hidden`}
+      >
+        <FilterModals
+          isOpen={isOpen}
+          closeModal={closeModal}
+          selectedOptions={selectedOptions}
+          setSelectedOptions={setSelectedOptions}
+          selectedRadio={selectedRadio}
+          setSelectedRadio={setSelectedRadio}
+        />
+      </div>
     </div>
   );
 }
