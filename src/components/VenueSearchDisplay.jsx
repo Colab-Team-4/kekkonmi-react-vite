@@ -148,7 +148,7 @@ VenueCard.propTypes = {
 };
 function VenueCard({ venue }) {
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex h-full flex-col gap-6 rounded-md py-6 duration-300 hover:bg-[#F4E2E6] lg:z-10">
       <img
         className="aspect-square w-full rounded-md object-cover"
         src={venue.coverUrl}
@@ -159,24 +159,24 @@ function VenueCard({ venue }) {
           e.target.src = placeholderVenue;
         }}
       />
-      <div className="flex items-center justify-between text-[16px] text-[#4B4B4B]">
+      <div className="flex items-center justify-between pl-4 text-[16px] text-[#4B4B4B]">
         {venue.location}
         <Checkbox
           icon={<FavoriteBorder style={{ color: "#6E7C99" }} />}
           checkedIcon={<Favorite style={{ color: "#D32F2F" }} />}
         />
       </div>
-      <h2 className="-mt-5">{venue.name}</h2>
-      <p className="w-[95%] text-sm text-[#616161]">{venue.description}</p>
-      <p className="text-sm text-[#616161]">
+      <h2 className="-mt-5 pl-4">{venue.name}</h2>
+      <p className="w-[95%] pl-4 text-sm text-[#616161]">{venue.description}</p>
+      <p className="pl-4 text-sm text-[#616161]">
         {venue.guestCapacity} Guests{" "}
         <span className="mx-[1ch] text-black">•</span> Starts at $
         {venue.startingPrice.toLocaleString()}
       </p>
-      <div className="z-10 mt-16 flex">
+      <div className="z-10 mt-16 flex pl-4">
         <Link
           to={`/venues/${encodeURIComponent(venue.name)}`}
-          className="btnOutline mx-auto w-60 py-2 text-center lg:absolute lg:bottom-0 lg:mx-0"
+          className="btnOutline mx-auto w-60 py-2 text-center lg:absolute lg:bottom-4 lg:mx-0"
         >
           Request Quote
         </Link>
@@ -284,14 +284,18 @@ OtherVenues.propTypes = {
 };
 function OtherVenues({ filteredVenues }) {
   return (
-    <div className="flex max-h-[53rem] w-full flex-col overflow-hidden shadow-lg lg:max-h-[50.5rem]">
+    <div className="flex max-h-[56rem] w-full flex-col overflow-hidden shadow-lg lg:max-h-[50.5rem]">
       <h3 className="my-10 ml-4 font-playFair text-[24px] font-bold lg:whitespace-nowrap lg:text-lg">
         Other Reception Venues You Might Like
       </h3>
-      <div className="my-10 grid grid-flow-row grid-cols-1 content-center gap-8 px-3">
+      <div className="my-10 grid grid-flow-row grid-cols-1 content-center gap-2 px-3">
         {filteredVenues.length > 0 ? (
           filteredVenues.map((venue, i) => (
-            <Link key={i} to={`/venues/${encodeURIComponent(venue.name)}`} className="z-10">
+            <Link
+              key={i}
+              to={`/venues/${encodeURIComponent(venue.name)}`}
+              className="z-10 rounded-md px-2 py-4 duration-300 hover:bg-[#F4E2E6]"
+            >
               <div className="flex gap-3 lg:gap-8">
                 <img
                   className="aspect-square w-[100px] rounded-sm object-cover"
@@ -304,8 +308,8 @@ function OtherVenues({ filteredVenues }) {
                   }}
                 />
                 <div className="relative flex w-full">
-                  <div className="absolute flex h-full w-full flex-col justify-around gap-1 whitespace-nowrap">
-                    <h3 className="overflow-hidden text-clip font-playFair text-[16px] font-bold lg:text-sm">
+                  <div className="absolute flex h-full w-full flex-col justify-around gap-1 overflow-hidden text-clip whitespace-nowrap">
+                    <h3 className="font-playFair text-[16px] font-bold lg:text-sm">
                       {venue.name}
                     </h3>
                     <div className="-mb-1 flex items-center gap-2">
@@ -316,17 +320,19 @@ function OtherVenues({ filteredVenues }) {
                         style={{ color: "#323232" }}
                         size="small"
                       />
-                      <span className="text-clip text-xs text-[#676767]">
+                      <span className="text-xs text-[#676767]">
                         {venue.rating}({venue.reviews})
                       </span>
                     </div>
-                    <div className="text-clip text-[14px] text-[#4B4B4B]">
+                    <div className="text-[14px] text-[#4B4B4B]">
                       {venue.location}
                     </div>
-                    <p className="-mt-1 text-clip text-xs text-[#616161]">
+                    <p className="-mt-1 text-xs text-[#616161]">
                       {venue.guestCapacity} Guests{" "}
-                      <span className="mx-1 text-black">•</span> Starts at $
-                      {venue.startingPrice.toLocaleString()}
+                      <span className="ml-1 mr-2 text-black">•</span>
+                      <span className="block lg:inline-block">
+                        Starts at ${venue.startingPrice.toLocaleString()}
+                      </span>
                     </p>
                   </div>
                 </div>
@@ -390,7 +396,9 @@ function VenueSearchDisplay({ setFilteredVenues, filteredVenues }) {
         hasSearched={hasSearched}
       />
       <div
-        className={`absolute left-0 right-0 top-0 ${isOpen ? "z-50" : "z-0"} overflow-hidden`}
+        className={`absolute left-0 right-0 top-0 ${
+          isOpen ? "z-50" : "z-0"
+        } overflow-hidden`}
       >
         <FilterModals
           isOpen={isOpen}

@@ -217,7 +217,7 @@ function FilterModals({
 }) {
   const modalClass = isOpen
     ? "translate-y-0 transition-all duration-500 ease-in-out opacity-1"
-    : "translate-y-[100vh] transition-all duration-500 ease-in-out opacity-0";
+    : "translate-y-[100vh] transition-all duration-500 ease-out opacity-0";
   return (
     <>
       <div
