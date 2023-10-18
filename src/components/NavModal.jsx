@@ -40,15 +40,15 @@ function NavModal({ hideNavModal }) {
     >
       {/* Search Bar */}
       <div className="my-7 flex w-full items-center justify-between rounded-md border-2 border-gray-200 px-5 py-4 shadow-md">
-        <div>
+        <div className="h-7 w-10 grow-0">
           <SearchIcon />
         </div>
         <input
           type="text"
           placeholder="Search"
-          className="border-3 w-full border-none font-lato text-xl focus:outline-none focus:ring-0"
+          className="border-3 w-full grow border-none font-lato text-xl focus:outline-none focus:ring-0"
         />
-        <div>
+        <div className="h-7 w-10 grow-0">
           <KeyboardVoiceIcon />
         </div>
       </div>
