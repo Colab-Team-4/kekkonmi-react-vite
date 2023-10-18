@@ -1,6 +1,9 @@
 import { CloseIcon, EyeIcon, KeyboardCapslockIcon } from "../components/Icons";
 import Logo from "../assets/LogoDefault.png";
 import { useState, useEffect } from "react";
+import Checkbox from "@mui/material/Checkbox";
+import CheckBoxOutlineBlankOutlinedIcon from "@mui/icons-material/CheckBoxOutlineBlankOutlined";
+import CheckBoxOutlinedIcon from "@mui/icons-material/CheckBoxOutlined";
 
 const contents = [
   {
@@ -20,8 +23,8 @@ const contents = [
   {
     label: "Email",
     placeholder: "JaneDoe@gmail.com",
-    type: "password",
-    name: "password",
+    type: "email",
+    name: "email",
     inputTextWidth: "lg:w-full",
   },
 ];
@@ -72,7 +75,7 @@ function Register({ handleCloseRegister, handleShowLogin }) {
       </div>
       <div className="flex flex-col items-center justify-center lg:max-w-[30vw]">
         <img src={Logo} alt="Logo" className="w-40 py-2" />
-        <div className="font-lato text-[#616161]">
+        <div className="text-center font-lato text-[#616161]">
           Crafting Love Stories, One Perfect Day at a Time
         </div>
         <div className="py-8 font-playFair text-xl font-bold text-[#676767]">
@@ -91,7 +94,7 @@ function Register({ handleCloseRegister, handleShowLogin }) {
                 </label>
                 <input
                   type={content.type}
-                  className="text mt-2 h-12 w-full rounded border-2 border-[#9E9E9E] px-2 focus:border-[#6E7C99] focus:outline-none"
+                  className="text mt-2 h-12 w-full rounded border-2 border-[#9E9E9E] pl-4 placeholder:text-[#9E9E9E] focus:border-[#6E7C99] focus:outline-none focus:ring-0"
                   placeholder={content.placeholder}
                   name={content.name}
                 />
@@ -106,10 +109,10 @@ function Register({ handleCloseRegister, handleShowLogin }) {
               >
                 {password.label}
               </label>
-              <div className="relative mt-2 h-12 rounded border-2 border-[#9E9E9E] focus:border-[#6E7C99]">
+              <div className="relative mt-2 h-12 rounded border-none">
                 <input
                   type={showPassword ? "text" : "password"}
-                  className="absolute h-10 w-full border-[#9E9E9E] pl-2 pr-28 focus:border-[#6E7C99] focus:outline-none"
+                  className="absolute h-12 w-full rounded border-2 border-[#9E9E9E] pl-4 pr-28 placeholder:text-[#9E9E9E] focus:border-[#6E7C99] focus:outline-none focus:ring-0 "
                   placeholder={password.placeholder}
                   name={password.name}
                 />
@@ -129,13 +132,18 @@ function Register({ handleCloseRegister, handleShowLogin }) {
         {/* End of Form */}
         <button
           type="submit"
-          className="my-10 h-12 w-full rounded bg-[#AD6E7A] font-lato text-xl font-bold text-[#FFFFFF] hover:bg-[#C99CA5] hover:text-[#F0F0F0]"
+          className="my-10 h-12 w-full rounded bg-[#AD6E7A] font-lato text-xl font-bold text-[#FFFFFF] duration-300 hover:bg-[#C99CA5] hover:text-[#F0F0F0]"
         >
           Sign Up
         </button>
         {/* Terms and Conditions */}
-        <div className="flex gap-8 px-2 py-6">
-          <input type="checkbox" className="border-[#6E7C99] text-indigo-600" />
+        <div className="flex items-center gap-8 px-2 py-6">
+          <Checkbox
+            icon={
+              <CheckBoxOutlineBlankOutlinedIcon style={{ color: "#6E7C99" }} />
+            }
+            checkedIcon={<CheckBoxOutlinedIcon style={{ color: "#6E7C99" }} />}
+          />
           <div className="font-lato text-sm text-[#9E9E9E]">
             By selecting "Agree and Continue," you acknowledge and accept our
             terms and conditions, granting permission to access and utilize our
@@ -153,7 +161,7 @@ function Register({ handleCloseRegister, handleShowLogin }) {
             Log In
           </span>
           <button
-            className="ml-5 hidden h-12 w-32 rounded border-2 border-[#6E7C99] text-[#676767] hover:bg-[#6E7C99] hover:text-[#FFFFFF] lg:flex lg:items-center lg:justify-center"
+            className="ml-5 hidden h-12 w-32 rounded border-2 border-[#6E7C99] text-[#676767] duration-300 hover:bg-[#6E7C99] hover:text-[#FFFFFF] lg:flex lg:items-center lg:justify-center"
             onClick={handleCloseRegister}
           >
             Cancel

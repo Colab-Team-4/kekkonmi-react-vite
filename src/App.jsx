@@ -27,12 +27,16 @@ function App() {
   const handleShowNavModal = () => {
     setHideNavModal("");
     setIsNavModalOpen(true);
+    setFilterBlur("bg-black opacity-50");
+    setOverflowHidden("overflow-hidden");
   };
 
   const handleCloseNavModal = () => {
     if (isNavModalOpen === true) {
       setHideNavModal("right-full");
       setIsNavModalOpen(false);
+      setFilterBlur("");
+      setOverflowHidden("");
     }
   };
   // Blur the background when Register modal is opened
@@ -40,7 +44,7 @@ function App() {
   const handleShowRegister = () => {
     setIsRegisterVisible(true);
     setIsLoginVisible(false);
-    setFilterBlur("blur-md");
+    setFilterBlur("bg-black opacity-50");
     setOverflowHidden("overflow-hidden");
   };
   // Remove the blur when Register modal is closed
@@ -53,7 +57,7 @@ function App() {
   const handleShowLogin = () => {
     setIsLoginVisible(true);
     setIsRegisterVisible(false);
-    setFilterBlur("blur-md");
+    setFilterBlur("bg-black opacity-50");
     setOverflowHidden("overflow-hidden");
   };
   // Remove the blur when Register modal is closed
