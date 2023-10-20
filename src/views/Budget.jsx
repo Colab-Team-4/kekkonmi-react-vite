@@ -3,6 +3,7 @@ import Breadcrumb from "../components/Breadcrumb";
 import { MoreIcon, PencilIcon, TrashIcon } from "../components/Icons";
 import { KeyboardVoiceIcon, SearchIcon } from "../components/NavMobileIcons";
 import { Chart } from "react-google-charts";
+import EditBudgetModal from "../components/EditBudgetModal";
 
 function Budget() {
   const initialItemValues = {
@@ -48,8 +49,14 @@ function Budget() {
   }
 
   // Calculate the total cost and total paid
-  const totalCost = Object.values(itemValues).reduce((acc, value) => acc + value, 0);
-  const totalPaid = Object.values(paidValues).reduce((acc, value) => acc + value, 0);
+  const totalCost = Object.values(itemValues).reduce(
+    (acc, value) => acc + value,
+    0
+  );
+  const totalPaid = Object.values(paidValues).reduce(
+    (acc, value) => acc + value,
+    0
+  );
 
   const data = [
     ["Category", "Cost"],
@@ -124,8 +131,31 @@ function Budget() {
     },
   ];
 
+  // State to keep track of the total items count
+  const [totalItems, setTotalItems] = useState(Object.keys(initialItemValues).length);
+
+  // Function to delete a row by item name
+  const deleteRow = (item) => {
+    const newItemValues = { ...itemValues };
+    const newPaidValues = { ...paidValues };
+    delete newItemValues[item];
+    delete newPaidValues[item];
+    setItemValues(newItemValues);
+    setPaidValues(newPaidValues);
+    setTotalItems(totalItems - 1); // Decrement the total items count
+  };
+
+  // Function to hide a row by item name
+  const hideRow = (item) => {
+    const row = document.getElementById(item);
+    if (row) {
+      row.style.display = "none";
+    }
+  };
+
   return (
     <div className="px-[5vw] lg:px-[2vw]">
+      <EditBudgetModal />
       <Breadcrumb />
       <div className="flex flex-col items-center gap-10 lg:flex-row">
         <div className="flex w-full flex-col gap-4">
@@ -141,8 +171,8 @@ function Budget() {
         </button>
       </div>
       <hr className="my-10 lg:hidden" />
-      {/* Pie Chart Row */}
-      <div className="lg:flex">
+   {/* Pie Chart Row */}
+   <div className="lg:flex">
         <div className="flex items-center justify-center lg:basis-1/2 lg:justify-end lg:pr-24">
           <PencilIcon />
           <h1 className="mx-2 text-2xl font-bold">Budget:</h1>
@@ -165,7 +195,8 @@ function Budget() {
               />
             </div>
             <h2>
-              Total Cost <span className="font-normal">${totalCost.toFixed(2)}</span>
+              Total Cost{" "}
+              <span className="font-normal">${totalCost.toFixed(2)}</span>
             </h2>
           </div>
           <div className="flex flex-col items-center">
@@ -179,7 +210,8 @@ function Budget() {
               />
             </div>
             <h2>
-              Amount Paid <span className="font-normal">${totalPaid.toFixed(2)}</span>
+              Amount Paid{" "}
+              <span className="font-normal">${totalPaid.toFixed(2)}</span>
             </h2>
           </div>
         </div>
@@ -189,11 +221,14 @@ function Budget() {
       <div className="flex flex-col gap-8 lg:flex-row lg:items-center">
         <div className="flex gap-5 pl-3 lg:basis-1/2">
           <h2>
-            Total Items: <span className="text-[#616161]">10</span>
+            Total Items: <span className="text-[#616161]">{totalItems}</span>
           </h2>
           <h2 className="text-3xl">|</h2>
           <h2>
-            Paid Items: <span className="text-[#616161]">{Object.values(paidValues).filter(value => value > 0).length}</span>
+            Paid Items:{" "}
+            <span className="text-[#616161]">
+              {Object.values(paidValues).filter((value) => value > 0).length}
+            </span>
           </h2>
         </div>
         <div className="lg:flex lg:basis-1/2 lg:items-center lg:justify-end lg:gap-4">
@@ -224,7 +259,11 @@ function Budget() {
       {/* Budget Inputs */}
       <div className="rounded border-2 border-gray-200 px-2 py-4">
         {contents.map((content, index) => (
-          <div className="flex h-16 w-full items-center justify-between" key={index}>
+          <div
+            className="flex h-16 w-full items-center justify-between"
+            key={index}
+            id={content.item}
+          >
             <div className="flex items-center gap-1">
               <div className={`h-12 w-1.5 ${content.color}`}></div>
               <div className="w-24 font-lato font-semibold">{content.item}</div>
@@ -246,8 +285,18 @@ function Budget() {
               />
             </div>
             <div className="flex w-14 items-center gap-3">
-              <TrashIcon />
-              <MoreIcon />
+              <div
+                className="cursor-pointer hover:scale-105 duration-300"
+                onClick={() => {
+                  deleteRow(content.item);
+                  hideRow(content.item);
+                }}
+              >
+                <TrashIcon />
+              </div>
+              <div>
+                <MoreIcon />
+              </div>
             </div>
           </div>
         ))}
