@@ -92,7 +92,7 @@ function SearchBar({
             defaultValue={lastSearch}
           />
         </div>
-        <div className="relative z-10 md:hidden">
+        <div className="relative z-10 md:collapse">
           <button
             type="button"
             onClick={openModal}
@@ -123,22 +123,156 @@ function SearchBar({
 
 FilterButtons.propTypes = {
   filteredVenues: PropTypes.array.isRequired,
+  outdoorOpen: PropTypes.bool.isRequired,
+  setOutdoorOpen: PropTypes.func.isRequired,
+  priceOpen: PropTypes.bool.isRequired,
+  setPriceOpen: PropTypes.func.isRequired,
+  diversityOpen: PropTypes.bool.isRequired,
+  setDiversityOpen: PropTypes.func.isRequired,
+  filtersOpen: PropTypes.bool.isRequired,
+  setFiltersOpen: PropTypes.func.isRequired,
+  selectedOptions: PropTypes.object.isRequired,
+  setSelectedOptions: PropTypes.func.isRequired,
+  selectedRadio: PropTypes.object.isRequired,
+  setSelectedRadio: PropTypes.func.isRequired,
+  getModalTransition: PropTypes.func.isRequired,
 };
-function FilterButtons({ filteredVenues }) {
+function FilterButtons({
+  filteredVenues,
+  outdoorOpen,
+  setOutdoorOpen,
+  priceOpen,
+  setPriceOpen,
+  diversityOpen,
+  setDiversityOpen,
+  filtersOpen,
+  setFiltersOpen,
+  selectedOptions,
+  setSelectedOptions,
+  selectedRadio,
+  setSelectedRadio,
+  getModalTransition,
+}) {
+  const countOptions = (categories) => {
+    return categories.reduce((count, category) => {
+      let categoryCount = selectedOptions[category]
+        ? selectedOptions[category].length
+        : 0;
+
+      if (category === "Guest Capacity" && selectedRadio) {
+        categoryCount += 1;
+      }
+
+      return count + categoryCount;
+    }, 0);
+  };
+
   return (
-    <div className="z-10 -mt-4 mb-14 hidden flex-wrap gap-6 lg:flex lg:w-full lg:basis-3/5">
-      <button className="btnOutline btnWeightNormal mobileText w-fit px-2 py-3 lg:px-8">
-        Outdoor Venues
-      </button>
-      <button className="btnOutline btnWeightNormal mobileText w-fit px-2 py-3 lg:px-8">
-        $ Price
-      </button>
-      <button className="btnOutline btnWeightNormal mobileText w-fit px-2 py-3 lg:px-8">
-        Support Diversity
-      </button>
-      <button className="btnOutline btnWeightNormal mobileText w-fit px-2 py-3 lg:px-8">
-        More Filters
-      </button>
+    <div className="z-20 -mt-4 mb-14 hidden flex-wrap gap-6 lg:flex lg:w-full lg:basis-3/5">
+      <div className="relative">
+        <button
+          onClick={() => setOutdoorOpen(true)}
+          className="btnOutline btnWeightNormal mobileText w-fit px-2 py-3 lg:px-8"
+        >
+          Outdoor Venues ({countOptions(["Outdoors"])})
+        </button>
+        <div
+          className={`absolute mt-1 w-56 overflow-hidden rounded-md ${
+            outdoorOpen ? "z-50" : ""
+          }`}
+        >
+          <FilterModals
+            isOpen={outdoorOpen}
+            closeModal={() => setOutdoorOpen(false)}
+            selectedOptions={selectedOptions}
+            setSelectedOptions={setSelectedOptions}
+            selectedRadio={selectedRadio}
+            setSelectedRadio={setSelectedRadio}
+            modalType="outdoor"
+            modalTransition={getModalTransition("outdoor")}
+          />
+        </div>
+      </div>
+      <div className="relative">
+        <button
+          onClick={() => setPriceOpen(true)}
+          className="btnOutline btnWeightNormal mobileText w-fit px-2 py-3 lg:px-8"
+        >
+          $ Price ({countOptions(["Price"])})
+        </button>
+        <div
+          className={`absolute mt-1 w-52 overflow-hidden rounded-md ${
+            priceOpen ? "z-50" : ""
+          }`}
+        >
+          <FilterModals
+            isOpen={priceOpen}
+            closeModal={() => setPriceOpen(false)}
+            selectedOptions={selectedOptions}
+            setSelectedOptions={setSelectedOptions}
+            selectedRadio={selectedRadio}
+            setSelectedRadio={setSelectedRadio}
+            modalType="price"
+            modalTransition={getModalTransition("price")}
+          />
+        </div>
+      </div>
+      <div className="relative">
+        <button
+          onClick={() => setDiversityOpen(true)}
+          className="btnOutline btnWeightNormal mobileText w-fit px-2 py-3 lg:px-8"
+        >
+          Support Diversity ({countOptions(["Diversity"])})
+        </button>
+        <div
+          className={`absolute mt-1 w-72 overflow-hidden rounded-md ${
+            diversityOpen ? "z-50" : ""
+          }`}
+        >
+          <FilterModals
+            isOpen={diversityOpen}
+            closeModal={() => setDiversityOpen(false)}
+            selectedOptions={selectedOptions}
+            setSelectedOptions={setSelectedOptions}
+            selectedRadio={selectedRadio}
+            setSelectedRadio={setSelectedRadio}
+            modalType="diversity"
+            modalTransition={getModalTransition("diversity")}
+          />
+        </div>
+      </div>
+      <div className="relative">
+        <button
+          onClick={() => setFiltersOpen(true)}
+          className="btnOutline btnWeightNormal mobileText w-fit px-2 py-3 lg:px-8"
+        >
+          More Filters (
+          {countOptions([
+            "Guest Capacity",
+            "Venue Types",
+            "Venue Amenities",
+            "Venue Vendors",
+            "Affiliations",
+          ])}
+          )
+        </button>
+        <div
+          className={`absolute mt-1 w-[32rem] overflow-hidden rounded-md ${
+            filtersOpen ? "z-50" : ""
+          }`}
+        >
+          <FilterModals
+            isOpen={filtersOpen}
+            closeModal={() => setFiltersOpen(false)}
+            selectedOptions={selectedOptions}
+            setSelectedOptions={setSelectedOptions}
+            selectedRadio={selectedRadio}
+            setSelectedRadio={setSelectedRadio}
+            modalType="desktop"
+            modalTransition={getModalTransition("filters")}
+          />
+        </div>
+      </div>
     </div>
   );
 }
@@ -284,11 +418,11 @@ OtherVenues.propTypes = {
 };
 function OtherVenues({ filteredVenues }) {
   return (
-    <div className="flex max-h-[56rem] w-full flex-col overflow-hidden shadow-lg lg:max-h-[50.5rem]">
+    <div className="flex h-[101%] w-full flex-col overflow-hidden shadow-lg lg:h-fit lg:pb-4">
       <h3 className="my-10 ml-4 font-playFair text-[24px] font-bold lg:whitespace-nowrap lg:text-lg">
         Other Reception Venues You Might Like
       </h3>
-      <div className="my-10 grid grid-flow-row grid-cols-1 content-center gap-2 px-3">
+      <div className="grid grid-flow-row grid-cols-1 content-center gap-2 px-3">
         {filteredVenues.length > 0 ? (
           filteredVenues.map((venue, i) => (
             <Link
@@ -298,7 +432,7 @@ function OtherVenues({ filteredVenues }) {
             >
               <div className="flex gap-3 lg:gap-8">
                 <img
-                  className="aspect-square w-[100px] rounded-sm object-cover"
+                  className="aspect-square w-[6.5rem] rounded-sm object-cover"
                   src={venue.coverUrl}
                   alt={venue.name}
                   loading="lazy"
@@ -327,7 +461,7 @@ function OtherVenues({ filteredVenues }) {
                     <div className="text-[14px] text-[#4B4B4B]">
                       {venue.location}
                     </div>
-                    <p className="-mt-1 text-xs text-[#616161]">
+                    <p className="-mt-1 text-xs text-[#616161] lg:flex lg:flex-wrap">
                       {venue.guestCapacity} Guests{" "}
                       <span className="ml-1 mr-2 text-black">•</span>
                       <span className="block lg:inline-block">
@@ -358,6 +492,10 @@ function VenueSearchDisplay({ setFilteredVenues, filteredVenues }) {
   const [extraVenues, setExtraVenues] = useState(0);
   const [hasSearched, setHasSearched] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [outdoorOpen, setOutdoorOpen] = useState(false);
+  const [priceOpen, setPriceOpen] = useState(false);
+  const [diversityOpen, setDiversityOpen] = useState(false);
+  const [filtersOpen, setFiltersOpen] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState({});
   const [selectedRadio, setSelectedRadio] = useState(null);
 
@@ -370,11 +508,29 @@ function VenueSearchDisplay({ setFilteredVenues, filteredVenues }) {
     );
   }, [selectedOptions, selectedRadio]);
 
-  const openModal = () => {
-    setIsOpen(true);
-  };
-  const closeModal = () => {
-    setIsOpen(false);
+  const getModalTransition = (modalType) => {
+    switch (modalType) {
+      case "outdoor":
+        return outdoorOpen
+          ? "transition-all opacity-1 duration-300 ease-in-out"
+          : "transition-all opacity-0 duration-300 ease-out collapse";
+      case "price":
+        return priceOpen
+          ? "transition-all opacity-1 duration-300 ease-in-out"
+          : "transition-all opacity-0 duration-300 ease-out collapse";
+      case "diversity":
+        return diversityOpen
+          ? "transition-all opacity-1 duration-300 ease-in-out"
+          : "transition-all opacity-0 duration-300 ease-out collapse";
+      case "filters":
+        return filtersOpen
+          ? "transition-all opacity-1 duration-300 ease-in-out"
+          : "transition-all opacity-0 duration-300 ease-out collapse";
+      default:
+        return isOpen
+          ? "translate-y-0 transition-all duration-500 ease-in-out opacity-1"
+          : "translate-y-[100vh] transition-all duration-500 ease-out collapse opacity-0";
+    }
   };
 
   return (
@@ -383,12 +539,28 @@ function VenueSearchDisplay({ setFilteredVenues, filteredVenues }) {
         setFilteredVenues={setFilteredVenues}
         setExtraVenues={setExtraVenues}
         setHasSearched={setHasSearched}
-        openModal={openModal}
-        closeModal={closeModal}
+        openModal={() => setIsOpen(true)}
+        closeModal={() => setIsOpen(false)}
         totalSelectedOptions={totalSelectedOptions}
         setIsOpen={setIsOpen}
       />
-      <FilterButtons filteredVenues={filteredVenues} />
+
+      <FilterButtons
+        filteredVenues={filteredVenues}
+        outdoorOpen={outdoorOpen}
+        setOutdoorOpen={setOutdoorOpen}
+        priceOpen={priceOpen}
+        setPriceOpen={setPriceOpen}
+        diversityOpen={diversityOpen}
+        setDiversityOpen={setDiversityOpen}
+        filtersOpen={filtersOpen}
+        setFiltersOpen={setFiltersOpen}
+        selectedOptions={selectedOptions}
+        setSelectedOptions={setSelectedOptions}
+        selectedRadio={selectedRadio}
+        setSelectedRadio={setSelectedRadio}
+        getModalTransition={getModalTransition}
+      />
       <VenueDisplay
         filteredVenues={filteredVenues}
         extraVenues={extraVenues}
@@ -396,17 +568,19 @@ function VenueSearchDisplay({ setFilteredVenues, filteredVenues }) {
         hasSearched={hasSearched}
       />
       <div
-        className={`absolute left-0 right-0 top-0 ${
-          isOpen ? "z-50" : "z-0"
-        } overflow-hidden`}
+        className={`absolute left-0 right-0 top-0 overflow-hidden ${
+          isOpen ? "z-50" : "-z-50"
+        } md:collapse`}
       >
         <FilterModals
           isOpen={isOpen}
-          closeModal={closeModal}
+          closeModal={() => setIsOpen(false)}
           selectedOptions={selectedOptions}
           setSelectedOptions={setSelectedOptions}
           selectedRadio={selectedRadio}
           setSelectedRadio={setSelectedRadio}
+          modalType="mobile"
+          modalTransition={getModalTransition()}
         />
       </div>
     </div>

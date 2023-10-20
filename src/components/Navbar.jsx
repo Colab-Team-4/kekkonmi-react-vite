@@ -22,7 +22,7 @@ function Navbar({ handleShowNavModal, handleShowRegister, handleShowLogin }) {
   const activeLink = "underline";
 
   return (
-    <nav className="fixed top-0 z-40 w-11/12 self-center whitespace-nowrap rounded-md border-gray-200 bg-white shadow-md dark:bg-white lg:w-full lg:shadow-none">
+    <nav className="fixed top-0 z-30 w-11/12 self-center whitespace-nowrap rounded-md border-gray-200 bg-white shadow-md lg:w-full lg:shadow-none">
       <div className="relative flex items-center justify-between px-[5vw] py-4">
         <button className="md:hidden" onClick={handleShowNavModal}>
           <HamburgerIcon />

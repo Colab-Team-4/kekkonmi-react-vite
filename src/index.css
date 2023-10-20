@@ -76,6 +76,10 @@
   font-stretch: normal;
 }
 
+html {
+  @apply transition-all duration-300
+}
+
 h1 {
   @apply font-playFair text-[48px] font-normal leading-[3.5rem];
 }
@@ -117,7 +121,7 @@ label {
 }
 
 .btnBudgetSolid {
-  @apply rounded bg-[#F4E2E6] font-lato font-medium text-[#616161] duration-300 hover:bg-[#DDAFB8] hover:text-[#616161];
+  @apply rounded-md bg-[#F4E2E6] font-lato text-[#616161] duration-300 hover:bg-[#DDAFB8];
 }
 
 ::-webkit-scrollbar {
