@@ -122,9 +122,9 @@ ModalCard.propTypes = {
   options: PropTypes.array,
   selectedOptions: PropTypes.object,
   setSelectedOptions: PropTypes.func,
-  selectedRadio: PropTypes.object,
+  selectedRadio: PropTypes.string,
   setSelectedRadio: PropTypes.func,
-  modalType: PropTypes.bool,
+  modalType: PropTypes.string,
   resetKey: PropTypes.number,
 };
 function ModalCard({
@@ -211,6 +211,7 @@ FilterModals.propTypes = {
   setSelectedRadio: PropTypes.func,
   modalType: PropTypes.string,
   modalTransition: PropTypes.string,
+  setFilteredVenues: PropTypes.func,
 };
 function FilterModals({
   isOpen,
@@ -221,6 +222,7 @@ function FilterModals({
   setSelectedRadio,
   modalType,
   modalTransition,
+  setFilteredVenues,
 }) {
   const [resetKey, setResetKey] = useState(0);
 
@@ -351,11 +353,7 @@ function FilterModals({
                   );
                 }
               }}
-              className={`btnOutline mobileText basis-1/2 py-2 ${
-                modalType === "mobile" || modalType === "desktop"
-                  ? "Reset"
-                  : "Clear"
-              }`}
+              className="btnOutline mobileText basis-1/2 py-2"
             >
               {modalType === "mobile" || modalType === "desktop"
                 ? "Reset"

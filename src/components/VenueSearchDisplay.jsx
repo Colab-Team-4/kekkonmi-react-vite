@@ -122,7 +122,7 @@ function SearchBar({
 }
 
 FilterButtons.propTypes = {
-  filteredVenues: PropTypes.array.isRequired,
+  setFilteredVenues: PropTypes.func.isRequired,
   outdoorOpen: PropTypes.bool.isRequired,
   setOutdoorOpen: PropTypes.func.isRequired,
   priceOpen: PropTypes.bool.isRequired,
@@ -133,12 +133,12 @@ FilterButtons.propTypes = {
   setFiltersOpen: PropTypes.func.isRequired,
   selectedOptions: PropTypes.object.isRequired,
   setSelectedOptions: PropTypes.func.isRequired,
-  selectedRadio: PropTypes.object.isRequired,
+  selectedRadio: PropTypes.object,
   setSelectedRadio: PropTypes.func.isRequired,
   getModalTransition: PropTypes.func.isRequired,
 };
 function FilterButtons({
-  filteredVenues,
+  setFilteredVenues,
   outdoorOpen,
   setOutdoorOpen,
   priceOpen,
@@ -190,6 +190,7 @@ function FilterButtons({
             setSelectedRadio={setSelectedRadio}
             modalType="outdoor"
             modalTransition={getModalTransition("outdoor")}
+            setFilteredVenues={setFilteredVenues}
           />
         </div>
       </div>
@@ -214,6 +215,7 @@ function FilterButtons({
             setSelectedRadio={setSelectedRadio}
             modalType="price"
             modalTransition={getModalTransition("price")}
+            setFilteredVenues={setFilteredVenues}
           />
         </div>
       </div>
@@ -238,6 +240,7 @@ function FilterButtons({
             setSelectedRadio={setSelectedRadio}
             modalType="diversity"
             modalTransition={getModalTransition("diversity")}
+            setFilteredVenues={setFilteredVenues}
           />
         </div>
       </div>
@@ -270,6 +273,7 @@ function FilterButtons({
             setSelectedRadio={setSelectedRadio}
             modalType="desktop"
             modalTransition={getModalTransition("filters")}
+            setFilteredVenues={setFilteredVenues}
           />
         </div>
       </div>
@@ -546,7 +550,7 @@ function VenueSearchDisplay({ setFilteredVenues, filteredVenues }) {
       />
 
       <FilterButtons
-        filteredVenues={filteredVenues}
+        setFilteredVenues={setFilteredVenues}
         outdoorOpen={outdoorOpen}
         setOutdoorOpen={setOutdoorOpen}
         priceOpen={priceOpen}
