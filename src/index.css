@@ -6,7 +6,7 @@
   font-family: "Playfair Display";
   src:
     local(PlayfairDisplay-Regular),
-    url(../src/assets/fonts/Playfair_display/PlayfairDisplay-Regular.ttf)
+    url(/fonts/Playfair_display/PlayfairDisplay-Regular.ttf)
       format("truetype");
   font-weight: normal;
   font-style: normal;
@@ -17,7 +17,7 @@
   font-family: "Playfair Display";
   src:
     local(PlayfairDisplay-Medium),
-    url(../src/assets/fonts/Playfair_display/PlayfairDisplay-Medium.ttf)
+    url(/fonts/Playfair_display/PlayfairDisplay-Medium.ttf)
       format("truetype");
   font-weight: 500;
   font-style: normal;
@@ -28,7 +28,7 @@
   font-family: "Playfair Display";
   src:
     local(PlayfairDisplay-SemiBold),
-    url(../src/assets/fonts/Playfair_display/PlayfairDisplay-SemiBold.ttf)
+    url(/fonts/Playfair_display/PlayfairDisplay-SemiBold.ttf)
       format("truetype");
   font-weight: 600;
   font-style: normal;
@@ -39,7 +39,7 @@
   font-family: "Playfair Display";
   src:
     local(PlayfairDisplay-Bold),
-    url(../src/assets/fonts/Playfair_display/PlayfairDisplay-Bold.ttf)
+    url(/fonts/Playfair_display/PlayfairDisplay-Bold.ttf)
       format("truetype");
   font-weight: bold;
   font-style: normal;
@@ -50,7 +50,7 @@
   font-family: "Lato";
   src:
     local(Lato-Regular),
-    url(../src/assets/fonts/Lato/Lato-Regular.ttf) format("truetype");
+    url(/fonts/Lato/Lato-Regular.ttf) format("truetype");
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
@@ -60,7 +60,7 @@
   font-family: "Lato";
   src:
     local(Lato-Bold),
-    url(../src/assets/fonts/Lato/Lato-Bold.ttf) format("truetype");
+    url(/fonts/Lato/Lato-Bold.ttf) format("truetype");
   font-weight: bold;
   font-style: normal;
   font-stretch: normal;
@@ -70,7 +70,7 @@
   font-family: "Lato";
   src:
     local(Lato-Black),
-    url(../src/assets/fonts/Lato/Lato-Black.ttf) format("truetype");
+    url(/fonts/Lato/Lato-Black.ttf) format("truetype");
   font-weight: 900;
   font-style: normal;
   font-stretch: normal;
