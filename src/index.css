@@ -6,7 +6,7 @@
   font-family: "Playfair Display";
   src:
     local(PlayfairDisplay-Regular),
-    url("/fonts/Playfair_display/PlayfairDisplay-Regular.ttf")
+    url("/fonts/Playfair_Display/PlayfairDisplay-Regular.ttf")
       format("truetype");
   font-weight: normal;
   font-style: normal;
@@ -17,7 +17,7 @@
   font-family: "Playfair Display";
   src:
     local(PlayfairDisplay-Medium),
-    url("/fonts/Playfair_display/PlayfairDisplay-Medium.ttf") format("truetype");
+    url("/fonts/Playfair_Display/PlayfairDisplay-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
@@ -27,7 +27,7 @@
   font-family: "Playfair Display";
   src:
     local(PlayfairDisplay-SemiBold),
-    url("/fonts/Playfair_display/PlayfairDisplay-SemiBold.ttf")
+    url("/fonts/Playfair_Display/PlayfairDisplay-SemiBold.ttf")
       format("truetype");
   font-weight: 600;
   font-style: normal;
@@ -38,7 +38,7 @@
   font-family: "Playfair Display";
   src:
     local(PlayfairDisplay-Bold),
-    url("/fonts/Playfair_display/PlayfairDisplay-Bold.ttf") format("truetype");
+    url("/fonts/Playfair_Display/PlayfairDisplay-Bold.ttf") format("truetype");
   font-weight: bold;
   font-style: normal;
   font-stretch: normal;
