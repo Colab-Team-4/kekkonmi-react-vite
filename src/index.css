@@ -4,10 +4,8 @@
 
 @font-face {
   font-family: "Playfair Display";
-  src:
-    local(PlayfairDisplay-Regular),
-    url(/fonts/Playfair_display/PlayfairDisplay-Regular.ttf)
-      format("truetype");
+  src: local(PlayfairDisplay-Regular),
+    url(/fonts/Playfair_display/PlayfairDisplay-Regular.ttf) format("truetype");
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
@@ -15,10 +13,8 @@
 
 @font-face {
   font-family: "Playfair Display";
-  src:
-    local(PlayfairDisplay-Medium),
-    url(/fonts/Playfair_display/PlayfairDisplay-Medium.ttf)
-      format("truetype");
+  src: local(PlayfairDisplay-Medium),
+    url(/fonts/Playfair_display/PlayfairDisplay-Medium.ttf) format("truetype");
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
@@ -26,10 +22,8 @@
 
 @font-face {
   font-family: "Playfair Display";
-  src:
-    local(PlayfairDisplay-SemiBold),
-    url(/fonts/Playfair_display/PlayfairDisplay-SemiBold.ttf)
-      format("truetype");
+  src: local(PlayfairDisplay-SemiBold),
+    url(/fonts/Playfair_display/PlayfairDisplay-SemiBold.ttf) format("truetype");
   font-weight: 600;
   font-style: normal;
   font-stretch: normal;
@@ -37,10 +31,8 @@
 
 @font-face {
   font-family: "Playfair Display";
-  src:
-    local(PlayfairDisplay-Bold),
-    url(/fonts/Playfair_display/PlayfairDisplay-Bold.ttf)
-      format("truetype");
+  src: local(PlayfairDisplay-Bold),
+    url(/fonts/Playfair_display/PlayfairDisplay-Bold.ttf) format("truetype");
   font-weight: bold;
   font-style: normal;
   font-stretch: normal;
@@ -48,8 +40,7 @@
 
 @font-face {
   font-family: "Lato";
-  src:
-    local(Lato-Regular),
+  src: local(Lato-Regular),
     url(/fonts/Lato/Lato-Regular.ttf) format("truetype");
   font-weight: normal;
   font-style: normal;
@@ -58,8 +49,7 @@
 
 @font-face {
   font-family: "Lato";
-  src:
-    local(Lato-Bold),
+  src: local(Lato-Bold),
     url(/fonts/Lato/Lato-Bold.ttf) format("truetype");
   font-weight: bold;
   font-style: normal;
@@ -68,8 +58,7 @@
 
 @font-face {
   font-family: "Lato";
-  src:
-    local(Lato-Black),
+  src: local(Lato-Black),
     url(/fonts/Lato/Lato-Black.ttf) format("truetype");
   font-weight: 900;
   font-style: normal;
