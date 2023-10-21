@@ -13,7 +13,7 @@ function Breadcrumb({ venueName }) {
   const decodedVenueName = decodeURIComponent(venueName || "");
 
   return (
-    <div className="mb-[5vh] mt-28 flex flex-col gap-4 font-lato font-normal text-[#6E7C99] lg:flex-row lg:font-playFair lg:text-[18px] lg:font-bold">
+    <div className="z-10 mb-[5vh] mt-28 flex flex-col gap-4 font-lato font-normal text-[#6E7C99] lg:flex-row lg:font-playFair lg:text-[18px] lg:font-bold">
       <div className="flex items-center gap-2 overflow-hidden lg:gap-4">
         <Link to="/">Home</Link>
         <ArrowForward className="h-5 w-5" />

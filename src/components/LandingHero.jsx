@@ -20,7 +20,7 @@ function LandingHero() {
           key={i}
         >
           <section className="order-2 flex w-full flex-col gap-8 lg:order-1 lg:w-[41%]">
-            <h1 className="font-playFair text-2xl font-medium lg:whitespace-nowrap">
+            <h1 className="font-playFair text-xl font-medium lg:whitespace-nowrap">
               {hero.heading}
             </h1>
             <p className="text-sm">{hero.body}</p>

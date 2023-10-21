@@ -3,8 +3,81 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Lato", "Playfair Display";
-  src: url("https://fonts.googleapis.com/css2?family=Lato&family=Playfair+Display:wght@500;600;700");
+  font-family: "Playfair Display";
+  src:
+    local(PlayfairDisplay-Regular),
+    url(./assets/fonts/Playfair_display/PlayfairDisplay-Regular.ttf)
+      format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src:
+    local(PlayfairDisplay-Medium),
+    url(./assets/fonts/Playfair_display/PlayfairDisplay-Medium.ttf)
+      format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src:
+    local(PlayfairDisplay-SemiBold),
+    url(./assets/fonts/Playfair_display/PlayfairDisplay-SemiBold.ttf)
+      format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src:
+    local(PlayfairDisplay-Bold),
+    url(./assets/fonts/Playfair_display/PlayfairDisplay-Bold.ttf)
+      format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "Lato";
+  src:
+    local(Lato-Regular),
+    url(./assets/fonts/Lato/Lato-Regular.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "Lato";
+  src:
+    local(Lato-Bold),
+    url(./assets/fonts/Lato/Lato-Bold.ttf) format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "Lato";
+  src:
+    local(Lato-Black),
+    url(./assets/fonts/Lato/Lato-Black.ttf) format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+html {
+  @apply transition-all duration-300
 }
 
 h1 {
@@ -12,7 +85,7 @@ h1 {
 }
 
 h2 {
-  @apply font-playFair text-[24px] font-bold tracking-tight;
+  @apply font-playFair text-[1.5rem] font-bold;
 }
 
 p {
@@ -48,7 +121,7 @@ label {
 }
 
 .btnBudgetSolid {
-  @apply rounded bg-[#F4E2E6] font-lato font-medium text-[#616161] duration-300 hover:bg-[#DDAFB8] hover:text-[#616161];
+  @apply rounded-md bg-[#F4E2E6] font-lato text-[#616161] duration-300 hover:bg-[#DDAFB8];
 }
 
 ::-webkit-scrollbar {
