@@ -131,9 +131,9 @@ const generateRandomElements = (array) => {
 
 const client = createClient(process.env.PEXELS_API_KEY);
 const fetchPexelsImage = async (venue) => {
-  const query = `${venue.name} ${venue.location} ${venue.features.join(
+  const query = `${venue.name} ${venue.state} ${venue.features.join(
     " ",
-  )} wedding venue`;
+  )} wedding venue scenic -people`;
 
   try {
     const photos = await client.photos.search({ query, per_page: 6 });
