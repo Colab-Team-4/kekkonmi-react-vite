@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const contents = [
   {
@@ -87,20 +88,38 @@ function BudgetSteps() {
               ))}
             </div>
             {/* Buttons */}
-            <div className="flex">
-              <button
-                type="button"
-                className="btnBudgetSolid h-12 w-48 basis-1/2 text-sm lg:h-[70px] lg:w-[314px] lg:basis-1/3 lg:text-xl lg:font-bold"
-              >
-                Save
-              </button>
-              <button
-                type="button"
-                className="text basis-1/2 whitespace-nowrap font-lato lg:basis-1/2  lg:text-xl"
-                onClick={handleNextStep}
-              >
-                Skip this step
-              </button>
+            <div className="flex items-center gap-20 lg:gap-40">
+              <div>
+                <button
+                  type="button"
+                  className="btnBudgetSolid h-12 w-48 basis-1/2 text-sm lg:h-[70px] lg:w-[314px] lg:basis-1/3 lg:text-xl lg:font-bold"
+                >
+                  Save
+                </button>
+              </div>
+              {content.step === "1" ? (
+                <div>
+                  <button
+                    type="button"
+                    className="text basis-1/2 whitespace-nowrap font-lato lg:basis-1/2  lg:text-xl"
+                    onClick={handleNextStep}
+                  >
+                    Skip this step
+                  </button>
+                </div>
+              ) : (
+                <div>
+                  <Link to="/budget">
+                    <button
+                      type="button"
+                      className="text basis-1/2 whitespace-nowrap font-lato lg:basis-1/2  lg:text-xl"
+                      onClick={handleNextStep}
+                    >
+                      Skip this step
+                    </button>
+                  </Link>
+                </div>
+              )}
             </div>
             {/* End of Buttons */}
           </div>

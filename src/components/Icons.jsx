@@ -284,3 +284,24 @@ export function MoreIcon() {
     </svg>
   );
 }
+
+export function Ellipse() {
+  return (
+    <svg
+      width="180"
+      height="180"
+      viewBox="0 0 180 180"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        id="Ellipse 1"
+        cx="90"
+        cy="90"
+        r="90"
+        transform="matrix(1 0 0 -1 0 180)"
+        fill="#F0F0F0"
+      />
+    </svg>
+  );
+}
