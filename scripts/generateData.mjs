@@ -2,6 +2,7 @@ import { faker } from "@faker-js/faker";
 import { createClient } from "pexels";
 import dotenv from "dotenv";
 import fs from "fs";
+import { blacklistedUrls } from "./blacklist.mjs";
 
 dotenv.config();
 
@@ -110,7 +111,7 @@ const generateDescription = (venueName, location, features) => {
   const chosenTemplates = Array.from({ length: 3 }, () => {
     const template =
       descriptionTemplates[
-        Math.floor(Math.random() * descriptionTemplates.length)
+      Math.floor(Math.random() * descriptionTemplates.length)
       ];
     return template
       .replace("{name}", venueName)
@@ -129,22 +130,46 @@ const generateRandomElements = (array) => {
   return array.filter(() => Math.random() < 0.5);
 };
 
+const filterBlacklistedUrls = (galleryUrls) => {
+  return galleryUrls.filter((url) => !blacklistedUrls.includes(url));
+};
+
 const client = createClient(process.env.PEXELS_API_KEY);
 const fetchPexelsImage = async (venue) => {
-  const query = `${venue.name} ${venue.state} ${venue.features.join(
-    " ",
-  )} wedding venue scenic -people`;
+  const query = `${venue.name} ${venue.state} ${venue.features.join(" ")} wedding venue scenic -people`;
+
+  let coverUrl = "";
+  let galleryUrls = [];
 
   try {
     const photos = await client.photos.search({ query, per_page: 6 });
-    const coverUrl = photos.photos[0].src.original;
-    const galleryUrls = photos.photos
-      .slice(1)
-      .map((photo) => photo.src.original);
+    coverUrl = photos.photos[0].src.original;
+    galleryUrls = filterBlacklistedUrls(
+      photos.photos.slice(1).map((photo) => photo.src.original)
+    );
+
+    if (blacklistedUrls.includes(coverUrl)) {
+      let newCoverUrl = await fetchSingleImage(query);
+      while (blacklistedUrls.includes(newCoverUrl)) {
+        newCoverUrl = await fetchSingleImage(query);
+      }
+      coverUrl = newCoverUrl;
+    }
+
     return { coverUrl, galleryUrls };
   } catch (error) {
     console.error(`Failed to fetch images: ${error.message}`);
     return { coverUrl: "", galleryUrls: [] };
+  }
+};
+
+const fetchSingleImage = async (query) => {
+  try {
+    const photos = await client.photos.search({ query, per_page: 1 });
+    return photos.photos[0].src.original;
+  } catch (error) {
+    console.error(`Failed to fetch single image: ${error.message}`);
+    return "";
   }
 };
 
