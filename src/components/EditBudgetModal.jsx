@@ -7,9 +7,20 @@ function EditBudgetModal({
   selectedEditItem,
   onDeleteRow,
 }) {
+  let selectedEditItems = selectedEditItem;
   const [charCounter, setCharCounter] = useState(0);
   const [isEditing, setIsEditing] = useState(false);
   const [editedText, setEditedText] = useState(selectedEditItem);
+  const [isItemEdit, setIsItemEdit] = useState(false);
+  const [itemEditValue, setItemEditValue] = useState(
+    selectedEditItems || selectedEditItem,
+  );
+
+  console.log(itemEditValue);
+
+  function editItemName() {
+    setIsItemEdit(true);
+  }
 
   function onChange(e) {
     setCharCounter(e.target.value.length);
@@ -24,6 +35,11 @@ function EditBudgetModal({
     // You may want to update your data or perform an API call
     setIsEditing(false);
   };
+
+  const handleSaveClick2 = () => {
+    setItemEditValue(itemEditValue);
+    setIsItemEdit(false);
+  };
   return (
     <div
       className={`fixed left-0 top-0 z-50 h-fit w-full rounded-lg border-2 bg-white px-[5vw] pb-12 pt-7 shadow-md lg:left-[30%] lg:top-7 lg:w-[35vw] lg:px-[2vw] ${
@@ -32,8 +48,27 @@ function EditBudgetModal({
     >
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <PencilIcon />
-          <h2>Edit {selectedEditItem}</h2>
+          {isItemEdit ? (
+            <div className="flex items-center gap-14">
+              <input
+                type="text"
+                onChange={(e) => setItemEditValue(e.target.value)}
+              />
+              <button
+                onClick={handleSaveClick2}
+                className="h-8 w-24 rounded-md border-2 border-[#6e7c99] bg-[#6e7c99] text-white transition-all duration-300 hover:border-2 hover:border-[#6e7c99] hover:bg-white hover:text-[#6e7c99]"
+              >
+                Save
+              </button>
+            </div>
+          ) : (
+            <>
+              <div onClick={editItemName} className="cursor-pointer">
+                <PencilIcon />
+              </div>
+              <h2 className="font-playFair">{itemEditValue}</h2>
+            </>
+          )}
         </div>
         <div className="cursor-pointer" onClick={handleCloseModal}>
           <CloseIcon />

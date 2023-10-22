@@ -151,7 +151,6 @@ function Budget() {
   ];
   const [counter, setCounter] = useState(0);
   const addNewItem = () => {
-    console.log(counter);
     const newItem = {
       color: `${moreColors[counter]}`, // Replace with the desired color
       item: "Other", // Replace with the desired item name
@@ -230,6 +229,7 @@ function Budget() {
       row.style.display = "none";
     }
   };
+
 
   return (
     <div>
