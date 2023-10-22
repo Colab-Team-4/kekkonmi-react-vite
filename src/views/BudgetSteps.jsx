@@ -13,6 +13,7 @@ const contents = [
     placeholders: ["100", "$10,000"],
     subtext: ["Guest count", "Budget range"],
     imgPosition: "object-bottom",
+    bgImg: StepOne,
   },
   {
     step: "2",
@@ -26,6 +27,7 @@ const contents = [
     placeholders: ["mm/dd/yyyy", "New York"],
     subtext: ["Enter the date", "Type the name of the city"],
     imgPosition: "object-center",
+    bgImg: StepTwo,
   },
 ];
 
@@ -54,7 +56,7 @@ function BudgetSteps() {
         {/* image on mobile */}
         <img
           className={`aspect-square rounded object-cover lg:hidden ${content.imgPosition}`}
-          src={StepOne}
+          src={content.bgImg}
           alt="Step One"
         />
         {/* end of image on mobile */}
@@ -130,7 +132,7 @@ function BudgetSteps() {
       <div className="order-1 basis-1/2 lg:order-2">
         <img
           className={`hidden h-full w-full object-cover lg:flex ${content.imgPosition}`}
-          src={StepTwo}
+          src={content.bgImg}
           alt="Step Two"
         />
       </div>
