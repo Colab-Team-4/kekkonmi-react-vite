@@ -23,7 +23,7 @@ function Budget() {
   const [itemToEdit, setItemToEdit] = useState(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [selectedItem, setSelectedItem] = useState("");
-    const [editedCategoryName, setEditedCategoryName] = useState("");
+  const [editedCategoryName, setEditedCategoryName] = useState("");
 
   const handleEditItem = (item) => {
     setItemToEdit(item);
@@ -45,36 +45,23 @@ function Budget() {
   };
 
   const [paidValues, setPaidValues] = useState(initialPaidValues);
-  const [inputValue, setInputValue] = useState('$');
-
-  const addNewItem = () => {
-    const newItem = {
-      color: "bg-black", // Replace with the desired color
-      item: "Other", // Replace with the desired item name
-    };
-
-    // Update the contents state by adding the new item
-    setContents([...contents, newItem]);
-
-    // Increment the total items count
-    setTotalItems(totalItems + 1);
-  };
+  const [inputValue, setInputValue] = useState("$");
 
   function handleInputChange2(event) {
     let value = event.target.value;
 
     // Remove non-numeric characters, except the decimal point
-    value = value.replace(/[^0-9.]/g, '');
+    value = value.replace(/[^0-9.]/g, "");
 
     // Ensure there's only one decimal point
-    const parts = value.split('.');
+    const parts = value.split(".");
     if (parts.length > 2) {
       parts.pop();
-      value = parts.join('.');
+      value = parts.join(".");
     }
 
     // Format the number with commas
-    const formattedValue = '$' + value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    const formattedValue = "$" + value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
     setInputValue(formattedValue);
   }
@@ -138,7 +125,44 @@ function Budget() {
       7: { color: "#8FE5B1" },
       8: { color: "#F2F56C" },
       9: { color: "#A184F3" },
+      10: { color: "#020617" },
+      11: { color: "#f87171" },
+      12: { color: "#4ade80" },
+      13: { color: "#facc15" },
+      14: { color: "#fb7185" },
+      15: { color: "#f472b6" },
+      16: { color: "#e879f9" },
+      17: { color: "#c084fc" },
+      18: { color: "#a78bfa" },
+      19: { color: "#818cf8" },
     },
+  };
+  const moreColors = [
+    "bg-black",
+    "bg-red-400",
+    "bg-green-400",
+    "bg-yellow-400",
+    "bg-rose-400",
+    "bg-pink-400",
+    "bg-fuchsia-400",
+    "bg-purple-400",
+    "bg-violet-400",
+    "bg-indigo-400",
+  ];
+  const [counter, setCounter] = useState(0);
+  const addNewItem = () => {
+    console.log(counter);
+    const newItem = {
+      color: `${moreColors[counter]}`, // Replace with the desired color
+      item: "Other", // Replace with the desired item name
+    };
+
+    // Update the contents state by adding the new item
+    setContents([...contents, newItem]);
+
+    // Increment the total items count
+    setTotalItems(totalItems + 1);
+    setCounter(counter + 1);
   };
 
   const [contents, setContents] = useState([
@@ -194,7 +218,7 @@ function Budget() {
     // Create a new contents array without the item to be deleted
     const newContents = contents.filter((content) => content.item !== item);
     setContents(newContents);
-  
+
     // Decrement the total items count
     setTotalItems(totalItems - 1);
   };
