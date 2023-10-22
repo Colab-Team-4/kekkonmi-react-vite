@@ -6,17 +6,13 @@ function EditBudgetModal({
   handleCloseModal,
   selectedEditItem,
   onDeleteRow,
+  updateContentItem,
 }) {
-  let selectedEditItems = selectedEditItem;
   const [charCounter, setCharCounter] = useState(0);
   const [isEditing, setIsEditing] = useState(false);
   const [editedText, setEditedText] = useState(selectedEditItem);
   const [isItemEdit, setIsItemEdit] = useState(false);
-  const [itemEditValue, setItemEditValue] = useState(
-    selectedEditItems || selectedEditItem,
-  );
-
-  console.log(itemEditValue);
+  const [itemEditValue, setItemEditValue] = useState(selectedEditItem);
 
   function editItemName() {
     setIsItemEdit(true);
@@ -31,14 +27,13 @@ function EditBudgetModal({
   };
 
   const handleSaveClick = () => {
-    // Handle saving the edited text here
-    // You may want to update your data or perform an API call
     setIsEditing(false);
   };
 
   const handleSaveClick2 = () => {
-    setItemEditValue(itemEditValue);
+    updateContentItem(selectedEditItem, itemEditValue);
     setIsItemEdit(false);
+    setEditedText(itemEditValue);
   };
   return (
     <div
@@ -54,19 +49,13 @@ function EditBudgetModal({
                 type="text"
                 onChange={(e) => setItemEditValue(e.target.value)}
               />
-              <button
-                onClick={handleSaveClick2}
-                className="h-8 w-24 rounded-md border-2 border-[#6e7c99] bg-[#6e7c99] text-white transition-all duration-300 hover:border-2 hover:border-[#6e7c99] hover:bg-white hover:text-[#6e7c99]"
-              >
-                Save
-              </button>
             </div>
           ) : (
             <>
               <div onClick={editItemName} className="cursor-pointer">
                 <PencilIcon />
               </div>
-              <h2 className="font-playFair">{itemEditValue}</h2>
+              <h2 className="font-playFair">{editedText}</h2>
             </>
           )}
         </div>
@@ -147,7 +136,7 @@ function EditBudgetModal({
             onDeleteRow(selectedEditItem);
             handleCloseModal();
           }}
-          className=" mt-14 flex w-fit cursor-pointer items-center justify-center gap-2 duration-300 hover:scale-105"
+          className="mt-14 flex w-fit cursor-pointer items-center justify-center gap-2 duration-300 hover:scale-105"
         >
           <TrashIcon />
           <div className="font-lato text-sm text-[#161616]">Remove Item</div>
@@ -156,7 +145,12 @@ function EditBudgetModal({
 
       <div className="flex w-full justify-center gap-4">
         <button className="btnBudgetSolid h-14 basis-1/2">Reset</button>
-        <button className="btnBudgetSolid h-14 basis-1/2">Save</button>
+        <button
+          className="btnBudgetSolid h-14 basis-1/2"
+          onClick={handleSaveClick2}
+        >
+          Save
+        </button>
       </div>
     </div>
   );

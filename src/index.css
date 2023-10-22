@@ -128,5 +128,5 @@ label {
 
 /* Save this and delete tomorrow */
 .inputField {
-  @apply rounded border-2 border-gray-200 font-lato shadow-md focus:border-[#6E7C99] focus:outline-none focus:ring-0 placeholder:text-[#9E9E9E]
+  @apply rounded border-2 border-gray-200 font-lato shadow-md placeholder:text-[#9E9E9E] focus:border-[#6E7C99] focus:outline-none focus:ring-0;
 }

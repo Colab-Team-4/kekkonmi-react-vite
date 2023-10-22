@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Breadcrumb from "../components/Breadcrumb";
-import { Ellipse, MoreIcon, PencilIcon, TrashIcon } from "../components/Icons";
+import { MoreIcon, PencilIcon, TrashIcon } from "../components/Icons";
 import { KeyboardVoiceIcon, SearchIcon } from "../components/NavMobileIcons";
 import { Chart } from "react-google-charts";
 import EditBudgetModal from "../components/EditBudgetModal";
@@ -230,10 +230,18 @@ function Budget() {
     }
   };
 
+  const updateContentItem = (oldItem, newItem) => {
+    setContents((prevContents) =>
+      prevContents.map((content) =>
+        content.item === oldItem ? { ...content, item: newItem } : content,
+      ),
+    );
+  };
 
   return (
     <div>
       <EditBudgetModal
+        updateContentItem={updateContentItem}
         selectedEditItem={selectedItem}
         isVisible={isModalVisible}
         itemToEdit={itemToEdit}
