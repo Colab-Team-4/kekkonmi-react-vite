@@ -70,7 +70,7 @@ function App() {
 
   return (
     <div className="flex h-screen flex-col">
-      <NavModal setHideNavModal={setHideNavModal} />
+      <NavModal setHideNavModal={setHideNavModal} hideNavModal={hideNavModal} />
       {isRegisterVisible && (
         <Register
           handleCloseRegister={handleCloseRegister}
