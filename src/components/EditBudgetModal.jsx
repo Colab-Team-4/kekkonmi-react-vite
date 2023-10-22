@@ -94,7 +94,7 @@ function EditBudgetModal({
         <div className="flex w-full flex-col">
           <textarea
             onChange={onChange}
-            maxlength="1000"
+            maxLength="1000"
             name=""
             id=""
             cols="30"
