@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 const services = [
   {
     heading: "Find your Inspiration",
@@ -12,6 +13,7 @@ const services = [
     button: "Plan Now",
     image:
       "https://images.pexels.com/photos/1045541/pexels-photo-1045541.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    route: "/budgeting",
   },
   {
     heading: "Create your Checklist",
@@ -37,9 +39,11 @@ function ServicesDisplay() {
             <h2>{service.heading}</h2>
             <p className="text-sm">{service.body}</p>
             <div className="mt-16 flex">
-              <button className="btnOutline mx-auto w-72 py-2 lg:absolute lg:bottom-0 lg:ml-0">
-                {service.button}
-              </button>
+              <Link to={service.route}>
+                <button className="btnOutline mx-auto w-72 py-2 lg:absolute lg:bottom-0 lg:ml-0">
+                  {service.button}
+                </button>
+              </Link>
             </div>
           </div>
         ))}

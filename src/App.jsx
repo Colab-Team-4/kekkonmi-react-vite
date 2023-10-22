@@ -13,6 +13,7 @@ import venues from "./data/venueData.json";
 import NavModal from "./components/NavModal";
 import Register from "./views/Register";
 import Login from "./views/Login";
+import Budget from "./views/Budget";
 
 function App() {
   const [filteredVenues, setFilteredVenues] = useState(venues);
@@ -69,7 +70,7 @@ function App() {
 
   return (
     <div className="flex h-screen flex-col">
-      <NavModal setHideNavModal={setHideNavModal} hideNavModal={hideNavModal} />
+      <NavModal setHideNavModal={setHideNavModal} />
       {isRegisterVisible && (
         <Register
           handleCloseRegister={handleCloseRegister}
@@ -114,6 +115,7 @@ function App() {
             element={<VenueConfirmation />}
           />
           <Route path="*" element={<Error404 />} />
+          <Route path="/budget" element={<Budget />} />
         </Routes>
         <Footer />
       </div>
