@@ -136,6 +136,8 @@ FilterButtons.propTypes = {
   selectedRadio: PropTypes.object,
   setSelectedRadio: PropTypes.func.isRequired,
   getModalTransition: PropTypes.func.isRequired,
+  hasSearched: PropTypes.bool.isRequired,
+  filteredVenues: PropTypes.array.isRequired,
 };
 function FilterButtons({
   setFilteredVenues,
@@ -152,6 +154,8 @@ function FilterButtons({
   selectedRadio,
   setSelectedRadio,
   getModalTransition,
+  hasSearched,
+  filteredVenues,
 }) {
   const countOptions = (categories) => {
     return categories.reduce((count, category) => {
@@ -171,6 +175,7 @@ function FilterButtons({
     <div className="z-20 -mt-4 mb-14 hidden flex-wrap gap-6 lg:flex lg:w-full lg:basis-3/5">
       <div className="relative">
         <button
+          disabled={!hasSearched || filteredVenues.length === 0}
           onClick={() => setOutdoorOpen(true)}
           className="btnOutline btnWeightNormal mobileText w-fit px-2 py-3 lg:px-8"
         >
@@ -196,6 +201,7 @@ function FilterButtons({
       </div>
       <div className="relative">
         <button
+          disabled={!hasSearched || filteredVenues.length === 0}
           onClick={() => setPriceOpen(true)}
           className="btnOutline btnWeightNormal mobileText w-fit px-2 py-3 lg:px-8"
         >
@@ -221,6 +227,7 @@ function FilterButtons({
       </div>
       <div className="relative">
         <button
+          disabled={!hasSearched || filteredVenues.length === 0}
           onClick={() => setDiversityOpen(true)}
           className="btnOutline btnWeightNormal mobileText w-fit px-2 py-3 lg:px-8"
         >
@@ -246,6 +253,7 @@ function FilterButtons({
       </div>
       <div className="relative">
         <button
+          disabled={!hasSearched || filteredVenues.length === 0}
           onClick={() => setFiltersOpen(true)}
           className="btnOutline btnWeightNormal mobileText w-fit px-2 py-3 lg:px-8"
         >
@@ -261,7 +269,7 @@ function FilterButtons({
         </button>
         <div
           className={`absolute mt-1 w-[32rem] overflow-hidden rounded-md ${
-            filtersOpen ? "z-50" : ""
+            filtersOpen ? "z-50" : "hidden"
           }`}
         >
           <FilterModals
@@ -564,6 +572,8 @@ function VenueSearchDisplay({ setFilteredVenues, filteredVenues }) {
         selectedRadio={selectedRadio}
         setSelectedRadio={setSelectedRadio}
         getModalTransition={getModalTransition}
+        hasSearched={hasSearched}
+        filteredVenues={filteredVenues}
       />
       <VenueDisplay
         filteredVenues={filteredVenues}
@@ -572,8 +582,8 @@ function VenueSearchDisplay({ setFilteredVenues, filteredVenues }) {
         hasSearched={hasSearched}
       />
       <div
-        className={`absolute left-0 right-0 top-0 overflow-hidden ${
-          isOpen ? "z-50" : "hidden"
+        className={`absolute left-0 right-0 top-0 lg:hidden ${
+          isOpen ? "z-50" : ""
         }`}
       >
         <FilterModals

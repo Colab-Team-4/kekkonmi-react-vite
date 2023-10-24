@@ -43,7 +43,7 @@ function Navbar({ handleShowNavModal, handleShowRegister, handleShowLogin }) {
                 <li key={i}>
                   <Link
                     to={link.route}
-                    className={`text-lg text-[#6E7C99] underline-offset-8 hover:underline ${
+                    className={`text-lg font-normal text-[#6E7C99] underline-offset-8 hover:underline ${
                       location === link.route ? activeLink : ""
                     }`}
                   >
