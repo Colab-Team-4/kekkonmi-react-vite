@@ -38,7 +38,7 @@ function Contact({ venueName }) {
   return (
     <div className="contact mb-[10vh] mt-[5vh] flex items-center justify-center">
       <div className="contact-center flex w-5/6 max-w-6xl flex-col gap-20">
-        <h1 className="-mb-12 -mt-4 w-full text-center text-3xl leading-3 tracking-tight">
+        <h1 className="-mb-12 -mt-4 w-full text-center text-2xl font-semibold leading-3 tracking-tight lg:text-4xl lg:font-normal">
           Contact Us
         </h1>
         <form
