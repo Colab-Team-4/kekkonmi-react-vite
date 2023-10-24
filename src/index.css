@@ -91,11 +91,15 @@ label {
 }
 
 .btnSolid {
-  @apply rounded-md bg-[#AD6E7A] font-lato text-[20px] font-bold text-white duration-300 hover:bg-white hover:text-[#616161] hover:ring-[3px] hover:ring-inset hover:ring-[#AD6E7A];
+  @apply rounded-md bg-[#AD6E7A] font-lato text-[20px] font-bold text-white duration-300 hover:bg-white hover:text-[#616161] hover:ring-[1px] hover:ring-inset hover:ring-[#AD6E7A];
 }
 
 .btnOutline {
-  @apply rounded-md border-[3px] border-[#AD6E7A] font-lato text-[20px] font-bold text-[#616161] duration-300 hover:bg-[#AD6E7A] hover:text-white;
+  @apply rounded-md border-[1px] border-[#AD6E7A] font-lato text-[20px] font-bold text-[#616161] duration-300 hover:bg-[#AD6E7A] hover:text-white;
+}
+
+.btnOutlineHome {
+  @apply h-14 w-56 rounded-md border-[1px] border-black bg-white font-lato text-lg text-black duration-300 hover:bg-[#AD6E7A] hover:text-white;
 }
 
 .inputText {

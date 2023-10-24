@@ -167,5 +167,5 @@ export const blacklistedUrls = [
   "https://images.pexels.com/photos/3197315/pexels-photo-3197315.jpeg",
   "https://images.pexels.com/photos/7084558/pexels-photo-7084558.jpeg",
   "https://images.pexels.com/photos/7453198/pexels-photo-7453198.jpeg",
-  "https://images.pexels.com/photos/7453196/pexels-photo-7453196.jpeg"
-]
+  "https://images.pexels.com/photos/7453196/pexels-photo-7453196.jpeg",
+];

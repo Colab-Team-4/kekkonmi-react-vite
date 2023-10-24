@@ -36,15 +36,15 @@ function Contact({ venueName }) {
   };
 
   return (
-    <div className="contact mb-[10vh] mt-[5vh] flex items-center justify-center">
+    <div className="contact mb-[10vh] mt-[5vh] flex items-center justify-center lg:mb-0 lg:mt-0 lg:min-h-screen">
       <div className="contact-center flex w-5/6 max-w-6xl flex-col gap-20">
-        <h1 className="-mb-12 -mt-4 w-full text-center text-3xl leading-3 tracking-tight">
+        <h1 className="-mb-12 -mt-4 w-full text-center text-3xl font-bold leading-3 tracking-tight lg:mb-0 lg:mt-0 lg:text-4xl">
           Contact Us
         </h1>
         <form
           method="POST"
           onSubmit={handleSubmit}
-          className="flex flex-col justify-center lg:gap-1"
+          className="flex flex-col justify-center lg:gap-4"
         >
           <div className="flex flex-col md:flex-row md:gap-5 lg:gap-6">
             <div className="firstName flex basis-1/2 flex-col">

@@ -111,7 +111,7 @@ const generateDescription = (venueName, location, features) => {
   const chosenTemplates = Array.from({ length: 3 }, () => {
     const template =
       descriptionTemplates[
-      Math.floor(Math.random() * descriptionTemplates.length)
+        Math.floor(Math.random() * descriptionTemplates.length)
       ];
     return template
       .replace("{name}", venueName)
@@ -136,7 +136,9 @@ const filterBlacklistedUrls = (galleryUrls) => {
 
 const client = createClient(process.env.PEXELS_API_KEY);
 const fetchPexelsImage = async (venue) => {
-  const query = `${venue.name} ${venue.state} ${venue.features.join(" ")} wedding venue scenic -people`;
+  const query = `${venue.name} ${venue.state} ${venue.features.join(
+    " ",
+  )} wedding venue scenic -people`;
 
   let coverUrl = "";
   let galleryUrls = [];
@@ -145,7 +147,7 @@ const fetchPexelsImage = async (venue) => {
     const photos = await client.photos.search({ query, per_page: 6 });
     coverUrl = photos.photos[0].src.original;
     galleryUrls = filterBlacklistedUrls(
-      photos.photos.slice(1).map((photo) => photo.src.original)
+      photos.photos.slice(1).map((photo) => photo.src.original),
     );
 
     if (blacklistedUrls.includes(coverUrl)) {

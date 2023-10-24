@@ -19,13 +19,15 @@ function LandingHero() {
           key={i}
         >
           <section className="order-2 flex w-full flex-col gap-8 lg:order-1 lg:w-[41%] lg:basis-2/3">
-            <h1 className="font-playFair text-xl font-medium lg:whitespace-nowrap lg:text-[34px]">
+            <h1 className="font-playFair text-2xl font-bold lg:whitespace-nowrap lg:text-[34px] lg:font-medium">
               {hero.heading}
             </h1>
-            <p className="text-sm lg:text-[22px] lg:max-w-[804px] leading-6">{hero.body}</p>
+            <p className="text-lg leading-6 lg:max-w-[804px] lg:text-[22px]">
+              {hero.body}
+            </p>
             <Link
               to="/venues"
-              className="btnSolid mobileText mt-10 w-52 self-center py-2 text-center lg:self-start"
+              className="btnSolid mobileText flex h-14 w-56 items-center justify-center self-center lg:mt-16 lg:self-start"
             >
               {hero.button}
             </Link>
