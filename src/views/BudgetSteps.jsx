@@ -60,7 +60,7 @@ function BudgetSteps() {
         {/* end of image on mobile */}
         {/* Input Box */}
         <div className="flex flex-col gap-12 lg:gap-24 ">
-          <h2 className="font-playFair text-xl font-bold leading-6 tracking-tight text-[#161616] lg:text-[36px] lg:leading-none">
+          <h2 className="font-playFair text-xl font-bold leading-6 tracking-tight text-[#161616] lg:text-[32px] lg:leading-none">
             {content.heading}
           </h2>
           <div className="mb-12 flex flex-col gap-20 lg:gap-44">
