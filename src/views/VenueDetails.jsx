@@ -20,6 +20,8 @@ function DetailsCard({ venue }) {
     const handleResize = () => {
       if (window.innerWidth >= 1024) {
         setShowFullDescription(true);
+      } else {
+        setShowFullDescription(false);
       }
     };
     window.addEventListener("resize", handleResize);
@@ -59,7 +61,8 @@ function DetailsCard({ venue }) {
           </div>
         </div>
         <p className="mt-6 grow text-sm text-[#616161]">
-          {displayedDescription}{" "}
+          <span className="mb-[1ch] inline-block">{displayedDescription}</span>
+          <span className="inline-block">{displayedDescription}</span>
           <span
             onClick={() => setShowFullDescription(!showFullDescription)}
             className="text-[#4C63D2] hover:cursor-pointer hover:underline lg:hidden"

@@ -13,9 +13,9 @@ const links = [
 ];
 
 Navbar.propTypes = {
-  handleShowNavModal: PropTypes.func.isRequired,
-  handleShowRegister: PropTypes.func.isRequired,
-  handleShowLogin: PropTypes.func.isRequired,
+  handleShowNavModal: PropTypes.func,
+  handleShowRegister: PropTypes.func,
+  handleShowLogin: PropTypes.func,
 };
 function Navbar({ handleShowNavModal, handleShowRegister, handleShowLogin }) {
   const location = useLocation().pathname;
