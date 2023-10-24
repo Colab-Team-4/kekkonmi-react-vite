@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import StepOne from "../assets/budget1.jpg";
+import StepTwo from "../assets/budget2.jpg";
 
 const contents = [
   {
@@ -10,8 +12,8 @@ const contents = [
     inputType: ["number", "number"],
     placeholders: ["100", "$10,000"],
     subtext: ["Guest count", "Budget range"],
-    bgImg: "/src/assets/budget1.jpg",
     imgPosition: "object-bottom",
+    bgImg: StepOne,
   },
   {
     step: "2",
@@ -24,8 +26,8 @@ const contents = [
     inputType: ["date", "text"],
     placeholders: ["mm/dd/yyyy", "New York"],
     subtext: ["Enter the date", "Type the name of the city"],
-    bgImg: "/src/assets/budget2.jpg",
     imgPosition: "object-center",
+    bgImg: StepTwo,
   },
 ];
 
@@ -55,7 +57,7 @@ function BudgetSteps() {
         <img
           className={`aspect-square rounded object-cover lg:hidden ${content.imgPosition}`}
           src={content.bgImg}
-          alt=""
+          alt="Step One"
         />
         {/* end of image on mobile */}
         {/* Input Box */}
@@ -131,7 +133,7 @@ function BudgetSteps() {
         <img
           className={`hidden h-full w-full object-cover lg:flex ${content.imgPosition}`}
           src={content.bgImg}
-          alt=""
+          alt="Step Two"
         />
       </div>
     </div>
