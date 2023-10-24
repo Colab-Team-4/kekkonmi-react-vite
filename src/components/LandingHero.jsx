@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "../index.css";
-import Landing from "../assets/Landing.png"
+import Landing from "../assets/Landing.png";
 
 const heroes = [
   {
@@ -23,7 +23,7 @@ function LandingHero() {
             <h1 className="font-playFair text-2xl font-semibold lg:whitespace-nowrap">
               {hero.heading}
             </h1>
-            <p className="text-base leading-6 w-full lg:w-[38rem]">
+            <p className="w-full text-base leading-6 lg:w-[38rem]">
               {hero.body}
             </p>
             <Link
