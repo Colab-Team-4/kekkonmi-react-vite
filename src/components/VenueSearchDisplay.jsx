@@ -422,7 +422,7 @@ OtherVenues.propTypes = {
 };
 function OtherVenues({ filteredVenues }) {
   return (
-    <div className="flex h-[101%] w-full flex-col overflow-hidden shadow-lg lg:h-fit lg:pb-4">
+    <div className="flex h-[101%] w-full flex-col overflow-hidden rounded-md shadow-lg lg:h-fit lg:pb-4">
       <h3 className="my-10 ml-4 font-playFair text-[24px] font-bold lg:whitespace-nowrap lg:text-lg">
         Other Reception Venues You Might Like
       </h3>
@@ -573,8 +573,8 @@ function VenueSearchDisplay({ setFilteredVenues, filteredVenues }) {
       />
       <div
         className={`absolute left-0 right-0 top-0 overflow-hidden ${
-          isOpen ? "z-50" : "-z-50"
-        } md:collapse`}
+          isOpen ? "z-50" : "hidden"
+        }`}
       >
         <FilterModals
           isOpen={isOpen}
