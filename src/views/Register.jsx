@@ -152,7 +152,7 @@ function Register({ handleCloseRegister, handleShowLogin }) {
         </div>
         {/* End of Terms and Conditions */}
         <hr className="h-[1px] w-full bg-[#9A9A9A] lg:hidden" />
-        <div className="w-full -translate-x-32 bg-white py-10 font-lato font-medium lg:absolute lg:-top-16 lg:left-[52vw] lg:flex lg:items-center">
+        <div className="w-full bg-white py-10 font-lato font-medium lg:absolute lg:-top-16 lg:left-[52vw] lg:flex lg:items-center">
           Already have an account?{" "}
           <span
             className="ml-1 cursor-pointer font-semibold text-[#6E7C99] hover:underline"
