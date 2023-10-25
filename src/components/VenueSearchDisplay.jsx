@@ -92,7 +92,7 @@ function SearchBar({
             defaultValue={lastSearch}
           />
         </div>
-        <div className="relative z-10 ml-4 lg:hidden lg:ml-auto">
+        <div className="relative z-10 ml-4 lg:ml-auto lg:hidden">
           <button
             type="button"
             onClick={openModal}

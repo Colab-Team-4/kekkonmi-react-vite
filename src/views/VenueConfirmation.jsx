@@ -5,13 +5,13 @@ import LetterImg from "../assets/confirmation.png";
 function VenueConfirmation() {
   const { venueName } = useParams();
   return (
-    <div className="mb-10 flex h-full flex-col justify-between px-[5vw]">
+    <div className="mb-36 flex h-full flex-col justify-between px-[5vw]">
       {venueName ? (
         <Breadcrumb venueName={venueName} />
       ) : (
-        <div className="mt-40"></div>
+        <div className="mt-40 lg:mb-24 lg:mt-20"></div>
       )}
-      <div className="flex h-full grow flex-col items-center">
+      <div className="mt-8 flex h-full grow flex-col items-center lg:mt-24">
         <div className="flex flex-col items-center gap-8 lg:w-[37%]">
           <img src={LetterImg} alt="Confirmation" className="w-28" />
           <h1 className="-mb-2 text-3xl font-bold leading-3">Thank You!</h1>
