@@ -25,7 +25,7 @@ const contents = [
 
 function LandingDisplay() {
   return (
-    <div className="flex flex-col bg-[#D9D8D8] px-[5vw] py-[5vh]">
+    <div className="flex flex-col bg-[#F8F8F8] px-[5vw] py-[5vh]">
       {contents.map((content, i) => (
         <div
           className="mb-20 flex flex-col items-center gap-4 lg:flex-row lg:gap-20"
