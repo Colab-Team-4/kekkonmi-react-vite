@@ -55,7 +55,7 @@ function Contact({ venueName }) {
                 type="text"
                 name="fName"
                 placeholder="Jane"
-                className="inputText smallerText h-12 p-4 mb-2"
+                className="inputText smallerText mb-2 h-12 p-4"
               />
             </div>
             <div className="lastName flex basis-1/2 flex-col">
@@ -66,7 +66,7 @@ function Contact({ venueName }) {
                 type="text"
                 name="lName"
                 placeholder="Doe"
-                className="inputText smallerText h-12 p-4 mb-2"
+                className="inputText smallerText mb-2 h-12 p-4"
               />
             </div>
           </div>
@@ -79,7 +79,7 @@ function Contact({ venueName }) {
                 type="email"
                 name="email"
                 placeholder="Janedoe@flymail.com"
-                className="inputText smallerText h-12 p-4 mb-2"
+                className="inputText smallerText mb-2 h-12 p-4"
               />
             </div>
             <div className="phone flex basis-1/2 flex-col">
@@ -90,7 +90,7 @@ function Contact({ venueName }) {
                 type="text"
                 name="phone"
                 placeholder="(555)-555-5555"
-                className="inputText smallerText h-12 p-4 mb-2"
+                className="inputText smallerText mb-2 h-12 p-4"
               />
             </div>
           </div>

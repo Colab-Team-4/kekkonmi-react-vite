@@ -16,7 +16,7 @@ function Footer() {
             {links.map((link, i) => (
               <li key={i}>
                 <a href="#" aria-current="page">
-                  <h2 className="mobileText text-[#616161] lg:text-2xl lg:font-bold">
+                  <h2 className="mobileText text-[#616161] lg:text-xl lg:font-bold">
                     {link}
                   </h2>
                 </a>
