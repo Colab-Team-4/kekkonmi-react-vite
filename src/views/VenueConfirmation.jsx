@@ -7,7 +7,9 @@ function VenueConfirmation() {
   return (
     <div className="mb-36 flex h-full flex-col justify-between px-[5vw]">
       {venueName ? (
-        <Breadcrumb venueName={venueName} />
+        <div className="grow-0">
+          <Breadcrumb venueName={venueName} />
+        </div>
       ) : (
         <div className="mt-40 lg:mb-24 lg:mt-20"></div>
       )}
