@@ -65,7 +65,7 @@ function Register({ handleCloseRegister, handleShowLogin }) {
 
   return (
     <div
-      className={`relative z-50 flex w-full flex-col items-center justify-center bg-white p-[5vw] pt-20 lg:pt-3`}
+      className={`relative z-50 flex w-full flex-col items-center justify-center border-2 border-black bg-white p-[5vw] pt-20 lg:top-10 lg:w-5/12 lg:translate-x-2/3 lg:pt-3`}
     >
       <div
         className="absolute right-0 top-8 mr-6 cursor-pointer lg:hidden"
@@ -73,7 +73,7 @@ function Register({ handleCloseRegister, handleShowLogin }) {
       >
         <CloseIcon />
       </div>
-      <div className="flex flex-col items-center justify-center lg:max-w-[30vw]">
+      <div className="flex flex-col items-center justify-center lg:max-w-[40vw]">
         <img src={Logo} alt="Logo" className="w-40 py-2" />
         <div className="text-center font-lato text-[#616161]">
           Crafting Love Stories, One Perfect Day at a Time
@@ -94,7 +94,7 @@ function Register({ handleCloseRegister, handleShowLogin }) {
                 </label>
                 <input
                   type={content.type}
-                  className="text mt-2 h-12 w-full rounded border-2 border-[#9E9E9E] pl-4 placeholder:text-[#9E9E9E] focus:border-[#6E7C99] focus:outline-none focus:ring-0"
+                  className="inputText mobileText mt-2 h-12 w-full pl-4"
                   placeholder={content.placeholder}
                   name={content.name}
                 />
@@ -112,7 +112,7 @@ function Register({ handleCloseRegister, handleShowLogin }) {
               <div className="relative mt-2 h-12 rounded border-none">
                 <input
                   type={showPassword ? "text" : "password"}
-                  className="absolute h-12 w-full rounded border-2 border-[#9E9E9E] pl-4 pr-28 placeholder:text-[#9E9E9E] focus:border-[#6E7C99] focus:outline-none focus:ring-0 "
+                  className="inputText mobileText absolute h-12 w-full pl-4 pr-28"
                   placeholder={password.placeholder}
                   name={password.name}
                 />
@@ -137,22 +137,22 @@ function Register({ handleCloseRegister, handleShowLogin }) {
           Sign Up
         </button>
         {/* Terms and Conditions */}
-        <div className="flex items-center gap-8 px-2 py-6">
+        <div className="flex items-center gap-1 py-6">
           <Checkbox
             icon={
               <CheckBoxOutlineBlankOutlinedIcon style={{ color: "#6E7C99" }} />
             }
             checkedIcon={<CheckBoxOutlinedIcon style={{ color: "#6E7C99" }} />}
           />
-          <div className="font-lato text-sm text-[#9E9E9E]">
+          <div className="font-lato text-xs text-[#9E9E9E]">
             By selecting "Agree and Continue," you acknowledge and accept our
             terms and conditions, granting permission to access and utilize our
             services through the mobile app.
           </div>
         </div>
         {/* End of Terms and Conditions */}
-        <hr className="h-[1px] w-full bg-[#9A9A9A]" />
-        <div className="py-10 font-lato font-medium lg:absolute lg:-top-6 lg:right-[5vw] lg:flex lg:items-center">
+        <hr className="h-[1px] w-full bg-[#9A9A9A] lg:hidden" />
+        <div className="w-full -translate-x-32 bg-white py-10 font-lato font-medium lg:absolute lg:-top-16 lg:left-[52vw] lg:flex lg:items-center">
           Already have an account?{" "}
           <span
             className="ml-1 cursor-pointer font-semibold text-[#6E7C99] hover:underline"

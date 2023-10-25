@@ -5,6 +5,9 @@ import FacebookIconColor from "../assets/fb.png";
 import InstagramIconColor from "../assets/instagram.png";
 import GmailIcon from "../assets/gmail.png";
 import Logo from "../assets/LogoDefault.png";
+import Checkbox from "@mui/material/Checkbox";
+import CheckBoxOutlineBlankOutlinedIcon from "@mui/icons-material/CheckBoxOutlineBlankOutlined";
+import CheckBoxOutlinedIcon from "@mui/icons-material/CheckBoxOutlined";
 
 Login.propTypes = {
   handleCloseLogin: PropTypes.func.isRequired,
@@ -32,7 +35,7 @@ function Login({ handleCloseLogin, handleShowRegister }) {
   }, []);
 
   return (
-    <div className="relative z-50 flex w-full flex-col items-center justify-center bg-white p-[5vw] pt-20 lg:pt-3">
+    <div className="relative z-50 flex w-full flex-col items-center justify-center border-2 border-black bg-white p-[5vw] pt-20 lg:top-10 lg:w-5/12 lg:translate-x-2/3 lg:pt-3">
       <div
         className="absolute right-0 top-8 mr-6 cursor-pointer transition-all duration-500 hover:scale-110 lg:hidden"
         onClick={handleCloseLogin}
@@ -59,7 +62,7 @@ function Login({ handleCloseLogin, handleShowRegister }) {
             </label>
             <input
               type="email"
-              className="text mt-2 h-12 w-full rounded border-2  border-[#9E9E9E] px-4 placeholder:text-[#9E9E9E] focus:border-[#6E7C99] focus:outline-none focus:ring-0"
+              className="inputText mobileText mt-2 h-12 w-full px-4"
               placeholder="Janedoe@gmail.com"
               name="email"
             />
@@ -76,7 +79,7 @@ function Login({ handleCloseLogin, handleShowRegister }) {
             <div className="relative mt-2 h-12 rounded border-none">
               <input
                 type={showPassword ? "text" : "password"}
-                className="absolute h-12 w-full rounded border-2 border-[#9E9E9E] pl-4 pr-28 placeholder:text-[#9E9E9E] focus:border-[#6E7C99] focus:outline-none focus:ring-0"
+                className="inputText mobileText absolute h-12 w-full pl-4 pr-28"
                 placeholder="••••••••••••"
                 name="password"
               />
@@ -96,11 +99,20 @@ function Login({ handleCloseLogin, handleShowRegister }) {
         {/* End of Form */}
         {/* Remember Me & Forgot Password? */}
         <div className="flex h-16 w-full items-center justify-between">
-          <div className="flex gap-2">
-            <input type="checkbox" className="border-[#6E7C99]" />
-            <div className="font-lato text-xs text-[#161616]">Remember me?</div>
+          <div className="flex items-center">
+            <Checkbox
+              icon={
+                <CheckBoxOutlineBlankOutlinedIcon
+                  style={{ color: "#6E7C99" }}
+                />
+              }
+              checkedIcon={
+                <CheckBoxOutlinedIcon style={{ color: "#6E7C99" }} />
+              }
+            />
+            <div className="font-lato text-sm text-[#161616]">Remember me?</div>
           </div>
-          <div className="cursor-pointer font-lato text-xs text-[#6E7C99] hover:underline">
+          <div className="cursor-pointer font-lato text-sm text-[#6E7C99] hover:underline">
             Forgot Password?
           </div>
         </div>
@@ -126,9 +138,7 @@ function Login({ handleCloseLogin, handleShowRegister }) {
           </div>
           <div className="order-3 flex cursor-pointer items-center justify-center gap-5 rounded lg:order-1 lg:h-14 lg:basis-3/4 lg:border-[1px] lg:border-[#AD6E7A]">
             <img src={GmailIcon} alt="Gmail Logo" />
-            <div className="hidden font-lato text-lg lg:block">
-              Continue with Gmail
-            </div>
+            <div className="hidden font-lato lg:block">Continue with Gmail</div>
           </div>
         </div>
         {/* End of Social Media Icons */}
@@ -142,7 +152,7 @@ function Login({ handleCloseLogin, handleShowRegister }) {
             Sign Up
           </span>
           <button
-            className="ml-5 hidden h-12 w-32 rounded border-2 border-[#6E7C99] text-[#676767] duration-300 hover:bg-[#6E7C99] hover:text-[#FFFFFF] lg:flex lg:items-center lg:justify-center"
+            className="ml-5 hidden h-12 w-32 rounded border-2 border-[#6e7c99] text-[#676767] duration-300 hover:bg-[#6E7C99] hover:text-[#FFFFFF] lg:flex lg:items-center lg:justify-center"
             onClick={handleCloseLogin}
           >
             Cancel
