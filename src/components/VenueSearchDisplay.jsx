@@ -78,8 +78,8 @@ function SearchBar({
       onSubmit={handleSubmit}
       className="mb-16 flex flex-col justify-evenly gap-10 lg:flex-row lg:gap-6"
     >
-      <div className="flex w-full justify-center gap-5">
-        <div className="relative z-10 flex w-full flex-col items-start">
+      <div className="flex w-full">
+        <div className="relative z-10 flex w-full flex-col">
           <div className="absolute left-0 flex h-full items-center pl-3">
             <SearchIcon />
           </div>
@@ -92,7 +92,7 @@ function SearchBar({
             defaultValue={lastSearch}
           />
         </div>
-        <div className="relative z-10 md:collapse">
+        <div className="relative z-10 ml-4 lg:hidden lg:ml-auto">
           <button
             type="button"
             onClick={openModal}
@@ -105,7 +105,7 @@ function SearchBar({
           </button>
         </div>
       </div>
-      <div className="z-10 flex justify-center gap-4 lg:gap-6">
+      <div className="z-10 flex justify-between gap-4 lg:gap-6">
         <button
           type="submit"
           onClick={handleSubmit}
