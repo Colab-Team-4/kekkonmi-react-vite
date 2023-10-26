@@ -28,7 +28,7 @@ function App() {
   const handleShowNavModal = () => {
     setHideNavModal("");
     setIsNavModalOpen(true);
-    setFilterBlur("bg-black opacity-50");
+    setFilterBlur("opacity-50");
     setOverflowHidden("overflow-hidden");
   };
 
@@ -45,7 +45,7 @@ function App() {
   const handleShowRegister = () => {
     setIsRegisterVisible(true);
     setIsLoginVisible(false);
-    setFilterBlur("bg-black opacity-50");
+    setFilterBlur("opacity-50");
     setOverflowHidden("overflow-hidden");
   };
   // Remove the blur when Register modal is closed
@@ -58,7 +58,7 @@ function App() {
   const handleShowLogin = () => {
     setIsLoginVisible(true);
     setIsRegisterVisible(false);
-    setFilterBlur("bg-black opacity-50");
+    setFilterBlur("opacity-50");
     setOverflowHidden("overflow-hidden");
   };
   // Remove the blur when Register modal is closed
@@ -69,20 +69,22 @@ function App() {
   };
 
   return (
-    <div className="flex h-screen flex-col">
+    <div className="relative flex h-screen flex-col">
       <NavModal setHideNavModal={setHideNavModal} hideNavModal={hideNavModal} />
-      {isRegisterVisible && (
-        <Register
-          handleCloseRegister={handleCloseRegister}
-          handleShowLogin={handleShowLogin}
-        />
-      )}
-      {isLoginVisible && (
-        <Login
-          handleCloseLogin={handleCloseLogin}
-          handleShowRegister={handleShowRegister}
-        />
-      )}
+      <div className="absolute z-50 lg:left-0 lg:right-0 lg:top-20 lg:ml-auto lg:mr-auto lg:w-[600px]">
+        {isRegisterVisible && (
+          <Register
+            handleCloseRegister={handleCloseRegister}
+            handleShowLogin={handleShowLogin}
+          />
+        )}
+        {isLoginVisible && (
+          <Login
+            handleCloseLogin={handleCloseLogin}
+            handleShowRegister={handleShowRegister}
+          />
+        )}
+      </div>
       <div
         onClick={handleCloseNavModal}
         className={`flex h-screen flex-col justify-between ${filterBlur} ${overflowHidden}`}

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
+import { useForm, ValidationError } from "@formspree/react";
 
 Contact.propTypes = {
   venueName: PropTypes.string,
@@ -8,6 +9,7 @@ Contact.propTypes = {
 function Contact({ venueName }) {
   const [rows, setRows] = useState(8);
   const navigate = useNavigate();
+  const [state, handleSubmit] = useForm("xpzgbjbd");
 
   useEffect(() => {
     function handleResize() {
@@ -24,16 +26,21 @@ function Contact({ venueName }) {
     };
   }, []);
 
-  const handleSubmit = async (e) => {
+  // Handle the form submission
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-    // todo: Form submission function
-
-    if (venueName) {
-      navigate(`/venues/${venueName}/contact/confirmation`);
-    } else {
-      navigate(`/confirmation`);
-    }
+    handleSubmit(e); // Submit the form through the handleSubmit function provided by useForm.
   };
+
+  useEffect(() => {
+    if (state.succeeded) {
+      if (venueName) {
+        navigate(`/venues/${venueName}/contact/confirmation`);
+      } else {
+        navigate(`/confirmation`);
+      }
+    }
+  }, [state.succeeded, navigate, venueName]);
 
   return (
     <div className="contact mb-[10vh] mt-[5vh] flex items-center justify-center">
@@ -43,7 +50,7 @@ function Contact({ venueName }) {
         </h1>
         <form
           method="POST"
-          onSubmit={handleSubmit}
+          onSubmit={handleFormSubmit}
           className="flex flex-col justify-center lg:gap-2"
         >
           <div className="flex flex-col md:flex-row md:gap-5 lg:gap-6">
@@ -94,6 +101,11 @@ function Contact({ venueName }) {
               />
             </div>
           </div>
+          <ValidationError
+            prefix="Message"
+            field="message"
+            errors={state.errors}
+          />
           <div className="message mb-7 flex w-full flex-col">
             <label className="smallerText" htmlFor="message">
               Message

@@ -34,7 +34,7 @@ function ServicesDisplay() {
         {services.map((service, i) => (
           <div className="flex flex-col gap-4" key={i}>
             <img
-              className="mb-4 h-72 w-full rounded-md object-cover lg:h-96"
+              className="mb-4 w-full rounded-md object-cover lg:aspect-video"
               src={service.image}
               alt={service.heading}
             />
