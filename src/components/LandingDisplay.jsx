@@ -39,7 +39,7 @@ function LandingDisplay() {
             <h1 className="text-2xl font-semibold lg:text-4xl lg:font-normal">
               {content.heading}
             </h1>
-            <p className="text-sm lg:max-w-2xl">{content.body}</p>
+            <p className="text-base lg:max-w-2xl">{content.body}</p>
             <button className="btnOutline mb-5 w-72 self-center py-2 lg:self-start">
               {content.button}
             </button>
