@@ -34,37 +34,39 @@ function Login({ handleCloseLogin, handleShowRegister }) {
   }, []);
 
   return (
-    <div className="relative z-50 flex w-full  flex-col items-center justify-center border border-black bg-white p-[5vw] pt-20 lg:mx-auto lg:rounded-lg lg:pt-0">
+    <div className="lg-my-0 relative z-50 flex w-[100vw] flex-col items-center justify-center bg-white p-[5vw] pt-14 lg:w-full lg:rounded-lg lg:border lg:border-black lg:pb-3 lg:pt-0">
       <div
         className="absolute right-0 top-8 mr-6 cursor-pointer transition-all duration-500 hover:scale-110 lg:hidden"
         onClick={handleCloseLogin}
       >
         <CloseIcon />
       </div>
-      <div className="flex w-full flex-col items-center justify-center lg:max-w-[28vw] lg:pt-16">
-        <img src={Logo} alt="Logo" className="w-44 py-2 lg:w-36" />
-        <div className="mb-7 text-center font-lato text-[#616161] lg:text-sm">
+      <div className="flex w-full flex-col items-center justify-center lg:max-w-[28vw]">
+        <img
+          src={Logo}
+          alt="Logo"
+          className="w-36 py-2 lg:mt-16 lg:w-32 lg:py-0"
+        />
+        <div className="text-center font-lato text-sm text-[#616161]">
           Crafting Love Stories, One Perfect Day at a Time
         </div>
-        {/* ASK AMMARA TO REMOVE THIS */}
-        {/* <div className="py-8 font-playFair text-xl font-bold text-[#676767] lg:hidden">
+        <div className="py-4 font-playFair text-lg font-bold text-[#676767] lg:py-3 lg:text-base">
           Log In
-        </div> */}
-        {/* ASK AMMARA TO REMOVE THIS */}
+        </div>
         {/* Form */}
-        <form action="" className="flex w-full flex-col gap-5 lg:gap-2">
+        <form action="" className="flex w-full flex-col gap-5 lg:mt-2 lg:gap-2">
           {/* Email */}
           <div className="w-full">
             <label
               htmlFor="email"
-              className="font-playFair text-base text-[#161616] lg:text-sm lg:font-semibold"
+              className="font-playFair text-base font-semibold text-[#161616] lg:text-xs"
             >
               Email
             </label>
             <input
               id="email"
               type="email"
-              className="inputText mobileText mt-2 h-10 w-full px-4 lg:h-10"
+              className="inputText mobileText mt-2 h-12 w-full pl-4 lg:h-10 lg:text-xs"
               placeholder="Janedoe@gmail.com"
               name="email"
             />
@@ -74,7 +76,7 @@ function Login({ handleCloseLogin, handleShowRegister }) {
           <div>
             <label
               htmlFor="password"
-              className="font-playFair text-base text-[#161616] lg:text-sm lg:font-semibold"
+              className="font-playFair text-base font-semibold text-[#161616] lg:text-sm"
             >
               Password
             </label>
@@ -82,17 +84,17 @@ function Login({ handleCloseLogin, handleShowRegister }) {
               <input
                 id="password"
                 type={showPassword ? "text" : "password"}
-                className="inputText mobileText absolute h-10 w-full pl-4 pr-28 lg:h-10"
+                className="inputText mobileText absolute h-12 w-full pl-4 pr-28 lg:h-10 lg:text-xs"
                 placeholder="••••••••••••"
                 name="password"
               />
               <div
-                className="absolute right-4 top-2 cursor-pointer"
+                className="absolute right-4 top-3 cursor-pointer"
                 onClick={handleShowPassword}
               >
                 <EyeIcon />
               </div>
-              <div className="absolute right-14 top-2 cursor-pointer">
+              <div className="absolute right-14 top-3 cursor-pointer">
                 {capsLockOn && <KeyboardCapslockIcon />}
               </div>
             </div>
@@ -101,7 +103,7 @@ function Login({ handleCloseLogin, handleShowRegister }) {
         </form>
         {/* End of Form */}
         {/* Remember Me & Forgot Password? */}
-        <div className="flex h-7 w-full items-center justify-between">
+        <div className="mt-3 flex w-full items-center justify-between lg:mt-0">
           <div className="-ml-3 flex items-center">
             <Checkbox
               icon={
@@ -113,7 +115,7 @@ function Login({ handleCloseLogin, handleShowRegister }) {
                 <CheckBoxOutlinedIcon style={{ color: "#6E7C99" }} />
               }
             />
-            <div className="font-lato text-sm text-[#6E7C99] lg:text-xs">
+            <div className="font-lato text-sm text-black lg:text-xs">
               Remember me?
             </div>
           </div>
@@ -124,43 +126,39 @@ function Login({ handleCloseLogin, handleShowRegister }) {
         {/* End of Remember Me & Forgot Password? */}
         <button
           type="submit"
-          className="my-10 h-12 w-full rounded bg-[#AD6E7A] font-lato text-xl font-bold text-[#FFFFFF] duration-300 hover:bg-[#C99CA5] hover:text-[#F0F0F0] lg:my-5 lg:h-8 lg:text-base lg:font-normal"
+          className="my-10 h-12 w-full rounded bg-[#AD6E7A] font-lato text-lg font-bold text-[#FFFFFF] duration-300 hover:bg-[#C99CA5] hover:text-[#F0F0F0] lg:my-3 lg:mt-5 lg:h-10 lg:text-base lg:font-normal"
         >
           Log In
         </button>
-        <div className="flex w-full items-center gap-5">
+        <div className="flex w-full items-center gap-5 lg:mt-5">
           <hr className="h-0.5 w-full bg-[#6E7C99] shadow-none" />
           <span className="font-playFair text-sm text-[#6E7C99]">or</span>
           <hr className="h-0.5 w-full bg-[#6E7C99]" />
         </div>
         {/* Social Media Icons */}
-        <div className="flex h-28 w-[60%] items-center justify-evenly lg:h-20 lg:w-full lg:gap-4">
-          <div className="flex cursor-pointer items-center justify-center lg:order-2 lg:h-12 lg:basis-1/4 lg:rounded lg:border lg:border-[#AD6E7A]">
-            <img
-              src={FacebookIconColor}
-              alt="Facebook Logo"
-              className="lg:w-5"
-            />
+        <div className="flex h-28 w-full items-center justify-evenly gap-4 lg:my-5 lg:h-20">
+          <div className="flex h-12 basis-3/4 cursor-pointer items-center justify-center gap-5 rounded border border-[#AD6E7A]">
+            <img src={GmailIcon} alt="Gmail Logo" className="w-6" />
+            <div className="font-lato text-sm">Continue with Gmail</div>
           </div>
-          <div className="flex cursor-pointer items-center justify-center gap-5 rounded lg:order-1 lg:h-12 lg:basis-3/4 lg:border lg:border-[#AD6E7A]">
-            <img src={GmailIcon} alt="Gmail Logo" className="lg:w-5" />
-            <div className="hidden font-lato lg:block lg:text-sm">
-              Continue with Gmail
-            </div>
+          <div className="flex h-12 basis-1/4 cursor-pointer items-center justify-center rounded border border-[#AD6E7A]">
+            <img src={FacebookIconColor} alt="Facebook Logo" className="w-5" />
           </div>
         </div>
         {/* End of Social Media Icons */}
-        <hr className="h-0.5 w-full bg-[#9A9A9A] shadow-none lg:hidden" />
-        <div className="py-10 font-lato font-medium lg:absolute lg:-top-6 lg:right-[2vw] lg:flex lg:items-center lg:text-xs">
-          Need an account?
-          <span
-            className="cursor-pointer px-1 font-semibold text-[#6E7C99] hover:underline"
-            onClick={handleShowRegister}
-          >
-            Sign Up
-          </span>
+        <hr className="mt-12 h-0.5 w-full bg-[#F0F0F0] shadow-none lg:hidden" />
+        <div className="mt-8 flex w-full justify-center font-lato font-medium lg:absolute lg:-top-4 lg:items-center lg:justify-end lg:pr-4 lg:text-xs">
+          <div className="text-sm lg:text-sm">
+            Need an account?
+            <span
+              className="ml-1 cursor-pointer font-semibold text-[#6E7C99] hover:underline lg:text-sm"
+              onClick={handleShowRegister}
+            >
+              Sign Up
+            </span>
+          </div>
           <button
-            className="ml-5 hidden h-12 w-32 rounded border-2 border-[#6e7c99] text-[#676767] duration-300 hover:bg-[#6E7C99] hover:text-[#FFFFFF] lg:ml-3 lg:flex lg:h-8 lg:w-24 lg:items-center lg:justify-center lg:text-xs"
+            className="ml-5 hidden h-9 w-24 items-center justify-center rounded border border-[#6e7c99] text-xs text-[#676767] shadow-md duration-300 hover:bg-[#6E7C99] hover:text-[#FFFFFF] lg:flex"
             onClick={handleCloseLogin}
           >
             Cancel
