@@ -34,7 +34,7 @@ function Login({ handleCloseLogin, handleShowRegister }) {
   }, []);
 
   return (
-    <div className="lg-my-0 relative z-50 flex w-[100vw] flex-col items-center justify-center bg-white p-[5vw] pt-14 lg:w-full lg:rounded-lg lg:border lg:border-black lg:pb-3 lg:pt-0">
+    <div className="lg-my-0 relative z-50 flex w-screen flex-col items-center justify-center bg-white p-[5vw] pt-14 lg:w-full lg:rounded-lg lg:border lg:border-black lg:pb-3 lg:pt-0">
       <div
         className="absolute right-0 top-8 mr-6 cursor-pointer transition-all duration-500 hover:scale-110 lg:hidden"
         onClick={handleCloseLogin}
@@ -76,7 +76,7 @@ function Login({ handleCloseLogin, handleShowRegister }) {
           <div>
             <label
               htmlFor="password"
-              className="font-playFair text-base font-semibold text-[#161616] lg:text-sm"
+              className="font-playFair text-base font-semibold text-[#161616] lg:text-xs"
             >
               Password
             </label>
@@ -89,12 +89,12 @@ function Login({ handleCloseLogin, handleShowRegister }) {
                 name="password"
               />
               <div
-                className="absolute right-4 top-3 cursor-pointer"
+                className="absolute right-4 top-3 cursor-pointer lg:top-2"
                 onClick={handleShowPassword}
               >
                 <EyeIcon />
               </div>
-              <div className="absolute right-14 top-3 cursor-pointer">
+              <div className="absolute right-14 top-3 cursor-pointer lg:top-2">
                 {capsLockOn && <KeyboardCapslockIcon />}
               </div>
             </div>
