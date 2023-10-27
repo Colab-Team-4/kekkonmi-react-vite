@@ -150,7 +150,7 @@ function Register({ handleCloseRegister, handleShowLogin }) {
             }
             checkedIcon={<CheckBoxOutlinedIcon style={{ color: "#6E7C99" }} />}
           />
-          <div className="font-lato text-sm text-[#9E9E9E]">
+          <div className="font-lato text-[11px] text-[#9E9E9E]">
             By selecting "Agree and Continue," you acknowledge and accept our
             terms and conditions, granting permission to access and utilize our
             services through the mobile app.
@@ -160,7 +160,7 @@ function Register({ handleCloseRegister, handleShowLogin }) {
         <hr className="h-[1px] w-full bg-[#F0F0F0] lg:hidden" />
       </div>
       <div className="mt-8 flex w-full justify-center font-lato font-medium lg:absolute lg:-top-4 lg:items-center lg:justify-end lg:pr-4 lg:text-xs">
-        <div className="text-sm lg:text-sm">
+        <div className="text-sm">
           Already have an account?{" "}
           <span
             className="ml-1 cursor-pointer font-semibold text-[#6E7C99] hover:underline lg:text-sm"
