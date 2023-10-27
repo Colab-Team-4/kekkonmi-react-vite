@@ -71,7 +71,7 @@ function App() {
   return (
     <div className="relative flex h-screen flex-col">
       <NavModal setHideNavModal={setHideNavModal} hideNavModal={hideNavModal} />
-      <div className="absolute z-50 lg:left-0 lg:right-0 lg:top-20 lg:ml-auto lg:mr-auto lg:w-[600px]">
+      <div className="absolute z-50 lg:left-0 lg:right-0 lg:top-8 lg:ml-auto lg:mr-auto lg:w-[700px] xl:top-32">
         {isRegisterVisible && (
           <Register
             handleCloseRegister={handleCloseRegister}
