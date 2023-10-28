@@ -24,6 +24,7 @@ function App() {
   const [isLoginVisible, setIsLoginVisible] = useState(false);
   const [filterBlur, setFilterBlur] = useState("");
   const [overflowHidden, setOverflowHidden] = useState("");
+  const [pointerEvents, setPointerEvents] = useState("");
 
   const handleShowNavModal = () => {
     setHideNavModal("");
@@ -47,12 +48,14 @@ function App() {
     setIsLoginVisible(false);
     setFilterBlur("opacity-50");
     setOverflowHidden("overflow-hidden");
+    setPointerEvents("pointer-events-none")
   };
   // Remove the blur when Register modal is closed
   const handleCloseRegister = () => {
     setIsRegisterVisible(false);
     setFilterBlur("");
     setOverflowHidden("");
+    setPointerEvents("");
   };
 
   const handleShowLogin = () => {
@@ -60,12 +63,14 @@ function App() {
     setIsRegisterVisible(false);
     setFilterBlur("opacity-50");
     setOverflowHidden("overflow-hidden");
+    setPointerEvents("pointer-events-none")
   };
   // Remove the blur when Register modal is closed
   const handleCloseLogin = () => {
     setIsLoginVisible(false);
     setFilterBlur("");
     setOverflowHidden("");
+    setPointerEvents("");
   };
 
   return (
@@ -87,7 +92,7 @@ function App() {
       </div>
       <div
         onClick={handleCloseNavModal}
-        className={`flex h-screen flex-col justify-between ${filterBlur} ${overflowHidden}`}
+        className={`flex h-screen flex-col justify-between ${filterBlur} ${overflowHidden} ${pointerEvents}`}
       >
         <Navbar
           handleShowNavModal={handleShowNavModal}

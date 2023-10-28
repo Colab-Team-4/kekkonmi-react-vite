@@ -38,7 +38,7 @@ function Navbar({ handleShowNavModal, handleShowRegister, handleShowLogin }) {
           id="navbar-cta"
         >
           <ul className="mt-4 flex flex-col rounded-lg border border-gray-100 bg-gray-50 p-4 font-medium dark:border-gray-700 dark:bg-white md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-white md:p-0 md:dark:bg-white">
-            <div className="flex gap-5">
+            <div className="flex gap-5 xl:gap-12">
               {links.map((link, i) => (
                 <li key={i}>
                   <Link
