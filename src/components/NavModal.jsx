@@ -31,7 +31,6 @@ function NavModal({ hideNavModal }) {
 
   const handleToggleMenu = () => {
     setToggleSelect(!toggleSelect);
-    console.log(toggleSelect);
   };
 
   return (

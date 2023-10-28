@@ -42,7 +42,7 @@ const passwords = [
     name: "confirmPassword",
   },
 ];
-function Register({ handleCloseRegister, handleShowLogin }) {
+function Register({ handleRegister, handleLogin }) {
   const [showPassword, setShowPassword] = useState(false);
   const [capsLockOn, setCapsLockOn] = useState(false);
 
@@ -69,7 +69,7 @@ function Register({ handleCloseRegister, handleShowLogin }) {
     >
       <div
         className="absolute right-0 top-8 mr-6 cursor-pointer lg:hidden"
-        onClick={handleCloseRegister}
+        onClick={handleRegister}
       >
         <CloseIcon />
       </div>
@@ -164,14 +164,14 @@ function Register({ handleCloseRegister, handleShowLogin }) {
           Already have an account?{" "}
           <span
             className="ml-1 cursor-pointer font-semibold text-[#6E7C99] hover:underline lg:text-sm"
-            onClick={handleShowLogin}
+            onClick={handleLogin}
           >
             Log In
           </span>
         </div>
         <button
           className="ml-5 hidden h-9 w-24 items-center justify-center rounded border border-[#6E7C99] text-xs text-[#676767] shadow-md duration-300 hover:bg-[#6E7C99] hover:text-[#FFFFFF] lg:flex"
-          onClick={handleCloseRegister}
+          onClick={handleRegister}
         >
           Cancel
         </button>

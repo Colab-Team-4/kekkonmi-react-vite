@@ -9,10 +9,10 @@ import CheckBoxOutlineBlankOutlinedIcon from "@mui/icons-material/CheckBoxOutlin
 import CheckBoxOutlinedIcon from "@mui/icons-material/CheckBoxOutlined";
 
 Login.propTypes = {
-  handleCloseLogin: PropTypes.func.isRequired,
-  handleShowRegister: PropTypes.func.isRequired,
+  handleLogin: PropTypes.func.isRequired,
+  handleRegister: PropTypes.func.isRequired,
 };
-function Login({ handleCloseLogin, handleShowRegister }) {
+function Login({ handleLogin, handleRegister }) {
   const [showPassword, setShowPassword] = useState(false);
   const [capsLockOn, setCapsLockOn] = useState(false);
 
@@ -37,7 +37,7 @@ function Login({ handleCloseLogin, handleShowRegister }) {
     <div className="lg-my-0 relative z-50 flex w-screen flex-col items-center justify-center bg-white p-[5vw] pt-14 lg:w-full lg:rounded-lg lg:border lg:border-black lg:pb-3 lg:pt-0">
       <div
         className="absolute right-0 top-8 mr-6 cursor-pointer transition-all duration-500 hover:scale-110 lg:hidden"
-        onClick={handleCloseLogin}
+        onClick={handleLogin}
       >
         <CloseIcon />
       </div>
@@ -152,14 +152,14 @@ function Login({ handleCloseLogin, handleShowRegister }) {
             Need an account?
             <span
               className="ml-1 cursor-pointer font-semibold text-[#6E7C99] hover:underline lg:text-sm"
-              onClick={handleShowRegister}
+              onClick={handleRegister}
             >
               Sign Up
             </span>
           </div>
           <button
             className="ml-5 hidden h-9 w-24 items-center justify-center rounded border border-[#6e7c99] text-xs text-[#676767] shadow-md duration-300 hover:bg-[#6E7C99] hover:text-[#FFFFFF] lg:flex"
-            onClick={handleCloseLogin}
+            onClick={handleLogin}
           >
             Cancel
           </button>

@@ -22,77 +22,62 @@ function App() {
   const [isNavModalOpen, setIsNavModalOpen] = useState(false);
   const [isRegisterVisible, setIsRegisterVisible] = useState(false);
   const [isLoginVisible, setIsLoginVisible] = useState(false);
-  const [filterBlur, setFilterBlur] = useState("");
-  const [overflowHidden, setOverflowHidden] = useState("");
 
   const handleShowNavModal = () => {
     setHideNavModal("");
     setIsNavModalOpen(true);
-    setFilterBlur("opacity-50");
-    setOverflowHidden("overflow-hidden");
   };
 
   const handleCloseNavModal = () => {
     if (isNavModalOpen === true) {
       setHideNavModal("right-full");
       setIsNavModalOpen(false);
-      setFilterBlur("");
-      setOverflowHidden("");
     }
   };
-  // Blur the background when Register modal is opened
-  // setOverflowHidden stops the background from scrolling when Register modal is opened
-  const handleShowRegister = () => {
-    setIsRegisterVisible(true);
-    setIsLoginVisible(false);
-    setFilterBlur("opacity-50");
-    setOverflowHidden("overflow-hidden");
-  };
-  // Remove the blur when Register modal is closed
-  const handleCloseRegister = () => {
-    setIsRegisterVisible(false);
-    setFilterBlur("");
-    setOverflowHidden("");
+
+  const handleRegister = () => {
+    if (isRegisterVisible) {
+      setIsRegisterVisible(false);
+    } else {
+      setIsRegisterVisible(true);
+      setIsLoginVisible(false);
+    }
   };
 
-  const handleShowLogin = () => {
-    setIsLoginVisible(true);
-    setIsRegisterVisible(false);
-    setFilterBlur("opacity-50");
-    setOverflowHidden("overflow-hidden");
-  };
-  // Remove the blur when Register modal is closed
-  const handleCloseLogin = () => {
-    setIsLoginVisible(false);
-    setFilterBlur("");
-    setOverflowHidden("");
+  const handleLogin = () => {
+    if (isLoginVisible) {
+      setIsLoginVisible(false);
+    } else {
+      setIsLoginVisible(true);
+      setIsRegisterVisible(false);
+    }
   };
 
   return (
     <div className="relative flex h-screen flex-col">
-      <NavModal setHideNavModal={setHideNavModal} hideNavModal={hideNavModal} />
+      {isNavModalOpen && <NavModal hideNavModal={hideNavModal} />}
       <div className="absolute z-50 lg:left-0 lg:right-0 lg:top-8 lg:ml-auto lg:mr-auto lg:w-[700px] xl:top-32">
         {isRegisterVisible && (
-          <Register
-            handleCloseRegister={handleCloseRegister}
-            handleShowLogin={handleShowLogin}
-          />
+          <Register handleRegister={handleRegister} handleLogin={handleLogin} />
         )}
         {isLoginVisible && (
-          <Login
-            handleCloseLogin={handleCloseLogin}
-            handleShowRegister={handleShowRegister}
-          />
+          <Login handleLogin={handleLogin} handleRegister={handleRegister} />
         )}
       </div>
       <div
         onClick={handleCloseNavModal}
-        className={`flex h-screen flex-col justify-between ${filterBlur} ${overflowHidden}`}
+        className={`flex h-screen flex-col justify-between ${
+          isRegisterVisible || isLoginVisible
+            ? "pointer-events-none overflow-hidden opacity-50"
+            : isNavModalOpen
+            ? "overflow-hidden opacity-50"
+            : ""
+        } `}
       >
         <Navbar
           handleShowNavModal={handleShowNavModal}
-          handleShowRegister={handleShowRegister}
-          handleShowLogin={handleShowLogin}
+          handleRegister={handleRegister}
+          handleLogin={handleLogin}
         />
         <Routes>
           <Route path="/" element={<Home />} />
