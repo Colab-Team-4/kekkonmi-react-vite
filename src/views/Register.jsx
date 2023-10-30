@@ -151,7 +151,7 @@ function Register({ handleRegister, handleLogin }) {
             checkedIcon={<CheckBoxOutlinedIcon style={{ color: "#6E7C99" }} />}
           />
           <div className="font-lato text-[11px] text-[#9E9E9E]">
-            By selecting "Agree and Continue," you acknowledge and accept our
+            By selecting &quot;Agree and Continue,&quot; you acknowledge and accept our
             terms and conditions, granting permission to access and utilize our
             services through the mobile app.
           </div>
