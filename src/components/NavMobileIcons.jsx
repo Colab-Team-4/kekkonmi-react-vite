@@ -1,42 +1,47 @@
+import { Link } from "react-router-dom";
+import handleCloseNavModal from "../App";
+
 export function HomeIcon() {
   return (
-    <div className="flex gap-4">
-      <svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <g id="home">
-          <mask
-            id="mask0_3585_4597"
-            style={{ maskType: "alpha" }}
-            maskUnits="userSpaceOnUse"
-            x="0"
-            y="0"
-            width="24"
-            height="24"
-          >
-            <rect id="Bounding box" width="24" height="24" fill="#D9D9D9" />
-          </mask>
-          <g mask="url(#mask0_3585_4597)">
-            <path
-              id="home_2"
-              d="M6 19H9V13H15V19H18V10L12 5.5L6 10V19ZM4 21V9L12 3L20 9V21H13V15H11V21H4Z"
-              fill="#AD6E7A"
-            />
+    <Link to="/" onClick={handleCloseNavModal}>
+      <div className="flex cursor-pointer gap-4">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g id="home">
+            <mask
+              id="mask0_3585_4597"
+              style={{ maskType: "alpha" }}
+              maskUnits="userSpaceOnUse"
+              x="0"
+              y="0"
+              width="24"
+              height="24"
+            >
+              <rect id="Bounding box" width="24" height="24" fill="#D9D9D9" />
+            </mask>
+            <g mask="url(#mask0_3585_4597)">
+              <path
+                id="home_2"
+                d="M6 19H9V13H15V19H18V10L12 5.5L6 10V19ZM4 21V9L12 3L20 9V21H13V15H11V21H4Z"
+                fill="#AD6E7A"
+              />
+            </g>
           </g>
-        </g>
-      </svg>
-      <div className="font-lato">Home</div>
-    </div>
+        </svg>
+        <div className="font-lato">Home</div>
+      </div>
+    </Link>
   );
 }
 
 export function AccountCircleIcon() {
   return (
-    <div className="flex gap-4">
+    <div className="flex cursor-pointer gap-4">
       <svg
         width="24"
         height="24"
@@ -72,7 +77,7 @@ export function AccountCircleIcon() {
 
 export function CheckListsIcon() {
   return (
-    <div className="flex gap-4">
+    <div className="flex cursor-pointer gap-4">
       <svg
         width="24"
         height="24"
@@ -107,7 +112,7 @@ export function CheckListsIcon() {
 }
 export function SeatingArrangementIcon() {
   return (
-    <div className="flex gap-4">
+    <div className="flex cursor-pointer gap-4">
       <svg
         width="24"
         height="24"
@@ -142,7 +147,7 @@ export function SeatingArrangementIcon() {
 }
 export function TimelineIcon() {
   return (
-    <div className="flex gap-4">
+    <div className="flex cursor-pointer gap-4">
       <svg
         width="24"
         height="24"
@@ -177,7 +182,7 @@ export function TimelineIcon() {
 }
 export function GuestListIcon() {
   return (
-    <div className="flex gap-4">
+    <div className="flex cursor-pointer gap-4">
       <svg
         width="24"
         height="24"
@@ -212,83 +217,87 @@ export function GuestListIcon() {
 }
 export function BudgetPlannerIcon() {
   return (
-    <div className="flex gap-4">
-      <svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <g id="border_color">
-          <mask
-            id="mask0_3585_4620"
-            style={{ maskType: "alpha" }}
-            maskUnits="userSpaceOnUse"
-            x="0"
-            y="0"
-            width="24"
-            height="24"
-          >
-            <rect id="Bounding box" width="24" height="24" fill="#D9D9D9" />
-          </mask>
-          <g mask="url(#mask0_3585_4620)">
-            <path
-              id="border_color_2"
-              d="M2 24V20H22V24H2ZM6 16H7.4L15.2 8.225L13.775 6.8L6 14.6V16ZM4 18V13.75L15.2 2.575C15.3833 2.39167 15.5958 2.25 15.8375 2.15C16.0792 2.05 16.3333 2 16.6 2C16.8667 2 17.125 2.05 17.375 2.15C17.625 2.25 17.85 2.4 18.05 2.6L19.425 4C19.625 4.18333 19.7708 4.4 19.8625 4.65C19.9542 4.9 20 5.15833 20 5.425C20 5.675 19.9542 5.92083 19.8625 6.1625C19.7708 6.40417 19.625 6.625 19.425 6.825L8.25 18H4Z"
-              fill="#AD6E7A"
-            />
+    <Link to="/budgeting" onClick={handleCloseNavModal}>
+      <div className="flex cursor-pointer gap-4">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g id="border_color">
+            <mask
+              id="mask0_3585_4620"
+              style={{ maskType: "alpha" }}
+              maskUnits="userSpaceOnUse"
+              x="0"
+              y="0"
+              width="24"
+              height="24"
+            >
+              <rect id="Bounding box" width="24" height="24" fill="#D9D9D9" />
+            </mask>
+            <g mask="url(#mask0_3585_4620)">
+              <path
+                id="border_color_2"
+                d="M2 24V20H22V24H2ZM6 16H7.4L15.2 8.225L13.775 6.8L6 14.6V16ZM4 18V13.75L15.2 2.575C15.3833 2.39167 15.5958 2.25 15.8375 2.15C16.0792 2.05 16.3333 2 16.6 2C16.8667 2 17.125 2.05 17.375 2.15C17.625 2.25 17.85 2.4 18.05 2.6L19.425 4C19.625 4.18333 19.7708 4.4 19.8625 4.65C19.9542 4.9 20 5.15833 20 5.425C20 5.675 19.9542 5.92083 19.8625 6.1625C19.7708 6.40417 19.625 6.625 19.425 6.825L8.25 18H4Z"
+                fill="#AD6E7A"
+              />
+            </g>
           </g>
-        </g>
-      </svg>
-      <div className="font-lato">Budget Planner</div>
-    </div>
+        </svg>
+        <div className="font-lato">Budget Planner</div>
+      </div>
+    </Link>
   );
 }
 export function CastleIcon() {
   return (
-    <div className="flex gap-4">
-      <svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <g id="castle">
-          <mask
-            id="mask0_3585_4650"
-            style={{ maskType: "alpha" }}
-            maskUnits="userSpaceOnUse"
-            x="0"
-            y="0"
-            width="24"
-            height="25"
-          >
-            <rect
-              id="Bounding box"
-              y="0.00012207"
+    <Link to="/venues" onClick={handleCloseNavModal}>
+      <div className="flex cursor-pointer gap-4">
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g id="castle">
+            <mask
+              id="mask0_3585_4650"
+              style={{ maskType: "alpha" }}
+              maskUnits="userSpaceOnUse"
+              x="0"
+              y="0"
               width="24"
-              height="24"
-              fill="#D9D9D9"
-            />
-          </mask>
-          <g mask="url(#mask0_3585_4650)">
-            <path
-              id="castle_2"
-              d="M1 21.0001V9.00012H3V11.0001H5V3.00012H7V5.00012H9V3.00012H11V5.00012H13V3.00012H15V5.00012H17V3.00012H19V11.0001H21V9.00012H23V21.0001H14V18.0001C14 17.4501 13.8042 16.9793 13.4125 16.5876C13.0208 16.196 12.55 16.0001 12 16.0001C11.45 16.0001 10.9792 16.196 10.5875 16.5876C10.1958 16.9793 10 17.4501 10 18.0001V21.0001H1ZM3 19.0001H8V18.0001C8 16.9001 8.39167 15.9585 9.175 15.1751C9.95833 14.3918 10.9 14.0001 12 14.0001C13.1 14.0001 14.0417 14.3918 14.825 15.1751C15.6083 15.9585 16 16.9001 16 18.0001V19.0001H21V13.0001H17V7.00012H7V13.0001H3V19.0001ZM9 12.0001H11V9.00012H9V12.0001ZM13 12.0001H15V9.00012H13V12.0001Z"
-              fill="#AD6E7A"
-            />
+              height="25"
+            >
+              <rect
+                id="Bounding box"
+                y="0.00012207"
+                width="24"
+                height="24"
+                fill="#D9D9D9"
+              />
+            </mask>
+            <g mask="url(#mask0_3585_4650)">
+              <path
+                id="castle_2"
+                d="M1 21.0001V9.00012H3V11.0001H5V3.00012H7V5.00012H9V3.00012H11V5.00012H13V3.00012H15V5.00012H17V3.00012H19V11.0001H21V9.00012H23V21.0001H14V18.0001C14 17.4501 13.8042 16.9793 13.4125 16.5876C13.0208 16.196 12.55 16.0001 12 16.0001C11.45 16.0001 10.9792 16.196 10.5875 16.5876C10.1958 16.9793 10 17.4501 10 18.0001V21.0001H1ZM3 19.0001H8V18.0001C8 16.9001 8.39167 15.9585 9.175 15.1751C9.95833 14.3918 10.9 14.0001 12 14.0001C13.1 14.0001 14.0417 14.3918 14.825 15.1751C15.6083 15.9585 16 16.9001 16 18.0001V19.0001H21V13.0001H17V7.00012H7V13.0001H3V19.0001ZM9 12.0001H11V9.00012H9V12.0001ZM13 12.0001H15V9.00012H13V12.0001Z"
+                fill="#AD6E7A"
+              />
+            </g>
           </g>
-        </g>
-      </svg>
-      <div className="font-lato">Find a Venue</div>
-    </div>
+        </svg>
+        <div className="font-lato">Find a Venue</div>
+      </div>
+    </Link>
   );
 }
 export function ReviewsIcon() {
   return (
-    <div className="flex gap-4">
+    <div className="flex cursor-pointer gap-4">
       <svg
         width="24"
         height="24"
@@ -329,7 +338,7 @@ export function ReviewsIcon() {
 }
 export function BeenHereIcon() {
   return (
-    <div className="flex gap-4">
+    <div className="flex cursor-pointer gap-4">
       <svg
         width="24"
         height="24"
@@ -364,7 +373,7 @@ export function BeenHereIcon() {
 }
 export function CakeIcon() {
   return (
-    <div className="flex gap-4">
+    <div className="flex cursor-pointer gap-4">
       <svg
         width="24"
         height="24"
@@ -399,7 +408,7 @@ export function CakeIcon() {
 }
 export function DarkModeIcon() {
   return (
-    <div className="flex gap-4">
+    <div className="flex cursor-pointer gap-4">
       <svg
         width="24"
         height="24"
@@ -434,7 +443,7 @@ export function DarkModeIcon() {
 }
 export function CategoryIcon() {
   return (
-    <div className="flex gap-4">
+    <div className="flex cursor-pointer gap-4">
       <svg
         width="24"
         height="24"
@@ -469,7 +478,7 @@ export function CategoryIcon() {
 }
 export function TrendingIcon() {
   return (
-    <div className="flex gap-4">
+    <div className="flex cursor-pointer gap-4">
       <svg
         width="24"
         height="24"

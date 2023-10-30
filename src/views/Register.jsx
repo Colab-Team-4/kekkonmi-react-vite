@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Checkbox from "@mui/material/Checkbox";
 import CheckBoxOutlineBlankOutlinedIcon from "@mui/icons-material/CheckBoxOutlineBlankOutlined";
 import CheckBoxOutlinedIcon from "@mui/icons-material/CheckBoxOutlined";
+import PropTypes from "prop-types";
 
 const contents = [
   {
@@ -42,7 +43,12 @@ const passwords = [
     name: "confirmPassword",
   },
 ];
-function Register({ handleCloseRegister, handleShowLogin }) {
+
+Register.propTypes = {
+  handleRegister: PropTypes.func.isRequired,
+  handleLogin: PropTypes.func.isRequired,
+};
+function Register({ handleRegister, handleLogin }) {
   const [showPassword, setShowPassword] = useState(false);
   const [capsLockOn, setCapsLockOn] = useState(false);
 
@@ -69,7 +75,7 @@ function Register({ handleCloseRegister, handleShowLogin }) {
     >
       <div
         className="absolute right-0 top-8 mr-6 cursor-pointer lg:hidden"
-        onClick={handleCloseRegister}
+        onClick={handleRegister}
       >
         <CloseIcon />
       </div>
@@ -151,9 +157,9 @@ function Register({ handleCloseRegister, handleShowLogin }) {
             checkedIcon={<CheckBoxOutlinedIcon style={{ color: "#6E7C99" }} />}
           />
           <div className="font-lato text-[11px] text-[#9E9E9E]">
-            By selecting "Agree and Continue," you acknowledge and accept our
-            terms and conditions, granting permission to access and utilize our
-            services through the mobile app.
+            By selecting &quot;Agree and Continue,&quot; you acknowledge and
+            accept our terms and conditions, granting permission to access and
+            utilize our services through the mobile app.
           </div>
         </div>
         {/* End of Terms and Conditions */}
@@ -164,14 +170,14 @@ function Register({ handleCloseRegister, handleShowLogin }) {
           Already have an account?{" "}
           <span
             className="ml-1 cursor-pointer font-semibold text-[#6E7C99] hover:underline lg:text-sm"
-            onClick={handleShowLogin}
+            onClick={handleLogin}
           >
             Log In
           </span>
         </div>
         <button
           className="ml-5 hidden h-9 w-24 items-center justify-center rounded border border-[#6E7C99] text-xs text-[#676767] shadow-md duration-300 hover:bg-[#6E7C99] hover:text-[#FFFFFF] lg:flex"
-          onClick={handleCloseRegister}
+          onClick={handleRegister}
         >
           Cancel
         </button>
