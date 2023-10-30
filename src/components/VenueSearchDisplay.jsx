@@ -16,9 +16,11 @@ SearchBar.propTypes = {
   openModal: PropTypes.func.isRequired,
   totalSelectedOptions: PropTypes.number.isRequired,
   setIsOpen: PropTypes.func.isRequired,
-  applyFiltersAndSearch: PropTypes.func.isRequired,
   lastSearch: PropTypes.string.isRequired,
   setLastSearch: PropTypes.func.isRequired,
+  setSelectedOptions: PropTypes.func.isRequired,
+  setSelectedRadio: PropTypes.func.isRequired,
+  resetFilters: PropTypes.func.isRequired,
 };
 function SearchBar({
   setFilteredVenues,
@@ -26,9 +28,11 @@ function SearchBar({
   openModal,
   totalSelectedOptions,
   setIsOpen,
-  applyFiltersAndSearch,
   lastSearch,
   setLastSearch,
+  setSelectedOptions,
+  setSelectedRadio,
+  resetFilters,
 }) {
   const searchRef = useRef(null);
 
@@ -59,9 +63,31 @@ function SearchBar({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const query = searchRef.current.value;
+    const query = searchRef.current.value.trim();
+
+    if (!query) {
+      return;
+    }
+    setLastSearch(query);
     localStorage.setItem("lastSearch", query);
     setHasSearched(true);
+
+    setSelectedOptions({});
+    setSelectedRadio(null);
+
+    const categoriesToReset = [
+      "Guest Capacity",
+      "Venue Types",
+      "Venue Amenities",
+      "Venue Vendors",
+      "Affiliations",
+      "Price",
+      "Diversity",
+      "Outdoors",
+    ];
+
+    // Reset each category
+    categoriesToReset.forEach((category) => resetFilters(category));
 
     const irrelevantWords = ["venues", "in", "wedding", "venue"];
     const relevantQuery = query
@@ -69,7 +95,11 @@ function SearchBar({
       .filter((word) => !irrelevantWords.includes(word.toLowerCase()))
       .join(" ");
 
-    applyFiltersAndSearch(relevantQuery);
+    const filtered = venues.filter((venue) =>
+      venue.location.toLowerCase().includes(relevantQuery.toLowerCase()),
+    );
+
+    setFilteredVenues(filtered);
   };
 
   return (
@@ -135,9 +165,11 @@ FilterButtons.propTypes = {
   selectedRadio: PropTypes.string,
   setSelectedRadio: PropTypes.func.isRequired,
   getModalTransition: PropTypes.func.isRequired,
-  hasSearched: PropTypes.bool.isRequired,
   filteredVenues: PropTypes.array.isRequired,
   filterVenues: PropTypes.func.isRequired,
+  resetFilters: PropTypes.func.isRequired,
+  resetKey: PropTypes.number.isRequired,
+  hasSearched: PropTypes.bool.isRequired,
 };
 function FilterButtons({
   setFilteredVenues,
@@ -154,9 +186,11 @@ function FilterButtons({
   selectedRadio,
   setSelectedRadio,
   getModalTransition,
-  hasSearched,
   filteredVenues,
   filterVenues,
+  resetFilters,
+  resetKey,
+  hasSearched,
 }) {
   const countOptions = (categories) => {
     return categories.reduce((count, category) => {
@@ -176,9 +210,14 @@ function FilterButtons({
     <div className="z-20 -mt-4 mb-14 hidden flex-wrap gap-6 lg:flex lg:w-full lg:basis-3/5">
       <div className="relative">
         <button
-          disabled={!hasSearched && filteredVenues.length === 0}
+          disabled={
+            filteredVenues.length === 0 ||
+            (filteredVenues.length === 0 &&
+              hasSearched &&
+              countOptions(["Outdoors"]) === 0)
+          }
           onClick={() => setOutdoorOpen(true)}
-          className="btnOutline btnWeightNormal mobileText w-fit px-2 py-3 lg:px-8"
+          className="btnOutline btnWeightNormal mobileText w-fit px-2 py-3 disabled:cursor-not-allowed disabled:border-[#9E9E9E] disabled:text-[#9E9E9E] disabled:hover:bg-white lg:px-8"
         >
           Outdoor Venues ({countOptions(["Outdoors"])})
         </button>
@@ -198,14 +237,21 @@ function FilterButtons({
             modalTransition={getModalTransition("outdoor")}
             setFilteredVenues={setFilteredVenues}
             filterVenues={filterVenues}
+            resetFilters={resetFilters}
+            resetKey={resetKey}
           />
         </div>
       </div>
       <div className="relative">
         <button
-          disabled={!hasSearched && filteredVenues.length === 0}
+          disabled={
+            filteredVenues.length === 0 ||
+            (filteredVenues.length === 0 &&
+              hasSearched &&
+              countOptions(["Price"]) === 0)
+          }
           onClick={() => setPriceOpen(true)}
-          className="btnOutline btnWeightNormal mobileText w-fit px-2 py-3 lg:px-8"
+          className="btnOutline btnWeightNormal mobileText w-fit px-2 py-3 disabled:cursor-not-allowed disabled:border-[#9E9E9E] disabled:text-[#9E9E9E] disabled:hover:bg-white lg:px-8"
         >
           $ Price ({countOptions(["Price"])})
         </button>
@@ -225,14 +271,21 @@ function FilterButtons({
             modalTransition={getModalTransition("price")}
             setFilteredVenues={setFilteredVenues}
             filterVenues={filterVenues}
+            resetFilters={resetFilters}
+            resetKey={resetKey}
           />
         </div>
       </div>
       <div className="relative">
         <button
-          disabled={!hasSearched && filteredVenues.length === 0}
+          disabled={
+            filteredVenues.length === 0 ||
+            (filteredVenues.length === 0 &&
+              hasSearched &&
+              countOptions(["Diversity"]) === 0)
+          }
           onClick={() => setDiversityOpen(true)}
-          className="btnOutline btnWeightNormal mobileText w-fit px-2 py-3 lg:px-8"
+          className="btnOutline btnWeightNormal mobileText w-fit px-2 py-3 disabled:cursor-not-allowed disabled:border-[#9E9E9E] disabled:text-[#9E9E9E] disabled:hover:bg-white lg:px-8"
         >
           Support Diversity ({countOptions(["Diversity"])})
         </button>
@@ -252,14 +305,27 @@ function FilterButtons({
             modalTransition={getModalTransition("diversity")}
             setFilteredVenues={setFilteredVenues}
             filterVenues={filterVenues}
+            resetFilters={resetFilters}
+            resetKey={resetKey}
           />
         </div>
       </div>
       <div className="relative">
         <button
-          disabled={!hasSearched && filteredVenues.length === 0}
+          disabled={
+            filteredVenues.length === 0 ||
+            (filteredVenues.length === 0 &&
+              hasSearched &&
+              countOptions([
+                "Guest Capacity",
+                "Venue Types",
+                "Venue Amenities",
+                "Venue Vendors",
+                "Affiliations",
+              ]) === 0)
+          }
           onClick={() => setFiltersOpen(true)}
-          className="btnOutline btnWeightNormal mobileText w-fit px-2 py-3 lg:px-8"
+          className="btnOutline btnWeightNormal mobileText w-fit px-2 py-3 disabled:cursor-not-allowed disabled:border-[#9E9E9E] disabled:text-[#9E9E9E] disabled:hover:bg-white lg:px-8"
         >
           More Filters (
           {countOptions([
@@ -287,6 +353,8 @@ function FilterButtons({
             modalTransition={getModalTransition("filters")}
             setFilteredVenues={setFilteredVenues}
             filterVenues={filterVenues}
+            resetFilters={resetFilters}
+            resetKey={resetKey}
           />
         </div>
       </div>
@@ -515,11 +583,24 @@ function VenueSearchDisplay({ setFilteredVenues, filteredVenues }) {
   const [selectedOptions, setSelectedOptions] = useState({});
   const [selectedRadio, setSelectedRadio] = useState(null);
   const [lastSearch, setLastSearch] = useState("");
+  const [resetKey, setResetKey] = useState(0);
+
+  const resetFilters = (category) => {
+    setSelectedOptions((prevSelected) => {
+      const newSelected = { ...prevSelected };
+      delete newSelected[category];
+      return newSelected;
+    });
+    if (category === "Guest Capacity") {
+      setSelectedRadio(null);
+    }
+    setResetKey((prevKey) => prevKey + 1);
+  };
 
   const totalSelectedOptions = useMemo(() => {
     const optionCount = Object.values(selectedOptions).reduce(
       (acc, curr) => acc + curr.length,
-      0
+      0,
     );
     const radioCount = selectedRadio ? 1 : 0;
     return optionCount + radioCount;
@@ -559,36 +640,36 @@ function VenueSearchDisplay({ setFilteredVenues, filteredVenues }) {
       let isValid = true;
 
       if (selectedRadio) {
-        isValid = isValid && venue.guestCapacity === selectedRadio;
+        isValid = venue.guestCapacity === selectedRadio;
       }
 
       if (selectedOptions["Venue Types"]) {
-        isValid = selectedOptions["Venue Types"].every((option) =>
+        isValid = selectedOptions["Venue Types"].some((option) =>
           venue.venueType.includes(option),
         );
       }
 
       if (selectedOptions["Venue Amenities"]) {
-        isValid = selectedOptions["Venue Amenities"].every((option) =>
+        isValid = selectedOptions["Venue Amenities"].some((option) =>
           venue.amenities.includes(option),
         );
       }
 
       if (selectedOptions["Venue Vendors"]) {
-        isValid = selectedOptions["Venue Vendors"].every((option) =>
+        isValid = selectedOptions["Venue Vendors"].some((option) =>
           venue.vendors.includes(option),
         );
       }
 
       if (selectedOptions["Affiliations"]) {
-        isValid = selectedOptions["Affiliations"].every((option) =>
+        isValid = selectedOptions["Affiliations"].some((option) =>
           venue.affiliations.includes(option),
         );
       }
 
       if (selectedOptions["Price"]) {
-        isValid = selectedOptions["Price"].some((option) =>
-          venue.pricing.includes(option),
+        isValid = selectedOptions["Price"].some(
+          (option) => venue.pricing === option,
         );
       }
 
@@ -612,7 +693,7 @@ function VenueSearchDisplay({ setFilteredVenues, filteredVenues }) {
   };
 
   const filterVenues = () => {
-    const allArraysEmpty = Object.values(selectedOptions).every(
+    const allArraysEmpty = Object.values(selectedOptions).some(
       (arr) => arr.length === 0,
     );
 
@@ -637,8 +718,6 @@ function VenueSearchDisplay({ setFilteredVenues, filteredVenues }) {
     }
   };
 
-  console.log(selectedOptions);
-  console.log(selectedRadio);
   return (
     <div className="mb-[5vw] flex w-full flex-col lg:pl-[5vw]">
       <SearchBar
@@ -648,9 +727,11 @@ function VenueSearchDisplay({ setFilteredVenues, filteredVenues }) {
         closeModal={() => setIsOpen(false)}
         totalSelectedOptions={totalSelectedOptions}
         setIsOpen={setIsOpen}
-        applyFiltersAndSearch={applyFiltersAndSearch}
         lastSearch={lastSearch}
         setLastSearch={setLastSearch}
+        setSelectedOptions={setSelectedOptions}
+        setSelectedRadio={setSelectedRadio}
+        resetFilters={resetFilters}
       />
       <FilterButtons
         outdoorOpen={outdoorOpen}
@@ -666,9 +747,11 @@ function VenueSearchDisplay({ setFilteredVenues, filteredVenues }) {
         selectedRadio={selectedRadio}
         setSelectedRadio={setSelectedRadio}
         getModalTransition={getModalTransition}
-        hasSearched={hasSearched}
         filteredVenues={filteredVenues}
         filterVenues={filterVenues}
+        resetFilters={resetFilters}
+        resetKey={resetKey}
+        hasSearched={hasSearched}
       />
       <VenueDisplay
         filteredVenues={filteredVenues}
@@ -692,6 +775,8 @@ function VenueSearchDisplay({ setFilteredVenues, filteredVenues }) {
           modalTransition={getModalTransition()}
           setFilteredVenues={setFilteredVenues}
           filterVenues={filterVenues}
+          resetFilters={resetFilters}
+          resetKey={resetKey}
         />
       </div>
     </div>

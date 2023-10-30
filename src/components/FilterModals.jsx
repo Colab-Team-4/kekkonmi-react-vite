@@ -1,4 +1,3 @@
-import { useState } from "react";
 import PropTypes from "prop-types";
 
 const guestCapacityOptions = [
@@ -204,7 +203,7 @@ function ModalCard({
             )}
             <label
               htmlFor={option}
-              className="mb-1 ml-3 block text-sm font-medium leading-6 text-gray-900"
+              className="mb-0.5 ml-3 flex h-[52px] items-center text-sm font-medium leading-6 text-gray-900"
             >
               {option}
             </label>
@@ -226,6 +225,8 @@ FilterModals.propTypes = {
   modalType: PropTypes.string,
   modalTransition: PropTypes.string,
   filterVenues: PropTypes.func,
+  resetFilters: PropTypes.func,
+  resetKey: PropTypes.number,
 };
 function FilterModals({
   isOpen,
@@ -237,21 +238,9 @@ function FilterModals({
   modalType,
   modalTransition,
   filterVenues,
+  resetFilters,
+  resetKey,
 }) {
-  const [resetKey, setResetKey] = useState(0);
-
-  const resetFilters = (category) => {
-    setSelectedOptions((prevSelected) => {
-      const newSelected = { ...prevSelected };
-      delete newSelected[category];
-      return newSelected;
-    });
-    if (category === "Guest Capacity") {
-      setSelectedRadio(null);
-    }
-    setResetKey((prevKey) => prevKey + 1);
-  };
-
   return (
     <>
       <div
@@ -346,25 +335,13 @@ function FilterModals({
             <button
               onClick={() => {
                 if (modalType === "mobile") {
-                  options.forEach((optionSet) =>
-                    resetFilters(optionSet.category),
-                  );
-                } else if (modalType === "outdoor") {
-                  outdoorsFilterOptions.forEach((optionSet) =>
-                    resetFilters(optionSet.category),
-                  );
-                } else if (modalType === "price") {
-                  priceFilterOptions.forEach((optionSet) =>
-                    resetFilters(optionSet.category),
-                  );
-                } else if (modalType === "diversity") {
-                  diversityFilterOptions.forEach((optionSet) =>
-                    resetFilters(optionSet.category),
-                  );
+                  options.forEach((optionSet) => {
+                    resetFilters(optionSet.category);
+                  });
                 } else if (modalType === "desktop") {
-                  moreFilterOptions.forEach((optionSet) =>
-                    resetFilters(optionSet.category),
-                  );
+                  moreFilterOptions.forEach((optionSet) => {
+                    resetFilters(optionSet.category);
+                  });
                 }
               }}
               className="btnOutline mobileText basis-1/2 py-2"
@@ -386,7 +363,21 @@ function FilterModals({
         ) : (
           <div className="flex h-full w-full gap-4">
             <button
-              onClick={resetFilters}
+              onClick={() => {
+                if (modalType === "outdoor") {
+                  outdoorsFilterOptions.forEach((optionSet) => {
+                    resetFilters(optionSet.category);
+                  });
+                } else if (modalType === "price") {
+                  priceFilterOptions.forEach((optionSet) => {
+                    resetFilters(optionSet.category);
+                  });
+                } else if (modalType === "diversity") {
+                  diversityFilterOptions.forEach((optionSet) => {
+                    resetFilters(optionSet.category);
+                  });
+                }
+              }}
               className="mobileText basis-1/2 py-2"
             >
               Clear
