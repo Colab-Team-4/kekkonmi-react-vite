@@ -14,10 +14,10 @@ const links = [
 
 Navbar.propTypes = {
   handleShowNavModal: PropTypes.func,
-  handleShowRegister: PropTypes.func,
-  handleShowLogin: PropTypes.func,
+  handleRegister: PropTypes.func,
+  handleLogin: PropTypes.func,
 };
-function Navbar({ handleShowNavModal, handleShowRegister, handleShowLogin }) {
+function Navbar({ handleShowNavModal, handleRegister, handleLogin }) {
   const location = useLocation().pathname;
   const activeLink = "underline";
 
@@ -30,7 +30,7 @@ function Navbar({ handleShowNavModal, handleShowRegister, handleShowLogin }) {
         <Link to="/" className="flex items-center gap-2">
           <img src={Logo} alt="Logo" className="w-48" />
         </Link>
-        <button className="md:hidden" onClick={handleShowLogin}>
+        <button className="md:hidden" onClick={handleLogin}>
           <AccountIcon />
         </button>
         <div
@@ -59,14 +59,14 @@ function Navbar({ handleShowNavModal, handleShowRegister, handleShowLogin }) {
           <button
             type="button"
             className="btnSolid btnNavSolid mobileText w-24 py-2"
-            onClick={handleShowRegister}
+            onClick={handleRegister}
           >
             Sign Up
           </button>
           <button
             type="button"
             className="btnOutline mobileText w-24 py-2"
-            onClick={handleShowLogin}
+            onClick={handleLogin}
           >
             Log In
           </button>
