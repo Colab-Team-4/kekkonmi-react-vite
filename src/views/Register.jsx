@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Checkbox from "@mui/material/Checkbox";
 import CheckBoxOutlineBlankOutlinedIcon from "@mui/icons-material/CheckBoxOutlineBlankOutlined";
 import CheckBoxOutlinedIcon from "@mui/icons-material/CheckBoxOutlined";
+import PropTypes from "prop-types";
 
 const contents = [
   {
@@ -42,6 +43,11 @@ const passwords = [
     name: "confirmPassword",
   },
 ];
+
+Register.propTypes = {
+  handleRegister: PropTypes.func.isRequired,
+  handleLogin: PropTypes.func.isRequired,
+};
 function Register({ handleRegister, handleLogin }) {
   const [showPassword, setShowPassword] = useState(false);
   const [capsLockOn, setCapsLockOn] = useState(false);
@@ -151,9 +157,9 @@ function Register({ handleRegister, handleLogin }) {
             checkedIcon={<CheckBoxOutlinedIcon style={{ color: "#6E7C99" }} />}
           />
           <div className="font-lato text-[11px] text-[#9E9E9E]">
-            By selecting &quot;Agree and Continue,&quot; you acknowledge and accept our
-            terms and conditions, granting permission to access and utilize our
-            services through the mobile app.
+            By selecting &quot;Agree and Continue,&quot; you acknowledge and
+            accept our terms and conditions, granting permission to access and
+            utilize our services through the mobile app.
           </div>
         </div>
         {/* End of Terms and Conditions */}
