@@ -23,9 +23,10 @@ function App() {
   const [isLoginVisible, setIsLoginVisible] = useState(false);
 
   const handleShowNavModal = () => {
-    setIsNavModalOpen(true);
+    if (!isNavModalOpen) {
+      setIsNavModalOpen(true);
+    }
   };
-
   const handleCloseNavModal = () => {
     if (isNavModalOpen) {
       setIsNavModalOpen(false);
