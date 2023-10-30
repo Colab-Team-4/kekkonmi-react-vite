@@ -18,19 +18,16 @@ import Budget from "./views/Budget";
 function App() {
   const [filteredVenues, setFilteredVenues] = useState(venues);
 
-  const [hideNavModal, setHideNavModal] = useState("right-full");
   const [isNavModalOpen, setIsNavModalOpen] = useState(false);
   const [isRegisterVisible, setIsRegisterVisible] = useState(false);
   const [isLoginVisible, setIsLoginVisible] = useState(false);
 
   const handleShowNavModal = () => {
-    setHideNavModal("");
     setIsNavModalOpen(true);
   };
 
   const handleCloseNavModal = () => {
-    if (isNavModalOpen === true) {
-      setHideNavModal("right-full");
+    if (isNavModalOpen) {
       setIsNavModalOpen(false);
     }
   };
@@ -55,7 +52,7 @@ function App() {
 
   return (
     <div className="relative flex h-screen flex-col">
-      {isNavModalOpen && <NavModal hideNavModal={hideNavModal} />}
+      {isNavModalOpen ? <NavModal /> : ""}
       <div className="absolute z-50 lg:left-0 lg:right-0 lg:top-8 lg:ml-auto lg:mr-auto lg:w-[700px] xl:top-32">
         {isRegisterVisible && (
           <Register handleRegister={handleRegister} handleLogin={handleLogin} />
