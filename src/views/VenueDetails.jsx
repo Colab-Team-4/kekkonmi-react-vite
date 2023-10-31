@@ -61,8 +61,9 @@ function DetailsCard({ venue }) {
           </div>
         </div>
         <p className="mt-6 grow text-sm text-[#616161]">
-          <span className="mb-[1ch] inline-block">{displayedDescription}</span>
-          <span className="inline-block">{displayedDescription}</span>
+          <span className="mb-[1ch] inline-block whitespace-pre-line">
+            {displayedDescription}
+          </span>
           <span
             onClick={() => setShowFullDescription(!showFullDescription)}
             className="text-[#4C63D2] hover:cursor-pointer hover:underline lg:hidden"
