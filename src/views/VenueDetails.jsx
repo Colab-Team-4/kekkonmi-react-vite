@@ -6,14 +6,18 @@ import placeholderVenue from "../assets/placeholderVenue.jpg";
 import Checkbox from "@mui/material/Checkbox";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import Favorite from "@mui/icons-material/Favorite";
+import Skeleton from "@mui/material/Skeleton";
 import VendorIcons from "../components/VendorIcons";
 import Amenities from "../components/Amenities";
 import Gallery from "../components/Gallery";
 
 DetailsCard.propTypes = {
   venue: PropTypes.object.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  handleImageLoad: PropTypes.func.isRequired,
+  handleImageError: PropTypes.func.isRequired,
 };
-function DetailsCard({ venue }) {
+function DetailsCard({ venue, isLoading, handleImageLoad, handleImageError }) {
   const [showFullDescription, setShowFullDescription] = useState(false);
 
   useEffect(() => {
@@ -41,12 +45,24 @@ function DetailsCard({ venue }) {
         src={venue.coverUrl}
         alt={venue.name}
         loading="lazy"
-        className="aspect-square rounded-md object-cover lg:w-1/2 lg:basis-1/2"
-        onError={(e) => {
-          e.target.onerror = null;
-          e.target.src = placeholderVenue;
-        }}
+        className={`aspect-square rounded-md object-cover lg:w-1/2 lg:basis-1/2 ${
+          isLoading ? "hidden" : ""
+        }`}
+        onLoad={handleImageLoad}
+        onError={handleImageError}
       />
+      <div
+        className={`aspect-square lg:w-1/2 lg:basis-1/2 ${
+          isLoading ? "" : "hidden"
+        }`}
+      >
+        <Skeleton
+          variant="rectangular"
+          className="aspect-square rounded-sm object-cover"
+          width={"100%"}
+          height={"auto"}
+        />
+      </div>
       <div className="lg:justify- flex basis-1/2 flex-col lg:h-full">
         <div className="flex w-full flex-col">
           <div className="flex items-center justify-between">
@@ -87,8 +103,47 @@ VenueDetails.propTypes = {
 };
 function VenueDetails({ filteredVenues }) {
   const { venueName } = useParams();
-  const cleanedUpVenueName = decodeURIComponent(venueName);
+  const [isDetailsLoading, setIsDetailsLoading] = useState(true);
+  const [isGalleryLoading, setIsGalleryLoading] = useState(true);
+  const [loadedDetailImages, setLoadedDetailImages] = useState(0);
+  const [loadedGalleryImages, setLoadedGalleryImages] = useState(0);
 
+  useEffect(() => {
+    setLoadedDetailImages(0);
+    setLoadedGalleryImages(0);
+  }, [filteredVenues.length]);
+
+  useEffect(() => {
+    if (loadedDetailImages >= 1) {
+      setIsDetailsLoading(false);
+    }
+  }, [loadedDetailImages]);
+
+  useEffect(() => {
+    if (loadedGalleryImages >= 4) {
+      setIsGalleryLoading(false);
+    }
+  }, [loadedGalleryImages]);
+
+  const handleDetailsImageLoad = () => {
+    setLoadedDetailImages((prev) => prev + 1);
+  };
+
+  const handleDetailsImageError = (e) => {
+    e.target.onerror = null;
+    e.target.src = placeholderVenue;
+  };
+
+  const handleGalleryImageLoad = () => {
+    setLoadedGalleryImages((prev) => prev + 1);
+  };
+
+  const handleGalleryImageError = (e) => {
+    e.target.onerror = null;
+    e.target.src = placeholderVenue;
+  };
+
+  const cleanedUpVenueName = decodeURIComponent(venueName);
   const venueInfo = filteredVenues.find(
     (venue) => venue.name === cleanedUpVenueName,
   );
@@ -100,10 +155,20 @@ function VenueDetails({ filteredVenues }) {
   return (
     <div className="flex flex-col px-[5vw]">
       <Breadcrumb venueName={venueName} />
-      <DetailsCard venue={venueInfo} />
+      <DetailsCard
+        venue={venueInfo}
+        isLoading={isDetailsLoading}
+        handleImageLoad={handleDetailsImageLoad}
+        handleImageError={handleDetailsImageError}
+      />
       <VendorIcons venue={venueInfo} />
       <Amenities venue={venueInfo} />
-      <Gallery venue={venueInfo} />
+      <Gallery
+        venue={venueInfo}
+        isLoading={isGalleryLoading}
+        handleImageLoad={handleGalleryImageLoad}
+        handleImageError={handleGalleryImageError}
+      />
     </div>
   );
 }

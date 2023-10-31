@@ -13746,7 +13746,7 @@
     "pricing": "$$ - Affordable",
     "coverUrl": "/Venues/peteniaOne.jpg",
     "galleryUrls": [
-      "/Venues/peteniaTwo.jpg",
+      "/Venues/peteniaTwo.JPG",
       "/Venues/peteniaThree.jpg",
       "/Venues/peteniaFour.jpg",
       "/Venues/peteniaFive.jpg",
@@ -15098,14 +15098,14 @@
     "outdoors": ["Covered Outdoor Space"],
     "startingPrice": 11000,
     "pricing": "$$$$ - Luxury",
-    "coverUrl": "/Venue/pierreOne.jpg",
+    "coverUrl": "/Venues/pierreOne.jpg",
     "galleryUrls": [
-      "/Venue/pierreTwo.jpg",
-      "/Venue/pierreThree.jpg",
-      "/Venue/pierreFour.jpg",
-      "/Venue/pierreFive.jpg",
-      "/Venue/pierreSix.jpg",
-      "/Venue/pierreSeven.jpg"
+      "/Venues/pierreTwo.jpg",
+      "/Venues/pierreThree.jpg",
+      "/Venues/pierreFour.jpg",
+      "/Venues/pierreFive.jpeg",
+      "/Venues/pierreSix.jpg",
+      "/Venues/pierreSeven.jpg"
     ],
     "rating": 4.8,
     "reviews": 275

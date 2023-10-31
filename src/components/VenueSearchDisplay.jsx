@@ -383,16 +383,38 @@ function VenueDisplay({
   setExtraVenues,
   hasSearched,
 }) {
-  const [startIndex, setStartIndex] = useState(9);
+  const [isLoading, setIsLoading] = useState(true);
+  const [loadedImages, setLoadedImages] = useState(0);
+  const [startIndex, setStartIndex] = useState(8);
+
+  useEffect(() => {
+    setLoadedImages(0);
+  }, [filteredVenues.length]);
+
+  useEffect(() => {
+    if (loadedImages >= Math.min(9, filteredVenues.length)) {
+      setIsLoading(false);
+    }
+  }, [loadedImages, filteredVenues.length]);
 
   const handleShowMore = () => {
     setExtraVenues((prevExtraVenues) => prevExtraVenues + 2);
     setStartIndex((prevStartIndex) => prevStartIndex + 2);
   };
 
+  const handleImageLoad = () => {
+    setLoadedImages((prevCount) => prevCount + 1);
+  };
+
+  const handleImageError = (e) => {
+    setLoadedImages((prevCount) => prevCount + 1);
+    e.target.onerror = null;
+    e.target.src = placeholderVenue;
+  };
+
   const displayVenues = filteredVenues.slice(
-    startIndex,
-    startIndex + extraVenues,
+    startIndex - 1,
+    startIndex - 1 + extraVenues,
   );
 
   return (
@@ -411,7 +433,12 @@ function VenueDisplay({
                 } lg:row-start-${Math.floor(i / 2) + 1}`}
                 key={i}
               >
-                <VenueCard venue={venue} />
+                <VenueCard
+                  venue={venue}
+                  isLoading={isLoading}
+                  handleImageLoad={handleImageLoad}
+                  handleImageError={handleImageError}
+                />
               </div>
             ))
           ) : (
@@ -423,18 +450,33 @@ function VenueDisplay({
                   } lg:row-start-${Math.floor(i / 2) + 1}`}
                   key={i}
                 >
-                  <VenueCard venue={venue} />
+                  <VenueCard
+                    venue={venue}
+                    isLoading={isLoading}
+                    handleImageLoad={handleImageLoad}
+                    handleImageError={handleImageError}
+                  />
                 </div>
               ))}
               <div className="lg:relative lg:col-start-3 lg:row-start-1 lg:block">
-                <VenueCard venue={filteredVenues[2]} />
+                <VenueCard
+                  venue={filteredVenues[2]}
+                  isLoading={isLoading}
+                  handleImageLoad={handleImageLoad}
+                  handleImageError={handleImageError}
+                />
               </div>
             </>
           )}
 
           {filteredVenues.length > 3 && (
             <div className="order-3 lg:col-start-3 lg:row-start-1">
-              <OtherVenues filteredVenues={filteredVenues.slice(4, 9)} />
+              <OtherVenues
+                filteredVenues={filteredVenues.slice(4, 9)}
+                isLoading={isLoading}
+                handleImageLoad={handleImageLoad}
+                handleImageError={handleImageError}
+              />
             </div>
           )}
 
@@ -445,11 +487,16 @@ function VenueDisplay({
               } lg:row-start-${Math.floor((i + 4) / 2) + 2}`}
               key={i + startIndex}
             >
-              <VenueCard venue={venue} />
+              <VenueCard
+                venue={venue}
+                isLoading={isLoading}
+                handleImageLoad={handleImageLoad}
+                handleImageError={handleImageError}
+              />
             </div>
           ))}
 
-          {filteredVenues.length > startIndex + extraVenues && (
+          {filteredVenues.length > startIndex - 1 + extraVenues && (
             <div className="order-2 flex justify-center lg:col-span-2 lg:col-start-1">
               <button
                 onClick={handleShowMore}
@@ -467,45 +514,59 @@ function VenueDisplay({
 
 VenueCard.propTypes = {
   venue: PropTypes.object.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  handleImageLoad: PropTypes.func.isRequired,
+  handleImageError: PropTypes.func.isRequired,
 };
-function VenueCard({ venue }) {
-  const [isLoading, setIsLoading] = useState(false);
-
+function VenueCard({ venue, isLoading, handleImageLoad, handleImageError }) {
   return (
     <div className="flex h-full flex-col gap-6 rounded-md pb-6 duration-300 hover:bg-[#F4E2E6] lg:z-10">
-      {isLoading ? (
+      <img
+        className={`aspect-square w-full rounded-md object-cover ${
+          isLoading ? "hidden" : ""
+        }`}
+        src={venue.coverUrl}
+        alt={venue.name}
+        loading="lazy"
+        onLoad={handleImageLoad}
+        onError={handleImageError}
+      />
+      <div
+        className={`aspect-square rounded-sm object-cover ${
+          isLoading ? "" : "hidden"
+        }`}
+      >
         <Skeleton
           variant="rectangular"
           className="aspect-square rounded-md object-cover"
           width={"100%"}
           height={"auto"}
         />
-      ) : (
-        <img
-          className="aspect-square w-full rounded-md object-cover"
-          src={venue.coverUrl}
-          alt={venue.name}
-          loading="lazy"
-          onLoad={() => setIsLoading(false)}
-          onError={(e) => {
-            e.target.onerror = null;
-            e.target.src = placeholderVenue;
-          }}
-        />
-      )}
+      </div>
       <div className="flex items-center justify-between pl-4 text-[16px] text-[#4B4B4B]">
-        {isLoading ? <Skeleton variant="text" width={"35%"} /> : venue.location}
-        <div className="h-6 w-6">
+        <div className="flex w-full items-center justify-between">
           {isLoading ? (
-            <Skeleton variant="circular" width={"100%"} height={"100%"} />
+            <Skeleton variant="text" width={"35%"} />
           ) : (
-            <div className="-translate-x-4">
-              <Checkbox
-                icon={<FavoriteBorder style={{ color: "#6E7C99" }} />}
-                checkedIcon={<Favorite style={{ color: "#D32F2F" }} />}
-              />
-            </div>
+            venue.location
           )}
+          <div className="h-6 w-6">
+            {isLoading ? (
+              <Skeleton
+                variant="circular"
+                className="-translate-x-2"
+                width={"100%"}
+                height={"100%"}
+              />
+            ) : (
+              <div className="-translate-x-4 -translate-y-2">
+                <Checkbox
+                  icon={<FavoriteBorder style={{ color: "#6E7C99" }} />}
+                  checkedIcon={<Favorite style={{ color: "#D32F2F" }} />}
+                />
+              </div>
+            )}
+          </div>
         </div>
       </div>
       <h2 className="-mt-5 pl-4">
@@ -513,17 +574,21 @@ function VenueCard({ venue }) {
       </h2>
       <p className="w-[95%] pl-4 text-sm text-[#616161]">
         {isLoading ? (
-          <div className="h-28">
-            <Skeleton variant="rounded" width={"100%"} height={"100%"} />
-          </div>
+          <Skeleton variant="rounded" width={"100%"} height={"6rem"} />
         ) : (
           venue.description
         )}
       </p>
       {isLoading ? (
         <div className="flex items-center pl-4 text-sm">
-          <Skeleton variant="text" width={"20%"} />
-          <Skeleton variant="circular" className="mx-[1ch]" width={"1ch"} height={"1ch"} />
+          <Skeleton variant="text" width={"24%"} />
+          <Skeleton
+            variant="circular"
+            className="mx-[1ch]"
+            width={"1ch"}
+            height={"1ch"}
+          />
+          <Skeleton variant="text" width={"24%"} />
         </div>
       ) : (
         <p className="pl-4 text-sm text-[#616161]">
@@ -532,25 +597,44 @@ function VenueCard({ venue }) {
           {venue.startingPrice.toLocaleString()}
         </p>
       )}
-      <div className="z-10 mt-16 flex pl-4">
-        <Link
-          to={`/venues/${encodeURIComponent(venue.name)}`}
-          className="btnOutline mx-auto w-60 py-2 text-center lg:absolute lg:bottom-4 lg:mx-0"
-        >
-          Request Quote
-        </Link>
-      </div>
+      {isLoading ? (
+        <div className="mt-8 pl-4">
+          <Skeleton
+            variant="rounded"
+            width={"53%"}
+            height={"6%"}
+            className="mx-auto lg:absolute lg:bottom-4 lg:mx-0"
+          />
+        </div>
+      ) : (
+        <div className="z-10 mt-16 flex pl-4">
+          <Link
+            to={`/venues/${encodeURIComponent(venue.name)}`}
+            className="btnOutline mx-auto w-60 py-2 text-center lg:absolute lg:bottom-4 lg:mx-0"
+          >
+            Request Quote
+          </Link>
+        </div>
+      )}
     </div>
   );
 }
 
 OtherVenues.propTypes = {
   filteredVenues: PropTypes.array.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  handleImageLoad: PropTypes.func.isRequired,
+  handleImageError: PropTypes.func.isRequired,
 };
-function OtherVenues({ filteredVenues }) {
+function OtherVenues({
+  filteredVenues,
+  isLoading,
+  handleImageLoad,
+  handleImageError,
+}) {
   return (
     <div className="flex h-[101%] w-full flex-col overflow-hidden rounded-md shadow-lg lg:h-fit lg:pb-4">
-      <h3 className="my-10 ml-4 font-playFair text-2xl xl:text-2xl font-bold lg:whitespace-nowrap lg:text-base">
+      <h3 className="my-10 ml-4 font-playFair text-2xl font-bold lg:whitespace-nowrap lg:text-base xl:text-2xl">
         Other Reception Venues You Might Like
       </h3>
       <div className="grid grid-flow-row grid-cols-1 content-center gap-2 px-3">
@@ -563,41 +647,76 @@ function OtherVenues({ filteredVenues }) {
             >
               <div className="flex gap-3 lg:gap-8">
                 <img
-                  className="aspect-square w-[6.5rem] rounded-sm object-cover"
+                  className={`aspect-square w-[6.5rem] rounded-sm object-cover ${
+                    isLoading ? "hidden" : ""
+                  }`}
                   src={venue.coverUrl}
                   alt={venue.name}
                   loading="lazy"
-                  onError={(e) => {
-                    e.target.onerror = null;
-                    e.target.src = placeholderVenue;
-                  }}
+                  onLoad={handleImageLoad}
+                  onError={handleImageError}
                 />
+                <div className={`w-40 ${isLoading ? "" : "hidden"}`}>
+                  <Skeleton
+                    variant="rectangular"
+                    className="aspect-square rounded-sm object-cover"
+                    width={"100%"}
+                    height={"auto"}
+                  />
+                </div>
                 <div className="relative flex w-full">
                   <div className="absolute flex h-full w-full flex-col justify-around gap-1 overflow-hidden text-clip whitespace-nowrap">
                     <h3 className="font-playFair text-[16px] font-bold lg:text-sm">
-                      {venue.name}
+                      {isLoading ? (
+                        <Skeleton variant="text" width={"70%"} />
+                      ) : (
+                        venue.name
+                      )}
                     </h3>
                     <div className="-mb-1 flex items-center gap-2">
-                      <Rating
-                        readOnly
-                        value={venue.rating}
-                        precision={0.1}
-                        size="small"
-                      />
-                      <span className="text-xs text-[#676767]">
-                        {venue.rating}({venue.reviews})
-                      </span>
+                      {isLoading ? (
+                        <Skeleton variant="text" width={"50%"} />
+                      ) : (
+                        <>
+                          <Rating
+                            readOnly
+                            value={venue.rating}
+                            precision={0.1}
+                            size="small"
+                          />
+                          <span className="text-xs text-[#676767]">
+                            {venue.rating}({venue.reviews})
+                          </span>
+                        </>
+                      )}
                     </div>
                     <div className="text-[14px] text-[#4B4B4B]">
-                      {venue.location}
+                      {isLoading ? (
+                        <Skeleton variant="text" width={"45%"} />
+                      ) : (
+                        venue.location
+                      )}
                     </div>
-                    <p className="-mt-1 text-xs text-[#616161] lg:flex lg:flex-wrap">
-                      {venue.guestCapacity} Guests{" "}
-                      <span className="ml-1 mr-2 text-black">•</span>
-                      <span className="block lg:inline-block">
-                        Starts at ${venue.startingPrice.toLocaleString()}
-                      </span>
-                    </p>
+                    {isLoading ? (
+                      <div className="flex items-center text-xs">
+                        <Skeleton variant="text" width={"30%"} />
+                        <Skeleton
+                          variant="circular"
+                          className="mx-[1ch]"
+                          width={"1ch"}
+                          height={"1ch"}
+                        />
+                        <Skeleton variant="text" width={"30%"} />
+                      </div>
+                    ) : (
+                      <p className="-mt-1 text-xs text-[#616161] lg:flex lg:flex-wrap">
+                        {venue.guestCapacity} Guests{" "}
+                        <span className="ml-1 mr-2 text-black">•</span>
+                        <span className="block lg:inline-block">
+                          Starts at ${venue.startingPrice.toLocaleString()}
+                        </span>
+                      </p>
+                    )}
                   </div>
                 </div>
               </div>

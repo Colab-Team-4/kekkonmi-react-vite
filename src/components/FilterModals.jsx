@@ -252,7 +252,7 @@ function FilterModals({
         }`}
       ></div>
       <div
-        className={`rounded-lg flex h-full w-full flex-col gap-4 no-scrollbar overflow-scroll bg-white p-4 ${modalTransition}`}
+        className={`no-scrollbar flex h-full w-full flex-col gap-4 overflow-scroll rounded-lg bg-white p-4 ${modalTransition}`}
       >
         {modalType === "mobile" || modalType === "desktop" ? (
           <>
