@@ -13,14 +13,14 @@ function Breadcrumb({ venueName }) {
   const decodedVenueName = decodeURIComponent(venueName || "");
 
   return (
-    <div className="z-10 mb-[5vh] mt-28 flex flex-col gap-4 font-lato font-normal text-[#6E7C99] lg:flex-row lg:font-playFair lg:text-[18px] lg:font-bold">
+    <div className="z-10 mb-[5vh] mt-28 flex flex-col gap-4 font-lato font-normal text-[#6E7C99] lg:flex-row lg:font-playFair lg:text-base lg:font-bold">
       <div className="flex items-center gap-2 overflow-hidden lg:gap-4">
         <Link to="/">Home</Link>
-        <ArrowForward className="h-5 w-5" />
+        <ArrowForward className="h-4 w-4" />
         <Link to="/venues" className="whitespace-nowrap">
           Find a Venue
         </Link>
-        {decodedVenueName && <ArrowForward className="h-5 w-5" />}
+        {decodedVenueName && <ArrowForward className="h-4 w-4" />}
         {decodedVenueName && isVenuePage ? (
           <span className="truncate">{decodedVenueName}</span>
         ) : decodedVenueName ? (
@@ -31,11 +31,11 @@ function Breadcrumb({ venueName }) {
       </div>
       {segments.includes("contact") || segments.includes("confirmation") ? (
         <div className="flex items-center gap-2 overflow-hidden whitespace-nowrap lg:gap-4">
-          <ArrowForward className="h-[18px] w-4" />
+          <ArrowForward className="h-[16px] w-4" />
           <Link to={`/venues/${venueName}/contact`}>Contact Us</Link>
           {segments.includes("confirmation") && (
             <>
-              <ArrowForward className="h-[18px] w-4" />
+              <ArrowForward className="h-[16px] w-4" />
               <span>Confirmation</span>
             </>
           )}

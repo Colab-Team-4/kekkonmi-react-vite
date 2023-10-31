@@ -1,4 +1,3 @@
-import { useState } from "react";
 import PropTypes from "prop-types";
 
 const guestCapacityOptions = [
@@ -139,9 +138,10 @@ function ModalCard({
 }) {
   const handleOptionChange = (e) => {
     const option = e.target.name;
+    const radioOption = e.target.value;
     const isChecked = e.target.checked;
     if (category === "Guest Capacity") {
-      setSelectedRadio(option);
+      setSelectedRadio(radioOption);
     } else {
       setSelectedOptions((prevSelected) => {
         const prevOptions = prevSelected[category] || [];
@@ -174,23 +174,36 @@ function ModalCard({
             key={i}
             className={`${modalType ? "ml-[10%]" : ""} flex items-center`}
           >
-            <input
-              key={`radio-${resetKey}`}
-              id={option}
-              name={category === "Guest Capacity" ? category : option}
-              type={category === "Guest Capacity" ? "radio" : "checkbox"}
-              className={`h-4 w-4 text-violet-600 duration-150 focus:ring-violet-600 ${
-                category === "Guest Capacity" ? "" : "rounded-sm"
-              } `}
-              checked={selectedOptions[category]?.includes(option)}
-              defaultChecked={
-                selectedRadio !== null && selectedRadio === option
-              }
-              onChange={handleOptionChange}
-            />
+            {category === "Guest Capacity" ? (
+              <input
+                key={`radio-${resetKey}`}
+                id={option}
+                name={category}
+                value={option}
+                type="radio"
+                className="h-4 w-4 text-violet-600 duration-150 focus:ring-violet-600"
+                defaultChecked={
+                  selectedRadio !== null && selectedRadio === option
+                }
+                onChange={handleOptionChange}
+              />
+            ) : (
+              <input
+                id={option}
+                name={option}
+                type="checkbox"
+                className="h-4 w-4 rounded-sm text-violet-600 duration-150 focus:ring-violet-600"
+                checked={
+                  selectedOptions[category]
+                    ? selectedOptions[category].includes(option)
+                    : false
+                }
+                onChange={handleOptionChange}
+              />
+            )}
             <label
               htmlFor={option}
-              className="mb-1 ml-3 block text-sm font-medium leading-6 text-gray-900"
+              className="mb-0.5 ml-3 flex h-[50px] items-center text-sm font-medium leading-6 text-gray-900"
             >
               {option}
             </label>
@@ -207,11 +220,14 @@ FilterModals.propTypes = {
   closeModal: PropTypes.func,
   selectedOptions: PropTypes.object,
   setSelectedOptions: PropTypes.func,
-  selectedRadio: PropTypes.object,
+  selectedRadio: PropTypes.string,
   setSelectedRadio: PropTypes.func,
   modalType: PropTypes.string,
   modalTransition: PropTypes.string,
-  setFilteredVenues: PropTypes.func,
+  filterVenues: PropTypes.func,
+  resetFilters: PropTypes.func,
+  resetKey: PropTypes.number,
+  countOptions: PropTypes.number,
 };
 function FilterModals({
   isOpen,
@@ -222,22 +238,11 @@ function FilterModals({
   setSelectedRadio,
   modalType,
   modalTransition,
-  setFilteredVenues,
+  filterVenues,
+  resetFilters,
+  resetKey,
+  countOptions,
 }) {
-  const [resetKey, setResetKey] = useState(0);
-
-  const resetFilters = (category) => {
-    setSelectedOptions((prevSelected) => {
-      const newSelected = { ...prevSelected };
-      delete newSelected[category];
-      return newSelected;
-    });
-    if (category === "Guest Capacity") {
-      setSelectedRadio(null);
-    }
-    setResetKey((prevKey) => prevKey + 1);
-  };
-
   return (
     <>
       <div
@@ -247,7 +252,7 @@ function FilterModals({
         }`}
       ></div>
       <div
-        className={`flex h-full w-full flex-col gap-4 overflow-auto bg-white p-4 ${modalTransition}`}
+        className={`no-scrollbar flex h-full w-full flex-col gap-4 overflow-scroll rounded-lg bg-white p-4 ${modalTransition}`}
       >
         {modalType === "mobile" || modalType === "desktop" ? (
           <>
@@ -332,36 +337,30 @@ function FilterModals({
             <button
               onClick={() => {
                 if (modalType === "mobile") {
-                  options.forEach((optionSet) =>
-                    resetFilters(optionSet.category),
-                  );
-                } else if (modalType === "outdoor") {
-                  outdoorsFilterOptions.forEach((optionSet) =>
-                    resetFilters(optionSet.category),
-                  );
-                } else if (modalType === "price") {
-                  priceFilterOptions.forEach((optionSet) =>
-                    resetFilters(optionSet.category),
-                  );
-                } else if (modalType === "diversity") {
-                  diversityFilterOptions.forEach((optionSet) =>
-                    resetFilters(optionSet.category),
-                  );
+                  options.forEach((optionSet) => {
+                    resetFilters(optionSet.category);
+                  });
                 } else if (modalType === "desktop") {
-                  moreFilterOptions.forEach((optionSet) =>
-                    resetFilters(optionSet.category),
-                  );
+                  moreFilterOptions.forEach((optionSet) => {
+                    resetFilters(optionSet.category);
+                  });
                 }
               }}
-              className="btnOutline mobileText basis-1/2 py-2"
+              className={`mobileText basis-1/2 py-2 duration-300 ${
+                countOptions > 0 ? "btnSolid" : "btnOutline"
+              }`}
             >
               {modalType === "mobile" || modalType === "desktop"
                 ? "Reset"
                 : "Clear"}
             </button>
             <button
-              onClick={closeModal}
-              className="btnBudgetSolid mobileText basis-1/2 py-2"
+              onClick={() => {
+                filterVenues();
+                closeModal();
+              }}
+              className="btnBudgetSolid mobileText basis-1/2 py-2 duration-300 disabled:cursor-not-allowed disabled:border-2 disabled:border-[#9E9E9E] disabled:bg-white disabled:text-[#9E9E9E]"
+              disabled={countOptions === 0}
             >
               Save
             </button>
@@ -369,12 +368,35 @@ function FilterModals({
         ) : (
           <div className="flex h-full w-full gap-4">
             <button
-              onClick={resetFilters}
-              className="mobileText basis-1/2 py-2"
+              onClick={() => {
+                if (modalType === "outdoor") {
+                  outdoorsFilterOptions.forEach((optionSet) => {
+                    resetFilters(optionSet.category);
+                  });
+                } else if (modalType === "price") {
+                  priceFilterOptions.forEach((optionSet) => {
+                    resetFilters(optionSet.category);
+                  });
+                } else if (modalType === "diversity") {
+                  diversityFilterOptions.forEach((optionSet) => {
+                    resetFilters(optionSet.category);
+                  });
+                }
+              }}
+              className={`mobileText basis-1/2 py-2 ${
+                countOptions > 0 ? "underline duration-300" : ""
+              }`}
             >
               Clear
             </button>
-            <button onClick={closeModal} className="mobileText basis-1/2 py-2">
+            <button
+              onClick={() => {
+                filterVenues();
+                closeModal();
+              }}
+              className="mobileText basis-1/2 py-2 duration-300 disabled:cursor-not-allowed disabled:text-[#9E9E9E]"
+              disabled={countOptions === 0}
+            >
               Save
             </button>
           </div>

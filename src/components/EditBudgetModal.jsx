@@ -1,6 +1,14 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 import { CloseIcon, PencilIcon, TrashIcon } from "./Icons";
 
+EditBudgetModal.propTypes = {
+  isVisible: PropTypes.bool,
+  handleCloseModal: PropTypes.func,
+  selectedEditItem: PropTypes.string,
+  onDeleteRow: PropTypes.func,
+  updateContentItem: PropTypes.func,
+};
 function EditBudgetModal({
   isVisible,
   handleCloseModal,

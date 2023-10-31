@@ -8,26 +8,36 @@ import { Rating } from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import Favorite from "@mui/icons-material/Favorite";
+import Skeleton from "@mui/material/Skeleton";
 import FilterModals from "./FilterModals";
 
 SearchBar.propTypes = {
   setFilteredVenues: PropTypes.func.isRequired,
-  setExtraVenues: PropTypes.func.isRequired,
   setHasSearched: PropTypes.func.isRequired,
   openModal: PropTypes.func.isRequired,
   totalSelectedOptions: PropTypes.number.isRequired,
   setIsOpen: PropTypes.func.isRequired,
+  lastSearch: PropTypes.string.isRequired,
+  setLastSearch: PropTypes.func.isRequired,
+  setSelectedOptions: PropTypes.func.isRequired,
+  setSelectedRadio: PropTypes.func.isRequired,
+  resetFilters: PropTypes.func.isRequired,
+  setIsLoading: PropTypes.func.isRequired,
 };
 function SearchBar({
   setFilteredVenues,
-  setExtraVenues,
   setHasSearched,
   openModal,
   totalSelectedOptions,
   setIsOpen,
+  lastSearch,
+  setLastSearch,
+  setSelectedOptions,
+  setSelectedRadio,
+  resetFilters,
+  setIsLoading,
 }) {
   const searchRef = useRef(null);
-  const [lastSearch, setLastSearch] = useState("");
 
   useEffect(() => {
     const savedSearch = localStorage.getItem("lastSearch");
@@ -46,6 +56,7 @@ function SearchBar({
 
       setFilteredVenues(filtered);
       setHasSearched(true);
+      setIsLoading(true);
       setIsOpen(false);
     } else {
       setFilteredVenues([]);
@@ -56,9 +67,30 @@ function SearchBar({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const query = searchRef.current.value;
+    const query = searchRef.current.value.trim();
+
+    if (!query) {
+      return;
+    }
+    setLastSearch(query);
     localStorage.setItem("lastSearch", query);
     setHasSearched(true);
+
+    setSelectedOptions({});
+    setSelectedRadio(null);
+
+    const categoriesToReset = [
+      "Guest Capacity",
+      "Venue Types",
+      "Venue Amenities",
+      "Venue Vendors",
+      "Affiliations",
+      "Price",
+      "Diversity",
+      "Outdoors",
+    ];
+
+    categoriesToReset.forEach((category) => resetFilters(category));
 
     const irrelevantWords = ["venues", "in", "wedding", "venue"];
     const relevantQuery = query
@@ -69,7 +101,7 @@ function SearchBar({
     const filtered = venues.filter((venue) =>
       venue.location.toLowerCase().includes(relevantQuery.toLowerCase()),
     );
-    setExtraVenues(0);
+
     setFilteredVenues(filtered);
   };
 
@@ -122,7 +154,7 @@ function SearchBar({
 }
 
 FilterButtons.propTypes = {
-  setFilteredVenues: PropTypes.func.isRequired,
+  setFilteredVenues: PropTypes.func,
   outdoorOpen: PropTypes.bool.isRequired,
   setOutdoorOpen: PropTypes.func.isRequired,
   priceOpen: PropTypes.bool.isRequired,
@@ -133,11 +165,14 @@ FilterButtons.propTypes = {
   setFiltersOpen: PropTypes.func.isRequired,
   selectedOptions: PropTypes.object.isRequired,
   setSelectedOptions: PropTypes.func.isRequired,
-  selectedRadio: PropTypes.object,
+  selectedRadio: PropTypes.string,
   setSelectedRadio: PropTypes.func.isRequired,
   getModalTransition: PropTypes.func.isRequired,
-  hasSearched: PropTypes.bool.isRequired,
   filteredVenues: PropTypes.array.isRequired,
+  filterVenues: PropTypes.func.isRequired,
+  resetFilters: PropTypes.func.isRequired,
+  resetKey: PropTypes.number.isRequired,
+  hasSearched: PropTypes.bool.isRequired,
 };
 function FilterButtons({
   setFilteredVenues,
@@ -154,8 +189,11 @@ function FilterButtons({
   selectedRadio,
   setSelectedRadio,
   getModalTransition,
-  hasSearched,
   filteredVenues,
+  filterVenues,
+  resetFilters,
+  resetKey,
+  hasSearched,
 }) {
   const countOptions = (categories) => {
     return categories.reduce((count, category) => {
@@ -175,9 +213,12 @@ function FilterButtons({
     <div className="z-20 -mt-4 mb-14 hidden flex-wrap gap-6 lg:flex lg:w-full lg:basis-3/5">
       <div className="relative">
         <button
-          disabled={!hasSearched || filteredVenues.length === 0}
+          disabled={
+            (!hasSearched && filteredVenues.length === 0) ||
+            (!hasSearched && countOptions(["Outdoors"]) === 0)
+          }
           onClick={() => setOutdoorOpen(true)}
-          className="btnOutline btnWeightNormal mobileText w-fit px-2 py-3 lg:px-8"
+          className="btnOutline btnWeightNormal mobileText w-fit px-2 py-3 duration-300 disabled:cursor-not-allowed disabled:border-[#9E9E9E] disabled:text-[#9E9E9E] disabled:hover:bg-white lg:px-8"
         >
           Outdoor Venues ({countOptions(["Outdoors"])})
         </button>
@@ -196,14 +237,21 @@ function FilterButtons({
             modalType="outdoor"
             modalTransition={getModalTransition("outdoor")}
             setFilteredVenues={setFilteredVenues}
+            filterVenues={filterVenues}
+            resetFilters={resetFilters}
+            resetKey={resetKey}
+            countOptions={countOptions(["Outdoors"])}
           />
         </div>
       </div>
       <div className="relative">
         <button
-          disabled={!hasSearched || filteredVenues.length === 0}
+          disabled={
+            (!hasSearched && filteredVenues.length === 0) ||
+            (!hasSearched && countOptions(["Price"]) === 0)
+          }
           onClick={() => setPriceOpen(true)}
-          className="btnOutline btnWeightNormal mobileText w-fit px-2 py-3 lg:px-8"
+          className="btnOutline btnWeightNormal mobileText w-fit px-2 py-3 duration-300 disabled:cursor-not-allowed disabled:border-[#9E9E9E] disabled:text-[#9E9E9E] disabled:hover:bg-white lg:px-8"
         >
           $ Price ({countOptions(["Price"])})
         </button>
@@ -222,14 +270,21 @@ function FilterButtons({
             modalType="price"
             modalTransition={getModalTransition("price")}
             setFilteredVenues={setFilteredVenues}
+            filterVenues={filterVenues}
+            resetFilters={resetFilters}
+            resetKey={resetKey}
+            countOptions={countOptions(["Price"])}
           />
         </div>
       </div>
       <div className="relative">
         <button
-          disabled={!hasSearched || filteredVenues.length === 0}
+          disabled={
+            (!hasSearched && filteredVenues.length === 0) ||
+            (!hasSearched && countOptions(["Diversity"]) === 0)
+          }
           onClick={() => setDiversityOpen(true)}
-          className="btnOutline btnWeightNormal mobileText w-fit px-2 py-3 lg:px-8"
+          className="btnOutline btnWeightNormal mobileText w-fit px-2 py-3 duration-300 disabled:cursor-not-allowed disabled:border-[#9E9E9E] disabled:text-[#9E9E9E] disabled:hover:bg-white lg:px-8"
         >
           Support Diversity ({countOptions(["Diversity"])})
         </button>
@@ -248,14 +303,28 @@ function FilterButtons({
             modalType="diversity"
             modalTransition={getModalTransition("diversity")}
             setFilteredVenues={setFilteredVenues}
+            filterVenues={filterVenues}
+            resetFilters={resetFilters}
+            resetKey={resetKey}
+            countOptions={countOptions(["Diversity"])}
           />
         </div>
       </div>
       <div className="relative">
         <button
-          disabled={!hasSearched || filteredVenues.length === 0}
+          disabled={
+            (!hasSearched && filteredVenues.length === 0) ||
+            (!hasSearched &&
+              countOptions([
+                "Guest Capacity",
+                "Venue Types",
+                "Venue Amenities",
+                "Venue Vendors",
+                "Affiliations",
+              ]) === 0)
+          }
           onClick={() => setFiltersOpen(true)}
-          className="btnOutline btnWeightNormal mobileText w-fit px-2 py-3 lg:px-8"
+          className="btnOutline btnWeightNormal mobileText w-fit px-2 py-3 duration-300 disabled:cursor-not-allowed disabled:border-[#9E9E9E] disabled:text-[#9E9E9E] disabled:hover:bg-white lg:px-8"
         >
           More Filters (
           {countOptions([
@@ -268,8 +337,14 @@ function FilterButtons({
           )
         </button>
         <div
-          className={`absolute mt-1 w-[32rem] overflow-hidden rounded-md ${
+          className={`absolute mt-1 w-[32rem] rounded-md ${
             filtersOpen ? "z-50" : "hidden"
+          } ${
+            filteredVenues.length === 0
+              ? "h-[35rem]"
+              : filteredVenues.length < 4
+              ? "h-[70rem]"
+              : ""
           }`}
         >
           <FilterModals
@@ -282,50 +357,18 @@ function FilterButtons({
             modalType="desktop"
             modalTransition={getModalTransition("filters")}
             setFilteredVenues={setFilteredVenues}
+            filterVenues={filterVenues}
+            resetFilters={resetFilters}
+            resetKey={resetKey}
+            countOptions={countOptions([
+              "Guest Capacity",
+              "Venue Types",
+              "Venue Amenities",
+              "Venue Vendors",
+              "Affiliations",
+            ])}
           />
         </div>
-      </div>
-    </div>
-  );
-}
-
-VenueCard.propTypes = {
-  venue: PropTypes.object.isRequired,
-};
-function VenueCard({ venue }) {
-  return (
-    <div className="flex h-full flex-col gap-6 rounded-md py-6 duration-300 hover:bg-[#F4E2E6] lg:z-10">
-      <img
-        className="aspect-square w-full rounded-md object-cover"
-        src={venue.coverUrl}
-        alt={venue.name}
-        loading="lazy"
-        onError={(e) => {
-          e.target.onerror = null;
-          e.target.src = placeholderVenue;
-        }}
-      />
-      <div className="flex items-center justify-between pl-4 text-[16px] text-[#4B4B4B]">
-        {venue.location}
-        <Checkbox
-          icon={<FavoriteBorder style={{ color: "#6E7C99" }} />}
-          checkedIcon={<Favorite style={{ color: "#D32F2F" }} />}
-        />
-      </div>
-      <h2 className="-mt-5 pl-4">{venue.name}</h2>
-      <p className="w-[95%] pl-4 text-sm text-[#616161]">{venue.description}</p>
-      <p className="pl-4 text-sm text-[#616161]">
-        {venue.guestCapacity} Guests{" "}
-        <span className="mx-[1ch] text-black">•</span> Starts at $
-        {venue.startingPrice.toLocaleString()}
-      </p>
-      <div className="z-10 mt-16 flex pl-4">
-        <Link
-          to={`/venues/${encodeURIComponent(venue.name)}`}
-          className="btnOutline mx-auto w-60 py-2 text-center lg:absolute lg:bottom-4 lg:mx-0"
-        >
-          Request Quote
-        </Link>
       </div>
     </div>
   );
@@ -336,23 +379,52 @@ VenueDisplay.propTypes = {
   extraVenues: PropTypes.number.isRequired,
   setExtraVenues: PropTypes.func.isRequired,
   hasSearched: PropTypes.bool.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  setIsLoading: PropTypes.func.isRequired,
 };
 function VenueDisplay({
   filteredVenues,
   extraVenues,
   setExtraVenues,
   hasSearched,
+  isLoading,
+  setIsLoading,
 }) {
-  const [startIndex, setStartIndex] = useState(9);
+  const [loadedImages, setLoadedImages] = useState(0);
+  const [startIndex, setStartIndex] = useState(8);
+  const [minLoadedImages, setMinLoadedImages] = useState(9);
+
+  useEffect(() => {
+    setLoadedImages(0);
+  }, [filteredVenues.length]);
+
+  useEffect(() => {
+    if (loadedImages >= Math.min(minLoadedImages, filteredVenues.length)) {
+      setIsLoading(false);
+    }
+  }, [loadedImages, filteredVenues.length]);
 
   const handleShowMore = () => {
     setExtraVenues((prevExtraVenues) => prevExtraVenues + 2);
     setStartIndex((prevStartIndex) => prevStartIndex + 2);
+    setLoadedImages(0);
+    setIsLoading(true);
+    setMinLoadedImages(1 || 2);
+  };
+
+  const handleImageLoad = () => {
+    setLoadedImages((prevCount) => prevCount + 1);
+  };
+
+  const handleImageError = (e) => {
+    setLoadedImages((prevCount) => prevCount + 1);
+    e.target.onerror = null;
+    e.target.src = placeholderVenue;
   };
 
   const displayVenues = filteredVenues.slice(
-    startIndex,
-    startIndex + extraVenues,
+    startIndex - 1,
+    startIndex - 1 + extraVenues,
   );
 
   return (
@@ -371,7 +443,12 @@ function VenueDisplay({
                 } lg:row-start-${Math.floor(i / 2) + 1}`}
                 key={i}
               >
-                <VenueCard venue={venue} />
+                <VenueCard
+                  venue={venue}
+                  isLoading={isLoading}
+                  handleImageLoad={handleImageLoad}
+                  handleImageError={handleImageError}
+                />
               </div>
             ))
           ) : (
@@ -383,18 +460,33 @@ function VenueDisplay({
                   } lg:row-start-${Math.floor(i / 2) + 1}`}
                   key={i}
                 >
-                  <VenueCard venue={venue} />
+                  <VenueCard
+                    venue={venue}
+                    isLoading={isLoading}
+                    handleImageLoad={handleImageLoad}
+                    handleImageError={handleImageError}
+                  />
                 </div>
               ))}
               <div className="lg:relative lg:col-start-3 lg:row-start-1 lg:block">
-                <VenueCard venue={filteredVenues[2]} />
+                <VenueCard
+                  venue={filteredVenues[2]}
+                  isLoading={isLoading}
+                  handleImageLoad={handleImageLoad}
+                  handleImageError={handleImageError}
+                />
               </div>
             </>
           )}
 
           {filteredVenues.length > 3 && (
             <div className="order-3 lg:col-start-3 lg:row-start-1">
-              <OtherVenues filteredVenues={filteredVenues.slice(4, 9)} />
+              <OtherVenues
+                filteredVenues={filteredVenues.slice(4, 9)}
+                isLoading={isLoading}
+                handleImageLoad={handleImageLoad}
+                handleImageError={handleImageError}
+              />
             </div>
           )}
 
@@ -405,11 +497,16 @@ function VenueDisplay({
               } lg:row-start-${Math.floor((i + 4) / 2) + 2}`}
               key={i + startIndex}
             >
-              <VenueCard venue={venue} />
+              <VenueCard
+                venue={venue}
+                isLoading={isLoading}
+                handleImageLoad={handleImageLoad}
+                handleImageError={handleImageError}
+              />
             </div>
           ))}
 
-          {filteredVenues.length > startIndex + extraVenues && (
+          {filteredVenues.length > startIndex - 1 + extraVenues && (
             <div className="order-2 flex justify-center lg:col-span-2 lg:col-start-1">
               <button
                 onClick={handleShowMore}
@@ -425,13 +522,129 @@ function VenueDisplay({
   );
 }
 
+VenueCard.propTypes = {
+  venue: PropTypes.object.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  handleImageLoad: PropTypes.func.isRequired,
+  handleImageError: PropTypes.func.isRequired,
+};
+function VenueCard({ venue, isLoading, handleImageLoad, handleImageError }) {
+  return (
+    <div className="flex h-full flex-col gap-6 rounded-md pb-6 duration-300 hover:bg-[#F4E2E6] lg:z-10">
+      <img
+        className={`aspect-square w-full rounded-md object-cover ${
+          isLoading ? "hidden" : ""
+        }`}
+        src={venue.coverUrl}
+        alt={venue.name}
+        loading="lazy"
+        onLoad={handleImageLoad}
+        onError={handleImageError}
+      />
+      <div
+        className={`aspect-square rounded-sm object-cover ${
+          isLoading ? "" : "hidden"
+        }`}
+      >
+        <Skeleton
+          variant="rectangular"
+          className="aspect-square rounded-md object-cover"
+          width={"100%"}
+          height={"auto"}
+        />
+      </div>
+      <div className="flex items-center justify-between pl-4 text-[16px] text-[#4B4B4B]">
+        <div className="flex w-full items-center justify-between">
+          {isLoading ? (
+            <Skeleton variant="text" width={"35%"} />
+          ) : (
+            venue.location
+          )}
+          <div className="h-6 w-6">
+            {isLoading ? (
+              <Skeleton
+                variant="circular"
+                className="-translate-x-2"
+                width={"100%"}
+                height={"100%"}
+              />
+            ) : (
+              <div className="-translate-x-4 -translate-y-2">
+                <Checkbox
+                  icon={<FavoriteBorder style={{ color: "#6E7C99" }} />}
+                  checkedIcon={<Favorite style={{ color: "#D32F2F" }} />}
+                />
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+      <h2 className="-mt-5 pl-4">
+        {isLoading ? <Skeleton variant="text" width={"70%"} /> : venue.name}
+      </h2>
+      <p className="w-[95%] pl-4 text-sm text-[#616161]">
+        {isLoading ? (
+          <Skeleton variant="rounded" width={"100%"} height={"6rem"} />
+        ) : (
+          venue.description
+        )}
+      </p>
+      {isLoading ? (
+        <div className="flex items-center pl-4 text-sm">
+          <Skeleton variant="text" width={"24%"} />
+          <Skeleton
+            variant="circular"
+            className="mx-[1ch]"
+            width={"1ch"}
+            height={"1ch"}
+          />
+          <Skeleton variant="text" width={"24%"} />
+        </div>
+      ) : (
+        <p className="pl-4 text-sm text-[#616161]">
+          {venue.guestCapacity} Guests{" "}
+          <span className="mx-[1ch] text-black">•</span> Starts at $
+          {venue.startingPrice.toLocaleString()}
+        </p>
+      )}
+      {isLoading ? (
+        <div className="mt-8 pl-4">
+          <Skeleton
+            variant="rounded"
+            width={"53%"}
+            height={"6%"}
+            className="mx-auto lg:absolute lg:bottom-4 lg:mx-0"
+          />
+        </div>
+      ) : (
+        <div className="z-10 mt-16 flex pl-4">
+          <Link
+            to={`/venues/${encodeURIComponent(venue.name)}`}
+            className="btnOutline mx-auto w-60 py-2 text-center lg:absolute lg:bottom-4 lg:mx-0"
+          >
+            Request Quote
+          </Link>
+        </div>
+      )}
+    </div>
+  );
+}
+
 OtherVenues.propTypes = {
   filteredVenues: PropTypes.array.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  handleImageLoad: PropTypes.func.isRequired,
+  handleImageError: PropTypes.func.isRequired,
 };
-function OtherVenues({ filteredVenues }) {
+function OtherVenues({
+  filteredVenues,
+  isLoading,
+  handleImageLoad,
+  handleImageError,
+}) {
   return (
     <div className="flex h-[101%] w-full flex-col overflow-hidden rounded-md shadow-lg lg:h-fit lg:pb-4">
-      <h3 className="my-10 ml-4 font-playFair text-2xl xl:text-2xl font-bold lg:whitespace-nowrap lg:text-base">
+      <h3 className="my-10 ml-4 font-playFair text-2xl font-bold lg:whitespace-nowrap lg:text-base xl:text-2xl">
         Other Reception Venues You Might Like
       </h3>
       <div className="grid grid-flow-row grid-cols-1 content-center gap-2 px-3">
@@ -444,42 +657,76 @@ function OtherVenues({ filteredVenues }) {
             >
               <div className="flex gap-3 lg:gap-8">
                 <img
-                  className="aspect-square w-[6.5rem] rounded-sm object-cover"
+                  className={`aspect-square w-[6.5rem] rounded-sm object-cover ${
+                    isLoading ? "hidden" : ""
+                  }`}
                   src={venue.coverUrl}
                   alt={venue.name}
                   loading="lazy"
-                  onError={(e) => {
-                    e.target.onerror = null;
-                    e.target.src = placeholderVenue;
-                  }}
+                  onLoad={handleImageLoad}
+                  onError={handleImageError}
                 />
+                <div className={`w-40 ${isLoading ? "" : "hidden"}`}>
+                  <Skeleton
+                    variant="rectangular"
+                    className="aspect-square rounded-sm object-cover"
+                    width={"100%"}
+                    height={"auto"}
+                  />
+                </div>
                 <div className="relative flex w-full">
                   <div className="absolute flex h-full w-full flex-col justify-around gap-1 overflow-hidden text-clip whitespace-nowrap">
                     <h3 className="font-playFair text-[16px] font-bold lg:text-sm">
-                      {venue.name}
+                      {isLoading ? (
+                        <Skeleton variant="text" width={"70%"} />
+                      ) : (
+                        venue.name
+                      )}
                     </h3>
                     <div className="-mb-1 flex items-center gap-2">
-                      <Rating
-                        readOnly
-                        value={venue.rating}
-                        precision={0.1}
-                        style={{ color: "#323232" }}
-                        size="small"
-                      />
-                      <span className="text-xs text-[#676767]">
-                        {venue.rating}({venue.reviews})
-                      </span>
+                      {isLoading ? (
+                        <Skeleton variant="text" width={"50%"} />
+                      ) : (
+                        <>
+                          <Rating
+                            readOnly
+                            value={venue.rating}
+                            precision={0.1}
+                            size="small"
+                          />
+                          <span className="text-xs text-[#676767]">
+                            {venue.rating}({venue.reviews})
+                          </span>
+                        </>
+                      )}
                     </div>
                     <div className="text-[14px] text-[#4B4B4B]">
-                      {venue.location}
+                      {isLoading ? (
+                        <Skeleton variant="text" width={"45%"} />
+                      ) : (
+                        venue.location
+                      )}
                     </div>
-                    <p className="-mt-1 text-xs text-[#616161] lg:flex lg:flex-wrap">
-                      {venue.guestCapacity} Guests{" "}
-                      <span className="ml-1 mr-2 text-black">•</span>
-                      <span className="block lg:inline-block">
-                        Starts at ${venue.startingPrice.toLocaleString()}
-                      </span>
-                    </p>
+                    {isLoading ? (
+                      <div className="flex items-center text-xs">
+                        <Skeleton variant="text" width={"30%"} />
+                        <Skeleton
+                          variant="circular"
+                          className="mx-[1ch]"
+                          width={"1ch"}
+                          height={"1ch"}
+                        />
+                        <Skeleton variant="text" width={"30%"} />
+                      </div>
+                    ) : (
+                      <p className="-mt-1 text-xs text-[#616161] lg:flex lg:flex-wrap">
+                        {venue.guestCapacity} Guests{" "}
+                        <span className="ml-1 mr-2 text-black">•</span>
+                        <span className="block lg:inline-block">
+                          Starts at ${venue.startingPrice.toLocaleString()}
+                        </span>
+                      </p>
+                    )}
                   </div>
                 </div>
               </div>
@@ -497,10 +744,10 @@ function OtherVenues({ filteredVenues }) {
 }
 
 VenueSearchDisplay.propTypes = {
-  setFilteredVenues: PropTypes.func.isRequired,
   filteredVenues: PropTypes.array.isRequired,
+  setFilteredVenues: PropTypes.func.isRequired,
 };
-function VenueSearchDisplay({ setFilteredVenues, filteredVenues }) {
+function VenueSearchDisplay({ filteredVenues, setFilteredVenues }) {
   const [extraVenues, setExtraVenues] = useState(0);
   const [hasSearched, setHasSearched] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -510,14 +757,29 @@ function VenueSearchDisplay({ setFilteredVenues, filteredVenues }) {
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState({});
   const [selectedRadio, setSelectedRadio] = useState(null);
+  const [lastSearch, setLastSearch] = useState("");
+  const [resetKey, setResetKey] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const resetFilters = (category) => {
+    setSelectedOptions((prevSelected) => {
+      const newSelected = { ...prevSelected };
+      delete newSelected[category];
+      return newSelected;
+    });
+    if (category === "Guest Capacity") {
+      setSelectedRadio(null);
+    }
+    setResetKey((prevKey) => prevKey + 1);
+  };
 
   const totalSelectedOptions = useMemo(() => {
-    return (
-      Object.values(selectedOptions).reduce(
-        (acc, curr) => acc + curr.length,
-        0,
-      ) + (selectedRadio ? 1 : 0)
+    const optionCount = Object.values(selectedOptions).reduce(
+      (acc, curr) => acc + curr.length,
+      0,
     );
+    const radioCount = selectedRadio ? 1 : 0;
+    return optionCount + radioCount;
   }, [selectedOptions, selectedRadio]);
 
   const getModalTransition = (modalType) => {
@@ -544,21 +806,93 @@ function VenueSearchDisplay({ setFilteredVenues, filteredVenues }) {
           : "translate-y-[100vh] transition-all duration-500 ease-out collapse opacity-0";
     }
   };
-  console.log(filteredVenues)
+
+  const applyFiltersAndSearch = (searchQuery) => {
+    let searchFiltered = venues.filter((venue) =>
+      venue.location.toLowerCase().includes(searchQuery.toLowerCase()),
+    );
+
+    let finalFiltered = searchFiltered.filter((venue) => {
+      let isValid = true;
+      const filterCategory = (category, property) => {
+        if (selectedOptions[category]) {
+          return selectedOptions[category].some((option) =>
+            venue[property].includes(option),
+          );
+        }
+        return true;
+      };
+      if (selectedRadio) {
+        isValid = venue.guestCapacity === selectedRadio;
+      }
+
+      const categories = [
+        ["Venue Types", "venueType"],
+        ["Venue Amenities", "amenities"],
+        ["Venue Vendors", "vendors"],
+        ["Affiliations", "affiliations"],
+        ["Diversity", "diversity"],
+        ["Outdoors", "outdoors"],
+      ];
+      categories.forEach(([category, property]) => {
+        isValid = isValid && filterCategory(category, property);
+      });
+      if (selectedOptions["Price"]) {
+        isValid =
+          isValid &&
+          selectedOptions["Price"].some((option) => venue.pricing === option);
+      }
+
+      return isValid;
+    });
+
+    setExtraVenues(0);
+    setFilteredVenues(finalFiltered);
+  };
+
+  const filterVenues = () => {
+    const allArraysEmpty = Object.values(selectedOptions).some(
+      (arr) => arr.length === 0,
+    );
+
+    if (
+      (Object.keys(selectedOptions).length === 0 && !selectedRadio) ||
+      (hasSearched && allArraysEmpty)
+    ) {
+      const irrelevantWords = ["venues", "in", "wedding", "venue"];
+      const relevantQuery = lastSearch
+        .split(" ")
+        .filter((word) => !irrelevantWords.includes(word.toLowerCase()))
+        .join(" ");
+
+      const filtered = venues.filter((venue) =>
+        venue.location.toLowerCase().includes(relevantQuery.toLowerCase()),
+      );
+
+      setFilteredVenues(filtered.length ? filtered : venues);
+      setExtraVenues(0);
+    } else {
+      applyFiltersAndSearch(lastSearch);
+    }
+  };
+
   return (
     <div className="mb-[5vw] flex w-full flex-col lg:pl-[5vw]">
       <SearchBar
         setFilteredVenues={setFilteredVenues}
-        setExtraVenues={setExtraVenues}
         setHasSearched={setHasSearched}
         openModal={() => setIsOpen(true)}
         closeModal={() => setIsOpen(false)}
         totalSelectedOptions={totalSelectedOptions}
         setIsOpen={setIsOpen}
+        lastSearch={lastSearch}
+        setLastSearch={setLastSearch}
+        setSelectedOptions={setSelectedOptions}
+        setSelectedRadio={setSelectedRadio}
+        resetFilters={resetFilters}
+        setIsLoading={setIsLoading}
       />
-
       <FilterButtons
-        setFilteredVenues={setFilteredVenues}
         outdoorOpen={outdoorOpen}
         setOutdoorOpen={setOutdoorOpen}
         priceOpen={priceOpen}
@@ -572,14 +906,19 @@ function VenueSearchDisplay({ setFilteredVenues, filteredVenues }) {
         selectedRadio={selectedRadio}
         setSelectedRadio={setSelectedRadio}
         getModalTransition={getModalTransition}
-        hasSearched={hasSearched}
         filteredVenues={filteredVenues}
+        filterVenues={filterVenues}
+        resetFilters={resetFilters}
+        resetKey={resetKey}
+        hasSearched={hasSearched}
       />
       <VenueDisplay
         filteredVenues={filteredVenues}
         extraVenues={extraVenues}
         setExtraVenues={setExtraVenues}
         hasSearched={hasSearched}
+        isLoading={isLoading}
+        setIsLoading={setIsLoading}
       />
       <div
         className={`absolute left-0 right-0 top-0 lg:hidden ${
@@ -595,6 +934,10 @@ function VenueSearchDisplay({ setFilteredVenues, filteredVenues }) {
           setSelectedRadio={setSelectedRadio}
           modalType="mobile"
           modalTransition={getModalTransition()}
+          setFilteredVenues={setFilteredVenues}
+          filterVenues={filterVenues}
+          resetFilters={resetFilters}
+          resetKey={resetKey}
         />
       </div>
     </div>

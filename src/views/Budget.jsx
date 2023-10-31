@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Breadcrumb from "../components/Breadcrumb";
 import { MoreIcon, PencilIcon, TrashIcon } from "../components/Icons";
 import { KeyboardVoiceIcon, SearchIcon } from "../components/NavMobileIcons";
@@ -23,7 +23,6 @@ function Budget() {
   const [itemToEdit, setItemToEdit] = useState(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [selectedItem, setSelectedItem] = useState("");
-  const [editedCategoryName, setEditedCategoryName] = useState("");
 
   const handleEditItem = (item) => {
     setItemToEdit(item);
