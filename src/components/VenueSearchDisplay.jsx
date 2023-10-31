@@ -22,6 +22,7 @@ SearchBar.propTypes = {
   setSelectedOptions: PropTypes.func.isRequired,
   setSelectedRadio: PropTypes.func.isRequired,
   resetFilters: PropTypes.func.isRequired,
+  setIsLoading: PropTypes.func.isRequired,
 };
 function SearchBar({
   setFilteredVenues,
@@ -34,6 +35,7 @@ function SearchBar({
   setSelectedOptions,
   setSelectedRadio,
   resetFilters,
+  setIsLoading,
 }) {
   const searchRef = useRef(null);
 
@@ -54,6 +56,7 @@ function SearchBar({
 
       setFilteredVenues(filtered);
       setHasSearched(true);
+      setIsLoading(true);
       setIsOpen(false);
     } else {
       setFilteredVenues([]);
@@ -376,23 +379,27 @@ VenueDisplay.propTypes = {
   extraVenues: PropTypes.number.isRequired,
   setExtraVenues: PropTypes.func.isRequired,
   hasSearched: PropTypes.bool.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  setIsLoading: PropTypes.func.isRequired,
 };
 function VenueDisplay({
   filteredVenues,
   extraVenues,
   setExtraVenues,
   hasSearched,
+  isLoading,
+  setIsLoading,
 }) {
-  const [isLoading, setIsLoading] = useState(true);
   const [loadedImages, setLoadedImages] = useState(0);
   const [startIndex, setStartIndex] = useState(8);
+  const [minLoadedImages, setMinLoadedImages] = useState(9);
 
   useEffect(() => {
     setLoadedImages(0);
   }, [filteredVenues.length]);
 
   useEffect(() => {
-    if (loadedImages >= Math.min(9, filteredVenues.length)) {
+    if (loadedImages >= Math.min(minLoadedImages, filteredVenues.length)) {
       setIsLoading(false);
     }
   }, [loadedImages, filteredVenues.length]);
@@ -400,6 +407,9 @@ function VenueDisplay({
   const handleShowMore = () => {
     setExtraVenues((prevExtraVenues) => prevExtraVenues + 2);
     setStartIndex((prevStartIndex) => prevStartIndex + 2);
+    setLoadedImages(0);
+    setIsLoading(true);
+    setMinLoadedImages(1 || 2);
   };
 
   const handleImageLoad = () => {
@@ -749,6 +759,7 @@ function VenueSearchDisplay({ filteredVenues, setFilteredVenues }) {
   const [selectedRadio, setSelectedRadio] = useState(null);
   const [lastSearch, setLastSearch] = useState("");
   const [resetKey, setResetKey] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
 
   const resetFilters = (category) => {
     setSelectedOptions((prevSelected) => {
@@ -879,6 +890,7 @@ function VenueSearchDisplay({ filteredVenues, setFilteredVenues }) {
         setSelectedOptions={setSelectedOptions}
         setSelectedRadio={setSelectedRadio}
         resetFilters={resetFilters}
+        setIsLoading={setIsLoading}
       />
       <FilterButtons
         outdoorOpen={outdoorOpen}
@@ -905,6 +917,8 @@ function VenueSearchDisplay({ filteredVenues, setFilteredVenues }) {
         extraVenues={extraVenues}
         setExtraVenues={setExtraVenues}
         hasSearched={hasSearched}
+        isLoading={isLoading}
+        setIsLoading={setIsLoading}
       />
       <div
         className={`absolute left-0 right-0 top-0 lg:hidden ${

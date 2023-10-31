@@ -6,7 +6,8 @@
   font-family: "Playfair Display";
   src:
     local(PlayfairDisplay-Regular),
-    url("/fonts/Playfair_Display/PlayfairDisplay-Regular.ttf") format("truetype");
+    url("/fonts/Playfair_Display/PlayfairDisplay-Regular.ttf")
+      format("truetype");
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
@@ -26,7 +27,8 @@
   font-family: "Playfair Display";
   src:
     local(PlayfairDisplay-SemiBold),
-    url("/fonts/Playfair_Display/PlayfairDisplay-SemiBold.ttf") format("truetype");
+    url("/fonts/Playfair_Display/PlayfairDisplay-SemiBold.ttf")
+      format("truetype");
   font-weight: 600;
   font-style: normal;
   font-stretch: normal;
@@ -71,7 +73,6 @@
   font-style: normal;
   font-stretch: normal;
 }
-
 
 .no-scrollbar::-webkit-scrollbar {
   display: none;

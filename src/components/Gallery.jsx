@@ -1,15 +1,38 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Skeleton from "@mui/material/Skeleton";
 
 Gallery.propTypes = {
   venue: PropTypes.object.isRequired,
   isLoading: PropTypes.bool.isRequired,
+  setIsLoading: PropTypes.func.isRequired,
   handleImageLoad: PropTypes.func.isRequired,
   handleImageError: PropTypes.func.isRequired,
 };
-function Gallery({ venue, isLoading, handleImageLoad, handleImageError }) {
+function Gallery({
+  venue,
+  isLoading,
+  setIsLoading,
+  handleImageLoad,
+  handleImageError,
+}) {
   const [showAll, setShowAll] = useState(false);
+  const [loadedImages, setLoadedImages] = useState(0);
+  const [minLoadedImages, setMinLoadedImages] = useState(4);
+
+  useEffect(() => {
+    if (loadedImages >= minLoadedImages) {
+      setIsLoading(false); // Assuming you have setIsLoading
+    }
+  }, [loadedImages]);
+
+  const handleShowMore = () => {
+    setShowAll((prevShowAll) => !prevShowAll);
+    setLoadedImages(0);
+    const newMin = showAll ? 4 : venue.galleryUrls.length - 4;
+    setMinLoadedImages(newMin);
+  };
+
   const displayedImages = showAll
     ? venue.galleryUrls
     : venue.galleryUrls.slice(0, 4);
@@ -47,7 +70,7 @@ function Gallery({ venue, isLoading, handleImageLoad, handleImageError }) {
       </div>
       <div className="mx-auto">
         <button
-          onClick={() => setShowAll(!showAll)}
+          onClick={handleShowMore}
           className="btnOutline mobileText btnWeightNormal mb-24 mt-14 w-48 p-3 text-sm"
         >
           {showAll ? "Show less" : "Show more"}
