@@ -166,6 +166,7 @@ function VenueDetails({ filteredVenues }) {
       <Gallery
         venue={venueInfo}
         isLoading={isGalleryLoading}
+        setIsLoading={setIsGalleryLoading}
         handleImageLoad={handleGalleryImageLoad}
         handleImageError={handleGalleryImageError}
       />

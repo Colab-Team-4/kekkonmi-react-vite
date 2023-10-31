@@ -22,7 +22,7 @@ function Gallery({
 
   useEffect(() => {
     if (loadedImages >= minLoadedImages) {
-      setIsLoading(false); // Assuming you have setIsLoading
+      setIsLoading(false);
     }
   }, [loadedImages]);
 
@@ -50,7 +50,10 @@ function Gallery({
               className={`aspect-square w-full rounded-md object-cover ${
                 isLoading ? "hidden" : ""
               }`}
-              onLoad={handleImageLoad}
+              onLoad={() => {
+                setLoadedImages((prev) => prev + 1);
+                handleImageLoad();
+              }}
               onError={handleImageError}
             />
             <div
