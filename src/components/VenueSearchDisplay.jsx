@@ -8,6 +8,7 @@ import { Rating } from "@mui/material";
 import Checkbox from "@mui/material/Checkbox";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import Favorite from "@mui/icons-material/Favorite";
+import Skeleton from "@mui/material/Skeleton";
 import FilterModals from "./FilterModals";
 
 SearchBar.propTypes = {
@@ -86,7 +87,6 @@ function SearchBar({
       "Outdoors",
     ];
 
-    // Reset each category
     categoriesToReset.forEach((category) => resetFilters(category));
 
     const irrelevantWords = ["venues", "in", "wedding", "venue"];
@@ -211,13 +211,11 @@ function FilterButtons({
       <div className="relative">
         <button
           disabled={
-            filteredVenues.length === 0 ||
-            (filteredVenues.length === 0 &&
-              hasSearched &&
-              countOptions(["Outdoors"]) === 0)
+            (!hasSearched && filteredVenues.length === 0) ||
+            (!hasSearched && countOptions(["Outdoors"]) === 0)
           }
           onClick={() => setOutdoorOpen(true)}
-          className="btnOutline btnWeightNormal mobileText w-fit px-2 py-3 disabled:cursor-not-allowed disabled:border-[#9E9E9E] disabled:text-[#9E9E9E] disabled:hover:bg-white lg:px-8"
+          className="btnOutline btnWeightNormal mobileText w-fit px-2 py-3 duration-300 disabled:cursor-not-allowed disabled:border-[#9E9E9E] disabled:text-[#9E9E9E] disabled:hover:bg-white lg:px-8"
         >
           Outdoor Venues ({countOptions(["Outdoors"])})
         </button>
@@ -239,19 +237,18 @@ function FilterButtons({
             filterVenues={filterVenues}
             resetFilters={resetFilters}
             resetKey={resetKey}
+            countOptions={countOptions(["Outdoors"])}
           />
         </div>
       </div>
       <div className="relative">
         <button
           disabled={
-            filteredVenues.length === 0 ||
-            (filteredVenues.length === 0 &&
-              hasSearched &&
-              countOptions(["Price"]) === 0)
+            (!hasSearched && filteredVenues.length === 0) ||
+            (!hasSearched && countOptions(["Price"]) === 0)
           }
           onClick={() => setPriceOpen(true)}
-          className="btnOutline btnWeightNormal mobileText w-fit px-2 py-3 disabled:cursor-not-allowed disabled:border-[#9E9E9E] disabled:text-[#9E9E9E] disabled:hover:bg-white lg:px-8"
+          className="btnOutline btnWeightNormal mobileText w-fit px-2 py-3 duration-300 disabled:cursor-not-allowed disabled:border-[#9E9E9E] disabled:text-[#9E9E9E] disabled:hover:bg-white lg:px-8"
         >
           $ Price ({countOptions(["Price"])})
         </button>
@@ -273,19 +270,18 @@ function FilterButtons({
             filterVenues={filterVenues}
             resetFilters={resetFilters}
             resetKey={resetKey}
+            countOptions={countOptions(["Price"])}
           />
         </div>
       </div>
       <div className="relative">
         <button
           disabled={
-            filteredVenues.length === 0 ||
-            (filteredVenues.length === 0 &&
-              hasSearched &&
-              countOptions(["Diversity"]) === 0)
+            (!hasSearched && filteredVenues.length === 0) ||
+            (!hasSearched && countOptions(["Diversity"]) === 0)
           }
           onClick={() => setDiversityOpen(true)}
-          className="btnOutline btnWeightNormal mobileText w-fit px-2 py-3 disabled:cursor-not-allowed disabled:border-[#9E9E9E] disabled:text-[#9E9E9E] disabled:hover:bg-white lg:px-8"
+          className="btnOutline btnWeightNormal mobileText w-fit px-2 py-3 duration-300 disabled:cursor-not-allowed disabled:border-[#9E9E9E] disabled:text-[#9E9E9E] disabled:hover:bg-white lg:px-8"
         >
           Support Diversity ({countOptions(["Diversity"])})
         </button>
@@ -307,15 +303,15 @@ function FilterButtons({
             filterVenues={filterVenues}
             resetFilters={resetFilters}
             resetKey={resetKey}
+            countOptions={countOptions(["Diversity"])}
           />
         </div>
       </div>
       <div className="relative">
         <button
           disabled={
-            filteredVenues.length === 0 ||
-            (filteredVenues.length === 0 &&
-              hasSearched &&
+            (!hasSearched && filteredVenues.length === 0) ||
+            (!hasSearched &&
               countOptions([
                 "Guest Capacity",
                 "Venue Types",
@@ -325,7 +321,7 @@ function FilterButtons({
               ]) === 0)
           }
           onClick={() => setFiltersOpen(true)}
-          className="btnOutline btnWeightNormal mobileText w-fit px-2 py-3 disabled:cursor-not-allowed disabled:border-[#9E9E9E] disabled:text-[#9E9E9E] disabled:hover:bg-white lg:px-8"
+          className="btnOutline btnWeightNormal mobileText w-fit px-2 py-3 duration-300 disabled:cursor-not-allowed disabled:border-[#9E9E9E] disabled:text-[#9E9E9E] disabled:hover:bg-white lg:px-8"
         >
           More Filters (
           {countOptions([
@@ -338,8 +334,14 @@ function FilterButtons({
           )
         </button>
         <div
-          className={`absolute mt-1 w-[32rem] overflow-hidden rounded-md ${
+          className={`absolute mt-1 w-[32rem] rounded-md ${
             filtersOpen ? "z-50" : "hidden"
+          } ${
+            filteredVenues.length === 0
+              ? "h-[35rem]"
+              : filteredVenues.length < 4
+              ? "h-[70rem]"
+              : ""
           }`}
         >
           <FilterModals
@@ -355,50 +357,15 @@ function FilterButtons({
             filterVenues={filterVenues}
             resetFilters={resetFilters}
             resetKey={resetKey}
+            countOptions={countOptions([
+              "Guest Capacity",
+              "Venue Types",
+              "Venue Amenities",
+              "Venue Vendors",
+              "Affiliations",
+            ])}
           />
         </div>
-      </div>
-    </div>
-  );
-}
-
-VenueCard.propTypes = {
-  venue: PropTypes.object.isRequired,
-};
-function VenueCard({ venue }) {
-  return (
-    <div className="flex h-full flex-col gap-6 rounded-md pb-6 duration-300 hover:bg-[#F4E2E6] lg:z-10">
-      <img
-        className="aspect-square w-full rounded-md object-cover"
-        src={venue.coverUrl}
-        alt={venue.name}
-        loading="lazy"
-        onError={(e) => {
-          e.target.onerror = null;
-          e.target.src = placeholderVenue;
-        }}
-      />
-      <div className="flex items-center justify-between pl-4 text-[16px] text-[#4B4B4B]">
-        {venue.location}
-        <Checkbox
-          icon={<FavoriteBorder style={{ color: "#6E7C99" }} />}
-          checkedIcon={<Favorite style={{ color: "#D32F2F" }} />}
-        />
-      </div>
-      <h2 className="-mt-5 pl-4">{venue.name}</h2>
-      <p className="w-[95%] pl-4 text-sm text-[#616161]">{venue.description}</p>
-      <p className="pl-4 text-sm text-[#616161]">
-        {venue.guestCapacity} Guests{" "}
-        <span className="mx-[1ch] text-black">•</span> Starts at $
-        {venue.startingPrice.toLocaleString()}
-      </p>
-      <div className="z-10 mt-16 flex pl-4">
-        <Link
-          to={`/venues/${encodeURIComponent(venue.name)}`}
-          className="btnOutline mx-auto w-60 py-2 text-center lg:absolute lg:bottom-4 lg:mx-0"
-        >
-          Request Quote
-        </Link>
       </div>
     </div>
   );
@@ -498,6 +465,85 @@ function VenueDisplay({
   );
 }
 
+VenueCard.propTypes = {
+  venue: PropTypes.object.isRequired,
+};
+function VenueCard({ venue }) {
+  const [isLoading, setIsLoading] = useState(false);
+
+  return (
+    <div className="flex h-full flex-col gap-6 rounded-md pb-6 duration-300 hover:bg-[#F4E2E6] lg:z-10">
+      {isLoading ? (
+        <Skeleton
+          variant="rectangular"
+          className="aspect-square rounded-md object-cover"
+          width={"100%"}
+          height={"auto"}
+        />
+      ) : (
+        <img
+          className="aspect-square w-full rounded-md object-cover"
+          src={venue.coverUrl}
+          alt={venue.name}
+          loading="lazy"
+          onLoad={() => setIsLoading(false)}
+          onError={(e) => {
+            e.target.onerror = null;
+            e.target.src = placeholderVenue;
+          }}
+        />
+      )}
+      <div className="flex items-center justify-between pl-4 text-[16px] text-[#4B4B4B]">
+        {isLoading ? <Skeleton variant="text" width={"35%"} /> : venue.location}
+        <div className="h-6 w-6">
+          {isLoading ? (
+            <Skeleton variant="circular" width={"100%"} height={"100%"} />
+          ) : (
+            <div className="-translate-x-4">
+              <Checkbox
+                icon={<FavoriteBorder style={{ color: "#6E7C99" }} />}
+                checkedIcon={<Favorite style={{ color: "#D32F2F" }} />}
+              />
+            </div>
+          )}
+        </div>
+      </div>
+      <h2 className="-mt-5 pl-4">
+        {isLoading ? <Skeleton variant="text" width={"70%"} /> : venue.name}
+      </h2>
+      <p className="w-[95%] pl-4 text-sm text-[#616161]">
+        {isLoading ? (
+          <div className="h-28">
+            <Skeleton variant="rounded" width={"100%"} height={"100%"} />
+          </div>
+        ) : (
+          venue.description
+        )}
+      </p>
+      {isLoading ? (
+        <div className="flex items-center pl-4 text-sm">
+          <Skeleton variant="text" width={"20%"} />
+          <Skeleton variant="circular" className="mx-[1ch]" width={"1ch"} height={"1ch"} />
+        </div>
+      ) : (
+        <p className="pl-4 text-sm text-[#616161]">
+          {venue.guestCapacity} Guests{" "}
+          <span className="mx-[1ch] text-black">•</span> Starts at $
+          {venue.startingPrice.toLocaleString()}
+        </p>
+      )}
+      <div className="z-10 mt-16 flex pl-4">
+        <Link
+          to={`/venues/${encodeURIComponent(venue.name)}`}
+          className="btnOutline mx-auto w-60 py-2 text-center lg:absolute lg:bottom-4 lg:mx-0"
+        >
+          Request Quote
+        </Link>
+      </div>
+    </div>
+  );
+}
+
 OtherVenues.propTypes = {
   filteredVenues: PropTypes.array.isRequired,
 };
@@ -569,10 +615,10 @@ function OtherVenues({ filteredVenues }) {
 }
 
 VenueSearchDisplay.propTypes = {
-  setFilteredVenues: PropTypes.func.isRequired,
   filteredVenues: PropTypes.array.isRequired,
+  setFilteredVenues: PropTypes.func.isRequired,
 };
-function VenueSearchDisplay({ setFilteredVenues, filteredVenues }) {
+function VenueSearchDisplay({ filteredVenues, setFilteredVenues }) {
   const [extraVenues, setExtraVenues] = useState(0);
   const [hasSearched, setHasSearched] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -638,51 +684,33 @@ function VenueSearchDisplay({ setFilteredVenues, filteredVenues }) {
 
     let finalFiltered = searchFiltered.filter((venue) => {
       let isValid = true;
-
+      const filterCategory = (category, property) => {
+        if (selectedOptions[category]) {
+          return selectedOptions[category].some((option) =>
+            venue[property].includes(option),
+          );
+        }
+        return true;
+      };
       if (selectedRadio) {
         isValid = venue.guestCapacity === selectedRadio;
       }
 
-      if (selectedOptions["Venue Types"]) {
-        isValid = selectedOptions["Venue Types"].some((option) =>
-          venue.venueType.includes(option),
-        );
-      }
-
-      if (selectedOptions["Venue Amenities"]) {
-        isValid = selectedOptions["Venue Amenities"].some((option) =>
-          venue.amenities.includes(option),
-        );
-      }
-
-      if (selectedOptions["Venue Vendors"]) {
-        isValid = selectedOptions["Venue Vendors"].some((option) =>
-          venue.vendors.includes(option),
-        );
-      }
-
-      if (selectedOptions["Affiliations"]) {
-        isValid = selectedOptions["Affiliations"].some((option) =>
-          venue.affiliations.includes(option),
-        );
-      }
-
+      const categories = [
+        ["Venue Types", "venueType"],
+        ["Venue Amenities", "amenities"],
+        ["Venue Vendors", "vendors"],
+        ["Affiliations", "affiliations"],
+        ["Diversity", "diversity"],
+        ["Outdoors", "outdoors"],
+      ];
+      categories.forEach(([category, property]) => {
+        isValid = isValid && filterCategory(category, property);
+      });
       if (selectedOptions["Price"]) {
-        isValid = selectedOptions["Price"].some(
-          (option) => venue.pricing === option,
-        );
-      }
-
-      if (selectedOptions["Diversity"]) {
-        isValid = selectedOptions["Diversity"].some((option) =>
-          venue.diversity.includes(option),
-        );
-      }
-
-      if (selectedOptions["Outdoors"]) {
-        isValid = selectedOptions["Outdoors"].some((option) =>
-          venue.outdoors.includes(option),
-        );
+        isValid =
+          isValid &&
+          selectedOptions["Price"].some((option) => venue.pricing === option);
       }
 
       return isValid;

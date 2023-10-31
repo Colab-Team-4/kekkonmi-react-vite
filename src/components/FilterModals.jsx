@@ -203,7 +203,7 @@ function ModalCard({
             )}
             <label
               htmlFor={option}
-              className="mb-0.5 ml-3 flex h-[52px] items-center text-sm font-medium leading-6 text-gray-900"
+              className="mb-0.5 ml-3 flex h-[50px] items-center text-sm font-medium leading-6 text-gray-900"
             >
               {option}
             </label>
@@ -227,6 +227,7 @@ FilterModals.propTypes = {
   filterVenues: PropTypes.func,
   resetFilters: PropTypes.func,
   resetKey: PropTypes.number,
+  countOptions: PropTypes.number,
 };
 function FilterModals({
   isOpen,
@@ -240,6 +241,7 @@ function FilterModals({
   filterVenues,
   resetFilters,
   resetKey,
+  countOptions,
 }) {
   return (
     <>
@@ -250,7 +252,7 @@ function FilterModals({
         }`}
       ></div>
       <div
-        className={`flex h-full w-full flex-col gap-4 overflow-auto bg-white p-4 ${modalTransition}`}
+        className={`rounded-lg flex h-full w-full flex-col gap-4 no-scrollbar overflow-scroll bg-white p-4 ${modalTransition}`}
       >
         {modalType === "mobile" || modalType === "desktop" ? (
           <>
@@ -344,7 +346,9 @@ function FilterModals({
                   });
                 }
               }}
-              className="btnOutline mobileText basis-1/2 py-2"
+              className={`mobileText basis-1/2 py-2 duration-300 ${
+                countOptions > 0 ? "btnSolid" : "btnOutline"
+              }`}
             >
               {modalType === "mobile" || modalType === "desktop"
                 ? "Reset"
@@ -355,7 +359,8 @@ function FilterModals({
                 filterVenues();
                 closeModal();
               }}
-              className="btnBudgetSolid mobileText basis-1/2 py-2"
+              className="btnBudgetSolid mobileText basis-1/2 py-2 duration-300 disabled:cursor-not-allowed disabled:border-2 disabled:border-[#9E9E9E] disabled:bg-white disabled:text-[#9E9E9E]"
+              disabled={countOptions === 0}
             >
               Save
             </button>
@@ -378,7 +383,9 @@ function FilterModals({
                   });
                 }
               }}
-              className="mobileText basis-1/2 py-2"
+              className={`mobileText basis-1/2 py-2 ${
+                countOptions > 0 ? "underline duration-300" : ""
+              }`}
             >
               Clear
             </button>
@@ -387,7 +394,8 @@ function FilterModals({
                 filterVenues();
                 closeModal();
               }}
-              className="mobileText basis-1/2 py-2"
+              className="mobileText basis-1/2 py-2 duration-300 disabled:cursor-not-allowed disabled:text-[#9E9E9E]"
+              disabled={countOptions === 0}
             >
               Save
             </button>

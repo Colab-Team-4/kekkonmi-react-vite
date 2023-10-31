@@ -6,8 +6,7 @@
   font-family: "Playfair Display";
   src:
     local(PlayfairDisplay-Regular),
-    url("/fonts/Playfair_Display/PlayfairDisplay-Regular.ttf")
-      format("truetype");
+    url("/fonts/Playfair_Display/PlayfairDisplay-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
@@ -27,8 +26,7 @@
   font-family: "Playfair Display";
   src:
     local(PlayfairDisplay-SemiBold),
-    url("/fonts/Playfair_Display/PlayfairDisplay-SemiBold.ttf")
-      format("truetype");
+    url("/fonts/Playfair_Display/PlayfairDisplay-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
   font-stretch: normal;
@@ -72,6 +70,20 @@
   font-weight: 900;
   font-style: normal;
   font-stretch: normal;
+}
+
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+html {
+  @apply no-scrollbar;
 }
 
 h1 {
@@ -118,15 +130,10 @@ label {
   @apply rounded-md bg-[#F4E2E6] font-lato text-[#616161] duration-300 hover:bg-[#DDAFB8];
 }
 
-::-webkit-scrollbar {
-  width: 0;
-}
-
 .smallerText {
   @apply text-[14px] font-normal;
 }
 
-/* Save this and delete tomorrow */
 .inputField {
   @apply rounded border-2 border-gray-200 font-lato shadow-md placeholder:text-[#9E9E9E] focus:border-[#6E7C99] focus:outline-none focus:ring-0;
 }
