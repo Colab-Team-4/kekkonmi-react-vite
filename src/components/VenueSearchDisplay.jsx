@@ -431,7 +431,7 @@ OtherVenues.propTypes = {
 function OtherVenues({ filteredVenues }) {
   return (
     <div className="flex h-[101%] w-full flex-col overflow-hidden rounded-md shadow-lg lg:h-fit lg:pb-4">
-      <h3 className="my-10 ml-4 font-playFair text-[24px] font-bold lg:whitespace-nowrap lg:text-lg">
+      <h3 className="my-10 ml-4 font-playFair text-2xl xl:text-2xl font-bold lg:whitespace-nowrap lg:text-base">
         Other Reception Venues You Might Like
       </h3>
       <div className="grid grid-flow-row grid-cols-1 content-center gap-2 px-3">
@@ -544,7 +544,7 @@ function VenueSearchDisplay({ setFilteredVenues, filteredVenues }) {
           : "translate-y-[100vh] transition-all duration-500 ease-out collapse opacity-0";
     }
   };
-
+  console.log(filteredVenues)
   return (
     <div className="mb-[5vw] flex w-full flex-col lg:pl-[5vw]">
       <SearchBar

@@ -1708,13 +1708,13 @@
     "outdoors": [],
     "startingPrice": 11000,
     "pricing": "$$$$ - Luxury",
-    "coverUrl": "/src/assets/Venues/metropolitanOne.jpg",
+    "coverUrl": "/Venues/metropolitanOne.jpg",
     "galleryUrls": [
-      "/src/assets/Venues/metropolitanTwo.jpg",
-      "/src/assets/Venues/metropolitanThree.jpg",
-      "/src/assets/Venues/metropolitanFour.jpg",
-      "/src/assets/Venues/metropolitanFive.jpg",
-      "/src/assets/Venues/metropolitanSix.jpg"
+      "/Venues/metropolitanTwo.jpg",
+      "/Venues/metropolitanThree.jpg",
+      "/Venues/metropolitanFour.jpg",
+      "/Venues/metropolitanFive.jpg",
+      "/Venues/metropolitanSix.jpg"
     ],
     "rating": 4.1,
     "reviews": 754
@@ -6598,12 +6598,12 @@
     "outdoors": ["Covered Outdoor Space"],
     "startingPrice": 14000,
     "pricing": "$$$$ - Luxury",
-    "coverUrl": "/src/assets/Venues/rainbowOne.jpg",
+    "coverUrl": "/Venues/rainbowOne.jpg",
     "galleryUrls": [
-      "/src/assets/Venues/rainbowTwo.jpg",
-      "/src/assets/Venues/rainbowThree.jpg",
-      "/src/assets/Venues/rainbowFour.jpg",
-      "/src/assets/Venues/rainbowFive.jpg"
+      "/Venues/rainbowTwo.jpg",
+      "/Venues/rainbowThree.jpg",
+      "/Venues/rainbowFour.jpg",
+      "/Venues/rainbowFive.jpg"
     ],
     "rating": 4.4,
     "reviews": 791
@@ -7077,13 +7077,13 @@
     "outdoors": [],
     "startingPrice": 14000,
     "pricing": "$$$$ - Luxury",
-    "coverUrl": "/src/assets/Venues/foundryOne.jpeg",
+    "coverUrl": "/Venues/foundryOne.jpeg",
     "galleryUrls": [
-      "/src/assets/Venues/foundryTwo.jpeg",
-      "/src/assets/Venues/foundryThree.jpeg",
-      "/src/assets/Venues/foundryFour.jpg",
-      "/src/assets/Venues/foundryFive.jpg",
-      "/src/assets/Venues/foundrySix.jpg"
+      "/Venues/foundryTwo.jpeg",
+      "/Venues/foundryThree.jpeg",
+      "/Venues/foundryFour.jpg",
+      "/Venues/foundryFive.jpg",
+      "/Venues/foundrySix.jpg"
     ],
     "rating": 4.8,
     "reviews": 954
@@ -8399,14 +8399,14 @@
     "outdoors": ["Outdoor Event Space", "Covered Outdoor Space"],
     "startingPrice": 13000,
     "pricing": "$$$$ - Luxury",
-    "coverUrl": "/src/assets/Venues/blueHillOne.jpg",
+    "coverUrl": "/Venues/blueHillOne.jpg",
     "galleryUrls": [
-      "/src/assets/Venues/blueHillTwo.jpeg",
-      "/src/assets/Venues/blueHillThree.jpg",
-      "/src/assets/Venues/blueHillFour.jpg",
-      "/src/assets/Venues/blueHillFive.jpg",
-      "/src/assets/Venues/blueHillsSix.jpg",
-      "/src/assets/Venues/blueHillSeven.jpg"
+      "/Venues/blueHillTwo.jpeg",
+      "/Venues/blueHillThree.jpg",
+      "/Venues/blueHillFour.jpg",
+      "/Venues/blueHillFive.jpg",
+      "/Venues/blueHillsSix.jpg",
+      "/Venues/blueHillSeven.jpg"
     ],
     "rating": 4.2,
     "reviews": 929
@@ -10508,14 +10508,14 @@
     "outdoors": [],
     "startingPrice": 5000,
     "pricing": "$$ - Affordable",
-    "coverUrl": "/src/assets/Venues/tribecaOne.jpg",
+    "coverUrl": "/Venues/tribecaOne.jpg",
     "galleryUrls": [
-      "/src/assets/Venues/tribecaTwo.jpg",
-      "/src/assets/Venues/tribecaThree.jpg",
-      "/src/assets/Venues/tribecaFour.jpg",
-      "/src/assets/Venues/tribecaFive.jpg",
-      "/src/assets/Venues/tribecaSix.jpeg",
-      "/src/assets/Venues/tribecaSeven.jpg"
+      "/Venues/tribecaTwo.jpg",
+      "/Venues/tribecaThree.jpg",
+      "/Venues/tribecaFour.jpg",
+      "/Venues/tribecaFive.jpg",
+      "/Venues/tribecaSix.jpeg",
+      "/Venues/tribecaSeven.jpg"
     ],
     "rating": 4.4,
     "reviews": 935
@@ -10646,14 +10646,14 @@
     "outdoors": [],
     "startingPrice": 3000,
     "pricing": "$ - Inexpensive",
-    "coverUrl": "/src/assets/Venues/ohekaOne.jpg",
+    "coverUrl": "/Venues/ohekaOne.jpg",
     "galleryUrls": [
-      "/src/assets/Venues/ohekaTwo.jpg",
-      "/src/assets/Venues/ohekaThree.jpg",
-      "/src/assets/Venues/ohekaFour.jpg",
-      "/src/assets/Venues/ohekaFive.jpg",
-      "/src/assets/Venues/ohekaSix.jpg",
-      "/src/assets/Venues/ohekaSeven.jpg"
+      "/Venues/ohekaTwo.jpg",
+      "/Venues/ohekaThree.jpg",
+      "/Venues/ohekaFour.jpg",
+      "/Venues/ohekaFive.jpg",
+      "/Venues/ohekaSix.jpg",
+      "/Venues/ohekaSeven.jpg"
     ],
     "rating": 4.2,
     "reviews": 283
@@ -12119,14 +12119,14 @@
     "outdoors": ["Outdoor Event Space"],
     "startingPrice": 17000,
     "pricing": "$$$$ - Luxury",
-    "coverUrl": "/src/assets/Venues/bWineryOne.jpg",
+    "coverUrl": "/Venues/bWineryOne.jpg",
     "galleryUrls": [
-      "/src/assets/Venues/bWineryTwo.jpg",
-      "/src/assets/Venues/bWineryThree.jpg",
-      "/src/assets/Venues/bWineryFour.jpeg",
-      "/src/assets/Venues/bWineryFive.jpeg",
-      "/src/assets/Venues/bWinerySix.webp",
-      "/src/assets/Venues/bWinerySeven.png"
+      "/Venues/bWineryTwo.jpg",
+      "/Venues/bWineryThree.jpg",
+      "/Venues/bWineryFour.jpeg",
+      "/Venues/bWineryFive.jpeg",
+      "/Venues/bWinerySix.webp",
+      "/Venues/bWinerySeven.png"
     ],
     "rating": 4.5,
     "reviews": 640
@@ -13048,14 +13048,14 @@
     "outdoors": ["Outdoor Event Space", "Covered Outdoor Space"],
     "startingPrice": 18000,
     "pricing": "$$$$ - Luxury",
-    "coverUrl": "/src/assets/Venues/loftOne.jpeg",
+    "coverUrl": "/Venues/loftOne.jpeg",
     "galleryUrls": [
-      "/src/assets/Venues/loftTwo.jpeg",
-      "/src/assets/Venues/loftThree.jpg",
-      "/src/assets/Venues/loftFour.jpg",
-      "/src/assets/Venues/loftFive.jpg",
-      "/src/assets/Venues/loftSix.jpg",
-      "/src/assets/Venues/loftSeven.jpg"
+      "/Venues/loftTwo.jpeg",
+      "/Venues/loftThree.jpg",
+      "/Venues/loftFour.jpg",
+      "/Venues/loftFive.jpg",
+      "/Venues/loftSix.jpg",
+      "/Venues/loftSeven.jpg"
     ],
     "rating": 4.2,
     "reviews": 673
@@ -13744,14 +13744,14 @@
     "outdoors": ["Outdoor Event Space"],
     "startingPrice": 6000,
     "pricing": "$$ - Affordable",
-    "coverUrl": "/src/assets/Venues/peteniaOne.jpg",
+    "coverUrl": "/Venues/peteniaOne.jpg",
     "galleryUrls": [
-      "/src/assets/Venues/peteniaTwo.jpg",
-      "/src/assets/Venues/peteniaThree.jpg",
-      "/src/assets/Venues/peteniaFour.jpg",
-      "/src/assets/Venues/peteniaFive.jpg",
-      "/src/assets/Venues/peteniaSix.jpeg",
-      "/src/assets/Venues/peteniaSeven.jpg"
+      "/Venues/peteniaTwo.jpg",
+      "/Venues/peteniaThree.jpg",
+      "/Venues/peteniaFour.jpg",
+      "/Venues/peteniaFive.jpg",
+      "/Venues/peteniaSix.jpeg",
+      "/Venues/peteniaSeven.jpg"
     ],
     "rating": 4.1,
     "reviews": 951
@@ -14053,14 +14053,14 @@
     "outdoors": ["Outdoor Event Space"],
     "startingPrice": 11000,
     "pricing": "$$$$ - Luxury",
-    "coverUrl": "/src/assets/Venues/bedfordOne.jpg",
+    "coverUrl": "/Venues/bedfordOne.jpg",
     "galleryUrls": [
-      "/src/assets/Venues/bedfordTwo.jpg",
-      "/src/assets/Venues/bedfordThree.jpg",
-      "/src/assets/Venues/bedfordFour.JPG",
-      "/src/assets/Venues/bedfordFive.jpeg",
-      "/src/assets/Venues/bedfordSix.jpg",
-      "/src/assets/Venues/bedfordSeven.jpg",
+      "/Venues/bedfordTwo.jpg",
+      "/Venues/bedfordThree.jpg",
+      "/Venues/bedfordFour.JPG",
+      "/Venues/bedfordFive.jpeg",
+      "/Venues/bedfordSix.jpg",
+      "/Venues/bedfordSeven.jpg",
       "https://images.pexels.com/photos/1716008/pexels-photo-1716008.jpeg",
       "https://images.pexels.com/photos/618902/pexels-photo-618902.jpeg",
       "https://images.pexels.com/photos/5825366/pexels-photo-5825366.jpeg",
@@ -15098,14 +15098,14 @@
     "outdoors": ["Covered Outdoor Space"],
     "startingPrice": 11000,
     "pricing": "$$$$ - Luxury",
-    "coverUrl": "/src/assets/Venue/pierreOne.jpg",
+    "coverUrl": "/Venue/pierreOne.jpg",
     "galleryUrls": [
-      "/src/assets/Venue/pierreTwo.jpg",
-      "/src/assets/Venue/pierreThree.jpg",
-      "/src/assets/Venue/pierreFour.jpg",
-      "/src/assets/Venue/pierreFive.jpg",
-      "/src/assets/Venue/pierreSix.jpg",
-      "/src/assets/Venue/pierreSeven.jpg"
+      "/Venue/pierreTwo.jpg",
+      "/Venue/pierreThree.jpg",
+      "/Venue/pierreFour.jpg",
+      "/Venue/pierreFive.jpg",
+      "/Venue/pierreSix.jpg",
+      "/Venue/pierreSeven.jpg"
     ],
     "rating": 4.8,
     "reviews": 275
@@ -15679,13 +15679,13 @@
     "outdoors": [],
     "startingPrice": 4000,
     "pricing": "$ - Inexpensive",
-    "coverUrl": "/src/assets/Venues/oceanOne.jpg",
+    "coverUrl": "/Venues/oceanOne.jpg",
     "galleryUrls": [
-      "/src/assets/Venues/oceanTwo.jpg",
-      "/src/assets/Venues/oceanThree.jpg",
-      "/src/assets/Venues/oceanFour.jpeg",
-      "/src/assets/Venues/oceanFive.jpg",
-      "/src/assets/Venues/oceanSix.png"
+      "/Venues/oceanTwo.jpg",
+      "/Venues/oceanThree.jpg",
+      "/Venues/oceanFour.jpeg",
+      "/Venues/oceanFive.jpg",
+      "/Venues/oceanSix.png"
     ],
     "rating": 4.4,
     "reviews": 826
