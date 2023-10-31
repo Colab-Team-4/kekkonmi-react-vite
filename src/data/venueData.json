@@ -1708,13 +1708,13 @@
     "outdoors": [],
     "startingPrice": 11000,
     "pricing": "$$$$ - Luxury",
-    "coverUrl": "https://images.pexels.com/photos/169193/pexels-photo-169193.jpeg",
+    "coverUrl": "/src/assets/Venues/metropolitanOne.jpg",
     "galleryUrls": [
-      "https://images.pexels.com/photos/3771110/pexels-photo-3771110.jpeg",
-      "https://images.pexels.com/photos/2472858/pexels-photo-2472858.jpeg",
-      "https://images.pexels.com/photos/4916515/pexels-photo-4916515.jpeg",
-      "https://images.pexels.com/photos/1035665/pexels-photo-1035665.jpeg",
-      "https://images.pexels.com/photos/7078912/pexels-photo-7078912.jpeg"
+      "/src/assets/Venues/metropolitanTwo.jpg",
+      "/src/assets/Venues/metropolitanThree.jpg",
+      "/src/assets/Venues/metropolitanFour.jpg",
+      "/src/assets/Venues/metropolitanFive.jpg",
+      "/src/assets/Venues/metropolitanSix.jpg"
     ],
     "rating": 4.1,
     "reviews": 754
@@ -6598,13 +6598,12 @@
     "outdoors": ["Covered Outdoor Space"],
     "startingPrice": 14000,
     "pricing": "$$$$ - Luxury",
-    "coverUrl": "https://images.pexels.com/photos/16074805/pexels-photo-16074805.jpeg",
+    "coverUrl": "/src/assets/Venues/rainbowOne.jpg",
     "galleryUrls": [
-      "https://images.pexels.com/photos/16091909/pexels-photo-16091909.jpeg",
-      "https://images.pexels.com/photos/8204500/pexels-photo-8204500.jpeg",
-      "https://images.pexels.com/photos/6401680/pexels-photo-6401680.jpeg",
-      "https://images.pexels.com/photos/6401677/pexels-photo-6401677.jpeg",
-      "https://images.pexels.com/photos/7847959/pexels-photo-7847959.jpeg"
+      "/src/assets/Venues/rainbowTwo.jpg",
+      "/src/assets/Venues/rainbowThree.jpg",
+      "/src/assets/Venues/rainbowFour.jpg",
+      "/src/assets/Venues/rainbowFive.jpg"
     ],
     "rating": 4.4,
     "reviews": 791
@@ -7078,13 +7077,13 @@
     "outdoors": [],
     "startingPrice": 14000,
     "pricing": "$$$$ - Luxury",
-    "coverUrl": "https://images.pexels.com/photos/6758528/pexels-photo-6758528.jpeg",
+    "coverUrl": "/src/assets/Venues/foundryOne.jpeg",
     "galleryUrls": [
-      "https://images.pexels.com/photos/3771110/pexels-photo-3771110.jpeg",
-      "https://images.pexels.com/photos/4394214/pexels-photo-4394214.jpeg",
-      "https://images.pexels.com/photos/4565031/pexels-photo-4565031.jpeg",
-      "https://images.pexels.com/photos/169193/pexels-photo-169193.jpeg",
-      "https://images.pexels.com/photos/3771833/pexels-photo-3771833.jpeg"
+      "/src/assets/Venues/foundryTwo.jpeg",
+      "/src/assets/Venues/foundryThree.jpeg",
+      "/src/assets/Venues/foundryFour.jpg",
+      "/src/assets/Venues/foundryFive.jpg",
+      "/src/assets/Venues/foundrySix.jpg"
     ],
     "rating": 4.8,
     "reviews": 954
@@ -8400,13 +8399,14 @@
     "outdoors": ["Outdoor Event Space", "Covered Outdoor Space"],
     "startingPrice": 13000,
     "pricing": "$$$$ - Luxury",
-    "coverUrl": "https://images.pexels.com/photos/13788569/pexels-photo-13788569.jpeg",
+    "coverUrl": "/src/assets/Venues/blueHillOne.jpg",
     "galleryUrls": [
-      "https://images.pexels.com/photos/3771110/pexels-photo-3771110.jpeg",
-      "https://images.pexels.com/photos/9375427/pexels-photo-9375427.jpeg",
-      "https://images.pexels.com/photos/6544766/pexels-photo-6544766.jpeg",
-      "https://images.pexels.com/photos/7748801/pexels-photo-7748801.jpeg",
-      "https://images.pexels.com/photos/6544768/pexels-photo-6544768.jpeg"
+      "/src/assets/Venues/blueHillTwo.jpeg",
+      "/src/assets/Venues/blueHillThree.jpg",
+      "/src/assets/Venues/blueHillFour.jpg",
+      "/src/assets/Venues/blueHillFive.jpg",
+      "/src/assets/Venues/blueHillsSix.jpg",
+      "/src/assets/Venues/blueHillSeven.jpg"
     ],
     "rating": 4.2,
     "reviews": 929
@@ -10508,13 +10508,14 @@
     "outdoors": [],
     "startingPrice": 5000,
     "pricing": "$$ - Affordable",
-    "coverUrl": "https://images.pexels.com/photos/4558789/pexels-photo-4558789.jpeg",
+    "coverUrl": "/src/assets/Venues/tribecaOne.jpg",
     "galleryUrls": [
-      "https://images.pexels.com/photos/1035665/pexels-photo-1035665.jpeg",
-      "https://images.pexels.com/photos/8887264/pexels-photo-8887264.jpeg",
-      "https://images.pexels.com/photos/4942826/pexels-photo-4942826.jpeg",
-      "https://images.pexels.com/photos/9974546/pexels-photo-9974546.jpeg",
-      "https://images.pexels.com/photos/10360898/pexels-photo-10360898.jpeg"
+      "/src/assets/Venues/tribecaTwo.jpg",
+      "/src/assets/Venues/tribecaThree.jpg",
+      "/src/assets/Venues/tribecaFour.jpg",
+      "/src/assets/Venues/tribecaFive.jpg",
+      "/src/assets/Venues/tribecaSix.jpeg",
+      "/src/assets/Venues/tribecaSeven.jpg"
     ],
     "rating": 4.4,
     "reviews": 935
@@ -10645,13 +10646,14 @@
     "outdoors": [],
     "startingPrice": 3000,
     "pricing": "$ - Inexpensive",
-    "coverUrl": "https://images.pexels.com/photos/5096304/pexels-photo-5096304.jpeg",
+    "coverUrl": "/src/assets/Venues/ohekaOne.jpg",
     "galleryUrls": [
-      "https://images.pexels.com/photos/5096300/pexels-photo-5096300.jpeg",
-      "https://images.pexels.com/photos/4374434/pexels-photo-4374434.jpeg",
-      "https://images.pexels.com/photos/9375427/pexels-photo-9375427.jpeg",
-      "https://images.pexels.com/photos/6479583/pexels-photo-6479583.jpeg",
-      "https://images.pexels.com/photos/2317917/pexels-photo-2317917.jpeg"
+      "/src/assets/Venues/ohekaTwo.jpg",
+      "/src/assets/Venues/ohekaThree.jpg",
+      "/src/assets/Venues/ohekaFour.jpg",
+      "/src/assets/Venues/ohekaFive.jpg",
+      "/src/assets/Venues/ohekaSix.jpg",
+      "/src/assets/Venues/ohekaSeven.jpg"
     ],
     "rating": 4.2,
     "reviews": 283
@@ -12117,13 +12119,14 @@
     "outdoors": ["Outdoor Event Space"],
     "startingPrice": 17000,
     "pricing": "$$$$ - Luxury",
-    "coverUrl": "https://images.pexels.com/photos/6544766/pexels-photo-6544766.jpeg",
+    "coverUrl": "/src/assets/Venues/bWineryOne.jpg",
     "galleryUrls": [
-      "https://images.pexels.com/photos/5096300/pexels-photo-5096300.jpeg",
-      "https://images.pexels.com/photos/6544768/pexels-photo-6544768.jpeg",
-      "https://images.pexels.com/photos/6544769/pexels-photo-6544769.jpeg",
-      "https://images.pexels.com/photos/916340/pexels-photo-916340.jpeg",
-      "https://images.pexels.com/photos/2472858/pexels-photo-2472858.jpeg"
+      "/src/assets/Venues/bWineryTwo.jpg",
+      "/src/assets/Venues/bWineryThree.jpg",
+      "/src/assets/Venues/bWineryFour.jpeg",
+      "/src/assets/Venues/bWineryFive.jpeg",
+      "/src/assets/Venues/bWinerySix.webp",
+      "/src/assets/Venues/bWinerySeven.png"
     ],
     "rating": 4.5,
     "reviews": 640
@@ -13045,13 +13048,14 @@
     "outdoors": ["Outdoor Event Space", "Covered Outdoor Space"],
     "startingPrice": 18000,
     "pricing": "$$$$ - Luxury",
-    "coverUrl": "https://images.pexels.com/photos/4030836/pexels-photo-4030836.jpeg",
+    "coverUrl": "/src/assets/Venues/loftOne.jpeg",
     "galleryUrls": [
-      "https://images.pexels.com/photos/7569799/pexels-photo-7569799.jpeg",
-      "https://images.pexels.com/photos/5593713/pexels-photo-5593713.jpeg",
-      "https://images.pexels.com/photos/6544766/pexels-photo-6544766.jpeg",
-      "https://images.pexels.com/photos/4565031/pexels-photo-4565031.jpeg",
-      "https://images.pexels.com/photos/3738658/pexels-photo-3738658.jpeg"
+      "/src/assets/Venues/loftTwo.jpeg",
+      "/src/assets/Venues/loftThree.jpg",
+      "/src/assets/Venues/loftFour.jpg",
+      "/src/assets/Venues/loftFive.jpg",
+      "/src/assets/Venues/loftSix.jpg",
+      "/src/assets/Venues/loftSeven.jpg"
     ],
     "rating": 4.2,
     "reviews": 673
@@ -13740,13 +13744,14 @@
     "outdoors": ["Outdoor Event Space"],
     "startingPrice": 6000,
     "pricing": "$$ - Affordable",
-    "coverUrl": "https://images.pexels.com/photos/7569789/pexels-photo-7569789.jpeg",
+    "coverUrl": "/src/assets/Venues/peteniaOne.jpg",
     "galleryUrls": [
-      "https://images.pexels.com/photos/7569792/pexels-photo-7569792.jpeg",
-      "https://images.pexels.com/photos/7569799/pexels-photo-7569799.jpeg",
-      "https://images.pexels.com/photos/13788569/pexels-photo-13788569.jpeg",
-      "https://images.pexels.com/photos/4866939/pexels-photo-4866939.jpeg",
-      "https://images.pexels.com/photos/4866922/pexels-photo-4866922.jpeg"
+      "/src/assets/Venues/peteniaTwo.jpg",
+      "/src/assets/Venues/peteniaThree.jpg",
+      "/src/assets/Venues/peteniaFour.jpg",
+      "/src/assets/Venues/peteniaFive.jpg",
+      "/src/assets/Venues/peteniaSix.jpeg",
+      "/src/assets/Venues/peteniaSeven.jpg"
     ],
     "rating": 4.1,
     "reviews": 951
@@ -14048,9 +14053,14 @@
     "outdoors": ["Outdoor Event Space"],
     "startingPrice": 11000,
     "pricing": "$$$$ - Luxury",
-    "coverUrl": "https://images.pexels.com/photos/674782/pexels-photo-674782.jpeg",
+    "coverUrl": "/src/assets/Venues/bedfordOne.jpg",
     "galleryUrls": [
-      "https://images.pexels.com/photos/3143546/pexels-photo-3143546.jpeg",
+      "/src/assets/Venues/bedfordTwo.jpg",
+      "/src/assets/Venues/bedfordThree.jpg",
+      "/src/assets/Venues/bedfordFour.JPG",
+      "/src/assets/Venues/bedfordFive.jpeg",
+      "/src/assets/Venues/bedfordSix.jpg",
+      "/src/assets/Venues/bedfordSeven.jpg",
       "https://images.pexels.com/photos/1716008/pexels-photo-1716008.jpeg",
       "https://images.pexels.com/photos/618902/pexels-photo-618902.jpeg",
       "https://images.pexels.com/photos/5825366/pexels-photo-5825366.jpeg",
@@ -15088,13 +15098,14 @@
     "outdoors": ["Covered Outdoor Space"],
     "startingPrice": 11000,
     "pricing": "$$$$ - Luxury",
-    "coverUrl": "https://images.pexels.com/photos/5825711/pexels-photo-5825711.jpeg",
+    "coverUrl": "/src/assets/Venue/pierreOne.jpg",
     "galleryUrls": [
-      "https://images.pexels.com/photos/5824872/pexels-photo-5824872.jpeg",
-      "https://images.pexels.com/photos/6152385/pexels-photo-6152385.jpeg",
-      "https://images.pexels.com/photos/7095765/pexels-photo-7095765.jpeg",
-      "https://images.pexels.com/photos/7078409/pexels-photo-7078409.jpeg",
-      "https://images.pexels.com/photos/6152393/pexels-photo-6152393.jpeg"
+      "/src/assets/Venue/pierreTwo.jpg",
+      "/src/assets/Venue/pierreThree.jpg",
+      "/src/assets/Venue/pierreFour.jpg",
+      "/src/assets/Venue/pierreFive.jpg",
+      "/src/assets/Venue/pierreSix.jpg",
+      "/src/assets/Venue/pierreSeven.jpg"
     ],
     "rating": 4.8,
     "reviews": 275
@@ -15668,13 +15679,13 @@
     "outdoors": [],
     "startingPrice": 4000,
     "pricing": "$ - Inexpensive",
-    "coverUrl": "https://images.pexels.com/photos/3951652/pexels-photo-3951652.jpeg",
+    "coverUrl": "/src/assets/Venues/oceanOne.jpg",
     "galleryUrls": [
-      "https://images.pexels.com/photos/4490705/pexels-photo-4490705.jpeg",
-      "https://images.pexels.com/photos/4115700/pexels-photo-4115700.jpeg",
-      "https://images.pexels.com/photos/6034675/pexels-photo-6034675.jpeg",
-      "https://images.pexels.com/photos/4444947/pexels-photo-4444947.jpeg",
-      "https://images.pexels.com/photos/4521391/pexels-photo-4521391.jpeg"
+      "/src/assets/Venues/oceanTwo.jpg",
+      "/src/assets/Venues/oceanThree.jpg",
+      "/src/assets/Venues/oceanFour.jpeg",
+      "/src/assets/Venues/oceanFive.jpg",
+      "/src/assets/Venues/oceanSix.png"
     ],
     "rating": 4.4,
     "reviews": 826
