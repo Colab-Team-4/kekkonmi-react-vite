@@ -1,11 +1,13 @@
 import { Link, useLocation } from "react-router-dom";
+import { useState } from "react";
 import PropTypes from "prop-types";
 import { HamburgerIcon, AccountIcon } from "./Icons";
 import Logo from "../assets/LogoDefault.png";
+import PlanningTools from "./PlanningTools";
 
 const links = [
   { page: "Home", route: "/" },
-  { page: "Planning Tools", route: "" },
+  { page: "Planning Tools", route: "/budgeting" },
   { page: "Venues", route: "/venues" },
   { page: "Vendors", route: "" },
   { page: "Inspiration", route: "" },
@@ -20,6 +22,8 @@ Navbar.propTypes = {
 function Navbar({ handleShowNavModal, handleRegister, handleLogin }) {
   const location = useLocation().pathname;
   const activeLink = "underline";
+
+  const [isNavDropdownOpen, setIsNavDropdownOpen] = useState(false);
 
   return (
     <nav className="fixed top-0 z-30 w-11/12 self-center whitespace-nowrap rounded-md border-gray-200 bg-white shadow-md lg:w-full lg:shadow-none">
@@ -38,19 +42,37 @@ function Navbar({ handleShowNavModal, handleRegister, handleLogin }) {
           id="navbar-cta"
         >
           <ul className="mt-4 flex flex-col rounded-lg border border-gray-100 bg-gray-50 p-4 font-medium dark:border-gray-700 dark:bg-white md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-white md:p-0 md:dark:bg-white">
-            <div className="flex gap-5">
+            <div className="relative flex gap-5">
               {links.map((link, i) => (
-                <li key={i}>
-                  <Link
-                    to={link.route}
-                    className={`text-lg font-normal text-[#6E7C99] underline-offset-8 hover:underline ${
-                      location === link.route ? activeLink : ""
-                    }`}
-                  >
-                    {link.page}
-                  </Link>
-                </li>
+                <div
+                  className="h-full w-full"
+                  key={i}
+                  onMouseOver={() => {
+                    if (i === 1) {
+                      setIsNavDropdownOpen(true);
+                    }
+                  }}
+                >
+                  <li>
+                    <Link
+                      to={link.route}
+                      className={`text-lg font-normal text-[#6E7C99] underline-offset-8 hover:underline ${
+                        location === link.route ? activeLink : ""
+                      }`}
+                    >
+                      {link.page}
+                    </Link>
+                  </li>
+                </div>
               ))}
+              <div
+                onMouseLeave={() => setIsNavDropdownOpen(false)}
+                className={`absolute left-14 top-10 ${
+                  !isNavDropdownOpen ? "hidden" : ""
+                }`}
+              >
+                <PlanningTools setIsNavDropdownOpen={setIsNavDropdownOpen} />
+              </div>
             </div>
           </ul>
         </div>
