@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { HamburgerIcon, AccountIcon } from "./Icons";
 import Logo from "../assets/LogoDefault.png";
 import PlanningTools from "./PlanningTools";
+import VenuesDropdown from "./VenuesDropdown";
 
 const links = [
   { page: "Home", route: "/" },
@@ -23,7 +24,8 @@ function Navbar({ handleShowNavModal, handleRegister, handleLogin }) {
   const location = useLocation().pathname;
   const activeLink = "underline";
 
-  const [isNavDropdownOpen, setIsNavDropdownOpen] = useState(false);
+  const [isNavPlanningOpen, setIsNavPlanningOpen] = useState(false);
+  const [isNavVenuesOpen, setIsNavVenuesOpen] = useState(false);
 
   return (
     <nav className="fixed top-0 z-30 w-11/12 self-center whitespace-nowrap rounded-md border-gray-200 bg-white shadow-md lg:w-full lg:shadow-none">
@@ -49,7 +51,11 @@ function Navbar({ handleShowNavModal, handleRegister, handleLogin }) {
                   key={i}
                   onMouseOver={() => {
                     if (i === 1) {
-                      setIsNavDropdownOpen(true);
+                      setIsNavPlanningOpen(true);
+                      setIsNavVenuesOpen(false);
+                    } else if (i === 2) {
+                      setIsNavVenuesOpen(true);
+                      setIsNavPlanningOpen(false);
                     }
                   }}
                 >
@@ -66,12 +72,20 @@ function Navbar({ handleShowNavModal, handleRegister, handleLogin }) {
                 </div>
               ))}
               <div
-                onMouseLeave={() => setIsNavDropdownOpen(false)}
+                onMouseLeave={() => setIsNavPlanningOpen(false)}
                 className={`absolute left-14 top-10 ${
-                  !isNavDropdownOpen ? "hidden" : ""
+                  !isNavPlanningOpen ? "hidden" : ""
                 }`}
               >
-                <PlanningTools setIsNavDropdownOpen={setIsNavDropdownOpen} />
+                <PlanningTools setIsNavPlanningOpen={setIsNavPlanningOpen} />
+              </div>
+              <div
+                onMouseLeave={() => setIsNavVenuesOpen(false)}
+                className={`absolute left-48 top-10 ${
+                  !isNavVenuesOpen ? "hidden" : ""
+                }`}
+              >
+                <VenuesDropdown />
               </div>
             </div>
           </ul>

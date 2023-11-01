@@ -23,14 +23,14 @@ const planningLinks = [
   },
 ];
 
-function PlanningTools({ setIsNavDropdownOpen }) {
+function PlanningTools({ setIsNavPlanningOpen }) {
   return (
-    <div className="w-full rounded-md bg-white py-2 text-lg font-normal text-[#6E7C99] shadow-md">
+    <div className="w-full rounded-md bg-white text-lg font-normal text-[#6E7C99] shadow-md">
       {planningLinks.map((link, i) => (
         <li
           key={i}
-          className="w-full rounded-sm py-1 pl-4 pr-6 duration-100 hover:scale-105"
-          onClick={() => setIsNavDropdownOpen(false)}
+          className="flex h-12 w-full cursor-pointer items-center rounded-sm pl-4 pr-6 duration-300 hover:bg-[#F4E2E6]"
+          onClick={() => setIsNavPlanningOpen(false)}
         >
           <Link to={link.route}>{link.page}</Link>
         </li>
