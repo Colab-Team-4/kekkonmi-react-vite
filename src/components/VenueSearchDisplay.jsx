@@ -544,7 +544,7 @@ function VenueSearchDisplay({ setFilteredVenues, filteredVenues }) {
           : "translate-y-[100vh] transition-all duration-500 ease-out collapse opacity-0";
     }
   };
-  console.log(filteredVenues);
+
   return (
     <div className="mb-[5vw] flex w-full flex-col lg:pl-[5vw]">
       <SearchBar
