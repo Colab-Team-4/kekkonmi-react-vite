@@ -5,6 +5,10 @@ import { HamburgerIcon, AccountIcon } from "./Icons";
 import Logo from "../assets/LogoDefault.png";
 import PlanningTools from "./PlanningTools";
 import VenuesDropdown from "./VenuesDropdown";
+import BellIcon from "@mui/icons-material/NotificationsNone";
+import HeartIcon from "@mui/icons-material/FavoriteBorderOutlined";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCartOutlined";
+import UserIcon from "@mui/icons-material/AccountCircleOutlined";
 
 const links = [
   { page: "Home", route: "/" },
@@ -26,6 +30,7 @@ function Navbar({ handleShowNavModal, handleRegister, handleLogin }) {
 
   const [isNavPlanningOpen, setIsNavPlanningOpen] = useState(false);
   const [isNavVenuesOpen, setIsNavVenuesOpen] = useState(false);
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
 
   return (
     <nav className="fixed top-0 z-30 w-11/12 self-center whitespace-nowrap rounded-md border-gray-200 bg-white shadow-md lg:w-full lg:shadow-none">
@@ -90,23 +95,33 @@ function Navbar({ handleShowNavModal, handleRegister, handleLogin }) {
             </div>
           </ul>
         </div>
-
-        <div className="hidden bg-white lg:flex lg:gap-4">
-          <button
-            type="button"
-            className="btnSolid btnNavSolid mobileText w-24 py-2"
-            onClick={handleRegister}
-          >
-            Sign Up
-          </button>
-          <button
-            type="button"
-            className="btnOutline mobileText w-24 py-2"
-            onClick={handleLogin}
-          >
-            Log In
-          </button>
-        </div>
+        {isUserLoggedIn ? (
+          <div className="flex w-48 items-center justify-between">
+            <div className="flex gap-4">
+              <BellIcon style={{ color: "#6E7C99", cursor: "pointer" }}></BellIcon>
+              <HeartIcon style={{ color: "#6E7C99", cursor: "pointer" }}></HeartIcon>
+              <ShoppingCartIcon style={{ color: "#6E7C99", cursor: "pointer" }}></ShoppingCartIcon>
+            </div>
+            <UserIcon style={{ color: "#6E7C99", cursor: "pointer" }}></UserIcon>
+          </div>
+        ) : (
+          <div className="hidden bg-white lg:flex lg:gap-4">
+            <button
+              type="button"
+              className="btnSolid btnNavSolid mobileText w-24 py-2"
+              onClick={handleRegister}
+            >
+              Sign Up
+            </button>
+            <button
+              type="button"
+              className="btnOutline mobileText w-24 py-2"
+              onClick={handleLogin}
+            >
+              Log In
+            </button>
+          </div>
+        )}
       </div>
     </nav>
   );

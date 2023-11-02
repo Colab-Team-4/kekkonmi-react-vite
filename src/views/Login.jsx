@@ -7,6 +7,7 @@ import Logo from "../assets/LogoDefault.png";
 import Checkbox from "@mui/material/Checkbox";
 import CheckBoxOutlineBlankOutlinedIcon from "@mui/icons-material/CheckBoxOutlineBlankOutlined";
 import CheckBoxOutlinedIcon from "@mui/icons-material/CheckBoxOutlined";
+import { facebookProvider, googleProvider, socialMediaAuth } from "../Firebase";
 
 Login.propTypes = {
   handleLogin: PropTypes.func.isRequired,
@@ -32,6 +33,10 @@ function Login({ handleLogin, handleRegister }) {
       document.removeEventListener("keydown", handleCapsLock);
     };
   }, []);
+
+  const handleSocialClick = async (provider) => {
+    const res = await socialMediaAuth(provider);
+  };
 
   return (
     <div className="lg-my-0 relative z-50 flex w-screen flex-col items-center justify-center bg-white p-[5vw] pt-14 lg:w-full lg:rounded-lg lg:border lg:border-black lg:pb-3 lg:pt-0">
@@ -137,11 +142,17 @@ function Login({ handleLogin, handleRegister }) {
         </div>
         {/* Social Media Icons */}
         <div className="flex h-28 w-full items-center justify-evenly gap-4 lg:my-5 lg:h-20">
-          <div className="flex h-12 basis-3/4 cursor-pointer items-center justify-center gap-5 rounded border border-[#AD6E7A]">
+          <div
+            className="flex h-12 basis-3/4 cursor-pointer items-center justify-center gap-5 rounded border border-[#AD6E7A]"
+            onClick={() => handleSocialClick(googleProvider)}
+          >
             <img src={GmailIcon} alt="Gmail Logo" className="w-6" />
             <div className="font-lato text-sm">Continue with Gmail</div>
           </div>
-          <div className="flex h-12 basis-1/4 cursor-pointer items-center justify-center rounded border border-[#AD6E7A]">
+          <div
+            className="flex h-12 basis-1/4 cursor-pointer items-center justify-center rounded border border-[#AD6E7A]"
+            onClick={() => handleSocialClick(facebookProvider)}
+          >
             <img src={FacebookIconColor} alt="Facebook Logo" className="w-5" />
           </div>
         </div>
@@ -163,6 +174,9 @@ function Login({ handleLogin, handleRegister }) {
           >
             Cancel
           </button>
+          <h1>{localStorage.getItem("name")}</h1>
+          <h1>{localStorage.getItem("email")}</h1>
+          <img src={localStorage.getItem("profilePic")} alt="" />
         </div>
       </div>
     </div>
