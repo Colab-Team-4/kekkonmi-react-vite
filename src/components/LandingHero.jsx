@@ -4,8 +4,8 @@ import Landing from "../assets/Landing.png";
 
 const heroes = [
   {
-    heading: "Seamless Celebrations: Your Perfect Wedding Awaits!",
-    body: 'Discover a world of effortless elegance and impeccable planning. From venue selection to exquisite details, we\'ll turn your dream wedding into a stress-free reality. Start your journey to "I do" today!',
+    heading: "Crafting Love Stories",
+    body: 'Experience the magic of your love story coming to life as we meticulously plan and execute every detail of your wedding. From the moment your eyes meet to the day you say "I do," were here to weave your unique tale into a fairy-tale celebration.',
     button: "Find a Venue",
     image: Landing,
   },
@@ -23,7 +23,7 @@ function LandingHero() {
             <h1 className="font-playFair text-2xl font-semibold lg:whitespace-nowrap">
               {hero.heading}
             </h1>
-            <p className="w-full text-base leading-6 lg:w-[38rem]">
+            <p className="w-full text-base leading-5 lg:w-[36rem]">
               {hero.body}
             </p>
             <Link
