@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { HamburgerIcon, AccountIcon } from "./Icons";
 import Logo from "../assets/LogoDefault.png";
@@ -42,6 +42,14 @@ function Navbar({ handleShowNavModal, handleRegister, handleLogin }) {
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
   const [isUserIconModalOpen, setIsUserIconModalOpen] = useState(false);
   const [usernameDisplay, setUsernameDisplay] = useState(null);
+
+  useEffect(() => {
+    const nameDisplay = localStorage.getItem("name");
+    if (nameDisplay) {
+      setUsernameDisplay(nameDisplay);
+      setIsUserLoggedIn(true);
+    } 
+  }, [usernameDisplay]);
 
   return (
     <nav className="fixed top-0 z-30 w-11/12 self-center whitespace-nowrap rounded-md border-gray-200 bg-white shadow-md lg:w-full lg:shadow-none">
