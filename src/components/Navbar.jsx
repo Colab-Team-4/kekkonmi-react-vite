@@ -19,6 +19,15 @@ const links = [
   { page: "About Us", route: "" },
 ];
 
+const userOptions = [
+  { page: "My Account", route: "/" },
+  { page: "My Orders", route: "/" },
+  { page: "My Messages", route: "/" },
+  { page: "My Wallet", route: "/" },
+  { page: "My Wedding", route: "/" },
+  { page: "Settings", route: "/" },
+];
+
 Navbar.propTypes = {
   handleShowNavModal: PropTypes.func,
   handleRegister: PropTypes.func,
@@ -31,6 +40,8 @@ function Navbar({ handleShowNavModal, handleRegister, handleLogin }) {
   const [isNavPlanningOpen, setIsNavPlanningOpen] = useState(false);
   const [isNavVenuesOpen, setIsNavVenuesOpen] = useState(false);
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+  const [isUserIconModalOpen, setIsUserIconModalOpen] = useState(false);
+  const [usernameDisplay, setUsernameDisplay] = useState(null);
 
   return (
     <nav className="fixed top-0 z-30 w-11/12 self-center whitespace-nowrap rounded-md border-gray-200 bg-white shadow-md lg:w-full lg:shadow-none">
@@ -98,11 +109,52 @@ function Navbar({ handleShowNavModal, handleRegister, handleLogin }) {
         {isUserLoggedIn ? (
           <div className="flex w-48 items-center justify-between">
             <div className="flex gap-4">
-              <BellIcon style={{ color: "#6E7C99", cursor: "pointer" }}></BellIcon>
-              <HeartIcon style={{ color: "#6E7C99", cursor: "pointer" }}></HeartIcon>
-              <ShoppingCartIcon style={{ color: "#6E7C99", cursor: "pointer" }}></ShoppingCartIcon>
+              <HeartIcon
+                style={{ color: "#6E7C99", cursor: "pointer" }}
+              ></HeartIcon>
+              <BellIcon
+                style={{ color: "#6E7C99", cursor: "pointer" }}
+              ></BellIcon>
+              <ShoppingCartIcon
+                style={{ color: "#6E7C99", cursor: "pointer" }}
+              ></ShoppingCartIcon>
             </div>
-            <UserIcon style={{ color: "#6E7C99", cursor: "pointer" }}></UserIcon>
+            <div className="relative">
+              <div
+                onClick={() => {
+                  setIsUserIconModalOpen(!isUserIconModalOpen);
+                }}
+              >
+                <UserIcon
+                  style={{
+                    color: "#6E7C99",
+                    cursor: "pointer",
+                  }}
+                ></UserIcon>
+              </div>
+              {isUserIconModalOpen ? (
+                <div className="absolute right-0 top-10 rounded bg-white shadow-lg">
+                  <div className="py-1 pb-4 pl-3 pr-14 font-lato">
+                    Hello, {usernameDisplay}!
+                  </div>
+                  <hr />
+                  <div className="pt-4">
+                    {userOptions.map((userOption, i) => (
+                      <div
+                        key={i}
+                        className="cursor-pointer py-1 pl-3 pr-14 font-lato hover:bg-[#F4E2E6]"
+                      >
+                        {userOption.page}
+                      </div>
+                    ))}
+                  </div>
+                  <hr />
+                  <div className="cursor-pointer py-2 pl-3 pr-14 font-lato duration-300 hover:bg-[#F4E2E6]">
+                    Sign Out
+                  </div>
+                </div>
+              ) : null}
+            </div>
           </div>
         ) : (
           <div className="hidden bg-white lg:flex lg:gap-4">

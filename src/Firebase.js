@@ -1,6 +1,5 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, FacebookAuthProvider, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { Link, useNavigate } from "react-router-dom";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAHSAmoGnZ5skdIAhjStg5QR4kleG4H7w0",
