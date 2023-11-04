@@ -4,8 +4,9 @@ import PropTypes from "prop-types";
 
 Breadcrumb.propTypes = {
   venueName: PropTypes.string,
+  flowName: PropTypes.string,
 };
-function Breadcrumb({ venueName }) {
+function Breadcrumb({ venueName, flowName }) {
   const location = useLocation();
   const segments = location.pathname.split("/").filter(Boolean);
 
@@ -18,7 +19,7 @@ function Breadcrumb({ venueName }) {
         <Link to="/">Home</Link>
         <ArrowForward className="h-4 w-4" />
         <Link to="/venues" className="whitespace-nowrap">
-          Find a Venue
+          {flowName ? flowName : "Find a Venue "}
         </Link>
         {decodedVenueName && <ArrowForward className="h-4 w-4" />}
         {decodedVenueName && isVenuePage ? (

@@ -251,7 +251,7 @@ function Budget() {
         onDeleteRow={deleteRow}
       />
       <div className="px-[5vw] lg:px-[2vw]">
-        <Breadcrumb />
+        <Breadcrumb flowName="Plan your Budget" />
         <div className="flex flex-col items-center gap-10 lg:flex-row">
           <div className="flex w-full flex-col gap-4">
             <h1 className="text-2xl font-bold lg:text-5xl">

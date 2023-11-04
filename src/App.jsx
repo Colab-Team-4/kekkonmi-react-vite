@@ -14,9 +14,11 @@ import NavModal from "./components/NavModal";
 import Register from "./views/Register";
 import Login from "./views/Login";
 import Budget from "./views/Budget";
+import SavedVenues from "./views/SavedVenues";
 
 function App() {
   const [filteredVenues, setFilteredVenues] = useState(venues);
+  const [savedVenues, setSavedVenues] = useState([]);
 
   const [isNavModalOpen, setIsNavModalOpen] = useState(false);
   const [isRegisterVisible, setIsRegisterVisible] = useState(false);
@@ -48,6 +50,16 @@ function App() {
     } else {
       setIsLoginVisible(true);
       setIsRegisterVisible(false);
+    }
+  };
+
+  const updateSavedVenues = (venue, isFavorited) => {
+    if (isFavorited) {
+      setSavedVenues((prevSavedVenues) => [...prevSavedVenues, venue]);
+    } else {
+      setSavedVenues((prevSavedVenues) =>
+        prevSavedVenues.filter((v) => v.name !== venue.name),
+      );
     }
   };
 
@@ -86,6 +98,9 @@ function App() {
               <Venues
                 filteredVenues={filteredVenues}
                 setFilteredVenues={setFilteredVenues}
+                updateSavedVenues={updateSavedVenues}
+                savedVenues={savedVenues}
+                setSavedVenues={setSavedVenues}
               />
             }
           />
@@ -101,6 +116,16 @@ function App() {
           />
           <Route path="*" element={<Error404 />} />
           <Route path="/budget" element={<Budget />} />
+          <Route
+            path="/saved"
+            element={
+              <SavedVenues
+                savedVenues={savedVenues}
+                setSavedVenues={setSavedVenues}
+                updateSavedVenues={updateSavedVenues}
+              />
+            }
+          />
         </Routes>
         <Footer />
       </div>

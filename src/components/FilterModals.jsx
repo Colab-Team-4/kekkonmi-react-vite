@@ -345,6 +345,7 @@ function FilterModals({
                     resetFilters(optionSet.category);
                   });
                 }
+                filterVenues();
               }}
               className={`mobileText basis-1/2 py-2 duration-300 ${
                 countOptions > 0 ? "btnSolid" : "btnOutline"
@@ -382,6 +383,7 @@ function FilterModals({
                     resetFilters(optionSet.category);
                   });
                 }
+                filterVenues();
               }}
               className={`mobileText basis-1/2 py-2 ${
                 countOptions > 0 ? "underline duration-300" : ""

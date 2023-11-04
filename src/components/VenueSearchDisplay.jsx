@@ -23,6 +23,8 @@ SearchBar.propTypes = {
   setSelectedRadio: PropTypes.func.isRequired,
   resetFilters: PropTypes.func.isRequired,
   setIsLoading: PropTypes.func.isRequired,
+  savedVenues: PropTypes.array.isRequired,
+  setSavedVenues: PropTypes.func.isRequired,
 };
 function SearchBar({
   setFilteredVenues,
@@ -36,6 +38,8 @@ function SearchBar({
   setSelectedRadio,
   resetFilters,
   setIsLoading,
+  savedVenues,
+  setSavedVenues,
 }) {
   const searchRef = useRef(null);
 
@@ -105,6 +109,12 @@ function SearchBar({
     setFilteredVenues(filtered);
   };
 
+  const handleSaveFavorites = () => {
+    localStorage.setItem("savedVenues", JSON.stringify(savedVenues));
+    setSavedVenues(savedVenues);
+    console.log("Favorites saved!");
+  };
+
   return (
     <form
       onSubmit={handleSubmit}
@@ -145,7 +155,10 @@ function SearchBar({
         >
           Search
         </button>
-        <button className="btnOutline mobileText w-40 py-2 lg:w-60 lg:text-xl">
+        <button
+          onClick={handleSaveFavorites}
+          className="btnOutline mobileText w-40 py-2 lg:w-60 lg:text-xl"
+        >
           Save Search
         </button>
       </div>
@@ -381,6 +394,7 @@ VenueDisplay.propTypes = {
   hasSearched: PropTypes.bool.isRequired,
   isLoading: PropTypes.bool.isRequired,
   setIsLoading: PropTypes.func.isRequired,
+  updateSavedVenues: PropTypes.func.isRequired,
 };
 function VenueDisplay({
   filteredVenues,
@@ -389,6 +403,7 @@ function VenueDisplay({
   hasSearched,
   isLoading,
   setIsLoading,
+  updateSavedVenues,
 }) {
   const [loadedImages, setLoadedImages] = useState(0);
   const [startIndex, setStartIndex] = useState(8);
@@ -444,6 +459,7 @@ function VenueDisplay({
                 key={i}
               >
                 <VenueCard
+                  updateSavedVenues={updateSavedVenues}
                   venue={venue}
                   isLoading={isLoading}
                   handleImageLoad={handleImageLoad}
@@ -461,6 +477,7 @@ function VenueDisplay({
                   key={i}
                 >
                   <VenueCard
+                    updateSavedVenues={updateSavedVenues}
                     venue={venue}
                     isLoading={isLoading}
                     handleImageLoad={handleImageLoad}
@@ -470,6 +487,7 @@ function VenueDisplay({
               ))}
               <div className="lg:relative lg:col-start-3 lg:row-start-1 lg:block">
                 <VenueCard
+                  updateSavedVenues={updateSavedVenues}
                   venue={filteredVenues[2]}
                   isLoading={isLoading}
                   handleImageLoad={handleImageLoad}
@@ -498,6 +516,7 @@ function VenueDisplay({
               key={i + startIndex}
             >
               <VenueCard
+                updateSavedVenues={updateSavedVenues}
                 venue={venue}
                 isLoading={isLoading}
                 handleImageLoad={handleImageLoad}
@@ -527,8 +546,21 @@ VenueCard.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   handleImageLoad: PropTypes.func.isRequired,
   handleImageError: PropTypes.func.isRequired,
+  updateSavedVenues: PropTypes.func.isRequired,
 };
-function VenueCard({ venue, isLoading, handleImageLoad, handleImageError }) {
+export function VenueCard({
+  venue,
+  isLoading,
+  handleImageLoad,
+  handleImageError,
+  updateSavedVenues,
+}) {
+  const [isFavorited, setIsFavorited] = useState(venue.isFavorited);
+
+  const handleFavoriteToggle = () => {
+    setIsFavorited(!isFavorited);
+    updateSavedVenues(venue, !isFavorited);
+  };
   return (
     <div className="flex h-full flex-col gap-6 rounded-md pb-6 duration-300 hover:bg-[#F4E2E6] lg:z-10">
       <img
@@ -573,6 +605,8 @@ function VenueCard({ venue, isLoading, handleImageLoad, handleImageError }) {
                 <Checkbox
                   icon={<FavoriteBorder style={{ color: "#6E7C99" }} />}
                   checkedIcon={<Favorite style={{ color: "#D32F2F" }} />}
+                  checked={isFavorited}
+                  onChange={handleFavoriteToggle}
                 />
               </div>
             )}
@@ -746,8 +780,17 @@ function OtherVenues({
 VenueSearchDisplay.propTypes = {
   filteredVenues: PropTypes.array.isRequired,
   setFilteredVenues: PropTypes.func.isRequired,
+  updateSavedVenues: PropTypes.func.isRequired,
+  savedVenues: PropTypes.array.isRequired,
+  setSavedVenues: PropTypes.func.isRequired,
 };
-function VenueSearchDisplay({ filteredVenues, setFilteredVenues }) {
+function VenueSearchDisplay({
+  filteredVenues,
+  setFilteredVenues,
+  updateSavedVenues,
+  savedVenues,
+  setSavedVenues,
+}) {
   const [extraVenues, setExtraVenues] = useState(0);
   const [hasSearched, setHasSearched] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -891,6 +934,8 @@ function VenueSearchDisplay({ filteredVenues, setFilteredVenues }) {
         setSelectedRadio={setSelectedRadio}
         resetFilters={resetFilters}
         setIsLoading={setIsLoading}
+        savedVenues={savedVenues}
+        setSavedVenues={setSavedVenues}
       />
       <FilterButtons
         outdoorOpen={outdoorOpen}
@@ -919,6 +964,7 @@ function VenueSearchDisplay({ filteredVenues, setFilteredVenues }) {
         hasSearched={hasSearched}
         isLoading={isLoading}
         setIsLoading={setIsLoading}
+        updateSavedVenues={updateSavedVenues}
       />
       <div
         className={`absolute left-0 right-0 top-0 lg:hidden ${
