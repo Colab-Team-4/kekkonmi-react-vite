@@ -14,6 +14,7 @@ import NavModal from "./components/NavModal";
 import Register from "./views/Register";
 import Login from "./views/Login";
 import Budget from "./views/Budget";
+import AuthDetails from "./AuthDetails";
 
 function App() {
   const [filteredVenues, setFilteredVenues] = useState(venues);
@@ -62,6 +63,7 @@ function App() {
           <Login handleLogin={handleLogin} handleRegister={handleRegister} />
         )}
       </div>
+      <AuthDetails />
       <div
         onClick={handleCloseNavModal}
         className={`flex h-screen flex-col justify-between ${

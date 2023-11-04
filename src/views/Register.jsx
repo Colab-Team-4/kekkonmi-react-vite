@@ -5,6 +5,8 @@ import Checkbox from "@mui/material/Checkbox";
 import CheckBoxOutlineBlankOutlinedIcon from "@mui/icons-material/CheckBoxOutlineBlankOutlined";
 import CheckBoxOutlinedIcon from "@mui/icons-material/CheckBoxOutlined";
 import PropTypes from "prop-types";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../Firebase";
 
 const contents = [
   {
@@ -51,6 +53,13 @@ Register.propTypes = {
 function Register({ handleRegister, handleLogin }) {
   const [showPassword, setShowPassword] = useState(false);
   const [capsLockOn, setCapsLockOn] = useState(false);
+  const [fName, setFName] = useState("");
+  const [lName, setLName] = useState("");
+  const [email, setEmail] = useState("");
+  const [pWord, setPWord] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [isBoxChecked, setIsBoxChecked] = useState(false);
+  const [isPWNotMatch, setIsPWNotMatch] = useState(false);
 
   function handleShowPassword() {
     setShowPassword(!showPassword);
@@ -68,6 +77,45 @@ function Register({ handleRegister, handleLogin }) {
       document.removeEventListener("keydown", handleCapsLock);
     };
   }, []);
+
+  const handleOnChangeValue = (i, value) => {
+    switch (i) {
+      case 0:
+        setFName(value);
+        break;
+      case 1:
+        setLName(value);
+        break;
+      case 2:
+        setEmail(value);
+        break;
+      default:
+      // Handle other cases if needed
+    }
+    console.log(fName);
+    console.log(lName);
+    console.log(email);
+  };
+  const signUpAccount = (e) => {
+    if (pWord === confirmPassword && isBoxChecked) {
+      setIsPWNotMatch(false);
+      createUserWithEmailAndPassword(auth, email, pWord)
+        .then((userCredential) => {
+          console.log(userCredential);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      if (pWord != confirmPassword) {
+        setIsPWNotMatch(true);
+        console.log("Passwords do not match");
+      } else if (!isBoxChecked) {
+        console.log("Please Agree to the Terms and Conditions");
+      }
+    }
+  };
+  console.log(isBoxChecked);
 
   return (
     <div
@@ -108,6 +156,10 @@ function Register({ handleRegister, handleLogin }) {
                   className="inputText mobileText mt-2 h-12 w-full pl-4 lg:h-10 lg:text-xs"
                   placeholder={content.placeholder}
                   name={content.name}
+                  value={
+                    i === 0 ? fName : i === 1 ? lName : i === 2 ? email : null
+                  }
+                  onChange={(e) => handleOnChangeValue(i, e.target.value)}
                 />
               </div>
             ))}
@@ -127,6 +179,14 @@ function Register({ handleRegister, handleLogin }) {
                   className="inputText mobileText absolute h-12 w-full pl-4 pr-28 lg:h-10 lg:text-xs"
                   placeholder={password.placeholder}
                   name={password.name}
+                  value={i === 0 ? pWord : i === 1 ? confirmPassword : null}
+                  onChange={
+                    i === 0
+                      ? (e) => setPWord(e.target.value)
+                      : i === 1
+                      ? (e) => setConfirmPassword(e.target.value)
+                      : null
+                  }
                 />
                 <div
                   className="absolute right-4 top-3 cursor-pointer lg:top-2"
@@ -138,13 +198,22 @@ function Register({ handleRegister, handleLogin }) {
                   {capsLockOn && <KeyboardCapslockIcon />}
                 </div>
               </div>
+              {isPWNotMatch ? (
+                <div className="font-lato text-sm font-semibold text-red-700">
+                  Password does not match!
+                </div>
+              ) : null}
             </div>
           ))}
         </form>
         {/* End of Form */}
         <button
           type="submit"
-          className="mt-7 h-12 w-full rounded bg-[#AD6E7A] font-lato text-lg font-bold tracking-wider text-[#FFFFFF] duration-300 hover:bg-[#C99CA5] hover:text-[#F0F0F0] lg:my-3 lg:mt-5 lg:h-10 lg:text-base lg:font-normal"
+          disabled={!isBoxChecked}
+          onClick={signUpAccount}
+          className={`mt-7 h-12 w-full rounded ${
+            isBoxChecked ? "hover:bg-[#C99CA5] hover:text-[#F0F0F0]" : ""
+          } bg-[#AD6E7A] font-lato text-lg font-bold tracking-wider text-[#FFFFFF] duration-300 lg:my-3 lg:mt-5 lg:h-10 lg:text-base lg:font-normal`}
         >
           Sign Up
         </button>
@@ -155,6 +224,9 @@ function Register({ handleRegister, handleLogin }) {
               <CheckBoxOutlineBlankOutlinedIcon style={{ color: "#6E7C99" }} />
             }
             checkedIcon={<CheckBoxOutlinedIcon style={{ color: "#6E7C99" }} />}
+            onChange={(e) =>
+              e.target.checked ? setIsBoxChecked(true) : setIsBoxChecked(false)
+            }
           />
           <div className="font-lato text-[11px] text-[#9E9E9E]">
             By selecting &quot;Agree and Continue,&quot; you acknowledge and

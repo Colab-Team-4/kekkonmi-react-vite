@@ -7,7 +7,14 @@ import Logo from "../assets/LogoDefault.png";
 import Checkbox from "@mui/material/Checkbox";
 import CheckBoxOutlineBlankOutlinedIcon from "@mui/icons-material/CheckBoxOutlineBlankOutlined";
 import CheckBoxOutlinedIcon from "@mui/icons-material/CheckBoxOutlined";
-import { facebookProvider, googleProvider, socialMediaAuth } from "../Firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
+
+import {
+  auth,
+  facebookProvider,
+  googleProvider,
+  socialMediaAuth,
+} from "../Firebase";
 
 Login.propTypes = {
   handleLogin: PropTypes.func.isRequired,
@@ -16,6 +23,19 @@ Login.propTypes = {
 function Login({ handleLogin, handleRegister }) {
   const [showPassword, setShowPassword] = useState(false);
   const [capsLockOn, setCapsLockOn] = useState(false);
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+
+  const loginUser = (e) => {
+    e.preventDefault();
+    signInWithEmailAndPassword(auth, loginEmail, loginPassword)
+      .then((userCredential) => {
+        console.log(userCredential);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   function handleShowPassword() {
     setShowPassword(!showPassword);
@@ -74,6 +94,8 @@ function Login({ handleLogin, handleRegister }) {
               className="inputText mobileText mt-2 h-12 w-full pl-4 lg:h-10 lg:text-xs"
               placeholder="Janedoe@gmail.com"
               name="email"
+              value={loginEmail}
+              onChange={(e) => setLoginEmail(e.target.value)}
             />
           </div>
           {/* End of Email */}
@@ -92,6 +114,8 @@ function Login({ handleLogin, handleRegister }) {
                 className="inputText mobileText absolute h-12 w-full pl-4 pr-28 lg:h-10 lg:text-xs"
                 placeholder="••••••••••••"
                 name="password"
+                value={loginPassword}
+                onChange={(e) => setLoginPassword(e.target.value)}
               />
               <div
                 className="absolute right-4 top-3 cursor-pointer lg:top-2"
@@ -131,6 +155,7 @@ function Login({ handleLogin, handleRegister }) {
         {/* End of Remember Me & Forgot Password? */}
         <button
           type="submit"
+          onClick={loginUser}
           className="my-10 h-12 w-full rounded bg-[#AD6E7A] font-lato text-lg font-bold text-[#FFFFFF] duration-300 hover:bg-[#C99CA5] hover:text-[#F0F0F0] lg:my-3 lg:mt-5 lg:h-10 lg:text-base lg:font-normal"
         >
           Log In
