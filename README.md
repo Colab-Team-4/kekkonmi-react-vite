@@ -3,6 +3,9 @@
 ## Features
 
 - Front-end part of Matrimoni
+- Venue Search/Filtering
+- Budget Calculator
+- User Auth
 
 ## Installation and Setup
 
