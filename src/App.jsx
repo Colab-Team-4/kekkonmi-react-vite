@@ -15,13 +15,17 @@ import Register from "./views/Register";
 import Login from "./views/Login";
 import Budget from "./views/Budget";
 import AuthDetails from "./AuthDetails";
+import { useSelector, useDispatch } from "react-redux";
+import { userRegisterTrue, userRegisterFalse } from "./redux/userIsRegistered";
 
 function App() {
   const [filteredVenues, setFilteredVenues] = useState(venues);
 
   const [isNavModalOpen, setIsNavModalOpen] = useState(false);
-  const [isRegisterVisible, setIsRegisterVisible] = useState(false);
   const [isLoginVisible, setIsLoginVisible] = useState(false);
+  const dispatch = useDispatch();
+
+  const { isUserRegistered } = useSelector((state) => state.userIsRegistered);
 
   const handleShowNavModal = () => {
     if (!isNavModalOpen) {
@@ -35,10 +39,10 @@ function App() {
   };
 
   const handleRegister = () => {
-    if (isRegisterVisible) {
-      setIsRegisterVisible(false);
+    if (isUserRegistered) {
+      dispatch(userRegisterFalse());
     } else {
-      setIsRegisterVisible(true);
+      dispatch(userRegisterTrue());
       setIsLoginVisible(false);
     }
   };
@@ -48,24 +52,16 @@ function App() {
       setIsLoginVisible(false);
     } else {
       setIsLoginVisible(true);
-      setIsRegisterVisible(false);
+      dispatch(userRegisterFalse());
     }
-  };
-  // Pass this in through Register view to close the modal
-  const closeRegistrationForm = () => {
-    setIsRegisterVisible(false);
   };
 
   return (
     <div className="relative flex h-screen flex-col">
       {isNavModalOpen ? <NavModal /> : ""}
       <div className="absolute z-50 lg:left-0 lg:right-0 lg:top-8 lg:ml-auto lg:mr-auto lg:w-[700px] xl:top-32">
-        {isRegisterVisible && (
-          <Register
-            handleRegister={handleRegister}
-            handleLogin={handleLogin}
-            closeRegistrationForm={closeRegistrationForm}
-          />
+        {isUserRegistered && (
+          <Register handleRegister={handleRegister} handleLogin={handleLogin} />
         )}
         {isLoginVisible && (
           <Login handleLogin={handleLogin} handleRegister={handleRegister} />
@@ -75,7 +71,7 @@ function App() {
       <div
         onClick={handleCloseNavModal}
         className={`flex h-screen flex-col justify-between ${
-          isRegisterVisible || isLoginVisible
+          isUserRegistered || isLoginVisible
             ? "pointer-events-none overflow-hidden opacity-50"
             : isNavModalOpen
             ? "overflow-hidden opacity-50"

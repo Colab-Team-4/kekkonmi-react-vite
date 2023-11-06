@@ -7,6 +7,8 @@ import CheckBoxOutlinedIcon from "@mui/icons-material/CheckBoxOutlined";
 import PropTypes from "prop-types";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../Firebase";
+import { useSelector, useDispatch } from "react-redux";
+import { userRegisterFalse } from "../redux/userIsRegistered";
 
 const contents = [
   {
@@ -50,7 +52,7 @@ Register.propTypes = {
   handleRegister: PropTypes.func.isRequired,
   handleLogin: PropTypes.func.isRequired,
 };
-function Register({ handleRegister, handleLogin, closeRegistrationForm }) {
+function Register({ handleRegister, handleLogin }) {
   const [showPassword, setShowPassword] = useState(false);
   const [capsLockOn, setCapsLockOn] = useState(false);
   const [fName, setFName] = useState("");
@@ -60,6 +62,7 @@ function Register({ handleRegister, handleLogin, closeRegistrationForm }) {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isBoxChecked, setIsBoxChecked] = useState(false);
   const [isPWNotMatch, setIsPWNotMatch] = useState(false);
+  const dispatch = useDispatch();
 
   function handleShowPassword() {
     setShowPassword(!showPassword);
@@ -103,7 +106,7 @@ function Register({ handleRegister, handleLogin, closeRegistrationForm }) {
       createUserWithEmailAndPassword(auth, email, pWord)
         .then((userCredential) => {
           console.log(userCredential);
-          closeRegistrationForm();
+          dispatch(userRegisterFalse());
         })
         .catch((err) => {
           console.log(err);
