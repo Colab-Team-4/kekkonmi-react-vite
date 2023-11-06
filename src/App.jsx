@@ -51,13 +51,21 @@ function App() {
       setIsRegisterVisible(false);
     }
   };
+  // Pass this in through Register view to close the modal
+  const closeRegistrationForm = () => {
+    setIsRegisterVisible(false);
+  };
 
   return (
     <div className="relative flex h-screen flex-col">
       {isNavModalOpen ? <NavModal /> : ""}
       <div className="absolute z-50 lg:left-0 lg:right-0 lg:top-8 lg:ml-auto lg:mr-auto lg:w-[700px] xl:top-32">
         {isRegisterVisible && (
-          <Register handleRegister={handleRegister} handleLogin={handleLogin} />
+          <Register
+            handleRegister={handleRegister}
+            handleLogin={handleLogin}
+            closeRegistrationForm={closeRegistrationForm}
+          />
         )}
         {isLoginVisible && (
           <Login handleLogin={handleLogin} handleRegister={handleRegister} />

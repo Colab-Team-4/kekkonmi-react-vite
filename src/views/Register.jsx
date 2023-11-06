@@ -50,7 +50,7 @@ Register.propTypes = {
   handleRegister: PropTypes.func.isRequired,
   handleLogin: PropTypes.func.isRequired,
 };
-function Register({ handleRegister, handleLogin }) {
+function Register({ handleRegister, handleLogin, closeRegistrationForm }) {
   const [showPassword, setShowPassword] = useState(false);
   const [capsLockOn, setCapsLockOn] = useState(false);
   const [fName, setFName] = useState("");
@@ -99,9 +99,11 @@ function Register({ handleRegister, handleLogin }) {
   const signUpAccount = (e) => {
     if (pWord === confirmPassword && isBoxChecked) {
       setIsPWNotMatch(false);
+      
       createUserWithEmailAndPassword(auth, email, pWord)
         .then((userCredential) => {
           console.log(userCredential);
+          closeRegistrationForm();
         })
         .catch((err) => {
           console.log(err);
@@ -239,7 +241,7 @@ function Register({ handleRegister, handleLogin }) {
       </div>
       <div className="mt-8 flex w-full justify-center font-lato font-medium lg:absolute lg:-top-4 lg:items-center lg:justify-end lg:pr-4 lg:text-xs">
         <div className="text-sm">
-          Already have an account?{" "}
+          Already have an account?
           <span
             className="ml-1 cursor-pointer font-semibold text-[#6E7C99] hover:underline lg:text-sm"
             onClick={handleLogin}

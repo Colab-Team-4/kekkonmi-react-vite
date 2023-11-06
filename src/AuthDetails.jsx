@@ -23,10 +23,10 @@ function AuthDetails() {
   return (
     <div>
       {isWelcomeModalOpen ? (
-        <div className="fixed top-20 h-16 w-full bg-yellow-300 text-center">
+        <div className="fixed top-20 h-16 w-full bg-[#AD6E7A] text-center">
           <div className="flex h-full items-center justify-center">
             {authUser ? (
-              <p>Signed In! Welcome {userEmailDisplay}</p>
+              <p className="text-white font-lato">Signed In! Welcome {userEmailDisplay}</p>
             ) : (
               <p>Signed Out</p>
             )}
