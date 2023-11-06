@@ -1,5 +1,10 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, FacebookAuthProvider, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import {
+  getAuth,
+  FacebookAuthProvider,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAHSAmoGnZ5skdIAhjStg5QR4kleG4H7w0",
@@ -17,7 +22,6 @@ export const auth = getAuth(app);
 export const googleProvider = new GoogleAuthProvider();
 export const facebookProvider = new FacebookAuthProvider();
 
-
 export const socialMediaAuth = (provider) => {
   signInWithPopup(auth, provider)
     .then((result) => {
@@ -25,9 +29,9 @@ export const socialMediaAuth = (provider) => {
       const email = result.user.email;
       const profilePic = result.user.photoURL;
 
-      localStorage.setItem('name', name);
-      localStorage.setItem('email', email);
-      localStorage.setItem('profilePic', profilePic);
+      localStorage.setItem("name", name);
+      localStorage.setItem("email", email);
+      localStorage.setItem("profilePic", profilePic);
     })
     .catch((error) => {
       console.log(error);

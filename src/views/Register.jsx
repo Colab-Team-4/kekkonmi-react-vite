@@ -7,8 +7,10 @@ import CheckBoxOutlinedIcon from "@mui/icons-material/CheckBoxOutlined";
 import PropTypes from "prop-types";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../Firebase";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { userRegisterFalse } from "../redux/userIsRegistered";
+import { userLoggedInTrue } from "../redux/userIsLoggedIn";
+import { changeUsernameDisplay } from "../redux/displayUsername";
 
 const contents = [
   {
@@ -63,6 +65,7 @@ function Register({ handleRegister, handleLogin }) {
   const [isBoxChecked, setIsBoxChecked] = useState(false);
   const [isPWNotMatch, setIsPWNotMatch] = useState(false);
   const dispatch = useDispatch();
+  const { isUserLoggedIn } = useSelector((state) => state.usernameIsLoggedIn);
 
   function handleShowPassword() {
     setShowPassword(!showPassword);
@@ -80,6 +83,8 @@ function Register({ handleRegister, handleLogin }) {
       document.removeEventListener("keydown", handleCapsLock);
     };
   }, []);
+
+  console.log(`Is user logged in? ${isUserLoggedIn}`);
 
   const handleOnChangeValue = (i, value) => {
     switch (i) {
@@ -102,11 +107,14 @@ function Register({ handleRegister, handleLogin }) {
   const signUpAccount = (e) => {
     if (pWord === confirmPassword && isBoxChecked) {
       setIsPWNotMatch(false);
-      
+
       createUserWithEmailAndPassword(auth, email, pWord)
         .then((userCredential) => {
           console.log(userCredential);
           dispatch(userRegisterFalse());
+          dispatch(userLoggedInTrue());
+          console.log(fName);
+          dispatch(changeUsernameDisplay("Jack"));
         })
         .catch((err) => {
           console.log(err);

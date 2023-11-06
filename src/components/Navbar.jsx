@@ -9,6 +9,8 @@ import BellIcon from "@mui/icons-material/NotificationsNone";
 import HeartIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCartOutlined";
 import UserIcon from "@mui/icons-material/AccountCircleOutlined";
+import { userLoggedInTrue, userLoggedInFalse } from "../redux/userIsLoggedIn";
+import { useSelector, useDispatch } from "react-redux";
 
 const links = [
   { page: "Home", route: "/" },
@@ -39,16 +41,19 @@ function Navbar({ handleShowNavModal, handleRegister, handleLogin }) {
 
   const [isNavPlanningOpen, setIsNavPlanningOpen] = useState(false);
   const [isNavVenuesOpen, setIsNavVenuesOpen] = useState(false);
-  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
   const [isUserIconModalOpen, setIsUserIconModalOpen] = useState(false);
   const [usernameDisplay, setUsernameDisplay] = useState(null);
+  const dispatch = useDispatch();
+  const { isUserLoggedIn } = useSelector((state) => state.usernameIsLoggedIn);
+  const { nameOfUser } = useSelector((state) => state.usernameIsDisplayed);
+  console.log(`${isUserLoggedIn} is user logged in?`);
 
   useEffect(() => {
     const nameDisplay = localStorage.getItem("name");
     if (nameDisplay) {
       setUsernameDisplay(nameDisplay);
-      setIsUserLoggedIn(true);
-    } 
+      dispatch(userLoggedInTrue());
+    }
   }, [usernameDisplay]);
 
   return (
@@ -143,7 +148,7 @@ function Navbar({ handleShowNavModal, handleRegister, handleLogin }) {
               {isUserIconModalOpen ? (
                 <div className="absolute right-0 top-10 rounded bg-white shadow-lg">
                   <div className="py-1 pb-4 pl-3 pr-14 font-lato">
-                    Hello, {usernameDisplay}!
+                    Hello, {nameOfUser}!
                   </div>
                   <hr />
                   <div className="pt-4">

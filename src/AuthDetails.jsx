@@ -1,45 +1,32 @@
 import { onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { auth } from "./Firebase";
+import { useDispatch, useSelector } from "react-redux";
+import { changeUsernameDisplay } from "./redux/displayUsername";
 
 function AuthDetails() {
   const [authUser, setAuthUser] = useState(null);
   const [userEmailDisplay, setUserEmailDisplay] = useState("");
   const [isWelcomeModalOpen, setIsWelcomModalOpen] = useState(false);
+  const { nameOfUser } = useSelector((state) => state.usernameIsDisplayed);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const listen = onAuthStateChanged(auth, (user) => {
       if (user) {
         setAuthUser(user);
         setIsWelcomModalOpen(true);
+        console.log(user);
         const usernameDisplay = user.email.replace(/@.*$/, "");
         setUserEmailDisplay(usernameDisplay);
+        dispatch(changeUsernameDisplay(usernameDisplay));
       } else {
         setAuthUser(null);
       }
     });
   }, []);
 
-  return (
-    <div>
-      {isWelcomeModalOpen ? (
-        <div className="fixed top-20 h-16 w-full bg-[#AD6E7A] text-center">
-          <div className="flex h-full items-center justify-center">
-            {authUser ? (
-              <p className="text-white font-lato">Signed In! Welcome {userEmailDisplay}</p>
-            ) : (
-              <p>Signed Out</p>
-            )}
-          </div>
-          <div className="absolute right-5 top-5 cursor-pointer font-semibold" onClick={() => setIsWelcomModalOpen(false)}>
-            X
-          </div>
-        </div>
-      ) : (
-        ""
-      )}
-    </div>
-  );
+  return <></>;
 }
 
 export default AuthDetails;

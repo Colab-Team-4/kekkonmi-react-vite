@@ -17,6 +17,7 @@ import Budget from "./views/Budget";
 import AuthDetails from "./AuthDetails";
 import { useSelector, useDispatch } from "react-redux";
 import { userRegisterTrue, userRegisterFalse } from "./redux/userIsRegistered";
+import { userLoggedInTrue } from "./redux/userIsLoggedIn";
 
 function App() {
   const [filteredVenues, setFilteredVenues] = useState(venues);
